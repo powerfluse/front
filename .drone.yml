@@ -1,0 +1,49 @@
+---
+kind: pipeline
+type: docker
+name: starter-next-directus
+
+workspace:
+  path: /home/dockeruser/starter-next-directus
+
+steps:
+  - name: deploy backend
+    image: docker/compose:1.29.2
+    environment:
+      DIRECTUS_DB_PASSWORD:
+        from_secret: directus_db_password
+      DIRECTUS_KEY:
+        from_secret: directus_key
+      DIRECTUS_SECRET:
+        from_secret: directus_secret
+      DIRECTUS_ADMIN_PASSWORD:
+        from_secret: directus_admin_password
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose -f back/docker-compose.prod.yml up -d
+
+  - name: build frontend
+    image: docker/compose:1.29.2
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose -f front/docker-compose.prod.yml build --pull
+
+  - name: deploy frontend
+    image: docker/compose:1.29.2
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose -f front/docker-compose.prod.yml up -d
+
+volumes:
+  - name: dockersock
+    host:
+      path: /run/user/1000/docker.sock
+
+node:
+  bvpk: www
