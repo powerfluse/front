@@ -1,10 +1,10 @@
 ---
 kind: pipeline
 type: docker
-name: starter-next-directus
+name: bvpk
 
 workspace:
-  path: /home/dockeruser/starter-next-directus
+  path: /home/dockeruser/bvpk
 
 steps:
   - name: deploy backend
