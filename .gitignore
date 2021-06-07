@@ -1,3 +1,4 @@
 .env
 back/database
 back/uploads
+/node_modules/
