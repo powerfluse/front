@@ -54,13 +54,13 @@ services:
 
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.directus.rule=Host(`directus-project.sehn.dev`)"
+      - "traefik.http.routers.directus.rule=Host(`bvpk-back.linus.cx`)"
       - "traefik.http.routers.directus.entrypoints=https"
       - "traefik.http.routers.directus.tls=true"
       - "traefik.http.routers.directus.tls.certresolver=letsencrypt"
       - "traefik.http.middlewares.directus-https.redirectscheme.scheme=https"
       - "traefik.http.routers.directus-http.entrypoints=http"
-      - "traefik.http.routers.directus-http.rule=Host(`directus-project.sehn.dev`)"
+      - "traefik.http.routers.directus-http.rule=Host(`bvpk-back.linus.cx`)"
       - "traefik.http.routers.directus-http.middlewares=directus-https@docker"
       - "traefik.http.services.directus.loadbalancer.server.port=8055"
 
