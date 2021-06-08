@@ -23,4 +23,5 @@ COPY . /app
 EXPOSE 3000
 
 # Run yarn dev, as we would via the command line
+ENV DIRECTUS_URL=https://bvpk-back.linux.cx
 CMD ["yarn", "dev"]

@@ -4,10 +4,7 @@ import { CameraIcon } from '@heroicons/react/solid'
 import ReactMarkdown from 'react-markdown'
 
 export default function Post(props) {
-  const API_ASSET_URL = 'https://directus-project.sehn.dev/assets/'
-  // process.env.NODE_ENV === 'production'
-  //   ? process.env.DIRECTUS_URL + '/assets/'
-  //   : 'http://localhost:8055/assets/'
+  const API_ASSET_URL = process.env.DIRECTUS_URL + '/assets/'
   return (
     <>
       <NavBar />

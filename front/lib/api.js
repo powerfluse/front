@@ -1,7 +1,4 @@
-const API_URL = 'https://directus-project.sehn.dev'
-// process.env.NODE_ENV === 'production'
-//   ? process.env.DIRECTUS_URL
-//   : 'http://localhost:8055'
+const API_URL = process.env.DIRECTUS_URL
 
 async function fetchAPI(query) {
   console.log(query)
