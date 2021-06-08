@@ -3,6 +3,7 @@ version: "3"
 
 services:
   database:
+    restart: always
     container_name: database
     image: postgres:13
     volumes:
@@ -15,12 +16,14 @@ services:
       POSTGRES_DB: "directus"
 
   cache:
+    restart: always
     container_name: cache
     image: redis:6
     networks:
       - directus
 
   directus:
+    restart: always
     container_name: directus
     image: directus/directus:v9.0.0-rc.74
     ports:
