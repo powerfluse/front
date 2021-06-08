@@ -6,7 +6,7 @@ services:
     container_name: database
     image: postgres:13
     volumes:
-      - ../database:/var/lib/postgresql/data
+      - /home/dockeruser/bvpk/database:/var/lib/postgresql/data
     networks:
       - directus
     environment:
@@ -22,11 +22,11 @@ services:
 
   directus:
     container_name: directus
-    image: directus/directus:v9.0.0-rc.73
+    image: directus/directus:v9.0.0-rc.74
     ports:
       - 8055:8055
     volumes:
-      - ../uploads:/directus/uploads
+      - /home/dockeruser/bvpk/uploads:/directus/uploads
     networks:
       - directus
       - web
