@@ -13,17 +13,24 @@ async function fetchAPI(query) {
   return json.data
 }
 
-export async function getAllPosts() {
-  const data = await fetchAPI('/items/posts')
+export async function getAktuellesPage() {
+  const data = await fetchAPI('/items/aktuelles_page')
   return data
 }
 
-export async function getPost(slug) {
-  const data = await fetchAPI('/items/posts/?filter[slug][_eq]=' + slug)
+export async function getAktuellesAll() {
+  const data = await fetchAPI('/items/aktuelles?filter[status][_eq]=published')
   return data
 }
 
-export async function getFirst30Posts() {
-  const data = await fetchAPI('/items/posts?limit=30')
+export async function getAktuellesSingle(slug) {
+  const data = await fetchAPI('/items/aktuelles/?filter[slug][_eq]=' + slug)
+  return data
+}
+
+export async function getAktuelles50() {
+  const data = await fetchAPI(
+    '/items/aktuelles?limit=50?filter[status][_eq]=published'
+  )
   return data
 }

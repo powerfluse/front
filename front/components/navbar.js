@@ -12,7 +12,7 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { useState, useEffect } from 'react'
 
-const solutions = [
+const support = [
   {
     name: 'Inbox',
     description:
@@ -40,9 +40,10 @@ const solutions = [
   },
 ]
 const navigation = [
-  { name: 'Pricing', href: '#' },
-  { name: 'Partners', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Der Bundesverband', href: '#' },
+  { name: 'Aktuelles', href: '/aktuelles' },
+  { name: 'Positionen', href: '/#positionen' },
+  { name: 'Kontakt', href: '/#contact' },
 ]
 
 function classNames(...classes) {
@@ -74,9 +75,9 @@ export default function Example() {
         <Popover className="relative">
           {({ open }) => (
             <>
-              <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
+              <div className="flex justify-between items-center max-w-full mx-auto px-4 py-6 lg:justify-start lg:space-x-10 md:px-6 lg:px-8">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
-                  <a href="#">
+                  <a href="/">
                     <span className="sr-only">Workflow</span>
                     <img
                       className="h-8 w-auto sm:h-10"
@@ -85,13 +86,22 @@ export default function Example() {
                     />
                   </a>
                 </div>
-                <div className="-mr-2 -my-2 md:hidden">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                    <span className="sr-only">Open menu</span>
-                    <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                <div className="-mr-2 -my-2 lg:hidden">
+                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-purple-600 hover:text-purple-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-600">
+                    <span className="sr-only">Menü offnen</span>
+                    <MenuIcon className="h-10 w-10" aria-hidden="true" />
                   </Popover.Button>
                 </div>
-                <Popover.Group as="nav" className="hidden md:flex space-x-10">
+                <Popover.Group as="nav" className="hidden lg:flex space-x-10">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="text-base font-medium text-gray-500 hover:text-gray-900"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
                   <Popover className="relative">
                     {({ open }) => (
                       <>
@@ -101,7 +111,7 @@ export default function Example() {
                             'group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                           )}
                         >
-                          <span>Solutions</span>
+                          <span>Unterstützen</span>
                           <ChevronDownIcon
                             className={classNames(
                               open ? 'text-gray-600' : 'text-gray-400',
@@ -127,7 +137,7 @@ export default function Example() {
                           >
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                               <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
-                                {solutions.map((item) => (
+                                {support.map((item) => (
                                   <a
                                     key={item.name}
                                     href={item.href}
@@ -156,29 +166,13 @@ export default function Example() {
                       </>
                     )}
                   </Popover>
-
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="text-base font-medium text-gray-500 hover:text-gray-900"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
                 </Popover.Group>
-                <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
                   <a
                     href="#"
-                    className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-purple-600 transition transform duration-700 hover:bg-purple-900 hover:shadow-xl"
                   >
-                    Sign in
-                  </a>
-                  <a
-                    href="#"
-                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                  >
-                    Sign up
+                    Mitglied werden
                   </a>
                 </div>
               </div>
@@ -196,7 +190,7 @@ export default function Example() {
                 <Popover.Panel
                   focus
                   static
-                  className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+                  className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
                 >
                   <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                     <div className="pt-5 pb-6 px-5">
@@ -211,13 +205,13 @@ export default function Example() {
                         <div className="-mr-2">
                           <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                             <span className="sr-only">Close menu</span>
-                            <XIcon className="h-6 w-6" aria-hidden="true" />
+                            <XIcon className="h-10 w-10" aria-hidden="true" />
                           </Popover.Button>
                         </div>
                       </div>
                       <div className="mt-6">
                         <nav className="grid grid-cols-1 gap-7">
-                          {solutions.map((item) => (
+                          {support.map((item) => (
                             <a
                               key={item.name}
                               href={item.href}
@@ -252,16 +246,10 @@ export default function Example() {
                       <div className="mt-6">
                         <a
                           href="#"
-                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-900"
                         >
-                          Sign up
+                          Mitglied werden
                         </a>
-                        <p className="mt-6 text-center text-base font-medium text-gray-500">
-                          Existing customer?
-                          <a href="#" className="text-gray-900">
-                            Sign in
-                          </a>
-                        </p>
                       </div>
                     </div>
                   </div>

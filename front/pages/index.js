@@ -3,7 +3,7 @@ import Blog from '../components/blog'
 import NavBar from '../components/navbar'
 import Hero from '../components/hero'
 import Footer from '../components/footer'
-import { getFirst30Posts } from '../lib/api'
+import { getAktuellesAll } from '../lib/api'
 
 export default function Index(props) {
   return (
@@ -15,15 +15,14 @@ export default function Index(props) {
 
       <NavBar />
       <Hero />
-      <Blog props={props.posts} />
       <Footer />
     </>
   )
 }
 
 export async function getStaticProps() {
-  const posts = await getFirst30Posts()
+  const aktuelles = await getAktuellesAll()
   return {
-    props: { posts },
+    props: { aktuelles },
   }
 }

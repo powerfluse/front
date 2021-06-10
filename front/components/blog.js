@@ -1,66 +1,66 @@
 import Link from 'next/link'
 
 export default function Blog(props) {
-  const posts = props.props
+  const assetUrl = process.env.DIRECTUS_URL + '/assets/'
+  const aktuellesPage = props.props.aktuellesPage
+  const aktuelles_unsorted = props.props.aktuelles
+  const aktuelles = aktuelles_unsorted.sort(function (a, b) {
+    return new Date(b.date) - new Date(a.date)
+  })
   return (
-    <div className="bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-      <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
-        <div>
+    <div className="relative bg-white pt-24 pb-24 px-4 sm:px-6 md:pt-28 lg:pt-32 lg:pb-28 lg:px-8">
+      <div className="relative max-w-7xl mx-auto">
+        <div className="text-center">
           <h2 className="text-5xl tracking-tight font-extrabold text-gray-900">
-            Press
+            {aktuellesPage.title}
           </h2>
-          <div className="mt-3 sm:mt-4 lg:grid lg:grid-cols-2 lg:gap-5 lg:items-center">
-            <p className="text-xl text-gray-500">
-              Get weekly articles in your inbox on how to grow your business.
-            </p>
-            <form className="mt-6 flex flex-col sm:flex-row lg:mt-0 lg:justify-end">
-              <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="email-address"
-                  name="email-address"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="appearance-none w-full px-4 py-2 border border-gray-300 text-base rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 lg:max-w-xs"
-                  placeholder="Enter your email"
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+            {aktuellesPage.subtitle}
+          </p>
+        </div>
+        <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+          {aktuelles.map((a) => (
+            <a
+              href={/aktuelles/ + a.slug}
+              key={a.title}
+              className="flex flex-col rounded-md shadow-md transition transform hover:shadow-xl duration-500 overflow-hidden"
+            >
+              <div className="flex-shrink-0">
+                <img
+                  className="h-48 w-full object-cover"
+                  src={assetUrl + a.image}
+                  alt=""
                 />
               </div>
-              <div className="mt-2 flex-shrink-0 w-full flex rounded-md shadow-sm sm:mt-0 sm:ml-3 sm:w-auto sm:inline-flex">
-                <button
-                  type="button"
-                  className="w-full bg-indigo-600 px-4 py-2 border border-transparent rounded-md flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto sm:inline-flex"
-                >
-                  Notify me
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
-          {posts.map((post) => (
-            <div key={post.title}>
-              <p className="text-sm text-gray-500">
-                <time dateTime={post.datetime}>{post.date}</time>
-              </p>
-              <a href={`/blog/${post.slug}`} className="mt-2 block">
-                <p className="text-xl font-semibold text-gray-900">
-                  {post.title}
-                </p>
-                <p className="mt-3 text-base text-gray-500">
-                  {post.description}
-                </p>
-              </a>
-              <div className="mt-3">
-                <Link as={`/blog/${post.slug}`} href="/blog/[slug]">
-                  <a className="text-base font-semibold text-indigo-600 hover:text-indigo-500">
-                    Read full story
+              <div className="flex-1 bg-white p-6 flex flex-col justify-between hover:shadow-xl">
+                <div className="flex-1">
+                  <p className="capitalize text-sm font-medium text-purple-600">
+                    {a.category}
+                  </p>
+                  <a href={a.href} className="block mt-2">
+                    <p className="text-xl font-semibold text-gray-900">
+                      {a.title}
+                    </p>
+                    <p className="mt-3 text-base text-gray-500">
+                      {a.description}
+                    </p>
                   </a>
-                </Link>
+                </div>
+                <div className="mt-6 flex items-center">
+                  <div className="flex-shrink-0">
+                    <div className="flex space-x-1 text-sm text-gray-500">
+                      <time dateTime={a.datetime}>
+                        {new Intl.DateTimeFormat('de-DE', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: '2-digit',
+                        }).format(new Date(a.date))}
+                      </time>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
