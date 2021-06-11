@@ -36,7 +36,7 @@ services:
       # next traefik setup
       - 'traefik.enable=true'
       - 'traefik.http.services.next.loadbalancer.server.port=3001'
-      - 'traefik.http.routers.next.rule=Host(`bvpk-front.linux.cx`)'
+      - 'traefik.http.routers.next.rule=Host(`bvpk-front.linus.cx`)'
       - 'traefik.http.routers.next.entrypoints=https'
       - 'traefik.http.routers.next.tls=true'
       - 'traefik.http.routers.next.tls.certresolver=letsencrypt'
