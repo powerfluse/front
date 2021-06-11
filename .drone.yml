@@ -50,8 +50,6 @@ steps:
     when:
       branch:
         - master
-      event:
-        - cron
 
 volumes:
   - name: dockersock
