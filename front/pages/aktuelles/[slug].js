@@ -5,7 +5,6 @@ import parse from 'html-react-parser'
 
 export default function Post(props) {
   const API_ASSET_URL = process.env.DIRECTUS_URL + '/assets/'
-  console.log('LOGGING: ', props.body)
   return (
     <>
       <NavBar />
@@ -54,7 +53,9 @@ export default function Post(props) {
             </div>
             <div className="mt-8 lg:mt-0">
               <div className="prose prose-lg max-w-prose mx-auto lg:max-w-none">
-                {parse(props.body.toString())}
+                {props.body
+                  ? parse(props.body.toString())
+                  : 'There has been an error. Sorry about that'}
               </div>
             </div>
           </div>
@@ -66,9 +67,9 @@ export default function Post(props) {
 
 export async function getStaticProps({ params }) {
   const data = await getAktuellesSingle(params.slug)
-
   return {
     props: { ...data[0] },
+    revalidate: 10,
   }
 }
 

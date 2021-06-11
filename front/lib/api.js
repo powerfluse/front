@@ -24,7 +24,7 @@ export async function getAktuellesAll() {
 }
 
 export async function getAktuellesSingle(slug) {
-  const data = await fetchAPI('/items/aktuelles/?filter[slug][_eq]=' + slug)
+  const data = await fetchAPI('/items/aktuelles?filter[slug][_eq]=' + slug)
   return data
 }
 
