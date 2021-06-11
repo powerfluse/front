@@ -40,6 +40,19 @@ steps:
     commands:
       - docker-compose -f front/docker-compose.prod.yml up -d
 
+  - name: prune images
+    image: docker:dind
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker system prune -f
+    when:
+      branch:
+        - master
+      event:
+        - cron
+
 volumes:
   - name: dockersock
     host:

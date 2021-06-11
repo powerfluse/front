@@ -1,11 +1,11 @@
 import NavBar from '../../components/navbar.js'
 import { getAktuellesAll, getAktuellesSingle } from '../../lib/api'
 import { CameraIcon } from '@heroicons/react/solid'
-import ReactMarkdown from 'react-markdown'
 import parse from 'html-react-parser'
 
 export default function Post(props) {
   const API_ASSET_URL = process.env.DIRECTUS_URL + '/assets/'
+  console.log('LOGGING: ', props.body)
   return (
     <>
       <NavBar />
@@ -54,7 +54,7 @@ export default function Post(props) {
             </div>
             <div className="mt-8 lg:mt-0">
               <div className="prose prose-lg max-w-prose mx-auto lg:max-w-none">
-                {parse(props.body)}
+                {parse(props.body.toString())}
               </div>
             </div>
           </div>
