@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Blog from '../components/blog'
+import Newsletter from '../components/newsletter'
+import SideBySide from '../components/side-by-side'
 import NavBar from '../components/navbar'
 import Hero from '../components/hero'
 import Footer from '../components/footer'
@@ -15,6 +16,8 @@ export default function Index(props) {
 
       <NavBar />
       <Hero />
+      <SideBySide />
+      <Newsletter />
       <Footer />
     </>
   )

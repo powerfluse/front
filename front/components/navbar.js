@@ -2,6 +2,8 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
+  UserIcon,
+  OfficeBuildingIcon,
   AnnotationIcon,
   ChatAlt2Icon,
   InboxIcon,
@@ -14,29 +16,18 @@ import { useState, useEffect } from 'react'
 
 const support = [
   {
-    name: 'Inbox',
+    name: 'Mitglied werden',
     description:
-      'Get a better understanding of where your traffic is coming from.',
+      'Du bist Feuerwerks-Enthusiats und willst uns als Privatperson unterstützen',
     href: '#',
-    icon: InboxIcon,
+    icon: UserIcon,
   },
   {
-    name: 'Messaging',
-    description: 'Speak directly to your customers in a more meaningful way.',
+    name: 'Firmenmitglied werden',
+    description:
+      'Du möchtest uns als Profi mit Feuerwerksbetrieb unterstützten.',
     href: '#',
-    icon: AnnotationIcon,
-  },
-  {
-    name: 'Live Chat',
-    description: "Your customers' data will be safe and secure.",
-    href: '#',
-    icon: ChatAlt2Icon,
-  },
-  {
-    name: 'Knowledge Base',
-    description: "Connect with third-party tools that you're already using.",
-    href: '#',
-    icon: QuestionMarkCircleIcon,
+    icon: OfficeBuildingIcon,
   },
 ]
 const navigation = [
@@ -51,7 +42,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-  const [scrollPos, setScrollPosition] = useState(0)
+  const [scrollPosition, setScrollPosition] = useState(0)
   const handleScroll = () => {
     const position = window.pageYOffset
     setScrollPosition(position)
@@ -62,7 +53,7 @@ export default function Example() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  const onTop = true ? scrollPos === 0 : false
+  const onTop = true ? scrollPosition === 0 : false
   return (
     <div
       className={`${
@@ -133,10 +124,10 @@ export default function Example() {
                         >
                           <Popover.Panel
                             static
-                            className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-2xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                            className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-sm lg:max-w-xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
                           >
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                              <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
+                              <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-1">
                                 {support.map((item) => (
                                   <a
                                     key={item.name}
@@ -170,7 +161,7 @@ export default function Example() {
                 <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
                   <a
                     href="#"
-                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-purple-600 transition transform duration-700 hover:bg-purple-900 hover:shadow-xl"
+                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-purple-600 transition transform duration-700 hover:bg-purple-900 hover:shadow-xl"
                   >
                     Mitglied werden
                   </a>
@@ -232,7 +223,7 @@ export default function Example() {
                       </div>
                     </div>
                     <div className="py-6 px-5">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 gap-4">
                         {navigation.map((item) => (
                           <a
                             key={item.name}
@@ -243,14 +234,14 @@ export default function Example() {
                           </a>
                         ))}
                       </div>
-                      <div className="mt-6">
-                        <a
-                          href="#"
-                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-900"
-                        >
-                          Mitglied werden
-                        </a>
-                      </div>
+                      {/* <div className="mt-6"> */}
+                      {/*   <a */}
+                      {/*     href="#" */}
+                      {/*     className="w-full md:max-w-lg flex items-center justify-around px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-900" */}
+                      {/*   > */}
+                      {/*     Mitglied werden */}
+                      {/*   </a> */}
+                      {/* </div> */}
                     </div>
                   </div>
                 </Popover.Panel>
