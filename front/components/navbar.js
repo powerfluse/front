@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
@@ -18,14 +17,14 @@ const support = [
   {
     name: 'Mitglied werden',
     description:
-      'Du bist Feuerwerks-Enthusiats und willst uns als Privatperson unterstützen',
+      'Du bist Feuerwerks-Enthusiast und willst uns als Privatperson unterstützen',
     href: '#',
     icon: UserIcon,
   },
   {
     name: 'Firmenmitglied werden',
     description:
-      'Du möchtest uns als Profi mit Feuerwerksbetrieb unterstützten.',
+      'Du möchtest uns als Profi mit deinem Feuerwerksbetrieb unterstützten.',
     href: '#',
     icon: OfficeBuildingIcon,
   },
@@ -58,8 +57,8 @@ export default function Example() {
     <div
       className={`${
         onTop
-          ? 'fixed bg-white w-full z-10 bg-opacity-0 transition transition-all duration-700'
-          : 'fixed bg-white w-full z-10 bg-opacity-100 transition transition-all duration-700 shadow-xl'
+          ? 'fixed bg-black w-full z-10 bg-opacity-0 transition transition-all duration-700'
+          : 'fixed bg-black w-full z-10 bg-opacity-100 transition transition-all duration-700 shadow-xl'
       }`}
     >
       <header>
@@ -78,7 +77,7 @@ export default function Example() {
                   </a>
                 </div>
                 <div className="-mr-2 -my-2 lg:hidden">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-purple-600 hover:text-purple-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-600">
+                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-purple-600 hover:text-purple-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-600">
                     <span className="sr-only">Menü offnen</span>
                     <MenuIcon className="h-10 w-10" aria-hidden="true" />
                   </Popover.Button>
@@ -161,7 +160,7 @@ export default function Example() {
                 <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
                   <a
                     href="#"
-                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-purple-600 transition transform duration-700 hover:bg-purple-900 hover:shadow-xl"
+                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-purple-600 transition transform duration-700 hover:bg-purple-300 hover:shadow-xl"
                   >
                     Mitglied werden
                   </a>

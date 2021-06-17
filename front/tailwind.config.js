@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -6,9 +8,15 @@ module.exports = {
     extend: {
       colors: {
         purple: {
+          300: '#aa248e',
           600: '#550f8c',
-          900: '#13092e',
+          800: '#190d44',
+          900: '#130a34',
         },
+      },
+      fontFamily: {
+        titillium: ['"Titillium Web"', ...defaultTheme.fontFamily.sans],
+        source: ['"Source Sans Pro"', ...defaultTheme.fontFamily.sans],
       },
     },
   },

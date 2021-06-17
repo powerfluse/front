@@ -10,10 +10,10 @@ export default function Index(props) {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>BVPK - Bundesverband für Pyrotechnik und Kunstfeuerwerk</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <div className="font-source text-5xl">Test</div>
       <NavBar />
       <Hero />
       <SideBySide />
@@ -21,11 +21,4 @@ export default function Index(props) {
       <Footer />
     </>
   )
-}
-
-export async function getStaticProps() {
-  const aktuelles = await getAktuellesAll()
-  return {
-    props: { aktuelles },
-  }
 }
