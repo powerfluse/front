@@ -1,33 +1,27 @@
 export default function Example() {
   return (
-    <main className="bg-blue-100 flex flex-col justify-around h-screen px-4">
+    <main
+      className="bg-cover bg-center flex flex-col justify-around h-screen px-4"
+      style={{
+        backgroundImage: `url(/hero.jpg)`,
+      }}
+    >
       <div className="text-center">
-        <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-          <span className="block xl:inline">Data to enrich your</span>{' '}
-          <span className="block text-indigo-600 xl:inline">
-            online business
+        <h1 className="text-6xl font-titillium uppercase font-black text-white text-shadow-lg sm:text-7xl md:text-9xl">
+          <span className="block xl:inline">Gemeinsam</span>{' '}
+          <span className="block xl:inline">
+            für das <span className="">Feuerwerk</span>
           </span>
         </h1>
-        <p className="mt-3 max-w-md mx-auto font-source text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua.
-        </p>
         <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
           <div className="rounded-md shadow">
-            <a
-              href="#"
-              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-            >
-              Get started
+            <a href="#" className="w-full button">
+              Mitglied werden
             </a>
           </div>
           <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-            <a
-              href="#"
-              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
-            >
-              Live demo
+            <a href="#" className="w-full button-secondary">
+              Mehr erfahren
             </a>
           </div>
         </div>

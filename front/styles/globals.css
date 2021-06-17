@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @variants responsive {
+    .text-shadow {
+      text-shadow: 2px 2px 4px black;
+    }
+    .text-shadow-md {
+      text-shadow: 4px 4px 8px black;
+    }
+    .text-shadow-lg {
+      text-shadow: 15px 15px 30px #190d44;
+    }
+    .text-shadow-none {
+      text-shadow: none;
+    }
+  }
+}
+
+.button {
+  @apply whitespace-nowrap inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md text-lg font-source font-bold text-white bg-purple-600 transition transform duration-700 hover:bg-purple-300 hover:shadow-xl;
+}
+
+.button-secondary {
+  @apply whitespace-nowrap inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md text-lg font-source font-bold text-purple-600 bg-white transition transform duration-700 hover:bg-purple-300 hover:text-white hover:shadow-xl;
+}
+
 @layer base {
   /* titillium-web-regular - latin */
   @font-face {
@@ -32,6 +57,15 @@
       url('/fonts/titillium-web-v9-latin-700.woff2') format('woff2'),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
         url('/fonts/titillium-web-v9-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 900;
+    src: local(''),
+      url('/fonts/titillium-web-v9-latin-900.woff2') format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/titillium-web-v9-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   /* source-sans-pro-300 - latin */
   @font-face {

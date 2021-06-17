@@ -18,6 +18,41 @@ module.exports = {
         titillium: ['"Titillium Web"', ...defaultTheme.fontFamily.sans],
         source: ['"Source Sans Pro"', ...defaultTheme.fontFamily.sans],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              fontFamily: 'Titillium Web',
+            },
+            h2: {
+              fontFamily: 'Titillium Web',
+            },
+            p: {
+              fontFamily: 'Source Sans Pro',
+            },
+          },
+        },
+        'on-white': {
+          css: {
+            h2: {
+              color: '#550f8c',
+            },
+          },
+        },
+        'on-purple': {
+          css: {
+            h2: {
+              color: '#aa248e',
+            },
+            p: {
+              color: '#e5e7eb',
+            },
+            a: {
+              color: '#aa248e',
+            },
+          },
+        },
+      },
     },
   },
   variants: {

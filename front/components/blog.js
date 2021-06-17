@@ -8,13 +8,13 @@ export default function Blog(props) {
     return new Date(b.date) - new Date(a.date)
   })
   return (
-    <div className="relative bg-white pt-24 pb-24 px-4 sm:px-6 md:pt-28 lg:pt-32 lg:pb-28 lg:px-8">
+    <div className="relative bg-purple-900 pt-24 pb-24 px-4 sm:px-6 md:pt-28 lg:pt-32 lg:pb-28 lg:px-8">
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center">
-          <h2 className="text-5xl tracking-tight font-extrabold text-gray-900">
+          <h2 className="text-5xl tracking-tight font-extrabold text-purple-300">
             {aktuellesPage.title}
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-300 sm:mt-4">
             {aktuellesPage.subtitle}
           </p>
         </div>
@@ -32,16 +32,16 @@ export default function Blog(props) {
                   alt=""
                 />
               </div>
-              <div className="flex-1 bg-white p-6 flex flex-col justify-between hover:shadow-xl">
+              <div className="flex-1 bg-purple-800 p-6 flex flex-col justify-between hover:shadow-xl">
                 <div className="flex-1">
                   <p className="capitalize text-sm font-medium text-purple-600">
                     {a.category}
                   </p>
                   <a href={a.href} className="block mt-2">
-                    <p className="text-xl font-semibold text-gray-900">
+                    <p className="text-xl font-semibold text-white">
                       {a.title}
                     </p>
-                    <p className="mt-3 text-base text-gray-500">
+                    <p className="mt-3 text-base text-gray-300">
                       {a.description}
                     </p>
                   </a>

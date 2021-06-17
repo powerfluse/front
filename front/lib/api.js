@@ -34,3 +34,8 @@ export async function getAktuelles50() {
   )
   return data
 }
+
+export async function getIndexPage() {
+  const data = await fetchAPI('/items/index_page')
+  return data
+}

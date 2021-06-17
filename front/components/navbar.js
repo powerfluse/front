@@ -57,8 +57,8 @@ export default function Example() {
     <div
       className={`${
         onTop
-          ? 'fixed bg-black w-full z-10 bg-opacity-0 transition transition-all duration-700'
-          : 'fixed bg-black w-full z-10 bg-opacity-100 transition transition-all duration-700 shadow-xl'
+          ? 'fixed bg-purple-900 w-full z-20 bg-opacity-0 transition transition-all duration-700'
+          : 'fixed bg-purple-900 w-full z-20 bg-opacity-100 transition transition-all duration-700 shadow-2xl'
       }`}
     >
       <header>
@@ -71,23 +71,23 @@ export default function Example() {
                     <span className="sr-only">Workflow</span>
                     <img
                       className="h-8 w-auto sm:h-10"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                      src="/bvpk.png"
                       alt=""
                     />
                   </a>
                 </div>
                 <div className="-mr-2 -my-2 lg:hidden">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-purple-600 hover:text-purple-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-600">
+                  <Popover.Button className="bg-purple-800 rounded-md p-1 inline-flex items-center justify-center text-white hover:text-purple-300">
                     <span className="sr-only">Menü offnen</span>
                     <MenuIcon className="h-10 w-10" aria-hidden="true" />
                   </Popover.Button>
                 </div>
-                <Popover.Group as="nav" className="hidden lg:flex space-x-10">
+                <Popover.Group as="nav" className="hidden lg:flex space-x-7">
                   {navigation.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-base font-medium text-gray-500 hover:text-gray-900"
+                      className="text-lg font-source font-bold text-white hover:text-purple-300"
                     >
                       {item.name}
                     </a>
@@ -97,15 +97,15 @@ export default function Example() {
                       <>
                         <Popover.Button
                           className={classNames(
-                            open ? 'text-gray-900' : 'text-gray-500',
-                            'group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                            open ? 'text-gray-300' : 'text-white',
+                            'group rounded-md inline-flex items-center text-shadow-lg text-lg font-source font-bold hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                           )}
                         >
                           <span>Unterstützen</span>
                           <ChevronDownIcon
                             className={classNames(
-                              open ? 'text-gray-600' : 'text-gray-400',
-                              'ml-2 h-5 w-5 group-hover:text-gray-500'
+                              open ? 'text-purple-600' : 'text-purple-600',
+                              'ml-2 h-5 w-5 group-hover:text-purple-300'
                             )}
                             aria-hidden="true"
                           />
@@ -126,24 +126,24 @@ export default function Example() {
                             className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-sm lg:max-w-xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
                           >
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                              <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-1">
+                              <div className="bg-purple-800 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-1">
                                 {support.map((item) => (
                                   <a
                                     key={item.name}
                                     href={item.href}
-                                    className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                    className="-m-3 p-3 flex items-start rounded-lg hover:bg-purple-900"
                                   >
-                                    <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-600 text-white sm:h-12 sm:w-12">
+                                    <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-purple-600 text-white sm:h-12 sm:w-12">
                                       <item.icon
                                         className="h-6 w-6"
                                         aria-hidden="true"
                                       />
                                     </div>
                                     <div className="ml-4">
-                                      <p className="text-base font-medium text-gray-900">
+                                      <p className="text-base font-medium text-white">
                                         {item.name}
                                       </p>
-                                      <p className="mt-1 text-sm text-gray-500">
+                                      <p className="mt-1 text-sm text-gray-400">
                                         {item.description}
                                       </p>
                                     </div>
@@ -158,10 +158,7 @@ export default function Example() {
                   </Popover>
                 </Popover.Group>
                 <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
-                  <a
-                    href="#"
-                    className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-purple-600 transition transform duration-700 hover:bg-purple-300 hover:shadow-xl"
-                  >
+                  <a href="#" className="ml-4 button">
                     Mitglied werden
                   </a>
                 </div>
@@ -182,18 +179,18 @@ export default function Example() {
                   static
                   className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
                 >
-                  <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                    <div className="pt-5 pb-6 px-5">
+                  <div className="rounded-lg shadow-lg bg-purple-900 divide-y-2 divide-purple-800">
+                    <div className="px-4 py-3">
                       <div className="flex items-center justify-between">
                         <div>
                           <img
                             className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                            alt="Workflow"
+                            src="/bvpk.png"
+                            alt="BVPK"
                           />
                         </div>
                         <div className="-mr-2">
-                          <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                          <Popover.Button className="bg-purple-800 rounded-md p-1 inline-flex items-center justify-center text-white hover:text-purple-300">
                             <span className="sr-only">Close menu</span>
                             <XIcon className="h-10 w-10" aria-hidden="true" />
                           </Popover.Button>
@@ -205,15 +202,15 @@ export default function Example() {
                             <a
                               key={item.name}
                               href={item.href}
-                              className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
+                              className="-m-3 p-3 flex items-center rounded-lg hover:bg-purple-800"
                             >
-                              <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-600 text-white">
+                              <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-purple-600 text-white">
                                 <item.icon
                                   className="h-6 w-6"
                                   aria-hidden="true"
                                 />
                               </div>
-                              <div className="ml-4 text-base font-medium text-gray-900">
+                              <div className="ml-4 font-source text-base font-bold text-white hover:text-purple-300">
                                 {item.name}
                               </div>
                             </a>
@@ -227,7 +224,7 @@ export default function Example() {
                           <a
                             key={item.name}
                             href={item.href}
-                            className="text-base font-medium text-gray-900 hover:text-gray-700"
+                            className="text-base font-medium text-white hover:text-purple-300"
                           >
                             {item.name}
                           </a>
