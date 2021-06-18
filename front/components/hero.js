@@ -22,13 +22,8 @@ export default function Example() {
             </a>
           </div>
           <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-            <button>
-              <Link
-                to="feuerwerk"
-                smooth={true}
-                offset={-100}
-                className="w-full button-secondary"
-              >
+            <button className="w-full button-secondary">
+              <Link to="feuerwerk" smooth={true} offset={-80}>
                 Mehr erfahren
               </Link>
             </button>

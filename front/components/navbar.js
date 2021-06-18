@@ -54,8 +54,8 @@ export default function Example() {
     <div
       className={`${
         onTop
-          ? 'fixed bg-purple-900 w-full z-20 bg-opacity-0 transition transition-all duration-700'
-          : 'fixed bg-purple-900 w-full z-20 bg-opacity-100 transition transition-all duration-700 shadow-2xl'
+          ? 'fixed bg-purple-900 w-full z-20 bg-opacity-0 transition transition-all duration-300'
+          : 'fixed bg-purple-900 w-full z-20 bg-opacity-100 transition transition-all duration-300 shadow-2xl'
       }`}
     >
       <header>

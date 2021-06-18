@@ -1,15 +1,14 @@
 export default function Newsletter() {
   return (
     <div className="bg-purple-900">
-      <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
+      <div className="max-w-full mx-4 md:mx-0 py-24 lg:py-32 lg:px-24 lg:flex lg:items-center">
         <div className="lg:w-0 lg:flex-1">
           <h2 className="text-3xl font-bold font-titillium text-purple-300 sm:text-4xl">
-            Sign up for our newsletter
+            Bleibe auf dem Laufenden!
           </h2>
           <p className="font-source mt-3 max-w-3xl text-lg text-gray-300">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-            Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-            fugiat.
+            Melde dich bei unserem Newsletter an, um auf dem Laufenden zu
+            bleiben
           </p>
         </div>
         <div className="mt-8 lg:mt-0 lg:ml-8">

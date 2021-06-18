@@ -19,25 +19,6 @@
   }
 }
 
-@layer utilities {
-  .snap {
-    scroll-snap-type: var(--scroll-snap-direction) var(--scroll-snap-constraint);
-  }
-  .snap-y {
-    --scroll-snap-direction: y;
-  }
-  .snap-mandatory {
-    --scroll-snap-constraint: mandatory;
-  }
-  .snap-start {
-    scroll-snap-align: start;
-  }
-}
-
-body {
-  scroll-snap-type: y mandatory;
-}
-
 .button {
   @apply whitespace-nowrap inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md text-lg font-source font-bold text-white bg-purple-300 transition transform duration-500 hover:bg-purple-600 hover:ring-2 hover:ring-purple-300 hover:shadow-xl;
 }

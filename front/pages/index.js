@@ -2,9 +2,10 @@ import Head from 'next/head'
 import Newsletter from '../components/newsletter'
 import SideBySide from '../components/side-by-side'
 import NavBar from '../components/navbar'
+import BlogIndex from '../components/blog-index'
 import Hero from '../components/hero'
 import Footer from '../components/footer'
-import { getIndexPage } from '../lib/api'
+import { getAktuelles10, getIndexPage } from '../lib/api'
 
 export default function Index(props) {
   return (
@@ -16,6 +17,7 @@ export default function Index(props) {
       <NavBar />
       <Hero />
       <SideBySide props={props} />
+      <BlogIndex props={props} />
       <Newsletter />
       <Footer />
     </>
@@ -23,9 +25,13 @@ export default function Index(props) {
 }
 
 export async function getStaticProps() {
-  const data = await getIndexPage()
+  const dataIndexPage = await getIndexPage()
+  const dataAktuelles10 = await getAktuelles10()
   return {
-    props: { data },
+    props: {
+      dataIndexPage,
+      dataAktuelles10,
+    },
     revalidate: 10,
   }
 }

@@ -33,6 +33,9 @@ module.exports = {
             p: {
               fontFamily: 'Source Sans Pro',
             },
+            li: {
+              fontFamily: 'Source Sans Pro',
+            },
           },
         },
         'on-white': {
@@ -44,13 +47,21 @@ module.exports = {
         },
         'on-purple': {
           css: {
+            h1: {
+              color: '#d1d5db',
+              fontWeight: 700,
+            },
             h2: {
               color: '#d1d5db',
             },
             h3: {
               color: '#550f8c',
+              textTransform: 'uppercase',
             },
             p: {
+              color: '#d1d5db',
+            },
+            li: {
               color: '#d1d5db',
             },
             strong: {

@@ -30,12 +30,24 @@ export async function getAktuellesSingle(slug) {
 
 export async function getAktuelles50() {
   const data = await fetchAPI(
-    '/items/aktuelles?limit=50?filter[status][_eq]=published'
+    '/items/aktuelles?limit=50&filter[status][_eq]=published&sort[]=-date'
+  )
+  return data
+}
+
+export async function getAktuelles10() {
+  const data = await fetchAPI(
+    '/items/aktuelles?limit=10&filter[status][_eq]=published&sort[]=-date'
   )
   return data
 }
 
 export async function getIndexPage() {
   const data = await fetchAPI('/items/index_page')
+  return data
+}
+
+export async function getAboutPage() {
+  const data = await fetchAPI('/items/about_page')
   return data
 }
