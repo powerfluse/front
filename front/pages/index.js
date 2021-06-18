@@ -7,7 +7,6 @@ import Footer from '../components/footer'
 import { getIndexPage } from '../lib/api'
 
 export default function Index(props) {
-  console.log(props)
   return (
     <>
       <Head>

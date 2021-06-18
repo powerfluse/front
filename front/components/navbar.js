@@ -3,21 +3,18 @@ import { Popover, Transition } from '@headlessui/react'
 import {
   UserIcon,
   OfficeBuildingIcon,
-  AnnotationIcon,
-  ChatAlt2Icon,
-  InboxIcon,
   MenuIcon,
-  QuestionMarkCircleIcon,
   XIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const support = [
   {
     name: 'Mitglied werden',
     description:
-      'Du bist Feuerwerks-Enthusiast und willst uns als Privatperson unterstützen',
+      'Du lebst für das Feuerwerk und willst uns als Privatperson unterstützen',
     href: '#',
     icon: UserIcon,
   },
@@ -30,10 +27,10 @@ const support = [
   },
 ]
 const navigation = [
-  { name: 'Der Bundesverband', href: '#' },
+  { name: 'Über uns', href: '/ueber-uns' },
   { name: 'Aktuelles', href: '/aktuelles' },
-  { name: 'Positionen', href: '/#positionen' },
-  { name: 'Kontakt', href: '/#contact' },
+  { name: 'Positionen', href: '/positionen' },
+  { name: 'Kontakt', href: '/kontakt' },
 ]
 
 function classNames(...classes) {
@@ -67,14 +64,16 @@ export default function Example() {
             <>
               <div className="flex justify-between items-center max-w-full mx-auto px-4 py-6 lg:justify-start lg:space-x-10 md:px-6 lg:px-8">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
-                  <a href="/">
-                    <span className="sr-only">Workflow</span>
-                    <img
-                      className="h-8 w-auto sm:h-10"
-                      src="/bvpk.png"
-                      alt=""
-                    />
-                  </a>
+                  <Link href="/">
+                    <a>
+                      <span className="sr-only">Workflow</span>
+                      <img
+                        className="h-8 w-auto sm:h-10"
+                        src="/logo.svg"
+                        alt="BVPK Logo"
+                      />
+                    </a>
+                  </Link>
                 </div>
                 <div className="-mr-2 -my-2 lg:hidden">
                   <Popover.Button className="bg-purple-800 rounded-md p-1 inline-flex items-center justify-center text-white hover:text-purple-300">
@@ -123,10 +122,10 @@ export default function Example() {
                         >
                           <Popover.Panel
                             static
-                            className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-sm lg:max-w-xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                            className="absolute z-20 -ml-4 mt-3 transform w-screen max-w-sm lg:max-w-xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
                           >
-                            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                              <div className="bg-purple-800 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-1">
+                            <div className="rounded-lg bg-purple-800 shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                              <div className="relative grid gap-6 px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-1">
                                 {support.map((item) => (
                                   <a
                                     key={item.name}
@@ -140,10 +139,10 @@ export default function Example() {
                                       />
                                     </div>
                                     <div className="ml-4">
-                                      <p className="text-base font-medium text-white">
+                                      <p className="text-base font-bold font-source text-white">
                                         {item.name}
                                       </p>
-                                      <p className="mt-1 text-sm text-gray-400">
+                                      <p className="mt-1 text-md font-source text-gray-400">
                                         {item.description}
                                       </p>
                                     </div>
@@ -185,8 +184,8 @@ export default function Example() {
                         <div>
                           <img
                             className="h-8 w-auto"
-                            src="/bvpk.png"
-                            alt="BVPK"
+                            src="/logo.svg"
+                            alt="BVPK Logo"
                           />
                         </div>
                         <div className="-mr-2">

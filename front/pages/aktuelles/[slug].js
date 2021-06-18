@@ -8,14 +8,14 @@ export default function Post(props) {
   return (
     <>
       <NavBar />
-      <div className="pt-12 bg-white overflow-hidden">
+      <div className="pt-12 bg-purple-900 min-h-screen overflow-hidden">
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
             <div>
-              <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
-                AKTUELLES
+              <h2 className="text-base text-purple-600 font-semibold tracking-wide uppercase">
+                {props.category}
               </h2>
-              <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              <h3 className="mt-2 text-3xl leading-8 font-titillium font-bold tracking-tight text-white sm:text-4xl">
                 {props.title}
               </h3>
             </div>
@@ -28,7 +28,7 @@ export default function Post(props) {
                     <img
                       className="rounded-lg shadow-lg object-cover object-center"
                       src={API_ASSET_URL + props.image}
-                      alt="Whitney leaning against a railing on a downtown street"
+                      alt={props.title}
                       width={1184}
                       height={1376}
                     />
@@ -52,7 +52,7 @@ export default function Post(props) {
               </div>
             </div>
             <div className="mt-8 lg:mt-0">
-              <div className="prose prose-lg max-w-prose mx-auto lg:max-w-none">
+              <div className="prose prose-lg prose-on-purple-aktuelles max-w-prose mx-auto lg:max-w-none">
                 {props.body
                   ? parse(props.body.toString())
                   : 'There has been an error. Sorry about that'}

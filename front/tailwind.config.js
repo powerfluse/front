@@ -27,6 +27,9 @@ module.exports = {
             h2: {
               fontFamily: 'Titillium Web',
             },
+            h3: {
+              fontFamily: 'Titillium Web',
+            },
             p: {
               fontFamily: 'Source Sans Pro',
             },
@@ -42,10 +45,36 @@ module.exports = {
         'on-purple': {
           css: {
             h2: {
-              color: '#aa248e',
+              color: '#d1d5db',
+            },
+            h3: {
+              color: '#550f8c',
             },
             p: {
-              color: '#e5e7eb',
+              color: '#d1d5db',
+            },
+            strong: {
+              color: '#aa248e',
+              fontWeight: 700,
+            },
+            a: {
+              color: '#aa248e',
+            },
+          },
+        },
+        'on-purple-aktuelles': {
+          css: {
+            h2: {
+              color: '#d1d5db',
+            },
+            h3: {
+              color: '#d1d5db',
+            },
+            p: {
+              color: '#d1d5db',
+            },
+            strong: {
+              color: '#d1d5db',
             },
             a: {
               color: '#aa248e',

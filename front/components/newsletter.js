@@ -1,44 +1,44 @@
 export default function Newsletter() {
   return (
-    <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
-        <div className="px-6 py-6 bg-indigo-700 rounded-lg md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center">
-          <div className="xl:w-0 xl:flex-1">
-            <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-              Want product news and updates?
-            </h2>
-            <p className="mt-3 max-w-3xl text-lg leading-6 text-indigo-200">
-              Sign up for our newsletter to stay up to date.
-            </p>
-          </div>
-          <div className="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
-            <form className="sm:flex">
-              <label htmlFor="emailAddress" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="emailAddress"
-                name="emailAddress"
-                type="email"
-                autoComplete="email"
-                required
-                className="w-full border-white px-5 py-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white rounded-md"
-                placeholder="Enter your email"
-              />
-              <button
-                type="submit"
-                className="mt-3 w-full flex items-center justify-center px-5 py-3 border border-transparent shadow text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
-              >
-                Notify me
+    <div className="bg-purple-900">
+      <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
+        <div className="lg:w-0 lg:flex-1">
+          <h2 className="text-3xl font-bold font-titillium text-purple-300 sm:text-4xl">
+            Sign up for our newsletter
+          </h2>
+          <p className="font-source mt-3 max-w-3xl text-lg text-gray-300">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+            Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+            fugiat.
+          </p>
+        </div>
+        <div className="mt-8 lg:mt-0 lg:ml-8">
+          <form className="font-source sm:flex">
+            <label htmlFor="emailAddress" className="sr-only">
+              Email-Addresse
+            </label>
+            <input
+              id="emailAddress"
+              name="emailAddress"
+              type="email"
+              autoComplete="email"
+              required
+              className="w-full px-5 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-purple-600 focus:border-purple-300 sm:max-w-xs rounded-md"
+              placeholder="E-mail eingeben"
+            />
+            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+              <button type="submit" className="button">
+                Anmelden
               </button>
-            </form>
-            <p className="mt-3 text-sm text-indigo-200">
-              We care about the protection of your data. Read our{' '}
-              <a href="#" className="text-white font-medium underline">
-                Privacy Policy.
-              </a>
-            </p>
-          </div>
+            </div>
+          </form>
+          <p className="mt-3 text-sm text-gray-400">
+            Uns liegt{' '}
+            <a href="#" className="text-purple-300 underline">
+              der Schutz deiner Daten
+            </a>{' '}
+            am Herzen{' '}
+          </p>
         </div>
       </div>
     </div>
