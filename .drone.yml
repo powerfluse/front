@@ -22,7 +22,18 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker-compose -f back/docker-compose.prod.yml up -d
+      - docker-compose -f back/directus.prod.yml up -d
+
+  - name: deploy nocodb
+    image: docker/compose:1.29.2
+    environment:
+      NOCODB_DB_PASSWORD:
+        from_secret: nocodb_db_password
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose -f back/nocodb.prod.yml up -d
 
   - name: build frontend
     image: docker/compose:1.29.2

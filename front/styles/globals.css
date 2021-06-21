@@ -27,6 +27,10 @@
   @apply whitespace-nowrap inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md text-lg font-source font-bold text-purple-600 bg-white transition transform duration-500 hover:bg-purple-600 hover:ring-2 hover:ring-purple-300 hover:text-white hover:shadow-xl;
 }
 
+.formfield {
+  @apply shadow-sm text-gray-900 focus:ring-purple-600 focus:border-purple-300 border-purple-600 rounded-md;
+}
+
 @layer base {
   /* titillium-web-regular - latin */
   @font-face {

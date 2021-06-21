@@ -3,17 +3,22 @@ version: "3"
 
 services:
   database:
-    restart: always
-    container_name: database
     image: postgres:13
+    container_name: directus-db
+    restart: always
     volumes:
-      - /home/dockeruser/bvpk/database:/var/lib/postgresql/data
+      - /home/dockeruser/bvpk/directus-db:/var/lib/postgresql/data
     networks:
       - directus
     environment:
       POSTGRES_USER: "directus"
       POSTGRES_PASSWORD: ${DIRECTUS_DB_PASSWORD}
       POSTGRES_DB: "directus"
+    healthcheck:
+      test: pg_isready -U directus -d directus
+      interval: 10s
+      timeout: 2s
+      retries: 10
 
   cache:
     restart: always
@@ -57,6 +62,7 @@ services:
 
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.directus.loadbalancer.server.port=8055"
       - "traefik.http.routers.directus.rule=Host(`bvpk-back.linus.cx`)"
       - "traefik.http.routers.directus.entrypoints=https"
       - "traefik.http.routers.directus.tls=true"
@@ -65,7 +71,6 @@ services:
       - "traefik.http.routers.directus-http.entrypoints=http"
       - "traefik.http.routers.directus-http.rule=Host(`bvpk-back.linus.cx`)"
       - "traefik.http.routers.directus-http.middlewares=directus-https@docker"
-      - "traefik.http.services.directus.loadbalancer.server.port=8055"
 
 networks:
   directus:
