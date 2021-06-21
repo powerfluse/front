@@ -7,7 +7,7 @@ workspace:
   path: /home/dockeruser/bvpk
 
 steps:
-  - name: deploy backend
+  - name: deploy directus
     image: docker/compose:1.29.2
     environment:
       DIRECTUS_DB_PASSWORD:
@@ -24,7 +24,7 @@ steps:
     commands:
       - docker-compose -f back/directus.prod.yml up -d
 
-  - name: deploy nocodb
+  - name: deploy directus
     image: docker/compose:1.29.2
     environment:
       NOCODB_DB_PASSWORD:

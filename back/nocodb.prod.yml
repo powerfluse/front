@@ -12,7 +12,7 @@ services:
       - web
     environment:
       POSTGRES_USER: "nocodb"
-      POSTGRES_PASSWORD: ${NOCODB_DATABASE_PASSWORD}
+      POSTGRES_PASSWORD: ${NOCODB_DB_PASSWORD}
       POSTGRES_DB: "nocodb"
     healthcheck:
       test: pg_isready -U nocodb -d nocodb
@@ -27,7 +27,7 @@ services:
     networks:
       - web
     environment:
-      - NC_DB=pg://nocodb-db:5432?u=nocodb&p=${NOCODB_DATABASE_PASSWORD}&d=nocodb
+      - NC_DB=pg://nocodb-db:5432?u=nocodb&p=${NOCODB_DB_PASSWORD}&d=nocodb
       - NC_PUBLIC_URL=https://nocodb.sehn.dev
       - NC_DISABLE_TELE=true
     labels:
