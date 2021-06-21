@@ -3,8 +3,24 @@ import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
 import Head from 'next/head'
+import { useForm } from 'react-hook-form'
 
 export default function Kontakt() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  console.log(watch('vorname'))
+  console.log(watch('nachname'))
+  console.log(watch('email'))
+  console.log(watch('telefonnummer'))
+  console.log(watch('betreff'))
+  console.log(watch('nachricht'))
+
   return (
     <>
       <Head>
@@ -16,7 +32,7 @@ export default function Kontakt() {
       <main className="overflow-hidden">
         {/* Header */}
         <div className="bg-purple-900">
-          <div className="py-24 lg:py-32">
+          <div className="pt-24 lg:pt-32 pb-8 lg:pb-12 ">
             <div className="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
               <h1 className="text-4xl font-titillium font-bold tracking-tight text-purple-300 sm:text-5xl lg:text-6xl">
                 Schreibe uns!
@@ -52,7 +68,7 @@ export default function Kontakt() {
                   <h3 className="text-2xl font-source font-bold text-white">
                     Kontatkinformationen
                   </h3>
-                  <p className="mt-6 text-base text-gray-300 max-w-3xl">
+                  <p className="mt-6 text-base font-source text-gray-300 max-w-3xl">
                     Nullam risus blandit ac aliquam justo ipsum. Quam mauris
                     volutpat massa dictumst amet. Sapien tortor lacus arcu.
                   </p>
@@ -60,7 +76,7 @@ export default function Kontakt() {
                     <dt>
                       <span className="sr-only">Telefon</span>
                     </dt>
-                    <dd className="flex text-base text-gray-300">
+                    <dd className="flex text-base font-source text-gray-300 hover:underline">
                       <PhoneIcon
                         className="flex-shrink-0 w-6 h-6 text-gray-300"
                         aria-hidden="true"
@@ -72,7 +88,7 @@ export default function Kontakt() {
                     <dt>
                       <span className="sr-only">Email</span>
                     </dt>
-                    <dd className="flex text-base text-gray-300">
+                    <dd className="flex text-base font-source text-gray-300 hover:underline">
                       <MailIcon
                         className="flex-shrink-0 w-6 h-6 text-gray-300"
                         aria-hidden="true"
@@ -148,8 +164,7 @@ export default function Kontakt() {
                     Sende uns eine Nachricht
                   </h3>
                   <form
-                    action="#"
-                    method="POST"
+                    onSubmit={handleSubmit(onSubmit)}
                     className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
                   >
                     <div>
@@ -161,11 +176,16 @@ export default function Kontakt() {
                       </label>
                       <div className="mt-1">
                         <input
+                          required={true}
                           type="text"
                           name="vorname"
                           id="vorname"
                           autoComplete="given-name"
                           className="py-3 px-4 font-source block w-full formfield"
+                          {...register('vorname', {
+                            required: true,
+                            maxLength: 45,
+                          })}
                         />
                       </div>
                     </div>
@@ -178,11 +198,16 @@ export default function Kontakt() {
                       </label>
                       <div className="mt-1">
                         <input
+                          required={true}
                           type="text"
                           name="nachname"
                           id="nachname"
                           autoComplete="family-name"
                           className="py-3 px-4 font-source block w-full formfield"
+                          {...register('nachname', {
+                            required: true,
+                            maxLength: 45,
+                          })}
                         />
                       </div>
                     </div>
@@ -195,12 +220,24 @@ export default function Kontakt() {
                       </label>
                       <div className="mt-1">
                         <input
+                          required={true}
                           id="email"
                           name="email"
                           type="email"
                           autoComplete="email"
                           className="py-3 px-4 font-source block w-full formfield"
+                          {...register('email', {
+                            required: true,
+                            maxLength: 45,
+                            pattern: {
+                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                              message: 'Diese Email-Addresse ist ungültig',
+                            },
+                          })}
                         />
+                        <div className="text-sm font-bold font-source text-purple-300">
+                          {errors.email && errors.email.message}
+                        </div>
                       </div>
                     </div>
                     <div>
@@ -220,12 +257,17 @@ export default function Kontakt() {
                       </div>
                       <div className="mt-1">
                         <input
+                          required={false}
                           type="text"
                           name="telefonnummer"
                           id="telefonnummer"
                           autoComplete="tel"
                           className="py-3 px-4 font-source block w-full formfield"
                           aria-describedby="phone-optional"
+                          {...register('telefonnummer', {
+                            required: false,
+                            maxLength: 30,
+                          })}
                         />
                       </div>
                     </div>
@@ -238,10 +280,15 @@ export default function Kontakt() {
                       </label>
                       <div className="mt-1">
                         <input
+                          required={true}
                           type="text"
                           name="subject"
                           id="betreff"
                           className="py-3 px-4 font-source block w-full formfield"
+                          {...register('betreff', {
+                            required: true,
+                            maxLength: 150,
+                          })}
                         />
                       </div>
                     </div>
