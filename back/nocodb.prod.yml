@@ -43,3 +43,8 @@ services:
       - "traefik.http.routers.nocodb-http.middlewares=nocodb-https@docker"
     depends_on:
       - nocodb-db
+
+networks:
+  web:
+    external: true
+    name: web
