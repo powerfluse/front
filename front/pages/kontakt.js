@@ -221,7 +221,7 @@ export default function Kontakt() {
                       <div className="mt-1">
                         <input
                           type="text"
-                          name="phone"
+                          name="telefonnummer"
                           id="telefonnummer"
                           autoComplete="tel"
                           className="py-3 px-4 font-source block w-full formfield"
