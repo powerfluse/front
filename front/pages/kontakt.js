@@ -4,8 +4,10 @@ import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
 import Head from 'next/head'
 import { useForm } from 'react-hook-form'
+import { getContactPage } from '../lib/api'
 
-export default function Kontakt() {
+export default function Kontakt(props) {
+  console.log(props)
   const {
     register,
     handleSubmit,
@@ -35,12 +37,10 @@ export default function Kontakt() {
           <div className="pt-24 lg:pt-32 pb-8 lg:pb-12 ">
             <div className="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
               <h1 className="text-4xl font-titillium font-bold tracking-tight text-purple-300 sm:text-5xl lg:text-6xl">
-                Schreibe uns!
+                {props.data.title}
               </h1>
               <p className="mt-6 font-source text-xl text-gray-300 max-w-3xl">
-                Vel nunc non ut montes, viverra tempor. Proin lectus nibh
-                phasellus morbi non morbi. In elementum urna ut volutpat.
-                Sagittis et vel et fermentum amet consequat.
+                {props.data.text_top}
               </p>
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function Kontakt() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative bg-purple-800 shadow-xl rounded-lg">
               <h2 id="contactHeading" className="sr-only">
-                Kontaktiere uns
+                {props.data.header_card_right}
               </h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
@@ -66,11 +66,10 @@ export default function Kontakt() {
                     aria-hidden="true"
                   ></div>
                   <h3 className="text-2xl font-source font-bold text-white">
-                    Kontatkinformationen
+                    {props.data.header_card_left}
                   </h3>
                   <p className="mt-6 text-base font-source text-gray-300 max-w-3xl">
-                    Nullam risus blandit ac aliquam justo ipsum. Quam mauris
-                    volutpat massa dictumst amet. Sapien tortor lacus arcu.
+                    {props.data.text_card_left}
                   </p>
                   <dl className="mt-8 space-y-6">
                     <dt>
@@ -81,8 +80,8 @@ export default function Kontakt() {
                         className="flex-shrink-0 w-6 h-6 text-gray-300"
                         aria-hidden="true"
                       />
-                      <a href="tel:+49521787999022" className="ml-3">
-                        +49 521 787 999 022
+                      <a href={props.data.phone_actual} className="ml-3">
+                        {props.data.phone}
                       </a>
                     </dd>
                     <dt>
@@ -94,7 +93,7 @@ export default function Kontakt() {
                         aria-hidden="true"
                       />
                       <a href="mailto:info@bvpk.org" className="ml-3">
-                        info@bvpk.org
+                        {props.data.email}
                       </a>
                     </dd>
                   </dl>
@@ -338,4 +337,12 @@ export default function Kontakt() {
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const data = await getContactPage()
+  return {
+    props: { data },
+    revalidate: 10,
+  }
 }

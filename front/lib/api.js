@@ -13,11 +13,6 @@ async function fetchAPI(query) {
   return json.data
 }
 
-export async function getAktuellesPage() {
-  const data = await fetchAPI('/items/aktuelles_page')
-  return data
-}
-
 export async function getAktuellesAll() {
   const data = await fetchAPI('/items/aktuelles?filter[status][_eq]=published')
   return data
@@ -49,5 +44,15 @@ export async function getIndexPage() {
 
 export async function getAboutPage() {
   const data = await fetchAPI('/items/about_page')
+  return data
+}
+
+export async function getAktuellesPage() {
+  const data = await fetchAPI('/items/aktuelles_page')
+  return data
+}
+
+export async function getContactPage() {
+  const data = await fetchAPI('/items/contact_page')
   return data
 }
