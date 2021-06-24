@@ -2,7 +2,7 @@ import parse from 'html-react-parser'
 export default function SideBySide(props) {
   return (
     <main id="feuerwerk">
-      <div className="relative w-full">
+      <div className="relative w-full overflow-hidden">
         {/* Section 1 */}
         <section className="bg-purple-900 relative lg:grid lg:grid-cols-2 lg:items-center">
           <div
