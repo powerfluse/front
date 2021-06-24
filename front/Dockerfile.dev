@@ -7,5 +7,4 @@ COPY	yarn.lock	/app
 RUN	yarn install
 COPY	.	/app
 EXPOSE	3000
-ENV	DIRECTUS_URL	https://bvpk-back.linus.cx
 CMD	["yarn","dev"]

@@ -3,26 +3,39 @@ import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
 import Head from 'next/head'
-import { useForm } from 'react-hook-form'
-import { getContactPage } from '../lib/api'
+import { useForm, useFormState } from 'react-hook-form'
+import { getContactPage, postKontakt } from '../lib/api'
+import router from 'next/router'
 
 export default function Kontakt(props) {
-  console.log(props)
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const { register, handleSubmit, watch, formState } = useForm({
+    mode: 'onChange',
+  })
+  const { isDirty, isValid, isSubmitting, errors } = formState
+  console.log(formState)
+  const onSubmit = async (data) => {
+    const res = await fetch('/api/kontakt', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    const json = await res.json()
+    if (json.errors) {
+      console.error(json.errors)
+      throw new Error('Failed to fetch API')
+    }
+    return json
+  }
 
-  console.log(watch('vorname'))
-  console.log(watch('nachname'))
-  console.log(watch('email'))
-  console.log(watch('telefonnummer'))
-  console.log(watch('betreff'))
-  console.log(watch('nachricht'))
-
+  // console.log(watch('vorname'))
+  // console.log(watch('nachname'))
+  // console.log(watch('email'))
+  // console.log(watch('telefonnummer'))
+  // console.log(watch('betreff'))
+  // console.log(watch('nachricht'))
+  console.log()
   return (
     <>
       <Head>
@@ -308,21 +321,48 @@ export default function Kontakt(props) {
                       </div>
                       <div className="mt-1">
                         <textarea
-                          id="message"
-                          name="message"
-                          rows={4}
+                          id="nachricht"
+                          name="nachricht"
+                          rows={6}
                           className="py-3 px-4 font-source block w-full formfield"
                           aria-describedby="message-max"
                           defaultValue={''}
+                          {...register('nachricht', {
+                            required: true,
+                            maxLength: 150,
+                          })}
                         />
+                        <div className="mt-4">
+                          <input
+                            id="zustimmung"
+                            name="zustimmung"
+                            type="checkbox"
+                            className="focus:ring-purple-300 h-4 w-4 text-purple-300 border-gray-300 rounded-sm h-4"
+                            {...register('zustimmung', {
+                              required: true,
+                            })}
+                          />
+                          <span className="mx-2 fount-source text-sm text-gray-300">
+                            Ich stimme{' '}
+                            <a
+                              href="/datenschutz"
+                              className="underline text-purple-300"
+                            >
+                              der Verarbeitung meiner Daten
+                            </a>{' '}
+                            durch den bvpk e.V. zu
+                          </span>
+                        </div>
                       </div>
                     </div>
-                    <div className="sm:col-span-2 sm:flex sm:justify-end">
+                    <div className="sm:col-span-2 sm:flex sm:justify-end ">
                       <button
                         type="submit"
-                        className="mt-2 w-full button sm:w-auto"
+                        className="mt-2 w-full button sm:w-auto disabled:opacity-50"
+                        disabled={!isDirty || !isValid || isSubmitting}
+                        onClick={() => router.push('/')}
                       >
-                        Submit
+                        Abschicken
                       </button>
                     </div>
                   </form>
