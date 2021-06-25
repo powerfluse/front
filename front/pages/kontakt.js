@@ -3,39 +3,35 @@ import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
 import Head from 'next/head'
-import { useForm, useFormState } from 'react-hook-form'
-import { getContactPage, postKontakt } from '../lib/api'
+import { useForm } from 'react-hook-form'
+import { getContactPage } from '../lib/api'
 import router from 'next/router'
 
 export default function Kontakt(props) {
-  const { register, handleSubmit, watch, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
   })
-  const { isDirty, isValid, isSubmitting, errors } = formState
-  console.log(formState)
+  const { isDirty, isValid, isSubmitting, isSubmitSuccessful, errors } =
+    formState
+
   const onSubmit = async (data) => {
-    const res = await fetch('/api/kontakt', {
+    return await fetch('/api/kontakt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     })
-    const json = await res.json()
-    if (json.errors) {
-      console.error(json.errors)
-      throw new Error('Failed to fetch API')
-    }
-    return json
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Hier gab es ein Problem!')
+        }
+      })
+      .catch((e) => {
+        console.log(e)
+      })
   }
 
-  // console.log(watch('vorname'))
-  // console.log(watch('nachname'))
-  // console.log(watch('email'))
-  // console.log(watch('telefonnummer'))
-  // console.log(watch('betreff'))
-  // console.log(watch('nachricht'))
-  console.log()
   return (
     <>
       <Head>
@@ -358,11 +354,24 @@ export default function Kontakt(props) {
                     <div className="sm:col-span-2 sm:flex sm:justify-end ">
                       <button
                         type="submit"
-                        className="mt-2 w-full button sm:w-auto disabled:opacity-50"
-                        disabled={!isDirty || !isValid || isSubmitting}
-                        onClick={() => router.push('/')}
+                        className={`${
+                          isSubmitSuccessful
+                            ? 'mt-2 w-full sm:w-auto button-success'
+                            : 'mt-2 w-full sm:w-auto button'
+                        }`}
+                        disabled={
+                          !isDirty ||
+                          !isValid ||
+                          isSubmitting ||
+                          isSubmitSuccessful
+                        }
+                        /* onClick={() => router.push('/')} */
                       >
-                        Abschicken
+                        {`${
+                          isSubmitSuccessful
+                            ? 'Danke! Wir melden uns.'
+                            : 'Abschicken'
+                        }`}
                       </button>
                     </div>
                   </form>
