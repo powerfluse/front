@@ -3,6 +3,7 @@ import { Popover, Transition } from '@headlessui/react'
 import {
   UserIcon,
   OfficeBuildingIcon,
+  CogIcon,
   MenuIcon,
   XIcon,
 } from '@heroicons/react/outline'
@@ -24,6 +25,13 @@ const support = [
       'Du möchtest uns als Profi mit deinem Feuerwerksbetrieb unterstützten.',
     href: '#',
     icon: OfficeBuildingIcon,
+  },
+  {
+    name: 'Mitgliedschaft ändern',
+    description:
+      'Du bist schon Mitglied als Privatperson, willst uns nun aber als Betrieb unterstützen.',
+    href: '#',
+    icon: CogIcon,
   },
 ]
 const navigation = [
@@ -157,7 +165,7 @@ export default function NavBar() {
                   </Popover>
                 </Popover.Group>
                 <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
-                  <a href="#" className="ml-4 button">
+                  <a href="/mitglied-werden" className="ml-4 button">
                     Mitglied werden
                   </a>
                 </div>
