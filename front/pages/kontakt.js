@@ -3,8 +3,10 @@ import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
 import Head from 'next/head'
+import Modal from '../components/modal'
 import { useForm } from 'react-hook-form'
 import { getContactPage } from '../lib/api'
+import { useState } from 'react'
 import router from 'next/router'
 
 export default function Kontakt(props) {
@@ -13,6 +15,8 @@ export default function Kontakt(props) {
   })
   const { isDirty, isValid, isSubmitting, isSubmitSuccessful, errors } =
     formState
+
+  const [openModal, setOpenModal] = useState(false)
 
   const onSubmit = async (data) => {
     return await fetch('/api/kontakt', {
@@ -39,7 +43,7 @@ export default function Kontakt(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-
+      <Modal open={openModal} />
       <main className="overflow-hidden">
         {/* Header */}
         <div className="bg-purple-900">
@@ -365,7 +369,7 @@ export default function Kontakt(props) {
                           isSubmitting ||
                           isSubmitSuccessful
                         }
-                        /* onClick={() => router.push('/')} */
+                        onClick={() => setOpenModal(true)}
                       >
                         {`${
                           isSubmitSuccessful

@@ -4,11 +4,11 @@ const NOCODB_TOKEN = process.env.NOCODB_TOKEN
 export default function handler(req, res) {
   if (req.method === 'POST') {
     async function postToNocoDb(data) {
-      // console.log('Token (POST): ', NOCODB_TOKEN)
-      // console.log(
-      //   'Query (POST): ',
-      //   NOCODB_URL + '/nc/bvpk_9YLS/api/v1/newsletter'
-      // )
+      console.log('Token (POST): ', NOCODB_TOKEN)
+      console.log(
+        'Query (POST): ',
+        NOCODB_URL + '/nc/bvpk_9YLS/api/v1/newsletter'
+      )
       const res = await fetch(NOCODB_URL + '/nc/bvpk_9YLS/api/v1/newsletter', {
         method: 'POST',
         headers: {
