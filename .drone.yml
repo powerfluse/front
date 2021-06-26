@@ -44,7 +44,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - echo "${NOCODB_TOKEN}"
+      - echo $${NOCODB_TOKEN}
 
   - name: deploy frontend
     image: docker/compose:1.29.2
