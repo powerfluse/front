@@ -13,12 +13,14 @@ FROM base AS build
 RUN echo ${DIRECTUS_URL}
 ENV NODE_ENV=production
 ARG DIRECTUS_URL
+ENV DIRECTUS_URL=${DIRECTUS_URL}
 ARG NOCODB_URL
+ENV NOCODB_URL=${NOCODB_URL}
 ARG NOCODB_TOKEN
+ENV NOCODB_TOKEN=${NOCODB_TOKEN}
 WORKDIR /build
 COPY . .
 COPY --from=base /base ./
-RUN echo ${DIRECTUS_URL}
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 
 # production

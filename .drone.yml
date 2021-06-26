@@ -47,7 +47,7 @@ steps:
         path: /var/run/docker.sock
     commands:
       - echo $${NOCODB_TOKEN}
-      - docker build --build-arg NOCODB_TOKEN=$${NOCODB_TOKEN} --build-arg NOCODB_URL=$${NOCODB_URL} --build-arg DIRECTUS_URL=$${DIRECTUS_URL} -f front/Dockerfile.prod -t bvpk-front:0.0.1 --no-cache front/
+      - docker build --build-arg NOCODB_TOKEN --build-arg NOCODB_URL --build-arg DIRECTUS_URL -f front/Dockerfile.prod -t bvpk-front:0.0.1 --no-cache front/
 
   - name: deploy frontend
     image: docker/compose:1.29.2
