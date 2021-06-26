@@ -1,19 +1,19 @@
-const NOCO_DB_URL = process.env.NOCO_DB_URL
-const NOCO_DB_TOKEN = process.env.NOCO_DB_TOKEN
+const NOCODB_URL = process.env.NOCODB_URL
+const NOCODB_TOKEN = process.env.NOCODB_TOKEN
 
 export default function handler(req, res) {
   if (req.method === 'POST') {
     async function postToNocoDb(data) {
-      // console.log('Token (POST): ', NOCO_DB_TOKEN)
+      // console.log('Token (POST): ', NOCODB_TOKEN)
       // console.log(
       //   'Query (POST): ',
-      //   NOCO_DB_URL + '/nc/bvpk_9YLS/api/v1/newsletter'
+      //   NOCODB_URL + '/nc/bvpk_9YLS/api/v1/newsletter'
       // )
-      const res = await fetch(NOCO_DB_URL + '/nc/bvpk_9YLS/api/v1/newsletter', {
+      const res = await fetch(NOCODB_URL + '/nc/bvpk_9YLS/api/v1/newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'xc-auth': NOCO_DB_TOKEN,
+          'xc-auth': NOCODB_TOKEN,
         },
         body: JSON.stringify(data),
       })
@@ -33,7 +33,6 @@ export default function handler(req, res) {
           message:
             'Oops. Hier gab es ein Problem. Vielleicht bist du schon angemeldet',
         })
-        new Error()
       })
   } else {
     res.setHeader('Allow', ['POST'])

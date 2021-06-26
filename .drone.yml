@@ -36,12 +36,15 @@ steps:
       - docker-compose -f back/nocodb.prod.yml up -d
 
   - name: build frontend
-    image: docker/compose:1.29.2
+    image: docker/dind
+    environment:
+      NOCODB_TOKEN:
+        from_secret: nocodb_token
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker-compose -f front/docker-compose.prod.yml build --pull
+      - echo "${NOCODB_TOKEN}"
 
   - name: deploy frontend
     image: docker/compose:1.29.2

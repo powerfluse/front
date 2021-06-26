@@ -1,5 +1,5 @@
-const NOCO_DB_URL = process.env.NOCO_DB_URL
-const NOCO_DB_TOKEN = process.env.NOCO_DB_TOKEN
+const NOCODB_URL = process.env.NOCODB_URL
+const NOCODB_TOKEN = process.env.NOCODB_TOKEN
 
 export default function handler(req, res) {
   if (req.method === 'POST') {
@@ -7,16 +7,13 @@ export default function handler(req, res) {
     console.log(req.body)
 
     async function postToNocoDb(data) {
-      console.log('Token (POST): ', NOCO_DB_TOKEN)
-      console.log(
-        'Query (POST): ',
-        NOCO_DB_URL + '/nc/bvpk_9YLS/api/v1/kontakt'
-      )
-      const res = await fetch(NOCO_DB_URL + '/nc/bvpk_9YLS/api/v1/kontakt', {
+      console.log('Token (POST): ', NOCODB_TOKEN)
+      console.log('Query (POST): ', NOCODB_URL + '/nc/bvpk_9YLS/api/v1/kontakt')
+      const res = await fetch(NOCODB_URL + '/nc/bvpk_9YLS/api/v1/kontakt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'xc-auth': NOCO_DB_TOKEN,
+          'xc-auth': NOCODB_TOKEN,
         },
         body: JSON.stringify(data),
       })
