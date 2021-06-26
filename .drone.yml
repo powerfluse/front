@@ -40,11 +40,13 @@ steps:
     environment:
       NOCODB_TOKEN:
         from_secret: nocodb_token
+      NOCODB_URL: https://bvpk-db.linus.cx
+      DIRECTUS_URL: https://bvpk-back.linus.cx
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - echo $${NOCODB_TOKEN}
+      - echo $${NOCODB_TOKEN} && echo $${NOCODB_URL} && echo $${DIRECTUS_URL}
 
   - name: deploy frontend
     image: docker/compose:1.29.2
