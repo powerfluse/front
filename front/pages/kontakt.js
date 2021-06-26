@@ -7,7 +7,6 @@ import Modal from '../components/modal'
 import { useForm } from 'react-hook-form'
 import { getContactPage } from '../lib/api'
 import { useState } from 'react'
-import router from 'next/router'
 
 export default function Kontakt(props) {
   const { register, handleSubmit, formState } = useForm({

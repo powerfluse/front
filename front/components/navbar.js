@@ -16,24 +16,25 @@ const support = [
     name: 'Mitglied werden',
     description:
       'Du lebst für das Feuerwerk und willst uns als Privatperson unterstützen',
-    href: '#',
+    href: '/mitglied-werden-privat',
     icon: UserIcon,
   },
   {
     name: 'Firmenmitglied werden',
     description:
       'Du möchtest uns als Profi mit deinem Feuerwerksbetrieb unterstützten.',
-    href: '#',
+    href: '/mitglied-werden-firma',
     icon: OfficeBuildingIcon,
   },
   {
     name: 'Mitgliedschaft ändern',
     description:
       'Du bist schon Mitglied als Privatperson, willst uns nun aber als Betrieb unterstützen.',
-    href: '#',
+    href: '/mitglied-werden-privat',
     icon: CogIcon,
   },
 ]
+
 const navigation = [
   { name: 'Über uns', href: '/ueber-uns' },
   { name: 'Aktuelles', href: '/aktuelles' },

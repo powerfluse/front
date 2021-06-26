@@ -23,6 +23,9 @@ RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 FROM build AS production
 WORKDIR /home/node/app
 ENV NODE_ENV=production
+ARG DIRECTUS_URL
+ARG NOCODB_URL
+ARG NOCODB_TOKEN
 #COPY --from=build --chown=node:node /build/next.config.js ./
 COPY --from=build --chown=node:node /build/public ./public
 COPY --from=build --chown=node:node /build/.next ./.next

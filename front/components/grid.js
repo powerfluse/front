@@ -1,71 +1,60 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { DotsVerticalIcon } from '@heroicons/react/solid'
+import { MailIcon, PhoneIcon } from '@heroicons/react/solid'
+import {
+  UserIcon,
+  OfficeBuildingIcon,
+  CogIcon,
+  MenuIcon,
+  XIcon,
+} from '@heroicons/react/outline'
 
-const projects = [
+const support = [
   {
-    name: 'Graph API',
-    initials: 'GA',
-    href: '#',
-    members: 16,
-    bgColor: 'bg-pink-600',
+    name: 'Mitglied werden',
+    description:
+      'Du lebst für das Feuerwerk und willst uns als Privatperson unterstützen',
+    href: '/mitglied-werden-privat',
+    icon: UserIcon,
   },
   {
-    name: 'Component Design',
-    initials: 'CD',
-    href: '#',
-    members: 12,
-    bgColor: 'bg-purple-600',
+    name: 'Firmenmitglied werden',
+    description:
+      'Du möchtest uns als Profi mit deinem Feuerwerksbetrieb unterstützten.',
+    href: '/mitglied-werden-firma',
+    icon: OfficeBuildingIcon,
   },
   {
-    name: 'Templates',
-    initials: 'T',
-    href: '#',
-    members: 16,
-    bgColor: 'bg-yellow-500',
+    name: 'Mitgliedschaft ändern',
+    description:
+      'Du bist schon Mitglied als Privatperson, willst uns nun aber als Betrieb unterstützen.',
+    href: '/mitglied-werden-privat',
+    icon: CogIcon,
   },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export default function Grid() {
   return (
-    <div className="bg-purple-900 pt-24 px-5 lg:pt-32 lg:px-8">
-      <ul className="mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <li
-            key={project.name}
-            className="col-span-1 md:h-32 lg:h-72 flex shadow-sm rounded-md"
-          >
-            <div
-              className={classNames(
-                project.bgColor,
-                'flex-shrink-0 flex items-center justify-center w-16 text-white text-sm font-medium rounded-l-md'
-              )}
-            >
-              {project.initials}
+    <ul className="px-4 lg:px-8 mt-24 lg:mt-48 grid grid-cols-1 gap-6 lg:grid-cols-3">
+      {support.map((s) => (
+        <li
+          key={s.name}
+          className="col-span-1 flex flex-col text-center bg-purple-800 rounded-lg transition-all hover:shadow-xl hover:ring ring-purple-300"
+        >
+          <div className="flex-1 flex flex-col p-8">
+            <div className="h-32 w-32 bg-purple-600 rounded-lg mx-auto flex items-center justify-center">
+              <s.icon className="w-24 h-24 flex-shrink-0 text-gray-300" />
             </div>
-            <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
-              <div className="flex-1 px-4 py-2 text-sm truncate">
-                <a
-                  href={project.href}
-                  className="text-gray-900 font-medium hover:text-gray-600"
-                >
-                  {project.name}
-                </a>
-                <p className="text-gray-500">{project.members} Members</p>
-              </div>
-              <div className="flex-shrink-0 pr-2">
-                <button className="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  <span className="sr-only">Open options</span>
-                  <DotsVerticalIcon className="w-5 h-5" aria-hidden="true" />
-                </button>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+            <h3 className="mt-6 text-gray-300 text-xl font-medium">{s.name}</h3>
+            <dl className="mt-2 flex-grow flex flex-col justify-between">
+              <dt className="sr-only">s.description</dt>
+              <dd className="text-gray-400 text-md font-source">
+                {s.description}
+              </dd>
+              <dt className="sr-only">Role</dt>
+            </dl>
+          </div>
+        </li>
+      ))}
+    </ul>
   )
 }
