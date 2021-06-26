@@ -10,6 +10,7 @@ RUN yarn install --frozen-lockfile
 
 # build
 FROM base AS build
+RUN echo ${DIRECTUS_URL}
 ENV NODE_ENV=production
 ARG DIRECTUS_URL
 ARG NOCODB_URL
@@ -17,7 +18,7 @@ ARG NOCODB_TOKEN
 WORKDIR /build
 COPY . .
 COPY --from=base /base ./
-CMD ["echo", "${DIRECTUS_URL}"]
+RUN echo ${DIRECTUS_URL}
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 
 # production
