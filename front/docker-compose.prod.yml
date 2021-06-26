@@ -3,10 +3,7 @@ version: '3'
 
 services:
   next:
-    build:
-      context: .
-      dockerfile: Dockerfile.prod
-    image: next/starter:0.0.1
+    image: bvpk-front:0.0.1
     container_name: next
     restart: always
     networks:
