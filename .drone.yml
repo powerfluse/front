@@ -36,7 +36,7 @@ steps:
       - docker-compose -f back/nocodb.prod.yml up -d
 
   - name: build frontend
-    image: docker/dind
+    image: docker:20.10.7
     environment:
       NOCODB_TOKEN:
         from_secret: nocodb_token
