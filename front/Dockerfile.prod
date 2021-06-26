@@ -11,6 +11,9 @@ RUN yarn install --frozen-lockfile
 # build
 FROM base AS build
 ENV NODE_ENV=production
+ARG DIRECTUS_URL
+ARG NOCODB_URL
+ARG NOCODB_TOKEN
 WORKDIR /build
 COPY . .
 COPY --from=base /base ./
