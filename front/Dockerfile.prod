@@ -17,6 +17,7 @@ ARG NOCODB_TOKEN
 WORKDIR /build
 COPY . .
 COPY --from=base /base ./
+CMD ["echo", "${DIRECTUS_URL}"]
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 
 # production
