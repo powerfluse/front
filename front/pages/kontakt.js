@@ -295,7 +295,7 @@ export default function Kontakt(props) {
                           type="text"
                           name="subject"
                           id="betreff"
-                          className="py-3 px-4 font-source block w-full formfield"
+                          className="font-source block w-full formfield"
                           {...register('betreff', {
                             required: true,
                             maxLength: 150,
@@ -323,7 +323,7 @@ export default function Kontakt(props) {
                           id="nachricht"
                           name="nachricht"
                           rows={6}
-                          className="py-3 px-4 font-source block w-full formfield"
+                          className="formfield"
                           aria-describedby="message-max"
                           defaultValue={''}
                           {...register('nachricht', {
@@ -331,7 +331,7 @@ export default function Kontakt(props) {
                             maxLength: 150,
                           })}
                         />
-                        <div className="mt-4">
+                        <div className="mt-3">
                           <input
                             id="zustimmung"
                             name="zustimmung"

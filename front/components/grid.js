@@ -46,7 +46,7 @@ export default function Grid() {
               <div className="h-32 w-32 bg-purple-600 rounded-lg mx-auto flex items-center justify-center">
                 <s.icon className="w-24 h-24 flex-shrink-0 text-gray-300" />
               </div>
-              <h3 className="mt-6 text-gray-300 text-xl font-medium">
+              <h3 className="mt-6 text-gray-300 font-titillium text-xl font-bold">
                 {s.name}
               </h3>
               <dl className="mt-2 flex-grow flex flex-col justify-between">

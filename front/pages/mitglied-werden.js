@@ -5,7 +5,6 @@ import NavBar from '../components/navbar'
 import BlogIndex from '../components/blog-index'
 import Grid from '../components/grid'
 import Footer from '../components/footer'
-import { getAktuelles10, getIndexPage } from '../lib/api'
 
 export default function Index(props) {
   return (

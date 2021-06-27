@@ -5,7 +5,7 @@ import NavBar from '../components/navbar'
 import BlogIndex from '../components/blog-index'
 import Hero from '../components/hero'
 import Footer from '../components/footer'
-import { getAktuelles10, getIndexPage } from '../lib/api'
+import { getAktuelles6, getIndexPage } from '../lib/api'
 
 export default function Index(props) {
   return (
@@ -26,11 +26,11 @@ export default function Index(props) {
 
 export async function getStaticProps() {
   const dataIndexPage = await getIndexPage()
-  const dataAktuelles10 = await getAktuelles10()
+  const dataAktuelles6 = await getAktuelles6()
   return {
     props: {
       dataIndexPage,
-      dataAktuelles10,
+      dataAktuelles6,
     },
     revalidate: 10,
   }

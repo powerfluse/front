@@ -3,8 +3,19 @@ import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
 import Head from 'next/head'
 import Modal from '../components/modal'
+import { useForm } from 'react-hook-form'
+import Input from '../components/input'
+import Select from '../components/select'
+import { countries } from '../components/countries.js'
 
 export default function Example() {
+  const { register, handleSubmit, formState } = useForm({
+    mode: 'onChange',
+  })
+  const { isDirty, isValid, isSubmitting, isSubmitSuccessful, errors } =
+    formState
+  console.log(countries[0])
+
   return (
     <>
       <Head>
@@ -12,22 +23,22 @@ export default function Example() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-      <div className="bg-purple-900 pt-32 px-4 lg:px-8">
+      <div className="min-h-screen bg-purple-900 pt-32 px-4 lg:px-8">
         <div></div>
         <div className="hidden sm:block" aria-hidden="true">
           <div className="py-5">
-            <div className="border-t border-gray-200" />
+            <div className="border-t border-purple-600" />
           </div>
         </div>
         <div className="mt-10 sm:mt-0">
           <div className="md:grid md:grid-cols-3 md:gap-6">
             <div className="md:col-span-1">
               <div className="px-4 sm:px-0">
-                <h3 className="text-lg font-medium leading-6 text-gray-300">
-                  Personal Information
+                <h3 className="text-xl font-titillium font-bold leading-6 text-gray-300">
+                  Daten Firma
                 </h3>
-                <p className="mt-1 text-sm text-gray-600">
-                  Use a permanent address where you can receive mail.
+                <p className="mt-1 text-md font-source text-gray-400">
+                  Trage hier bitte die Eckdaten deiner Firma ein
                 </p>
               </div>
             </div>
@@ -36,132 +47,110 @@ export default function Example() {
                 <div className="shadow overflow-hidden sm:rounded-md">
                   <div className="px-4 py-5 bg-purple-800 sm:p-6">
                     <div className="grid grid-cols-6 gap-6">
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="first_name"
-                          className="block text-sm font-medium text-gray-300"
-                        >
-                          First name
-                        </label>
-                        <input
+                      {/* Firmenname */}
+                      <div className="col-span-6 md:col-span-6">
+                        <Input
                           type="text"
-                          name="first_name"
-                          id="first_name"
-                          autoComplete="given-name"
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          name="firmenname"
+                          msg="Max. 70 Zeichen"
+                          autoComplete="organization"
+                          validation={{
+                            required: 'true',
+                            maxLength: 70,
+                          }}
                         />
                       </div>
-
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="last_name"
-                          className="block text-sm font-medium text-gray-300"
-                        >
-                          Last name
-                        </label>
-                        <input
+                      {/* Strasse */}
+                      <div className="col-span-4 md:col-span-5">
+                        <Input
                           type="text"
-                          name="last_name"
-                          id="last_name"
-                          autoComplete="family-name"
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                        />
-                      </div>
-
-                      <div className="col-span-6 sm:col-span-4">
-                        <label
-                          htmlFor="email_address"
-                          className="block text-sm font-medium text-gray-300"
-                        >
-                          Email address
-                        </label>
-                        <input
-                          type="text"
-                          name="email_address"
-                          id="email_address"
-                          autoComplete="email"
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                        />
-                      </div>
-
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="country"
-                          className="block text-sm font-medium text-gray-300"
-                        >
-                          Country / Region
-                        </label>
-                        <select
-                          id="country"
-                          name="country"
-                          autoComplete="country"
-                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        >
-                          <option>United States</option>
-                          <option>Canada</option>
-                          <option>Mexico</option>
-                        </select>
-                      </div>
-
-                      <div className="col-span-6">
-                        <label
-                          htmlFor="street_address"
-                          className="block text-sm font-medium text-gray-300"
-                        >
-                          Street address
-                        </label>
-                        <input
-                          type="text"
-                          name="street_address"
-                          id="street_address"
+                          name="strasse"
+                          msg="Max. 30 Zeichen"
                           autoComplete="street-address"
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          validation={{ required: 'true', maxLength: 30 }}
                         />
                       </div>
-
-                      <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                        <label
-                          htmlFor="city"
-                          className="block text-sm font-medium text-gray-300"
-                        >
-                          City
-                        </label>
-                        <input
+                      {/* Hausnummer */}
+                      <div className="col-span-2 md:col-span-1">
+                        <Input
                           type="text"
-                          name="city"
-                          id="city"
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          name="hausnummer"
+                          msg=" "
+                          autoComplete="off"
+                          validation={{ required: 'true', maxLength: 5 }}
                         />
                       </div>
-
-                      <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label
-                          htmlFor="state"
-                          className="block text-sm font-medium text-gray-300"
-                        >
-                          State / Province
-                        </label>
-                        <input
+                      {/* PLZ */}
+                      <div className="col-span-3 md:col-span-2">
+                        <Input
                           type="text"
-                          name="state"
-                          id="state"
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          name="Postleitzahl"
+                          msg="Max. 5 Zeichen"
+                          autoComplete="off"
+                          validation={{
+                            required: 'true',
+                            maxLength: 5,
+                            minLength: 5,
+                            pattern: {
+                              value: /[0-9]{5}/,
+                            },
+                          }}
                         />
                       </div>
-
-                      <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label
-                          htmlFor="postal_code"
-                          className="block text-sm font-medium text-gray-300"
-                        >
-                          ZIP / Postal
-                        </label>
-                        <input
+                      {/* Ort */}
+                      <div className="col-span-3 md:col-span-2">
+                        <Input
                           type="text"
-                          name="postal_code"
-                          id="postal_code"
-                          autoComplete="postal-code"
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          name="ort"
+                          msg="Max. 35 Zeichen"
+                          autoComplete="address-level2"
+                          validation={{
+                            required: 'true',
+                            maxLength: 35,
+                          }}
+                        />
+                      </div>
+                      {/* Land */}
+                      <div className="col-span-6 md:col-span-2">
+                        <Select
+                          name="land"
+                          autoComplete="country"
+                          options={countries}
+                          defaultValue="Deutschland"
+                        />
+                      </div>
+                      {/* Email */}
+                      <div className="col-span-6 md:col-span-3">
+                        <Input
+                          type="email"
+                          name="email"
+                          msg=" "
+                          autoComplete="email"
+                          validation={{
+                            required: 'true',
+                            maxLength: 50,
+                            pattern: {
+                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                              message: 'Diese Email-Addresse ist ungültig',
+                            },
+                          }}
+                        />
+                      </div>
+                      {/* Telefonnummer */}
+                      <div className="col-span-6 md:col-span-3">
+                        <Input
+                          type="tel"
+                          name="telefonnummer_firma"
+                          msg=" "
+                          autoComplete="phone"
+                          validation={{
+                            required: 'true',
+                            maxLength: 15,
+                            pattern: {
+                              value: /[0-9]*/,
+                              message: 'Diese Email-Addresse ist ungültig',
+                            },
+                          }}
                         />
                       </div>
                     </div>
@@ -173,14 +162,14 @@ export default function Example() {
         </div>
         <div className="hidden sm:block" aria-hidden="true">
           <div className="py-5">
-            <div className="border-t border-gray-200" />
+            <div className="border-t border-purple-600" />
           </div>
         </div>
         <div className="mt-10 sm:mt-0">
           <div className="md:grid md:grid-cols-3 md:gap-6">
             <div className="md:col-span-1">
               <div className="px-4 sm:px-0">
-                <h3 className="text-lg font-medium leading-6 text-gray-300">
+                <h3 className="text-lg font-source font-bold leading-6 text-gray-300">
                   Notifications
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
@@ -193,7 +182,7 @@ export default function Example() {
                 <div className="shadow overflow-hidden sm:rounded-md">
                   <div className="px-4 py-5 bg-purple-800 space-y-6 sm:p-6">
                     <fieldset>
-                      <legend className="text-base font-medium text-gray-300">
+                      <legend className="text-base font-source font-bold text-gray-300">
                         By Email
                       </legend>
                       <div className="mt-4 space-y-4">
@@ -209,7 +198,7 @@ export default function Example() {
                           <div className="ml-3 text-sm">
                             <label
                               htmlFor="comments"
-                              className="font-medium text-gray-300"
+                              className="font-source font-bold text-gray-300"
                             >
                               Comments
                             </label>
@@ -231,7 +220,7 @@ export default function Example() {
                           <div className="ml-3 text-sm">
                             <label
                               htmlFor="candidates"
-                              className="font-medium text-gray-300"
+                              className="font-source font-bold text-gray-300"
                             >
                               Candidates
                             </label>
@@ -252,7 +241,7 @@ export default function Example() {
                           <div className="ml-3 text-sm">
                             <label
                               htmlFor="offers"
-                              className="font-medium text-gray-300"
+                              className="font-source font-bold text-gray-300"
                             >
                               Offers
                             </label>
@@ -266,7 +255,7 @@ export default function Example() {
                     </fieldset>
                     <fieldset>
                       <div>
-                        <legend className="text-base font-medium text-gray-300">
+                        <legend className="text-base font-source font-bold text-gray-300">
                           Push Notifications
                         </legend>
                         <p className="text-sm text-gray-500">
@@ -283,7 +272,7 @@ export default function Example() {
                           />
                           <label
                             htmlFor="push_everything"
-                            className="ml-3 block text-sm font-medium text-gray-300"
+                            className="ml-3 block text-sm font-source font-bold text-gray-300"
                           >
                             Everything
                           </label>
@@ -297,7 +286,7 @@ export default function Example() {
                           />
                           <label
                             htmlFor="push_email"
-                            className="ml-3 block text-sm font-medium text-gray-300"
+                            className="ml-3 block text-sm font-source font-bold text-gray-300"
                           >
                             Same as email
                           </label>
@@ -311,7 +300,7 @@ export default function Example() {
                           />
                           <label
                             htmlFor="push_nothing"
-                            className="ml-3 block text-sm font-medium text-gray-300"
+                            className="ml-3 block text-sm font-source font-bold text-gray-300"
                           >
                             No push notifications
                           </label>
@@ -319,19 +308,11 @@ export default function Example() {
                       </div>
                     </fieldset>
                   </div>
-                  <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button
-                      type="submit"
-                      className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                      Save
-                    </button>
-                  </div>
                 </div>
               </form>
             </div>
           </div>
-        </div>{' '}
+        </div>
       </div>
     </>
   )
