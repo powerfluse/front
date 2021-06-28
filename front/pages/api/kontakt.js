@@ -7,16 +7,19 @@ export default function handler(req, res) {
     console.log(req.body)
 
     async function postToNocoDb(data) {
-      console.log('Token (POST): ', NOCODB_TOKEN)
-      console.log('Query (POST): ', NOCODB_URL + '/nc/bvpk_9YLS/api/v1/kontakt')
-      const res = await fetch(NOCODB_URL + '/nc/bvpk_9YLS/api/v1/kontakt', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'xc-auth': NOCODB_TOKEN,
-        },
-        body: JSON.stringify(data),
-      })
+      // console.log('Token (POST): ', NOCODB_TOKEN)
+      // console.log('Query (POST): ', NOCODB_URL + '/nc/bvpk_9YLS/api/v1/kontakt')
+      const res = await fetch(
+        NOCODB_URL + '/nc/bvpk_9YLS/api/v1/kontaktanfragen',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'xc-auth': NOCODB_TOKEN,
+          },
+          body: JSON.stringify(data),
+        }
+      )
       const json = await res.json()
       if (json.errors) {
         console.error(json.errors)

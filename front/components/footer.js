@@ -77,7 +77,7 @@ export default function Example() {
           ))}
         </div>
         <p className="mt-8 text-center text-md font-source text-gray-400">
-          &copy; 2021 bvpk e.V. Alle Rechte vorbehalten.
+          &copy; 2021 BVPK e.V. Alle Rechte vorbehalten.
         </p>
       </div>
     </footer>

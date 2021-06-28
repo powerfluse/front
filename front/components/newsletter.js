@@ -28,7 +28,7 @@ export default function Newsletter() {
       })
       .catch((e) => {
         console.log(e)
-        setError('email_newsletter', {
+        setError('nl_email', {
           type: 'manual',
           message:
             'Oops. Hier gab es ein Problem. Vielleicht hast du dich schon angemeldet?',
@@ -59,14 +59,20 @@ export default function Newsletter() {
                 Email-Addresse
               </label>
               <input
-                id="email_newsletter"
-                name="email_newsletter"
+                id="nl_email"
+                name="nl_email"
                 type="email"
                 autoComplete="email"
                 required={true}
-                className="w-full px-4 py-3 formfield"
+                className={
+                  errors.nl_email && isDirty && !isValid
+                    ? 'formfield-invalid'
+                    : isValid
+                    ? 'formfield-valid'
+                    : 'formfield'
+                }
                 placeholder="E-mail eingeben"
-                {...register('email_newsletter', {
+                {...register('nl_email', {
                   required: true,
                   maxLength: 45,
                   pattern: {
@@ -93,7 +99,7 @@ export default function Newsletter() {
               </div>
             </form>
             <div className="text-sm font-bold mt-1 font-source text-purple-300">
-              {errors.email_newsletter && errors.email_newsletter.message}
+              {errors.nl_email && errors.nl_email.message}
             </div>
             <div className="mt-4">
               <input

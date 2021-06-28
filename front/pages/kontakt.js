@@ -4,16 +4,18 @@ import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
 import Head from 'next/head'
 import Modal from '../components/modal'
-import { useForm } from 'react-hook-form'
+import Input from '../components/input'
+import TextArea from '../components/text-area'
+import { useForm, FormProvider } from 'react-hook-form'
 import { getContactPage } from '../lib/api'
 import { useState } from 'react'
 
 export default function Kontakt(props) {
-  const { register, handleSubmit, formState } = useForm({
+  const methods = useForm({
     mode: 'onChange',
   })
   const { isDirty, isValid, isSubmitting, isSubmitSuccessful, errors } =
-    formState
+    methods.formState
 
   const [openModal, setOpenModal] = useState(false)
 
@@ -58,7 +60,7 @@ export default function Kontakt(props) {
           </div>
         </div>
 
-        {/* Kontaktformular */}
+        {/* Kontakt */}
         <section
           className="relative bg-purple-900"
           aria-labelledby="contactHeading"
@@ -71,7 +73,7 @@ export default function Kontakt(props) {
               </h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
-                {/* Kontaktinformationen */}
+                {/* Informationen */}
                 <div className="relative rounded-l-lg overflow-hidden py-10 px-6 bg-gradient-to-t from-purple-300 to-purple-600 sm:px-10 xl:p-12">
                   <div
                     className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
@@ -169,216 +171,157 @@ export default function Kontakt(props) {
                   </ul>
                 </div>
 
-                {/* Contact form */}
-                <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-                  <h3 className="text-2xl font-source font-bold text-gray-300">
-                    Sende uns eine Nachricht
-                  </h3>
-                  <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
-                  >
-                    <div>
-                      <label
-                        htmlFor="vorname"
-                        className="block text-sm font-source font-bold text-gray-300"
-                      >
-                        Vorname
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          required={true}
+                {/* Formular */}
+                <FormProvider {...methods}>
+                  <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
+                    <h3 className="text-2xl font-source font-bold text-gray-300">
+                      Sende uns eine Nachricht
+                    </h3>
+                    <form
+                      onSubmit={methods.handleSubmit(onSubmit)}
+                      className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                    >
+                      <div className="col-span-1">
+                        {/* Vorname */}
+                        <Input
                           type="text"
-                          name="vorname"
-                          id="vorname"
+                          title="Vorname"
+                          name="k_vorname"
+                          msg=" "
                           autoComplete="given-name"
-                          className="py-3 px-4 font-source block w-full formfield"
-                          {...register('vorname', {
-                            required: true,
-                            maxLength: 45,
-                          })}
+                          validation={{
+                            required: { value: 'true', message: 'Pflichtfeld' },
+                            maxLength: 35,
+                          }}
                         />
                       </div>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="nachname"
-                        className="block text-sm font-source font-bold text-gray-300"
-                      >
-                        Nachname
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          required={true}
+                      {/* Nachname */}
+                      <div className="col-span-1">
+                        <Input
                           type="text"
-                          name="nachname"
-                          id="nachname"
+                          title="Nachname"
+                          name="k_nachname"
+                          msg=" "
                           autoComplete="family-name"
-                          className="py-3 px-4 font-source block w-full formfield"
-                          {...register('nachname', {
-                            required: true,
-                            maxLength: 45,
-                          })}
+                          validation={{
+                            required: { value: 'true', message: 'Pflichtfeld' },
+                            maxLength: 35,
+                          }}
                         />
                       </div>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-source font-bold text-gray-300"
-                      >
-                        Email
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          required={true}
-                          id="email"
-                          name="email"
+                      {/* Email */}
+                      <div className="col-span-1">
+                        <Input
                           type="email"
+                          title="Email"
+                          name="k_email"
+                          msg=" "
                           autoComplete="email"
-                          className="py-3 px-4 font-source block w-full formfield"
-                          {...register('email', {
-                            required: true,
-                            maxLength: 45,
+                          validation={{
+                            required: { value: 'true', message: 'Pflichtfeld' },
+                            maxLength: 50,
                             pattern: {
                               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                               message: 'Diese Email-Addresse ist ungültig',
                             },
-                          })}
+                          }}
                         />
-                        <div className="text-sm font-bold font-source text-purple-300">
-                          {errors.email && errors.email.message}
-                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between">
-                        <label
-                          htmlFor="telefonnummer"
-                          className="block text-sm font-source font-bold text-gray-300"
-                        >
-                          Telefonnummer
-                        </label>
-                        <span
-                          id="phone-optional"
-                          className="text-sm font-source text-gray-300"
-                        >
-                          Optional
-                        </span>
+                      {/* Telefonnummer */}
+                      <div className="col-span-1">
+                        <Input
+                          type="tel"
+                          title="Telefon"
+                          name="k_telefon"
+                          msg=" "
+                          autoComplete="phone"
+                          validation={{
+                            maxLength: 15,
+                            pattern: {
+                              value: /[0-9]{1,15}/,
+                              message: 'Diese Telefonnummer ist ungültig',
+                            },
+                          }}
+                        />
                       </div>
-                      <div className="mt-1">
-                        <input
-                          required={false}
+                      {/* Betreff */}
+                      <div className="col-span-2">
+                        <Input
                           type="text"
-                          name="telefonnummer"
-                          id="telefonnummer"
-                          autoComplete="tel"
-                          className="py-3 px-4 font-source block w-full formfield"
-                          aria-describedby="phone-optional"
-                          {...register('telefonnummer', {
-                            required: false,
-                            maxLength: 30,
-                          })}
+                          title="Betreff"
+                          name="k_betreff"
+                          msg="max. 35 Zeichen"
+                          autoComplete="off"
+                          validation={{
+                            required: { value: 'true', message: 'Pflichtfeld' },
+                            maxLength: 35,
+                          }}
                         />
                       </div>
-                    </div>
-                    <div className="sm:col-span-2">
-                      <label
-                        htmlFor="betreff"
-                        className="block text-sm font-source font-bold text-gray-300"
-                      >
-                        Betreff
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          required={true}
-                          type="text"
-                          name="subject"
-                          id="betreff"
-                          className="font-source block w-full formfield"
-                          {...register('betreff', {
-                            required: true,
-                            maxLength: 150,
-                          })}
-                        />
-                      </div>
-                    </div>
-                    <div className="sm:col-span-2">
-                      <div className="flex justify-between">
-                        <label
-                          htmlFor="nachricht"
-                          className="block text-sm font-source font-bold text-gray-300"
-                        >
-                          Nachricht
-                        </label>
-                        <span
-                          id="message-max"
-                          className="text-sm font-source text-gray-300"
-                        >
-                          Max. 500 Zeichen
-                        </span>
-                      </div>
-                      <div className="mt-1">
-                        <textarea
-                          id="nachricht"
-                          name="nachricht"
-                          rows={6}
-                          className="formfield"
-                          aria-describedby="message-max"
-                          defaultValue={''}
-                          {...register('nachricht', {
-                            required: true,
-                            maxLength: 150,
-                          })}
-                        />
-                        <div className="mt-3">
-                          <input
-                            id="zustimmung"
-                            name="zustimmung"
-                            type="checkbox"
-                            className="focus:ring-purple-300 h-4 w-4 text-purple-300 border-gray-300 rounded-sm h-4"
-                            {...register('zustimmung', {
-                              required: true,
-                            })}
+                      <div className="sm:col-span-2">
+                        <div className="mt-1">
+                          <TextArea
+                            title="Nachricht"
+                            rows={6}
+                            name="k_nachricht"
+                            msg="max. 500 Zeichen"
+                            validation={{
+                              required: {
+                                value: 'true',
+                                message: 'Pflichtfeld',
+                              },
+                              maxLength: 150,
+                            }}
                           />
-                          <span className="mx-2 fount-source text-sm text-gray-300">
-                            Ich stimme{' '}
-                            <a
-                              href="/datenschutz"
-                              className="underline text-purple-300"
-                            >
-                              der Verarbeitung meiner Daten
-                            </a>{' '}
-                            durch den bvpk e.V. zu
-                          </span>
+                          <div className="mt-3">
+                            <input
+                              id="zustimmung"
+                              name="zustimmung"
+                              type="checkbox"
+                              className="focus:ring-purple-300 h-4 w-4 text-purple-300 border-gray-300 rounded-sm h-4"
+                              {...methods.register('zustimmung', {
+                                required: true,
+                              })}
+                            />
+                            <span className="mx-2 fount-source text-sm text-gray-300">
+                              Ich stimme{' '}
+                              <a
+                                href="/datenschutz"
+                                className="underline text-purple-300"
+                              >
+                                der Verarbeitung meiner Daten
+                              </a>{' '}
+                              durch den BVPK e.V. zu
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="sm:col-span-2 sm:flex sm:justify-end ">
-                      <button
-                        type="submit"
-                        className={`${
-                          isSubmitSuccessful
-                            ? 'mt-2 w-full sm:w-auto button-success'
-                            : 'mt-2 w-full sm:w-auto button'
-                        }`}
-                        disabled={
-                          !isDirty ||
-                          !isValid ||
-                          isSubmitting ||
-                          isSubmitSuccessful
-                        }
-                        onClick={() => setOpenModal(true)}
-                      >
-                        {`${
-                          isSubmitSuccessful
-                            ? 'Danke! Wir melden uns.'
-                            : 'Abschicken'
-                        }`}
-                      </button>
-                    </div>
-                  </form>
-                </div>
+                      <div className="sm:col-span-2 sm:flex sm:justify-end ">
+                        <button
+                          type="submit"
+                          className={`${
+                            isSubmitSuccessful
+                              ? 'mt-2 w-full sm:w-auto button-success'
+                              : 'mt-2 w-full sm:w-auto button'
+                          }`}
+                          disabled={
+                            !isDirty ||
+                            !isValid ||
+                            isSubmitting ||
+                            isSubmitSuccessful
+                          }
+                          onClick={() => setOpenModal(true)}
+                        >
+                          {`${
+                            isSubmitSuccessful
+                              ? 'Danke! Wir melden uns.'
+                              : 'Abschicken'
+                          }`}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </FormProvider>
               </div>
             </div>
           </div>

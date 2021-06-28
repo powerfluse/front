@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+*:focus {
+  outline: none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 @layer utilities {
   @variants responsive {
     .text-shadow {
@@ -32,15 +47,19 @@
 }
 
 .formfield {
-  @apply w-full mt-1 py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-purple-600 focus:ring-2 focus:border-purple-600 border-purple-600 border-2 rounded-md;
+  @apply w-full py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-purple-300 focus:ring-2 focus:border-purple-300 border-purple-600 border-2 rounded-md placeholder-gray-400;
 }
 
 .formfield-invalid {
-  @apply w-full mt-1 py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-red-500 ring-2 focus:ring-2 focus:border-red-500 border-red-500 border-2 rounded-md;
+  @apply w-full py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-red-500 focus:ring-2 focus:border-red-500 border-red-500 border-2 rounded-md;
 }
 
 .formfield-valid {
-  @apply w-full mt-1 py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-green-600 focus:ring-2 focus:border-green-500 border-green-600 border-2 rounded-md;
+  @apply w-full py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-green-500 focus:ring-2 focus:border-green-500 border-green-500 border-2 rounded-md;
+}
+
+.checkbox {
+  @apply focus:ring-purple-300 h-4 w-4 text-purple-300 border-gray-300 rounded-sm h-4;
 }
 
 @layer base {

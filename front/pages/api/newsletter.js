@@ -3,12 +3,12 @@ const NOCODB_TOKEN = process.env.NOCODB_TOKEN
 
 export default function handler(req, res) {
   if (req.method === 'POST') {
+    res.status(200).json(req.body)
+    console.log(req.body)
+
     async function postToNocoDb(data) {
-      console.log('Token (POST): ', NOCODB_TOKEN)
-      console.log(
-        'Query (POST): ',
-        NOCODB_URL + '/nc/bvpk_9YLS/api/v1/newsletter'
-      )
+      // console.log('Token (POST): ', NOCODB_TOKEN)
+      // console.log('Query (POST): ', NOCODB_URL + '/nc/bvpk_9YLS/api/v1/kontakt')
       const res = await fetch(NOCODB_URL + '/nc/bvpk_9YLS/api/v1/newsletter', {
         method: 'POST',
         headers: {
@@ -17,25 +17,16 @@ export default function handler(req, res) {
         },
         body: JSON.stringify(data),
       })
-      // const json = await res.json()
-      // console.log(json)
-      if (res.status !== 200) {
+      const json = await res.json()
+      if (json.errors) {
+        console.error(json.errors)
         throw new Error('Failed to fetch API')
       }
-      return res.json
+      console.log(json)
+      return json
     }
     postToNocoDb(req.body)
-      .then(function () {
-        res.status(200).send({ message: 'Danke, das hat funktioniert!' })
-      })
-      .catch(function (e) {
-        res.status(400).send({
-          message:
-            'Oops. Hier gab es ein Problem. Vielleicht bist du schon angemeldet',
-        })
-      })
   } else {
-    res.setHeader('Allow', ['POST'])
-    res.status(405).end('Only POST requests allowed')
+    res.status(400).send({ message: 'Only POST requests allowed' })
   }
 }

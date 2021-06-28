@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 
-export default function Input(props) {
+export default function TextArea(props) {
   const { register, formState } = useFormContext()
   const { isDirty, isValid, errors } = formState
   const error = eval(`errors.${props.name}`)
@@ -21,11 +21,10 @@ export default function Input(props) {
           {props.msg}
         </span>
       </div>
-      <input
-        type={props.type}
+      <textarea
+        rows={props.rows}
         name={props.name}
         id={props.name}
-        autoComplete={props.autoComplete}
         className={
           error && isDirty && !isValid
             ? 'formfield-invalid'
