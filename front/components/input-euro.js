@@ -31,7 +31,7 @@ export default function InputEuro(props) {
           {...register(props.name, props.validation)}
         />
         <div className="font-source absolute inset-y-0 pl-1 right-0 pr-3 flex items-center pointer-events-none">
-          <span className="text-gray-900 mt-1" id="price-currency">
+          <span className="text-gray-900" id="price-currency">
             €
           </span>
         </div>

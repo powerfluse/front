@@ -69,7 +69,7 @@ export async function getStaticProps({ params }) {
   const data = await getAktuellesSingle(params.slug)
   return {
     props: { ...data[0] },
-    revalidate: 10,
+    revalidate: 60,
   }
 }
 

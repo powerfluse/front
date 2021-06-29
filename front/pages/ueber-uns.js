@@ -42,6 +42,6 @@ export async function getStaticProps() {
   const data = await getAboutPage()
   return {
     props: { data },
-    revalidate: 10,
+    revalidate: 60,
   }
 }

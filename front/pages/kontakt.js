@@ -338,6 +338,6 @@ export async function getStaticProps() {
   const data = await getContactPage()
   return {
     props: { data },
-    revalidate: 10,
+    revalidate: 60,
   }
 }

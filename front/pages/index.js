@@ -32,6 +32,6 @@ export async function getStaticProps() {
       dataIndexPage,
       dataAktuelles6,
     },
-    revalidate: 10,
+    revalidate: 60,
   }
 }

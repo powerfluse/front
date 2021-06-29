@@ -24,5 +24,6 @@ export async function getStaticProps() {
   const aktuelles = await getAktuellesAll()
   return {
     props: { aktuellesPage, aktuelles },
+    revalidate: 60,
   }
 }
