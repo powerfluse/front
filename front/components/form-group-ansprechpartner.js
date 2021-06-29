@@ -25,7 +25,7 @@ export default function FormGroupAnsprechpartner() {
                   <div className="col-span-6 md:col-span-2">
                     <Select
                       title="Anrede"
-                      name="firma_ap_anrede"
+                      name="f_ap_anrede"
                       options={['keine Angabe', 'Frau', 'Herr', 'Divers']}
                       autoComplete="honorific-prefix"
                     />
@@ -35,7 +35,7 @@ export default function FormGroupAnsprechpartner() {
                     <Input
                       type="text"
                       title="Vorname"
-                      name="firma_ap_vorname"
+                      name="f_ap_vorname"
                       msg="max. 35 Zeichen"
                       autoComplete="given-name"
                       validation={{
@@ -49,7 +49,7 @@ export default function FormGroupAnsprechpartner() {
                     <Input
                       type="text"
                       title="Nachname"
-                      name="firma_ap_nachname"
+                      name="f_ap_nachname"
                       msg="max. 35 Zeichen"
                       autoComplete="family-name"
                       validation={{
@@ -63,7 +63,7 @@ export default function FormGroupAnsprechpartner() {
                     <Input
                       type="email"
                       title="Email"
-                      name="firma_ap_email"
+                      name="f_ap_email"
                       msg="Wenn abweichend von oben"
                       autoComplete="email"
                       validation={{
@@ -80,7 +80,7 @@ export default function FormGroupAnsprechpartner() {
                     <Input
                       type="tel"
                       title="Telefon"
-                      name="firma_ap_telefon"
+                      name="f_ap_telefon"
                       msg="Wenn abweichend von oben"
                       autoComplete="phone"
                       validation={{

@@ -22,52 +22,52 @@ export default function FormGroupTaetigkeit() {
                 <div className="grid grid-cols-6 gap-3">
                   {/* GF */}
                   <div className="col-span-6">
-                    <Checkbox name="t_grossfeuerwerk" title="Großfeuerwerk" />
+                    <Checkbox name="f_t_gf" title="Großfeuerwerk" />
                   </div>
                   {/* Bühne */}
                   <div className="col-span-6">
-                    <Checkbox name="t_buehne" title="Bühne" />
+                    <Checkbox name="f_t_buehne" title="Bühne" />
                   </div>
                   {/* SFX */}
                   <div className="col-span-6">
-                    <Checkbox name="t_sfx" title="SFX" />
+                    <Checkbox name="f_t_sfx" title="SFX" />
                   </div>
                   {/* Handel mit GF */}
                   <div className="col-span-6">
                     <Checkbox
-                      name="t_handel_gf"
+                      name="f_t_handel_gf"
                       title="Handel mit Großfeuerwerk"
                     />
                   </div>
                   {/* Handel mit Kleinfeuerwerk zu Sylvester */}
                   <div className="col-span-6">
                     <Checkbox
-                      name="t_handel_kf_sylvester"
+                      name="f_t_handel_kf_sylvester"
                       title="Handel mit Kleinfeuerwerk zu Sylvester"
                     />
                   </div>
                   {/* Handel mit Kleinfeuerwerk unter dem Jahr */}
                   <div className="col-span-6">
                     <Checkbox
-                      name="t_handel_kf"
+                      name="f_t_handel_kf"
                       title="Handel mit Kleinfeuerwerk unter dem Jahr"
                     />
                   </div>
                   {/* Import */}
                   <div className="col-span-6">
-                    <Checkbox name="t_import" title="Import" />
+                    <Checkbox name="f_t_import" title="Import" />
                   </div>
                   {/* Herstellung in Deutschland */}
                   <div className="col-span-6">
                     <Checkbox
-                      name="t_herstellung_in_de"
+                      name="f_t_herstellung_de"
                       title="Herstellung in Deutschland"
                     />
                   </div>
                   <div className="col-span-6">
                     <Input
                       type="text"
-                      name="t_sonstiges"
+                      name="f_t_sonstige"
                       title="Sonstiges"
                       msg="max. 35 Zeichen"
                       validation={{

@@ -26,7 +26,7 @@ export default function FormGroupFirma() {
                     <Input
                       type="text"
                       title="Firmenname"
-                      name="firma_name"
+                      name="f_name"
                       msg="max. 70 Zeichen"
                       autoComplete="organization"
                       validation={{
@@ -40,7 +40,7 @@ export default function FormGroupFirma() {
                     <Input
                       type="text"
                       title="Straße"
-                      name="firma_strasse"
+                      name="f_strasse"
                       msg="max. 30 Zeichen"
                       autoComplete="street-address"
                       validation={{
@@ -53,7 +53,7 @@ export default function FormGroupFirma() {
                   <div className="col-span-2 md:col-span-1">
                     <Input
                       type="text"
-                      name="firma_hausnummer"
+                      name="f_hausnummer"
                       title="Nr."
                       msg=" "
                       autoComplete="off"
@@ -68,7 +68,7 @@ export default function FormGroupFirma() {
                     <Input
                       type="text"
                       title="Addresszusatz"
-                      name="firma_addresszusatz"
+                      name="f_addresszusatz"
                       msg="max. 35 Zeichen"
                       autoComplete="street-address"
                       validation={{ maxLength: 35 }}
@@ -79,7 +79,7 @@ export default function FormGroupFirma() {
                     <Input
                       type="text"
                       title="Postleitzahl"
-                      name="firma_plz"
+                      name="f_plz"
                       msg="max. 5 Zeichen"
                       autoComplete="off"
                       validation={{
@@ -97,7 +97,7 @@ export default function FormGroupFirma() {
                     <Input
                       type="text"
                       title="Ort"
-                      name="firma_ort"
+                      name="f_ort"
                       msg="max. 35 Zeichen"
                       autoComplete="address-level2"
                       validation={{
@@ -109,7 +109,7 @@ export default function FormGroupFirma() {
                   {/* Land */}
                   <div className="col-span-6 md:col-span-2">
                     <Select
-                      name="firma_land"
+                      name="f_land"
                       title="Land"
                       autoComplete="country"
                       options={countries}
@@ -121,7 +121,7 @@ export default function FormGroupFirma() {
                     <Input
                       type="email"
                       title="Email"
-                      name="firma_email"
+                      name="f_email"
                       msg=" "
                       autoComplete="email"
                       validation={{
@@ -139,7 +139,7 @@ export default function FormGroupFirma() {
                     <Input
                       type="tel"
                       title="Telefon"
-                      name="firma_telefon"
+                      name="f_telefon"
                       msg="max. 15 Ziffern"
                       autoComplete="phone"
                       validation={{

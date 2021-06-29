@@ -18,7 +18,10 @@ export default function Input(props) {
         {props.href ? (
           <span>
             {props.pre_href_text}
-            <a className="text-purple-300 hover:underline" href={props.href}>
+            <a
+              className="text-purple-300 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
+              href={props.href}
+            >
               {props.href_text}
             </a>
           </span>

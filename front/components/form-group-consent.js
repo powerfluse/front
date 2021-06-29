@@ -14,7 +14,7 @@ export default function FormGroupConsent() {
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6">
                     <Checkbox
-                      name="gdpr_consent"
+                      name="f_gdpr_consent"
                       href="/datenschutz"
                       pre_href_text="Ja, ich akzeptiere die "
                       href_text="Datenschutzerklärung"
@@ -25,7 +25,7 @@ export default function FormGroupConsent() {
                   </div>
                   <div className="-mt-3 col-span-6">
                     <Checkbox
-                      name="news_consent"
+                      name="f_nl_consent"
                       title="Ja, ich möchte regelmäßig per Email über die Arbeit des BVPK informiert werden."
                     />
                   </div>

@@ -29,7 +29,8 @@ export default function FormGroupFirma() {
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-2 lg:col-span-1">
                     <InputEuro
-                      name="Mitgliedsbeitrag"
+                      title="Mitgliedsbeitrag"
+                      name="f_beitrag"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 12,

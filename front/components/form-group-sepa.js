@@ -25,7 +25,7 @@ export default function FormGroupSEPA() {
                   <div className="col-span-6">
                     <Input
                       title="Kontoinhaber:in"
-                      name="sepa_kontoinhaberin"
+                      name="f_kontoinhaber"
                       autoComplete="name"
                       msg="Max. 24 Zeichen"
                       validation={{
@@ -35,10 +35,10 @@ export default function FormGroupSEPA() {
                     />
                   </div>
                   {/* IBAN */}
-                  <div className="col-span-6 md:col-span-3">
+                  <div className="col-span-6">
                     <Input
                       title="IBAN"
-                      name="sepa_iban"
+                      name="f_iban"
                       autoComplete="name"
                       msg="genau 22 Zeichen"
                       validation={{
@@ -51,25 +51,9 @@ export default function FormGroupSEPA() {
                       }}
                     />
                   </div>
-                  {/* BIC */}
-                  <div className="col-span-6 md:col-span-3">
-                    <Input
-                      title="BIC"
-                      name="sepa_bic"
-                      autoComplete="name"
-                      msg="genau 11 Zeichen. Optional"
-                      validation={{
-                        maxLength: 22,
-                        pattern: {
-                          value: /^[a-z]{6}[0-9a-z]{2}([0-9a-z]{3})?\z/i,
-                          message: 'Kein gültiger IBAN',
-                        },
-                      }}
-                    />
-                  </div>
                   <div className="col-span-6">
                     <Checkbox
-                      name="sepa_consent"
+                      name="f_sepa_consent"
                       title="Hiermit stimme ich der Abbuchung des Fördermitgliedsbeitrages zu und bestätige, dass ich Kontoinhaber:in bin."
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
