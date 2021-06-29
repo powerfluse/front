@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer'
 
 const NOCODB_URL = process.env.NOCODB_URL
 const NOCODB_TOKEN = process.env.NOCODB_TOKEN
-
+// TODO Use axios?
 export default function handler(req, res) {
   if (req.method === 'POST') {
     async function postToNocoDb(data) {
