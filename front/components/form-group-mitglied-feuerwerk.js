@@ -41,8 +41,8 @@ export default function FormGroupMitgliedFeuerwerk() {
                       </div>
                       {para7 && (
                         <div className="font-source font-bold text-gray-300 ml-4 -mt-4 col-span-6">
-                          Sie betreiben Pyrotechnik auch gewerblich? Dann
-                          unterstützen Sie uns doch auch{' '}
+                          Du betreibst Pyrotechnik auch gewerblich? Dann
+                          unterstütz uns doch auch{' '}
                           <a
                             className="text-purple-300 hover:underline"
                             target="_blank"

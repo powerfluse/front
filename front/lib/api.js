@@ -56,3 +56,13 @@ export async function getContactPage() {
   const data = await getAPI('/items/contact_page')
   return data
 }
+
+export async function getImpressumPage() {
+  const data = await getAPI('/items/impressum_page')
+  return data
+}
+
+export async function getDatenschutzPage() {
+  const data = await getAPI('/items/datenschutz_page')
+  return data
+}

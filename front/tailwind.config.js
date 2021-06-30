@@ -75,6 +75,10 @@ module.exports = {
         },
         'on-purple-aktuelles': {
           css: {
+            h1: {
+              fontWeight: 700,
+              color: '#d1d5db',
+            },
             h2: {
               color: '#d1d5db',
             },
@@ -89,6 +93,9 @@ module.exports = {
             },
             a: {
               color: '#aa248e',
+            },
+            li: {
+              color: '#d1d5db',
             },
           },
         },
