@@ -1,26 +1,27 @@
 import { useState } from 'react'
+import { useForm, FormProvider } from 'react-hook-form'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Head from 'next/head'
 import Modal from '../components/modal'
-import { useForm, FormProvider } from 'react-hook-form'
 import FormGroupFirma from '../components/form-group-firma'
-import FormGroupAnsprechpartner from '../components/form-group-ansprechpartner'
-import FormGroupTaetigkeit from '../components/form-group-taetigkeit'
-import FormGroupFeuerwerkNet from '../components/form-group-feuerwerk-net'
-import FormGroupBeitragFirma from '../components/form-group-beitrag-firma'
-import FormGroupSEPA from '../components/form-group-sepa'
-import FormGroupConsent from '../components/form-group-consent'
+import FormGroupFirmaAP from '../components/form-group-firma-ap'
+import FormGroupFirmaT from '../components/form-group-firma-t'
+import FormGroupFirmaFeuerwerkNet from '../components/form-group-firma-feuerwerk-net'
+import FormGroupFirmaBeitrag from '../components/form-group-firma-beitrag'
+import FormGroupFirmaSEPA from '../components/form-group-firma-sepa'
+import FormGroupFirmaConsent from '../components/form-group-firma-consent'
 
 export default function MitgliedWerdenFirma() {
+  // Set needed states
+  const [openModal, setOpenModal] = useState(false)
+  const [submitErrorMessage, setSubmitErrorMessage] = useState('')
+  // Initialise needed form utilities
   const methods = useForm({
     mode: 'onChange',
   })
   const { isDirty, isValid, isSubmitting, isSubmitSuccessful, errors } =
     methods.formState
-
-  const [openModal, setOpenModal] = useState(false)
-  const [submitErrorMessage, setSubmitErrorMessage] = useState('')
 
   const onSubmit = async (data) => {
     return await fetch('/api/mitglied-werden-firma', {
@@ -58,12 +59,12 @@ export default function MitgliedWerdenFirma() {
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {/* FormGroups */}
             <FormGroupFirma />
-            <FormGroupAnsprechpartner />
-            <FormGroupTaetigkeit />
-            <FormGroupFeuerwerkNet />
-            <FormGroupBeitragFirma />
-            <FormGroupSEPA />
-            <FormGroupConsent />
+            <FormGroupFirmaAP />
+            <FormGroupFirmaT />
+            <FormGroupFirmaFeuerwerkNet />
+            <FormGroupFirmaBeitrag />
+            <FormGroupFirmaSEPA />
+            <FormGroupFirmaConsent />
             {/* Submit */}
             <div className="py-4 sm:mt-0 flex justify-end">
               <button
@@ -79,7 +80,6 @@ export default function MitgliedWerdenFirma() {
                   isSubmitting ||
                   (isSubmitSuccessful && !submitErrorMessage)
                 }
-                /* onClick={() => setOpenModal(true)} */
               >
                 {`${
                   isSubmitSuccessful && !submitErrorMessage

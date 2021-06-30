@@ -2,7 +2,7 @@ import Input from '../components/input'
 import Checkbox from '../components/checkbox'
 import { useFormContext } from 'react-hook-form'
 
-export default function FormGroupFeuerwerkNet() {
+export default function FormGroupFirmaFeuerwerkNet() {
   const { watch } = useFormContext()
   const isMember = watch('feuerwerk_net_mitglied')
   return (
@@ -38,7 +38,7 @@ export default function FormGroupFeuerwerkNet() {
                   {isMember && (
                     <div className="col-span-6">
                       <Input
-                        name="feuerwerk_net_mitgliedsname"
+                        name="feuerwerk_net"
                         msg="max. 40 Zeichen"
                         title="Mitgliedsname"
                         validation={{

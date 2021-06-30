@@ -1,4 +1,6 @@
 import parse from 'html-react-parser'
+// TODO try with smaller text
+// TODO extract side-by-side sections into components
 export default function SideBySide(props) {
   return (
     <main id="feuerwerk">
@@ -9,14 +11,14 @@ export default function SideBySide(props) {
             className="relative bg-purple-900 py-12 md:h-full"
             data-aos="fade-right"
           >
-            <div className="mx-4 pt-6 lg:mx-24 prose prose-xl prose-on-purple">
-              {parse(props.props.dataIndexPage.fascination)}
+            <div className="mx-4 pt-6 lg:mx-24 prose prose-lg prose-on-purple">
+              {parse(props.props.dataIndexPage.voice)}
             </div>
           </div>
           <div className="w-full lg:h-full" data-aos="fade-left">
             <img
               className="lg:block md:h-full w-full object-cover"
-              src="/fascination.jpg"
+              src="/voice.jpg"
               alt=""
             />
           </div>
@@ -27,14 +29,14 @@ export default function SideBySide(props) {
             className="relative bg-purple-900 py-12 md:h-full"
             data-aos="fade-left"
           >
-            <div className="mx-4 pt-6 lg:mx-24 prose prose-xl prose-on-purple">
-              {parse(props.props.dataIndexPage.voice)}
+            <div className="mx-4 pt-6 lg:mx-24 prose prose-lg prose-on-purple">
+              {parse(props.props.dataIndexPage.fascination)}
             </div>
           </div>
           <div className="order-first w-full lg:h-full" data-aos="fade-right">
             <img
               className="md:h-full w-full object-cover"
-              src="/voice.jpg"
+              src="/fascination.jpg"
               alt=""
             />
           </div>
@@ -45,7 +47,7 @@ export default function SideBySide(props) {
             className="order-first relative bg-purple-900 py-12 md:h-full"
             data-aos="fade-right"
           >
-            <div className="mx-4 pt-6 lg:mx-24 prose prose-xl prose-on-purple">
+            <div className="mx-4 pt-6 lg:mx-24 prose prose-lg prose-on-purple">
               {parse(props.props.dataIndexPage.attack)}
             </div>
           </div>

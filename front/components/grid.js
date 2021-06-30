@@ -14,7 +14,7 @@ const support = [
     name: 'Mitglied werden',
     description:
       'Du lebst für das Feuerwerk und willst uns als Privatperson unterstützen',
-    href: '/mitglied-werden-privat',
+    href: '/mitglied-werden',
     icon: UserIcon,
   },
   {
@@ -28,7 +28,7 @@ const support = [
     name: 'Mitgliedschaft ändern',
     description:
       'Du bist schon Mitglied als Privatperson, willst uns nun aber als Betrieb unterstützen.',
-    href: '/mitglied-werden-privat',
+    href: '/mitglied-werden',
     icon: CogIcon,
   },
 ]

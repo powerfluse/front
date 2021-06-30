@@ -1,12 +1,11 @@
 export default function BlogIndex(props) {
-  // TODO Clean up blog on homepage
   const posts = props.props.dataAktuelles6
   return (
     <div className="bg-purple-900 max-w-full ">
-      <div className="relative mx-4 py-24 lg:py-32 lg:mx-24 divide-y-2 divide-purple-800">
+      <div className="relative mx-4 pt-24 pb-12 lg:pt-32 lg:pb-16 lg:mx-24 divide-y-2 divide-purple-800">
         <div>
-          <h2 className="text-4xl tracking-tight font-bold font-titillium text-purple-300">
-            Aktuelles
+          <h2 className="text-3xl tracking-tight font-bold font-titillium text-purple-300">
+            Aktuelles <span className="text-gray-300">vom Bundesverband </span>
           </h2>
         </div>
         <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-5 lg:gap-y-12">

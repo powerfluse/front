@@ -9,7 +9,7 @@ export default function Select(props) {
     <>
       <label
         htmlFor={props.name}
-        className="block font-source font-bold text-gray-300 capitalize"
+        className="block font-source font-bold text-gray-300 capitalize mb-1"
       >
         {props.title ? props.title : title_from_name}
       </label>

@@ -1,7 +1,8 @@
 import Input from '../components/input'
+import Select from '../components/select'
 import Checkbox from '../components/checkbox'
 
-export default function FormGroupSEPA() {
+export default function FormGroupFirmaSEPA() {
   return (
     <>
       <div className="mt-10 sm:mt-0">
@@ -27,7 +28,7 @@ export default function FormGroupSEPA() {
                       title="Kontoinhaber:in"
                       name="f_kontoinhaber"
                       autoComplete="name"
-                      msg="Max. 24 Zeichen"
+                      msg="max. 24 Zeichen"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 24,
@@ -49,6 +50,13 @@ export default function FormGroupSEPA() {
                           message: 'Kein gültiger IBAN',
                         },
                       }}
+                    />
+                  </div>
+                  <div className="col-span-6 md:col-span-2">
+                    <Select
+                      title="Zahlungsrhythmus"
+                      name="f_zahlungsrhythmus"
+                      options={['Vierteljährlich', 'Halbjährlich', 'Jährlich']}
                     />
                   </div>
                   <div className="col-span-6">

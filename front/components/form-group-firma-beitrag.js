@@ -1,6 +1,6 @@
 import InputEuro from '../components/input-euro'
 
-export default function FormGroupFirma() {
+export default function FormGroupFirmaBeitrag() {
   return (
     <>
       <div className="mt-10 sm:mt-0">

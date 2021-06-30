@@ -26,7 +26,7 @@ export default function InputEuro(props) {
               ? 'formfield-valid show-spinners'
               : 'formfield show-spinners'
           }
-          placeholder="min. 150"
+          placeholder={props.placeholder ? props.placeholder : 'min. 150'}
           aria-describedby="price-currency"
           {...register(props.name, props.validation)}
         />

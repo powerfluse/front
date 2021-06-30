@@ -89,15 +89,15 @@ export default function Kontakt(props) {
                     <dt>
                       <span className="sr-only">Telefon</span>
                     </dt>
-                    <dd className="flex text-base font-source text-gray-300 hover:underline">
-                      <PhoneIcon
-                        className="flex-shrink-0 w-6 h-6 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <a href={props.data.phone_actual} className="ml-3">
-                        {props.data.phone}
-                      </a>
-                    </dd>
+                    {/* <dd className="flex text-base font-source text-gray-300 hover:underline"> */}
+                    {/*   <PhoneIcon */}
+                    {/*     className="flex-shrink-0 w-6 h-6 text-gray-300" */}
+                    {/*     aria-hidden="true" */}
+                    {/*   /> */}
+                    {/*   <a href={props.data.phone_actual} className="ml-3"> */}
+                    {/*     {props.data.phone} */}
+                    {/*   </a> */}
+                    {/* </dd> */}
                     <dt>
                       <span className="sr-only">Email</span>
                     </dt>
@@ -305,10 +305,7 @@ export default function Kontakt(props) {
                               : 'mt-2 w-full sm:w-auto button'
                           }`}
                           disabled={
-                            !isDirty ||
-                            !isValid ||
-                            isSubmitting ||
-                            isSubmitSuccessful
+                            !isValid || isSubmitting || isSubmitSuccessful
                           }
                           onClick={() => setOpenModal(true)}
                         >

@@ -2,8 +2,8 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
   UserIcon,
-  OfficeBuildingIcon,
-  CogIcon,
+  // OfficeBuildingIcon,
+  // CogIcon,
   MenuIcon,
   XIcon,
 } from '@heroicons/react/outline'
@@ -11,28 +11,29 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+// TODO add donation item
 const support = [
   {
     name: 'Mitglied werden',
     description:
       'Du lebst für das Feuerwerk und willst uns als Privatperson unterstützen',
-    href: '/mitglied-werden-privat',
+    href: '/mitglied-werden',
     icon: UserIcon,
   },
-  {
-    name: 'Firmenmitglied werden',
-    description:
-      'Du möchtest uns als Profi mit deinem Feuerwerksbetrieb unterstützten.',
-    href: '/mitglied-werden-firma',
-    icon: OfficeBuildingIcon,
-  },
-  {
-    name: 'Mitgliedschaft ändern',
-    description:
-      'Du bist schon Mitglied als Privatperson, willst uns nun aber als Betrieb unterstützen.',
-    href: '/mitglied-werden-privat',
-    icon: CogIcon,
-  },
+  // {
+  //   name: 'Firmenmitglied werden',
+  //   description:
+  //     'Du möchtest uns als Profi mit deinem Feuerwerksbetrieb unterstützten.',
+  //   href: '/mitglied-werden-firma',
+  //   icon: OfficeBuildingIcon,
+  // },
+  // {
+  //   name: 'Mitgliedschaft ändern',
+  //   description:
+  //     'Du bist schon Mitglied als Privatperson, willst uns nun aber als Betrieb unterstützen.',
+  //   href: '/mitglied-werden',
+  //   icon: CogIcon,
+  // },
 ]
 
 const navigation = [
