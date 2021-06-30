@@ -55,7 +55,7 @@ export default function FormGroupMitglied() {
                     />
                   </div>
                   {/* Nachname */}
-                  <div className="col-span-6 md:col-span-6">
+                  <div className="col-span-6 md:col-span-3">
                     <Input
                       type="text"
                       title="Nachname"
@@ -65,6 +65,24 @@ export default function FormGroupMitglied() {
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 35,
+                      }}
+                    />
+                  </div>
+                  {/* Geburtsdatum */}
+                  <div className="col-span-6 md:col-span-3">
+                    <Input
+                      type="text"
+                      title="Geburtsdatum"
+                      name="geburtsdatum"
+                      msg="genau 10 Zeichen (TT.MM.JJJJ)"
+                      autoComplete="family-name"
+                      validation={{
+                        required: { value: 'true', message: 'Pflichtfeld' },
+                        maxLength: 10,
+                        pattern: {
+                          value: /[0-9.]{10}/,
+                          message: 'Kein gültiges Geburtsdatum',
+                        },
                       }}
                     />
                   </div>
@@ -113,7 +131,7 @@ export default function FormGroupMitglied() {
                       type="text"
                       title="Postleitzahl"
                       name="plz"
-                      msg="max. 5 Zeichen"
+                      msg="genau 5 Ziffern"
                       autoComplete="off"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
@@ -121,6 +139,7 @@ export default function FormGroupMitglied() {
                         minLength: 5,
                         pattern: {
                           value: /[0-9]{5}/,
+                          message: 'keine gültige PLZ',
                         },
                       }}
                     />

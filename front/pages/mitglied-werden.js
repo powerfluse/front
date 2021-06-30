@@ -64,14 +64,13 @@ export default function MitgliedWerden() {
             className="text-lg font-source font-bold text-gray-300 text-center pb-4 md:pb-12"
             data-aos="fade-down"
           >
-            Du betreibst Pyrotechnik auch gewerblich? Dann unterstütz uns doch
-            auch{' '}
+            Du betreibst Pyrotechnik auch gewerblich? Dann nutze bitte{' '}
             <a
               className="text-purple-300 hover:underline"
               target="_blank"
               href="/mitglied-werden-firma"
             >
-              mit Ihrem Betrieb
+              das Beitrittsformular für Firmenmitglieder
             </a>{' '}
           </div>
           <form onSubmit={methods.handleSubmit(onSubmit)}>

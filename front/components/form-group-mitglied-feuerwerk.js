@@ -41,14 +41,14 @@ export default function FormGroupMitgliedFeuerwerk() {
                       </div>
                       {para7 && (
                         <div className="font-source font-bold text-gray-300 ml-4 -mt-4 col-span-6">
-                          Du betreibst Pyrotechnik auch gewerblich? Dann
-                          unterstütz uns doch auch{' '}
+                          Du betreibst Pyrotechnik auch gewerblich? Dann nutze
+                          bitte{' '}
                           <a
                             className="text-purple-300 hover:underline"
                             target="_blank"
                             href="/mitglied-werden-firma"
                           >
-                            mit Ihrem Betrieb
+                            das Beitrittsformular für Firmenmitglieder
                           </a>{' '}
                         </div>
                       )}

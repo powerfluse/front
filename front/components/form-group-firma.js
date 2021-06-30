@@ -80,7 +80,7 @@ export default function FormGroupFirma() {
                       type="text"
                       title="Postleitzahl"
                       name="f_plz"
-                      msg="max. 5 Zeichen"
+                      msg="genau 5 Ziffern"
                       autoComplete="off"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
@@ -88,6 +88,7 @@ export default function FormGroupFirma() {
                         minLength: 5,
                         pattern: {
                           value: /[0-9]{5}/,
+                          message: 'keine gültige PLZ',
                         },
                       }}
                     />
