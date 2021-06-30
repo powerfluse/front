@@ -42,12 +42,13 @@ steps:
         from_secret: nocodb_token
       NOCODB_URL: https://bvpk-db.linus.cx
       DIRECTUS_URL: https://bvpk-back.linus.cx
+      EMAIL_PASS:
+        from_secret: email_pass
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - echo $${NOCODB_TOKEN}
-      - docker build --build-arg NOCODB_TOKEN --build-arg NOCODB_URL --build-arg DIRECTUS_URL -f front/Dockerfile.prod -t bvpk-front:0.0.1 --no-cache front/
+      - docker build --build-arg EMAIL_PASS --build-arg NOCODB_TOKEN --build-arg NOCODB_URL --build-arg DIRECTUS_URL -f front/Dockerfile.prod -t bvpk-front:0.0.1 --no-cache front/
 
   - name: deploy frontend
     image: docker/compose:1.29.2
