@@ -66,3 +66,8 @@ export async function getDatenschutzPage() {
   const data = await getAPI('/items/datenschutz_page')
   return data
 }
+
+export async function getPositionenPage() {
+  const data = await getAPI('/items/positionen_page')
+  return data
+}

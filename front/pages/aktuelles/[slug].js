@@ -1,4 +1,5 @@
-import NavBar from '../../components/navbar.js'
+import NavBar from '../../components/navbar'
+import Head from '../../components/head'
 import { getAktuellesAll, getAktuellesSingle } from '../../lib/api'
 import { CameraIcon } from '@heroicons/react/solid'
 import parse from 'html-react-parser'
@@ -8,6 +9,7 @@ export default function Post(props) {
   return (
     <>
       <NavBar />
+      <Head />
       <div className="pt-12 bg-purple-900 min-h-screen overflow-hidden">
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
-import Head from 'next/head'
+import Head from '../components/head'
 import Modal from '../components/modal'
 import FormGroupFirma from '../components/form-group-firma'
 import FormGroupFirmaAP from '../components/form-group-firma-ap'
@@ -48,11 +48,8 @@ export default function MitgliedWerdenFirma() {
 
   return (
     <>
-      <Head>
-        <title>BVPK - Bundesverband für Pyrotechnik und Kunstfeuerwerk</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <NavBar />
+      <Head />
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen bg-purple-900 pt-32 px-4 lg:px-8">
@@ -83,7 +80,7 @@ export default function MitgliedWerdenFirma() {
               >
                 {`${
                   isSubmitSuccessful && !submitErrorMessage
-                    ? 'Danke für eure Unterstützung!'
+                    ? 'Danke für Deine Unterstützung!'
                     : 'Beitreten!'
                 }`}
               </button>

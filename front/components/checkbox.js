@@ -21,6 +21,7 @@ export default function Input(props) {
             <a
               className="text-purple-300 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
               href={props.href}
+              target="_blank"
             >
               {props.href_text}
             </a>

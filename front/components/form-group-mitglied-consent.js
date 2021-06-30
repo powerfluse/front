@@ -1,4 +1,5 @@
 import Checkbox from '../components/checkbox'
+import CheckboxSatzungBeitragsordnung from '../components/checkbox-satzung-beitragsordnung'
 
 export default function FormGroupMitgliedConsent() {
   return (
@@ -18,6 +19,14 @@ export default function FormGroupMitgliedConsent() {
                       href="/datenschutz"
                       pre_href_text="Ja, ich akzeptiere die "
                       href_text="Datenschutzerklärung"
+                      validation={{
+                        required: { value: 'true', message: 'Pflichtfeld' },
+                      }}
+                    />
+                  </div>
+                  <div className="-mt-3 col-span-6">
+                    <CheckboxSatzungBeitragsordnung
+                      name="f_bvpk_consent"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                       }}

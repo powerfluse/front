@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import axios from 'axios'
-import Head from 'next/head'
+import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Modal from '../components/modal'
 import Footer from '../components/footer'
@@ -52,10 +52,7 @@ export default function MitgliedWerden() {
 
   return (
     <>
-      <Head>
-        <title>BVPK - Bundesverband für Pyrotechnik und Kunstfeuerwerk</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head />
       <NavBar />
       <Modal open={openModal} />
       <FormProvider {...methods}>
@@ -100,7 +97,7 @@ export default function MitgliedWerden() {
               >
                 {`${
                   isSubmitSuccessful && !submitErrorMessage
-                    ? 'Danke für eure Unterstützung!'
+                    ? 'Danke für Deine Unterstützung!'
                     : 'Beitreten!'
                 }`}
               </button>

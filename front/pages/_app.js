@@ -1,8 +1,9 @@
 import '../styles/globals.css'
 import { useEffect } from 'react'
-
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { DefaultSeo } from 'next-seo'
+import SEO from '../next-seo.config'
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -13,7 +14,12 @@ function MyApp({ Component, pageProps }) {
       easing: 'ease-out-quart',
     })
   })
-  return <Component {...pageProps} />
+  return (
+    <>
+      <DefaultSeo {...SEO} />
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 export default MyApp

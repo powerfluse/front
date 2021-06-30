@@ -4,6 +4,7 @@ import nodemailer from 'nodemailer'
 // Get environment variables
 const NOCODB_URL = process.env.NOCODB_URL
 const NOCODB_TOKEN = process.env.NOCODB_TOKEN
+const EMAIL_PASS = process.env.EMAIL_PASS
 
 export default function handler(req, res) {
   if (req.method === 'POST') {
@@ -44,7 +45,7 @@ export default function handler(req, res) {
       host: 'smtp.strato.de',
       auth: {
         user: 'webmailer@bvpk.org',
-        pass: 'Mushy.Pursuable.Ramp.Growing.Landowner.Overtake.Imitation.Halogen.Ruse',
+        pass: EMAIL_PASS,
       },
       secure: true,
     })
@@ -52,8 +53,8 @@ export default function handler(req, res) {
     const mailData = {
       from: 'webmailer@bvpk.org',
       to: req.body.k_email,
-      subject: 'Deine Kontakfragen',
-      text: 'Text',
+      subject: 'Deine Kontakfrage',
+      text: 'Herzlichen Dank für Deine Nachricht an den BVPK!\n\nWir haben deine Nachricht über unser Kontaktformular erhalten und melden uns bei Dir.\n\nMit feurigen Grüßen, Bundesverband Pyrotechnik und Kunstfeuerwerk / GeschäftsstelleText',
     }
 
     transporter.sendMail(mailData, function (err, info) {

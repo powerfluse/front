@@ -43,11 +43,11 @@ export default function Newsletter() {
         <div className="max-w-full px-4 md:mx-0 py-24 lg:py-32 lg:px-24 lg:flex lg:items-center">
           <div className="lg:w-0 lg:flex-1">
             <h2 className="text-3xl font-bold font-titillium text-purple-300 sm:text-4xl">
-              Bleibe auf dem Laufenden!
+              Bleib' auf dem Laufenden!
             </h2>
             <p className="font-source mt-3 max-w-3xl text-lg text-gray-300">
-              Melde dich bei unserem Newsletter an, um auf dem Laufenden zu
-              bleiben
+              Melde dich bei unserem Newsletter an, um die neusten Infos zu
+              Feuerwerk und zum Verband zu erhalten.
             </p>
           </div>
           <div className="mt-8 lg:mt-0 lg:ml-8">

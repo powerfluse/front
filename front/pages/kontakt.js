@@ -2,7 +2,7 @@ import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
-import Head from 'next/head'
+import Head from '../components/head'
 import Modal from '../components/modal'
 import Input from '../components/input'
 import TextArea from '../components/text-area'
@@ -39,10 +39,7 @@ export default function Kontakt(props) {
 
   return (
     <>
-      <Head>
-        <title>BVPK - Bundesverband für Pyrotechnik und Kunstfeuerwerk</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head />
       <NavBar />
       <Modal open={openModal} />
       <main className="overflow-hidden">

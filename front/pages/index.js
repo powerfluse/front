@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from '../components/head'
 import Newsletter from '../components/newsletter'
 import SideBySide from '../components/side-by-side'
 import NavBar from '../components/navbar'
@@ -10,10 +10,7 @@ import { getAktuelles6, getIndexPage } from '../lib/api'
 export default function Index(props) {
   return (
     <>
-      <Head>
-        <title>BVPK - Bundesverband für Pyrotechnik und Kunstfeuerwerk</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head />
       <NavBar />
       <Hero />
       <SideBySide props={props} />

@@ -3,16 +3,17 @@ import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
-import { getDatenschutzPage } from '../lib/api'
+import { getPositionenPage } from '../lib/api'
 
-export default function Datenschutz(props) {
+export default function Positionen(props) {
+  console.log(props)
   return (
     <>
       <Head />
       <NavBar />
       <div className="min-h-screen bg-purple-900">
-        <div className="prose prose-lg prose-on-purple-aktuelles pt-24 mx-auto">
-          {parse(props.dataDatenschutzPage.text)}
+        <div className="text-center prose prose-lg prose-on-purple-aktuelles pt-32 mx-auto">
+          {parse(props.dataPositionenPage.text)}
         </div>
       </div>
       <Newsletter />
@@ -22,10 +23,10 @@ export default function Datenschutz(props) {
 }
 
 export async function getStaticProps() {
-  const dataDatenschutzPage = await getDatenschutzPage()
+  const dataPositionenPage = await getPositionenPage()
   return {
     props: {
-      dataDatenschutzPage,
+      dataPositionenPage,
     },
     revalidate: 60,
   }

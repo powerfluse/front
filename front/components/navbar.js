@@ -37,7 +37,7 @@ const support = [
 ]
 
 const navigation = [
-  { name: 'Über uns', href: '/ueber-uns' },
+  { name: 'Der BVPK', href: '/ueber-uns' },
   { name: 'Aktuelles', href: '/aktuelles' },
   { name: 'Positionen', href: '/positionen' },
   { name: 'Kontakt', href: '/kontakt' },
