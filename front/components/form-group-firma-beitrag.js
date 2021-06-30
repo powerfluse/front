@@ -11,7 +11,7 @@ export default function FormGroupFirmaBeitrag() {
                 Mitgliedsbeitrag
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
-                Trage hier bitte den gewünschten Mitgliedsbeitrag ein
+                Gib hier Deinen jährlichen Mitgliedsbeitrag ein
               </p>
             </div>
           </div>
@@ -27,9 +27,9 @@ export default function FormGroupFirmaBeitrag() {
                 </p>
 
                 <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-2 lg:col-span-1">
+                  <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                     <InputEuro
-                      title="Mitgliedsbeitrag"
+                      title="Jährlicher Mitgliedsbeitrag"
                       name="f_beitrag"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },

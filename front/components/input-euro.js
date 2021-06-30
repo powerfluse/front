@@ -13,7 +13,7 @@ export default function InputEuro(props) {
       >
         {props.title ? props.title : title_from_name}
       </label>
-      <div className="mt-1 relative rounded-md shadow-sm">
+      <div className="relative rounded-md shadow-sm">
         <input
           type="number"
           step="any"
@@ -26,7 +26,7 @@ export default function InputEuro(props) {
               ? 'formfield-valid show-spinners'
               : 'formfield show-spinners'
           }
-          placeholder={props.placeholder ? props.placeholder : 'min. 150'}
+          placeholder={props.placeholder ? props.placeholder : ' '}
           aria-describedby="price-currency"
           {...register(props.name, props.validation)}
         />

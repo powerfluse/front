@@ -13,7 +13,7 @@ export default function FormGroupFirma() {
                 Daten Firma
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
-                Trage hier bitte die Eckdaten deiner Firma ein
+                Trage hier bitte die Eckdaten Deiner Firma ein
               </p>
             </div>
           </div>

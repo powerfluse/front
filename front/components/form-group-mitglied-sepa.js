@@ -1,5 +1,4 @@
 import Input from '../components/input'
-import Select from '../components/select'
 import Checkbox from '../components/checkbox'
 
 export default function FormGroupFirmaSEPA() {
@@ -14,7 +13,7 @@ export default function FormGroupFirmaSEPA() {
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
                 Die Zahlung erfolgt per SEPA-Lastschrift. Hierfür benötigen wir
-                ein entsprechendes Mandat
+                ein entsprechendes Mandat.
               </p>
             </div>
           </div>
@@ -55,7 +54,7 @@ export default function FormGroupFirmaSEPA() {
                   <div className="col-span-6">
                     <Checkbox
                       name="sepa_consent"
-                      title="Hiermit stimme ich der Abbuchung des Fördermitgliedsbeitrages zu und bestätige, dass ich Kontoinhaber:in bin."
+                      title="Hiermit ermächtige ich den Bundesverband für Pyrotechnik und Kunstfeuerwerk e.V. Zahlungen zu Lasten meines Kontos einzuziehen. Zugleich weise ich mein Kreditinstitut an, die vom BVPK auf mein Konto gezogenen Lastschriften einzulösen. Hinweis: Dieses Lastschriftmandat dient nur dem Einzug von Lastschriften, die auf Konten von Unternehmen gezogen sind. Ich bin nicht berechtigt, nach der erfolgten Einlösung eine Erstattung des belasteten Betrages zu verlangen. Ich bin berechtigt, mein Kreditinstitut bis zum Fälligkeitstag anzuweisen, Lastschriften nicht einzulösen."
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                       }}

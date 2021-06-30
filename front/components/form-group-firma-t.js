@@ -12,7 +12,7 @@ export default function FormGroupTaetigkeit() {
                 Tätigkeitsschwerpunkte
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
-                Was ist der Fokus ihres Betriebes?
+                Was ist der Fokus Deines Betriebes?
               </p>
             </div>
           </div>

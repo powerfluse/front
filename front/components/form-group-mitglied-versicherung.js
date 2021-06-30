@@ -14,8 +14,8 @@ export default function FormGroupMitgliedFeuerwerk() {
                 Versicherung
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
-                Sicher deine privaten Feuerwerke mit der
-                Haftpflichtversicherung des BVPK ab
+                Sicher deine privaten Feuerwerke mit der Haftpflichtversicherung
+                des BVPK ab
               </p>
             </div>
           </div>
@@ -39,16 +39,9 @@ export default function FormGroupMitgliedFeuerwerk() {
                         die Haftpflicht für ihre privaten Feuerwerk abzusichern.
                         Dies ist oft Bedingung für Genehmigungen und Erlaubnisse
                         von Behörden. Für die Versicherung wird ein zusätzlicher
-                        Beitrag von 36€/Jahr fällig, hinzu kommen Beiträge pro
-                        Feuerwerk je nach dessen Größe. Wenn Du mehr wissen
-                        wollen,{' '}
-                        <a
-                          className="text-purple-300 hover:underline"
-                          href="/kontakt"
-                        >
-                          schreib uns
-                        </a>
-                        .
+                        Beitrag von 36€/Jahr fällig, hinzu kommen geringe
+                        Beiträge pro Feuerwerk je nach dessen Größe. Weitere
+                        Infos folgen in Kürze.
                       </div>
                     </>
                   )}
