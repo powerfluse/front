@@ -76,7 +76,7 @@ export default function Modal(props) {
               <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-1 sm:gap-3 sm:grid-flow-row-dense">
                 <button
                   type="button"
-                  className="button"
+                  className="button w-full"
                   onClick={() => {
                     setOpen(false)
                     router.push('/')
