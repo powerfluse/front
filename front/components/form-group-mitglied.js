@@ -13,7 +13,7 @@ export default function FormGroupMitglied() {
                 Persönliche Daten
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
-                Trage hier bitte deine persönlichen Daten ein.
+                Trage hier bitte Deine persönlichen Daten ein.
               </p>
             </div>
           </div>

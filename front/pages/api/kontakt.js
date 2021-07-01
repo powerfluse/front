@@ -51,10 +51,13 @@ export default function handler(req, res) {
     })
 
     const mailData = {
-      from: 'webmailer@bvpk.org',
+      from: {
+        name: 'BVPK e.V. Geschäftsstelle',
+        address: 'webmailer@bvpk.org',
+      },
       to: req.body.k_email,
-      subject: 'Deine Kontakfrage',
-      text: 'Herzlichen Dank für Deine Nachricht an den BVPK!\n\nWir haben deine Nachricht über unser Kontaktformular erhalten und melden uns bei Dir.\n\nMit feurigen Grüßen, Bundesverband Pyrotechnik und Kunstfeuerwerk / GeschäftsstelleText',
+      subject: 'Deine Kontaktanfrage',
+      text: 'Herzlichen Dank für Deine Nachricht an den BVPK!\n\nWir haben deine Nachricht über unser Kontaktformular erhalten und melden uns bei Dir.\n\nMit feurigen Grüßen,\n\nBundesverband Pyrotechnik und Kunstfeuerwerk\nGeschäftsstelle',
     }
 
     transporter.sendMail(mailData, function (err, info) {

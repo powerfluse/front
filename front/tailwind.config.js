@@ -93,6 +93,10 @@ module.exports = {
             },
             a: {
               color: '#aa248e',
+              textDecoration: 'none',
+              '&:hover': {
+                textDecoration: 'underline',
+              },
             },
             li: {
               color: '#d1d5db',

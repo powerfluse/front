@@ -16,7 +16,7 @@ export default function FormGroupMitgliedBeitrag() {
                 Fördermitgliedschaft
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
-                Möchtest du den BVPK über die Grundmitgliedschaft hinaus
+                Möchtest Du den BVPK über die Grundmitgliedschaft hinaus
                 unterstützen?
               </p>
             </div>

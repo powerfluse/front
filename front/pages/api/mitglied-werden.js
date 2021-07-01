@@ -51,10 +51,13 @@ export default function handler(req, res) {
     })
 
     const mailData = {
-      from: 'webmailer@bvpk.org',
+      from: {
+        name: 'BVPK e.V. Geschäftsstelle',
+        address: 'webmailer@bvpk.org',
+      },
       to: req.body.email,
       subject: 'Dein Mitgliedsantrag beim BVPK',
-      text: 'Hallo und herzlich Willkommen im BVPK!\n\nDein Mitgliedsantrag ist bei uns eingegangen und wir freuen uns sehr, Dich als Mitglied begrüßen zu dürfen. Gemeinsam geben wir dem Feuerwerk die starke Stimme, die es braucht!\n\nDein Antrag wird bearbeitet und wir melden uns zeitnah mit weiteren Infos.\n\nSchaue gerne auf unseren Kanälen auf Twitter, Facebook und Insta vorbei - @BVPyro\n\nMit feurigen Grüßen,\n\nDein Bundesverband Pyrotechnik und Kunstfeuerwerk / Vorstand',
+      text: 'Hallo und herzlich Willkommen im BVPK!\n\nDein Mitgliedsantrag ist bei uns eingegangen und wir freuen uns sehr, Dich als Mitglied begrüßen zu dürfen.\nGemeinsam geben wir dem Feuerwerk die starke Stimme, die es braucht!\n\nDein Antrag wird bearbeitet und wir melden uns zeitnah mit weiteren Infos.\n\nSchaue gerne auf unseren Kanälen auf Twitter, Facebook und Insta vorbei - @BVPyro\n\nMit feurigen Grüßen,\nDein Bundesverband Pyrotechnik und Kunstfeuerwerk\nVorstand',
     }
 
     transporter.sendMail(mailData, function (err, info) {

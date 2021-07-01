@@ -71,3 +71,8 @@ export async function getPositionenPage() {
   const data = await getAPI('/items/positionen_page')
   return data
 }
+
+export async function getMitgliedWerdenPage() {
+  const data = await getAPI('/items/mitglied_werden_page')
+  return data
+}

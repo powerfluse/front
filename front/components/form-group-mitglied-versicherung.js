@@ -14,7 +14,7 @@ export default function FormGroupMitgliedFeuerwerk() {
                 Versicherung
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
-                Sicher deine privaten Feuerwerke mit der Haftpflichtversicherung
+                Sicher Deine privaten Feuerwerke mit der Haftpflichtversicherung
                 des BVPK ab
               </p>
             </div>
@@ -26,7 +26,7 @@ export default function FormGroupMitgliedFeuerwerk() {
                   <div className="col-span-6">
                     <Checkbox
                       name="feuerwerk_versicherung"
-                      title="Ich möchte meinen privaten Feuerwerke mit der Haftpflichtversicherung des BVPK absichern"
+                      title="Ich möchte meinen privaten Feuerwerke mit der Haftpflichtversicherung des BVPK für 36€/Jahr absichern"
                     />
                   </div>
                   {wantsInsurance && (
@@ -35,13 +35,16 @@ export default function FormGroupMitgliedFeuerwerk() {
                         className="font-source font-bold text-gray-300 col-span-6"
                         data-aos="fade-left"
                       >
-                        Die Versicherung des BVPK ermöglicht es den Mitgliedern,
-                        die Haftpflicht für ihre privaten Feuerwerk abzusichern.
-                        Dies ist oft Bedingung für Genehmigungen und Erlaubnisse
-                        von Behörden. Für die Versicherung wird ein zusätzlicher
-                        Beitrag von 36€/Jahr fällig, hinzu kommen geringe
-                        Beiträge pro Feuerwerk je nach dessen Größe. Weitere
-                        Infos folgen in Kürze.
+                        Für die Versicherung wird ein zusätzlicher Beitrag von
+                        36€/Jahr fällig, hinzu kommen geringe Beiträge pro
+                        Feuerwerk je nach dessen Größe. Weitere Infos gibt's{' '}
+                        <a
+                          className="text-purple-300 hover:underline"
+                          href="/bvpk_versicherung.pdf"
+                        >
+                          hier
+                        </a>
+                        .
                       </div>
                     </>
                   )}

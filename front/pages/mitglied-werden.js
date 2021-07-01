@@ -1,3 +1,4 @@
+import parse from 'html-react-parser'
 import { useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import axios from 'axios'
@@ -6,6 +7,7 @@ import NavBar from '../components/navbar'
 import Modal from '../components/modal'
 import Footer from '../components/footer'
 import FormGroupMitglied from '../components/form-group-mitglied'
+import { getMitgliedWerdenPage } from '../lib/api'
 import FormGroupMitgliedFeuerwerk from '../components/form-group-mitglied-feuerwerk'
 import FormGroupMitgliedVersicherung from '../components/form-group-mitglied-versicherung'
 import FormGroupMitgliedFeuerwerkNet from '../components/form-group-mitglied-feuerwerk-net'
@@ -13,7 +15,7 @@ import FormGroupMitgliedBeitrag from '../components/form-group-mitglied-beitrag'
 import FormGroupMitgliedSEPA from '../components/form-group-mitglied-sepa'
 import FormGroupMitgliedConsent from '../components/form-group-mitglied-consent'
 
-export default function MitgliedWerden() {
+export default function MitgliedWerden(props) {
   // Set needed states
   const [openModal, setOpenModal] = useState(false)
   const [submitErrorMessage, setSubmitErrorMessage] = useState('')
@@ -57,18 +59,8 @@ export default function MitgliedWerden() {
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen bg-purple-900 pt-32 px-4 lg:px-8">
-          <div
-            className="text-lg font-source font-bold text-gray-300 text-center pb-4 md:pb-12"
-            data-aos="fade-down"
-          >
-            Du betreibst Pyrotechnik auch gewerblich? Dann nutze bitte{' '}
-            <a
-              className="text-purple-300 hover:underline"
-              target="_blank"
-              href="/mitglied-werden-firma"
-            >
-              das Beitrittsformular für Firmenmitglieder
-            </a>{' '}
+          <div className="prose prose-lg mx-auto prose-on-purple-aktuelles pb-4 md:pb-12">
+            {parse(props.dataMitgliedWerdenPage.text)}
           </div>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {/* FormGroups */}
@@ -113,4 +105,14 @@ export default function MitgliedWerden() {
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const dataMitgliedWerdenPage = await getMitgliedWerdenPage()
+  return {
+    props: {
+      dataMitgliedWerdenPage,
+    },
+    revalidate: 60,
+  }
 }

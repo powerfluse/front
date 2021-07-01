@@ -20,7 +20,7 @@ export default function FormGroupFirmaFeuerwerkNet() {
                   className="text-purple-300 hover:underline"
                   href="http://feuerwerk.net"
                 >
-                  auf feuerwerk.net
+                  auf FEUERWERK.net
                 </a>
               </p>
             </div>
