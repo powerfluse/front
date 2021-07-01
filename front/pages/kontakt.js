@@ -176,9 +176,9 @@ export default function Kontakt(props) {
                     </h3>
                     <form
                       onSubmit={methods.handleSubmit(onSubmit)}
-                      className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                      className="mt-6 grid grid-cols-2 gap-y-6 md:grid-cols-2 sm:gap-x-8"
                     >
-                      <div className="col-span-1">
+                      <div className="col-span-2 md:col-span-1">
                         {/* Vorname */}
                         <Input
                           type="text"
@@ -193,7 +193,7 @@ export default function Kontakt(props) {
                         />
                       </div>
                       {/* Nachname */}
-                      <div className="col-span-1">
+                      <div className="col-span-2 md:col-span-1">
                         <Input
                           type="text"
                           title="Nachname"
@@ -207,7 +207,7 @@ export default function Kontakt(props) {
                         />
                       </div>
                       {/* Email */}
-                      <div className="col-span-1">
+                      <div className="col-span-2 md:col-span-1">
                         <Input
                           type="email"
                           title="Email"
@@ -225,7 +225,7 @@ export default function Kontakt(props) {
                         />
                       </div>
                       {/* Telefonnummer */}
-                      <div className="col-span-1">
+                      <div className="col-span-2 md:col-span-1">
                         <Input
                           type="tel"
                           title="Telefon"
@@ -255,7 +255,7 @@ export default function Kontakt(props) {
                           }}
                         />
                       </div>
-                      <div className="sm:col-span-2">
+                      <div className="col-span-2">
                         <div className="mt-1">
                           <TextArea
                             title="Nachricht"
@@ -293,13 +293,13 @@ export default function Kontakt(props) {
                           </div>
                         </div>
                       </div>
-                      <div className="sm:col-span-2 sm:flex sm:justify-end ">
+                      <div className="w-full col-span-2 md:flex md:justify-end ">
                         <button
                           type="submit"
                           className={`${
                             isSubmitSuccessful
-                              ? 'mt-2 w-full sm:w-auto button-success'
-                              : 'mt-2 w-full sm:w-auto button'
+                              ? 'mt-2 w-full md:w-auto button-success'
+                              : 'mt-2 w-full md:w-auto button'
                           }`}
                           disabled={
                             !isValid || isSubmitting || isSubmitSuccessful
