@@ -33,7 +33,7 @@ services:
       # next traefik setup
       - 'traefik.enable=true'
       - 'traefik.http.services.next.loadbalancer.server.port=3001'
-      - 'traefik.http.routers.next.rule=Host(`bvpk.org`)'
+      - 'traefik.http.routers.next.rule=Host(`bvpk.org`,`www.bvpk.org`)'
       - 'traefik.http.routers.next.entrypoints=https'
       - 'traefik.http.routers.next.tls=true'
       - 'traefik.http.routers.next.tls.certresolver=letsencrypt'
