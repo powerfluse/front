@@ -24,12 +24,6 @@ export default function FormGroupFirmaAenderung() {
                       value="Ja"
                       title="Ich wandle meine Grundmitgliedschaft in eine Firmenmitgliedschaft um und bleibe zusätzlich auch als Privatperson Grundmitglied."
                     />
-                    <div className=" text-gray-300 font-source font-bold">
-                      Je mehr private und gewerbliche Mitglieder der Verband
-                      hat, desto stärker kann er gegenüber Öffentlichkeit und
-                      Politik wirken. Für die Grundmitgliedschaft werden
-                      lediglich 24€/Jahr fällig.
-                    </div>
                   </div>
                   <div className="col-span-6">
                     <Radio
