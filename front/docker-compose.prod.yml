@@ -26,8 +26,8 @@ services:
       # - 'traefik.http.middlewares.redirect-to-www.redirectregex.permanent=true'
 
       # # middleware redirect to non-www
-      - "traefik.http.middlewares.redirect-to-nonwww.redirectregex.regex=(https|http)://(www\\.(.*))"
-      - 'traefik.http.middlewares.redirect-to-nonwww.redirectregex.replacement=https://$${3}'
+      - 'traefik.http.middlewares.redirect-to-nonwww.redirectregex.regex=^https?://(?:www\\.)?(.+)'
+      - 'traefik.http.middlewares.redirect-to-nonwww.redirectregex.replacement=https://$${1}'
       - 'traefik.http.middlewares.redirect-to-nonwww.redirectregex.permanent=true'
 
       # next traefik setup
