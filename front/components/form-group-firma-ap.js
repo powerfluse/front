@@ -13,7 +13,7 @@ export default function FormGroupAnsprechpartner() {
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
                 Trage hier bitte die Daten der Person ein, die wir bei
-                Rückfragen kontaktieren sollen.
+                Rückfragen kontaktieren dürfen.
               </p>
             </div>
           </div>

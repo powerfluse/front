@@ -76,3 +76,8 @@ export async function getMitgliedWerdenPage() {
   const data = await getAPI('/items/mitglied_werden_page')
   return data
 }
+
+export async function getMitgliedschaftAendernPage() {
+  const data = await getAPI('/items/mitgliedschaft_aendern_page')
+  return data
+}

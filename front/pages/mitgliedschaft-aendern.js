@@ -1,9 +1,11 @@
+import parse from 'html-react-parser'
 import { useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Head from '../components/head'
 import Modal from '../components/modal'
+import { getMitgliedschaftAendernPage } from '../lib/api'
 import FormGroupAenderung from '../components/form-group-aenderung'
 import FormGroupFirma from '../components/form-group-firma'
 import FormGroupFirmaAP from '../components/form-group-firma-ap'
@@ -13,7 +15,7 @@ import FormGroupFirmaBeitrag from '../components/form-group-firma-beitrag'
 import FormGroupFirmaSEPA from '../components/form-group-firma-sepa'
 import FormGroupFirmaConsent from '../components/form-group-firma-consent'
 
-export default function MitgliedWerdenFirma() {
+export default function MitgliedschaftAendern(props) {
   // Set needed states
   const [openModal, setOpenModal] = useState(false)
   const [submitErrorMessage, setSubmitErrorMessage] = useState('')
@@ -54,6 +56,9 @@ export default function MitgliedWerdenFirma() {
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen bg-purple-900 pt-32 px-4 lg:px-8">
+          <div className="prose prose-lg mx-auto prose-on-purple-aktuelles pb-4 md:pb-12">
+            {parse(props.dataMitgliedschaftAendernPage.text)}
+          </div>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {/* FormGroups */}
             <FormGroupAenderung />
@@ -98,4 +103,14 @@ export default function MitgliedWerdenFirma() {
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const dataMitgliedschaftAendernPage = await getMitgliedschaftAendernPage()
+  return {
+    props: {
+      dataMitgliedschaftAendernPage,
+    },
+    revalidate: 60,
+  }
 }

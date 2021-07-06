@@ -3,9 +3,6 @@ import { useFormContext } from 'react-hook-form'
 
 export default function FormGroupFirmaAenderung() {
   const { watch } = useFormContext()
-  const wantsPersist = watch('f_grundmitgliedschaft_behalten')
-  const wantsChange = watch('f_grundmitgliedschaft_umwandeln')
-  console.log(wantsChange)
   return (
     <>
       <div className="mt-10 sm:mt-0">
@@ -24,8 +21,8 @@ export default function FormGroupFirmaAenderung() {
                   <div className="col-span-6">
                     <Radio
                       name="f_grundmitgliedschaft_behalten"
-                      value="Nein"
-                      title="Ich möchte meine persönliche Grundmitgliedschaft beibehalten und für meine Firma eine zusätzliche Mitgliedschaft beantragen."
+                      value="Ja"
+                      title="Ich wandle meine Grundmitgliedschaft in eine Firmenmitgliedschaft um und bleibe zusätzlich auch als Privatperson Grundmitglied."
                     />
                     <div className=" text-gray-300 font-source font-bold">
                       Je mehr private und gewerbliche Mitglieder der Verband
@@ -37,8 +34,8 @@ export default function FormGroupFirmaAenderung() {
                   <div className="col-span-6">
                     <Radio
                       name="f_grundmitgliedschaft_behalten"
-                      value="Ja"
-                      title="Ich möchte meine persönliche Grundmitgliedschaft in eine Firmenmitgliedschaft umwandeln."
+                      value="Nein"
+                      title="Ich wandle nur meine Grundmitgliedschaft in eine Firmenmitgliedschaft um."
                     />
                   </div>
                 </div>

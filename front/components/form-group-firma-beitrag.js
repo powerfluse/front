@@ -23,7 +23,15 @@ export default function FormGroupFirmaBeitrag() {
                   ihren Beitrag frei fest. Die Mitglieder sind dazu angehalten,
                   ihren Beitrag so auszuwählen, dass dieser etwa 0,2% ihres
                   jährlichen Umsatzes entspricht. Der jährliche Mindestbetrag
-                  für Firmenmitglieder beträgt 150,- Euro.
+                  für Firmenmitglieder beträgt 150,- Euro. Wenn Du Fragen zum
+                  Mitgliedsbeitrag hast, wende Dich gerne direkt an{' '}
+                  <a
+                    className="text-purple-300 hover:underline"
+                    href="mailto:info@bvpk.org"
+                  >
+                    info@bvpk.org
+                  </a>
+                  . Wir beraten Dich dann gerne persönlich!
                 </p>
 
                 <div className="grid grid-cols-6 gap-6">

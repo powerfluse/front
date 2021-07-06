@@ -62,7 +62,7 @@ export default function FormGroupFirmaSEPA() {
                   <div className="col-span-6">
                     <Checkbox
                       name="f_sepa_consent"
-                      title="Hiermit ermächtige ich den Bundesverband für Pyrotechnik und Kunstfeuerwerk e.V. Zahlungen zu Lasten meines Kontos einzuziehen. Zugleich weise ich mein Kreditinstitut an, die vom BVPK auf mein Konto gezogenen Lastschriften einzulösen. Hinweis: Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrages verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen"
+                      title="Hiermit ermächtige ich den Bundesverband für Pyrotechnik und Kunstfeuerwerk e.V. Zahlungen zu Lasten meines Kontos einzuziehen. Zugleich weise ich mein Kreditinstitut an, die vom BVPK auf mein Konto gezogenen Lastschriften einzulösen. Hinweis: Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrages verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen."
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                       }}

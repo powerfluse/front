@@ -10,7 +10,7 @@ export default function FormGroupFirma() {
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0">
               <h3 className="text-xl font-titillium font-bold leading-6 text-gray-300">
-                Daten Firma
+                Daten Deiner Firma
               </h3>
               <p className="mt-1 text-md font-source text-gray-400">
                 Trage hier bitte die Eckdaten Deiner Firma ein
