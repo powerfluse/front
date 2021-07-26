@@ -4,6 +4,12 @@ export default function HeadComponent() {
   return (
     <>
       <Head>
+        <script
+          async
+          defer
+          data-website-id="ffcddd16-8077-4ce2-8e04-e98b21413705"
+          src="https://umami.sehn.dev/umami.js"
+        ></script>
         <link
           rel="apple-touch-icon"
           sizes="57x57"
