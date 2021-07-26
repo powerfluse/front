@@ -104,21 +104,21 @@ export default function NavBar() {
                   <Popover className="relative">
                     {({ open }) => (
                       <>
-                        <Popover.Button
-                          className={classNames(
-                            open ? 'text-gray-300' : 'text-white',
-                            'group rounded-md inline-flex items-center text-shadow-lg text-lg font-source font-bold hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                          )}
-                        >
-                          <span>Unterstützen</span>
-                          <ChevronDownIcon
-                            className={classNames(
-                              open ? 'text-purple-600' : 'text-purple-600',
-                              'ml-2 h-5 w-5 group-hover:text-purple-300'
-                            )}
-                            aria-hidden="true"
-                          />
-                        </Popover.Button>
+                        {/* <Popover.Button */}
+                        {/*   className={classNames( */}
+                        {/*     open ? 'text-gray-300' : 'text-white', */}
+                        {/*     'group rounded-md inline-flex items-center text-shadow-lg text-lg font-source font-bold hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' */}
+                        {/*   )} */}
+                        {/* > */}
+                        {/*   <span>Unterstützen</span> */}
+                        {/*   <ChevronDownIcon */}
+                        {/*     className={classNames( */}
+                        {/*       open ? 'text-purple-600' : 'text-purple-600', */}
+                        {/*       'ml-2 h-5 w-5 group-hover:text-purple-300' */}
+                        {/*     )} */}
+                        {/*     aria-hidden="true" */}
+                        {/*   /> */}
+                        {/* </Popover.Button> */}
 
                         <Transition
                           show={open}
