@@ -1,4 +1,5 @@
 import InputEuro from '../components/input-euro'
+import Select from '../components/select'
 
 export default function FormGroupFirmaBeitrag() {
   return (
@@ -44,6 +45,18 @@ export default function FormGroupFirmaBeitrag() {
                         maxLength: 12,
                         min: { value: 150, message: 'min. 150€' },
                       }}
+                    />
+                  </div>
+                  <div className="col-span-3 lg:col-span-4">
+                    <Select
+                      title="Zahlungsrhythmus"
+                      name="zahlungsrhythmus"
+                      options={[
+                        'Monatlich',
+                        'Vierteljährlich',
+                        'Halbjährlich',
+                        'Jährlich',
+                      ]}
                     />
                   </div>
                 </div>
