@@ -47,18 +47,6 @@ export default function FormGroupFirmaBeitrag() {
                       }}
                     />
                   </div>
-                  <div className="col-span-3 lg:col-span-4">
-                    <Select
-                      title="Zahlungsrhythmus"
-                      name="zahlungsrhythmus"
-                      options={[
-                        'Monatlich',
-                        'Vierteljährlich',
-                        'Halbjährlich',
-                        'Jährlich',
-                      ]}
-                    />
-                  </div>
                 </div>
               </div>
             </div>
