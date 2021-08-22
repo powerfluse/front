@@ -1,0 +1,15 @@
+#+TITLE: Hack Session
+
+* Frontend
+** DONE Geburtsdatum fehlt in NocoDB
+** DONE Freitextfeld in Mitgliedsanträgen
+** DONE Skelett für neue Unterseiten
+** DONE Cleverreach Newsletter Anbindung
+** TODO Individualisierte HTML E-mail bei Mitgliedsanträgen und Kontaktformular
+
+* Backend
+** TODO Finish SPG Verein Export
+
+* Chores
+** TODO Alles updaten
+** TODO Backup testen

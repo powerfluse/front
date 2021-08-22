@@ -11,6 +11,7 @@ import FormGroupFirmaFeuerwerkNet from '../components/form-group-firma-feuerwerk
 import FormGroupFirmaBeitrag from '../components/form-group-firma-beitrag'
 import FormGroupFirmaSEPA from '../components/form-group-firma-sepa'
 import FormGroupFirmaConsent from '../components/form-group-firma-consent'
+import FormGroupFirmaFreitext from '../components/form-group-firma-freitext'
 
 export default function MitgliedWerdenFirma() {
   // Set needed states
@@ -61,6 +62,7 @@ export default function MitgliedWerdenFirma() {
             <FormGroupFirmaFeuerwerkNet />
             <FormGroupFirmaBeitrag />
             <FormGroupFirmaSEPA />
+            <FormGroupFirmaFreitext />
             <FormGroupFirmaConsent />
             {/* Submit */}
             <div className="py-4 sm:mt-0 flex justify-end">

@@ -39,11 +39,11 @@ export default function FormGroupTaetigkeit() {
                       title="Handel mit Großfeuerwerk"
                     />
                   </div>
-                  {/* Handel mit Kleinfeuerwerk zu Sylvester */}
+                  {/* Handel mit Kleinfeuerwerk zu Silvester */}
                   <div className="col-span-6">
                     <Checkbox
-                      name="f_t_handel_kf_sylvester"
-                      title="Handel mit Kleinfeuerwerk zu Sylvester"
+                      name="f_t_handel_kf_silvester"
+                      title="Handel mit Kleinfeuerwerk zu Silvester"
                     />
                   </div>
                   {/* Handel mit Kleinfeuerwerk unter dem Jahr */}

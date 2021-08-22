@@ -38,7 +38,7 @@ export default function FormGroupFirmaFeuerwerkNet() {
                   {isMember && (
                     <div className="col-span-6">
                       <Input
-                        name="feuerwerk_net"
+                        name="f_feuerwerknet"
                         msg="max. 40 Zeichen"
                         title="Mitgliedsname"
                         validation={{

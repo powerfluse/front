@@ -52,7 +52,7 @@ export default function handler(req, res) {
 
     const mailData = {
       from: {
-        name: 'BVPK e.V. Geschäftsstelle',
+        name: 'Bundesverband Pyrotechnik | Geschäftsstelle',
         address: 'webmailer@bvpk.org',
       },
       to: req.body.email,

@@ -1,5 +1,6 @@
 import Head from '../components/head'
 import Newsletter from '../components/newsletter'
+import CleverReach from '../components/cleverreach'
 import SideBySide from '../components/side-by-side'
 import NavBar from '../components/navbar'
 import BlogIndex from '../components/blog-index'

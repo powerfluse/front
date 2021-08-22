@@ -72,6 +72,16 @@ export async function getPositionenPage() {
   return data
 }
 
+export async function getUmweltPage() {
+  const data = await getAPI('/items/umwelt_page')
+  return data
+}
+
+export async function getVersicherungPage() {
+  const data = await getAPI('/items/versicherung_page')
+  return data
+}
+
 export async function getMitgliedWerdenPage() {
   const data = await getAPI('/items/mitglied_werden_page')
   return data

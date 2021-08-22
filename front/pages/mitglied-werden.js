@@ -14,6 +14,7 @@ import FormGroupMitgliedFeuerwerkNet from '../components/form-group-mitglied-feu
 import FormGroupMitgliedBeitrag from '../components/form-group-mitglied-beitrag'
 import FormGroupMitgliedSEPA from '../components/form-group-mitglied-sepa'
 import FormGroupMitgliedConsent from '../components/form-group-mitglied-consent'
+import FormGroupMitgliedFreitext from '../components/form-group-mitglied-freitext'
 
 export default function MitgliedWerden(props) {
   // Set needed states
@@ -70,6 +71,7 @@ export default function MitgliedWerden(props) {
             <FormGroupMitgliedVersicherung />
             <FormGroupMitgliedBeitrag />
             <FormGroupMitgliedSEPA />
+            <FormGroupMitgliedFreitext />
             <FormGroupMitgliedConsent />
             {/* Submit */}
             <div className="py-4 sm:mt-0 flex justify-end">

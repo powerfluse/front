@@ -1,5 +1,5 @@
 import Checkbox from '../components/checkbox'
-import CheckboxSatzungBeitragsordnung from '../components/checkbox-satzung-beitragsordnung'
+// import CheckboxSatzungBeitragsordnung from '../components/checkbox-satzung-beitragsordnung'
 
 export default function FormGroupMitgliedConsent() {
   return (
@@ -24,14 +24,14 @@ export default function FormGroupMitgliedConsent() {
                       }}
                     />
                   </div>
-                  <div className="-mt-3 col-span-6">
-                    <CheckboxSatzungBeitragsordnung
-                      name="f_bvpk_consent"
-                      validation={{
-                        required: { value: 'true', message: 'Pflichtfeld' },
-                      }}
-                    />
-                  </div>
+                  {/* <div className="-mt-3 col-span-6"> */}
+                  {/*   <CheckboxSatzungBeitragsordnung */}
+                  {/*     name="f_bvpk_consent" */}
+                  {/*     validation={{ */}
+                  {/*       required: { value: 'true', message: 'Pflichtfeld' }, */}
+                  {/*     }} */}
+                  {/*   /> */}
+                  {/* </div> */}
                   <div className="-mt-3 col-span-6">
                     <Checkbox
                       name="nl_consent"

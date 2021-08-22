@@ -10,7 +10,7 @@ export default function TextArea(props) {
       <div className="flex justify-between">
         <label
           htmlFor={props.name}
-          className="block font-source font-bold text-gray-300 capitalize"
+          className="block font-source font-bold text-gray-300"
         >
           {props.title ? props.title : title_from_name}
         </label>

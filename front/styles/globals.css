@@ -66,6 +66,22 @@ input[type='number'] {
   @apply focus:ring-purple-300 h-4 w-4 text-purple-300 border-gray-300 rounded-sm h-4;
 }
 
+img {
+  @apply rounded-lg shadow-lg;
+}
+
+[id]::before {
+  content: '';
+  display: block;
+  height: 110px;
+  margin-top: -110px;
+  visibility: hidden;
+}
+
+.cr_form {
+  font-family: 'Titillium Web' !important;
+}
+
 @layer base {
   /* titillium-web-regular - latin */
   @font-face {

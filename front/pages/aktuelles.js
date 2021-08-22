@@ -9,8 +9,10 @@ export default function Index(props) {
     <>
       <Head />
       <NavBar />
-      <Blog props={props} />
-      <Footer />
+      <div className="min-h-screen bg-purple-800">
+        <Blog props={props} />
+        <Footer />
+      </div>
     </>
   )
 }
