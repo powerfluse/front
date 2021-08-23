@@ -4,11 +4,5 @@
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
   "prCreation": "not-pending",
-  "packageRules": [
-    {
-      "matchManagers": ["dockerfile"],
-      "matchDepTypes": ["devDependencies"],
-      "enabled": false
-    }
-  ]
+  "enabledManagers": ["dockerfile", "npm"]
 }
