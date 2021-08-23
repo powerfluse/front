@@ -6,7 +6,9 @@
   "prCreation": "not-pending",
   "packageRules": [
     {
-      "excludePackagePatterns": ["^bvpk"]
+      "matchManagers": ["dockerfile"],
+      "matchDepTypes": ["devDependencies"],
+      "enabled": false
     }
   ]
 }
