@@ -2,6 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:js-app"],
   "prConcurrentLimit": 0,
-  "prHourlyLimit": 2,
+  "prHourlyLimit": 0,
   "prCreation": "not-pending"
 }
