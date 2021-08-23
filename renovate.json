@@ -3,5 +3,10 @@
   "extends": ["config:js-app"],
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "prCreation": "not-pending"
+  "prCreation": "not-pending",
+  "packageRules": [
+    {
+      "excludePackageNames": ["bvpk-front"]
+    }
+  ]
 }
