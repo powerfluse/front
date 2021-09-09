@@ -17,7 +17,7 @@ export default function Example() {
         </h1>
         <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
           <div className="rounded-md shadow">
-            <a href="#" className="w-full button">
+            <a href="/mitglied-werden" className="w-full button">
               Mitglied werden
             </a>
           </div>
