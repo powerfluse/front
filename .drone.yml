@@ -58,7 +58,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker build --build-arg EMAIL_PASS --build-arg NOCODB_TOKEN --build-arg NOCODB_URL --build-arg DIRECTUS_URL -f front/Dockerfile.prod -t bvpk-front:0.0.1 front/
+      - docker build --build-arg EMAIL_PASS --build-arg NOCODB_TOKEN --build-arg NOCODB_URL --build-arg DIRECTUS_URL -f front/Dockerfile.prod -t bvpk-front:0.2.0 front/
     when:
       branch:
         - master
