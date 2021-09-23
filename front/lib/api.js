@@ -1,8 +1,6 @@
 const DIRECTUS_URL = process.env.DIRECTUS_URL
 
 async function getAPI(query) {
-  console.log('Query: ', DIRECTUS_URL + query)
-
   const res = await fetch(DIRECTUS_URL + query)
   const json = await res.json()
 

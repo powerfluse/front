@@ -5,8 +5,7 @@ import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
 import { getUmweltPage } from '../lib/api'
 
-export default function Positionen(props) {
-  console.log(props)
+export default function UmweltBelastungFeuerwerk(props) {
   return (
     <>
       <Head />

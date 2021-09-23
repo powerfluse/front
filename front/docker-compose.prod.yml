@@ -3,7 +3,7 @@ version: '3'
 
 services:
   next:
-    image: bvpk-front:0.0.1
+    image: bvpk-front:0.0.2
     container_name: next
     restart: always
     networks:

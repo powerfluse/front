@@ -6,7 +6,6 @@ import { getAboutPage } from '../lib/api'
 import parse from 'html-react-parser'
 
 export default function Index(props) {
-  console.log(props.data)
   return (
     <>
       <Head>

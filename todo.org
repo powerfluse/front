@@ -5,10 +5,26 @@
 ** DONE Freitextfeld in Mitgliedsanträgen
 ** DONE Skelett für neue Unterseiten
 ** DONE Cleverreach Newsletter Anbindung
-** TODO Individualisierte HTML E-mail bei Mitgliedsanträgen und Kontaktformular
+** TODO Add =f_homepage=
+** TODO Form entry in logs (preserve logs across versions)
+** TODO E-mail bei Mitgliedsanträgen und Kontaktformular
+*** [ ] BCC to webmailer@bvpk.org
+*** [ ] Olaf Heinz E-mail
+*** [ ] reply-to info@bvpk.org
+*** [ ] Contact form triggers mail to support@bvpk.org
 
 * Backend
+** TODO Add birth date to CR export
+** TODO Make =Zahlungsrhythmus= lowercase in CR exportasdfpoiu4891death  backuo
 ** TODO Finish SPG Verein Export
+*** [ ] Fix UTF-8 Encoding (install =unicodecsv=)
+*** [ ] Add =Brief_Anrede=
+*** [ ] =Nachname= ist nicht-optionales Feld
+*** [ ] Divide =Foederbeitrag= (conditional on =Zahlungsrhythmus=)
+*** [ ] =Zusatzfeld_06= abkürzen.
+*** [ ] =Zusatzfeld_05= (Befähigung)
+*** [ ] =Land= (PLZ Validierung im Frontend anpassen)
+*** [ ] Sanitize export (e.g. remove all ';')
 
 * Chores
 ** TODO Alles updaten

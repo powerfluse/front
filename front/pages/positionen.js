@@ -6,7 +6,6 @@ import Footer from '../components/footer'
 import { getPositionenPage } from '../lib/api'
 
 export default function Positionen(props) {
-  console.log(props)
   return (
     <>
       <Head />

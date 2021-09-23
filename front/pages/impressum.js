@@ -6,7 +6,6 @@ import Footer from '../components/footer'
 import { getImpressumPage } from '../lib/api'
 
 export default function Impressum(props) {
-  console.log(props)
   return (
     <>
       <Head />

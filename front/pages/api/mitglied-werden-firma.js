@@ -11,6 +11,8 @@ export default function handler(req, res) {
     // Set axios defaults from environment variables
     axios.defaults.baseURL = NOCODB_URL
     axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
+    // Log request
+    console.log(req.body)
     // Send POST request to NocoDB
     axios
       .post('/nc/bvpk_9YLS/api/v1/firmenmitglieder', req.body)
