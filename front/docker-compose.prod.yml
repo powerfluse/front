@@ -3,7 +3,7 @@ version: '3'
 
 services:
   next:
-    image: bvpk-front:0.2.0
+    image: bvpk-front:0.2.1
     container_name: next
     restart: always
     networks:
@@ -34,6 +34,9 @@ services:
       - traefik.http.routers.next.tls.certresolver=letsencrypt
       - traefik.http.routers.next.service=next
       - traefik.http.routers.next.middlewares=redirect-to-nonwww
+
+    logging:
+      driver: journald
 
 networks:
   web:
