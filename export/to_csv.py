@@ -103,9 +103,9 @@ df_firmenmitglieder = df_firmenmitglieder.loc[
 df_firmenmitglieder["f_iban"] = df_firmenmitglieder["f_iban"].apply(
     lambda x: "****" + x[-4:]
 )
-df_firmenmitglieder.loc[:, ["f_zahlungsrhythmus"]] = df_firmenmitglieder[
-    "f_zahlungsrhythmus"
-].apply(lambda x: x.lower() if x else None)
+df_firmenmitglieder["f_zahlungsrhythmus"] = df_fm["f_zahlungsrhythmus"].apply(
+    lambda x: x.lower() if x else None
+)
 df_firmenmitglieder["sign_up"] = "bvpk.org/mitglied-werden-firma"
 df_firmenmitglieder.to_csv("./output/cr_firmenmitglieder.csv", index=False)
 
