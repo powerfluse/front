@@ -4,3 +4,4 @@ back/uploads
 /node_modules/
 /export/__pycache__/
 /.log/
+/.next/
