@@ -28,13 +28,13 @@ services:
       - traefik.http.middlewares.redirect-to-nonwww.redirectregex.permanent=true
       # next traefik setup
       - traefik.enable=true
-      - traefik.http.services.next.loadbalancer.server.port=3001
-      - traefik.http.routers.next.rule=Host(`bvpk.org`,`www.bvpk.org`)
-      - traefik.http.routers.next.entrypoints=https
-      - traefik.http.routers.next.tls=true
-      - traefik.http.routers.next.tls.certresolver=letsencrypt
-      - traefik.http.routers.next.service=next
-      - traefik.http.routers.next.middlewares=redirect-to-nonwww
+      - traefik.http.services.bvpk-front.loadbalancer.server.port=3001
+      - traefik.http.routers.bvpk-front.rule=Host(`bvpk.org`,`www.bvpk.org`)
+      - traefik.http.routers.bvpk-front.entrypoints=https
+      - traefik.http.routers.bvpk-front.tls=true
+      - traefik.http.routers.bvpk-front.tls.certresolver=letsencrypt
+      - traefik.http.routers.bvpk-front.service=bvpk-front
+      - traefik.http.routers.bvpk-front.middlewares=redirect-to-nonwww
     logging:
       driver: journald
     networks:
