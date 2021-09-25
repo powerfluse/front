@@ -10,7 +10,8 @@ services:
       - /home/dockeruser/bvpk/filebrowser:/srv
       - /home/dockeruser/bvpk/filebrowser/database.db:/database.db
       - /home/dockeruser/bvpk/filebrowser/.filebrowser.json:/.filebrowser.json
-    ports: 8081:8081
+    ports:
+      - 8081:8081
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.filebrowser.loadbalancer.server.port=8081"
