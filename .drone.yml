@@ -38,7 +38,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker-compose -f back/nocodb.prod.yml up -d
+      - docker-compose -f back/nocodb.prod.yml up --detach
     when:
       branch:
         - master
@@ -51,7 +51,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker-compose -f back/filebrowser.prod.yml up -d
+      - docker-compose -f back/filebrowser.prod.yml up --detach
     when:
       branch:
         - master
@@ -71,7 +71,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker-compose -f front/prod.yml up --build
+      - docker-compose -f front/prod.yml up --build --detach
     when:
       branch:
         - master
