@@ -3,9 +3,11 @@ version: '3'
 
 services:
   front:
+    container_name: bvpk-front
     build:
       context: .
       target: prod
+      image: bvpk-front:0.3.0
     restart: always
     ports:
       - 3001:3001
