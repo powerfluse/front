@@ -7,7 +7,7 @@ services:
     image: filebrowser/filebrowser:v2
     restart: always
     volumes:
-      - /home/dockeruser/bvpk/filebrowser:/srv
+      - /home/dockeruser/bvpk/export:/srv
       - /home/dockeruser/bvpk/filebrowser/database.db:/database.db
       - /home/dockeruser/bvpk/filebrowser/.filebrowser.json:/.filebrowser.json
     environment:
