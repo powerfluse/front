@@ -21,10 +21,10 @@ export default function InputEuro(props) {
           id={props.name}
           className={
             error && isDirty && !isValid
-              ? 'formfield-invalid show-spinners'
+              ? 'formfield-invalid'
               : isValid
-              ? 'formfield-valid show-spinners'
-              : 'formfield show-spinners'
+              ? 'formfield-valid'
+              : 'formfield'
           }
           placeholder={props.placeholder ? props.placeholder : ' '}
           aria-describedby="price-currency"

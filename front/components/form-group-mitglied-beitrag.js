@@ -1,11 +1,14 @@
-import InputEuro from '../components/input-euro'
+import Input from '../components/input'
+import React from 'react'
 import Select from '../components/select'
 import CheckBox from '../components/checkbox'
 import { useFormContext } from 'react-hook-form'
 
 export default function FormGroupMitgliedBeitrag() {
   const { watch } = useFormContext()
+
   const isSupporter = watch('foerdermitglied')
+
   return (
     <>
       <div className="mt-10 sm:mt-0">
@@ -41,12 +44,23 @@ export default function FormGroupMitgliedBeitrag() {
                   <>
                     <div className="mt-4 grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-2">
-                        <InputEuro
-                          title="Fördermitgliedsbeitrag"
+                        <Input
+                          title="Fördermitgliedsbeitrag in €"
                           name="foerderbeitrag"
-                          placeholder="z.B. 15"
+                          msg="z.B. 15"
                           validation={{
-                            maxLength: 11,
+                            required: {
+                              value: isSupporter,
+                              message: 'Pflichtfeld für Fördermitglieder',
+                            },
+                            maxLength: {
+                              value: 15,
+                              message: 'Nur realistische Beträge, bitte ;)',
+                            },
+                            pattern: {
+                              value: /^\d+([,.]?\d{1,2})?$/,
+                              message: 'z.B. 15,2 oder 15.20',
+                            },
                           }}
                         />
                       </div>
@@ -54,7 +68,9 @@ export default function FormGroupMitgliedBeitrag() {
                         <Select
                           title="Zahlungsrhythmus"
                           name="zahlungsrhythmus"
+                          defaultValue={isSupporter ? 'Monatlich' : ''}
                           options={[
+                            '',
                             'Monatlich',
                             'Vierteljährlich',
                             'Halbjährlich',

@@ -43,7 +43,7 @@ export default function FormGroupFirmaBeitrag() {
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 12,
-                        min: { value: 150, message: 'min. 150€' },
+                        min: { value: 150, message: 'min. 150' },
                       }}
                     />
                   </div>
