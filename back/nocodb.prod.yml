@@ -26,8 +26,6 @@ services:
     container_name: nocodb
     image: nocodb/nocodb:0.9.35
     restart: always
-    networks:
-      - web
     environment:
       - NC_DB=pg://nocodb-db:5432?u=nocodb&p=${NOCODB_DB_PASSWORD}&d=nocodb
       - NC_PUBLIC_URL=https://bvpk-db.linus.cx
@@ -47,6 +45,8 @@ services:
       - nocodb-db
     logging:
       driver: journald
+    networks:
+      - web
 
 networks:
   web:
