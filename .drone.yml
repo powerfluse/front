@@ -58,22 +58,6 @@ steps:
       event:
         - push
 
-  - name: deploy nocodb
-    image: docker/compose:1.29.2
-    environment:
-      NOCODB_DB_PASSWORD:
-        from_secret: nocodb_db_password
-    volumes:
-      - name: dockersock
-        path: /var/run/docker.sock
-    commands:
-      - docker-compose -f back/nocodb.prod.yml up -d
-    when:
-      branch:
-        - master
-      event:
-        - push
-
   - name: deploy frontend
     image: docker/compose:1.29.2
     environment:
