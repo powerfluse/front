@@ -25,3 +25,5 @@ services:
       - "traefik.http.routers.nocodb-http.entrypoints=http"
       - "traefik.http.routers.nocodb-http.rule=Host(`files.bvpk.org`)"
       - "traefik.http.routers.nocodb-http.middlewares=nocodb-https@docker"
+    logging:
+      driver: journald

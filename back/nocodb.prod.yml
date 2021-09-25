@@ -19,6 +19,8 @@ services:
       interval: 10s
       timeout: 2s
       retries: 10
+    logging:
+      driver: journald
 
   nocodb:
     container_name: nocodb
@@ -43,6 +45,8 @@ services:
       - "traefik.http.routers.nocodb-http.middlewares=nocodb-https@docker"
     depends_on:
       - nocodb-db
+    logging:
+      driver: journald
 
 networks:
   web:

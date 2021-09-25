@@ -19,6 +19,8 @@ services:
       interval: 10s
       timeout: 2s
       retries: 10
+    logging:
+      driver: journald
 
   cache:
     restart: always
@@ -71,6 +73,9 @@ services:
       - "traefik.http.routers.directus-http.entrypoints=http"
       - "traefik.http.routers.directus-http.rule=Host(`bvpk-back.linus.cx`)"
       - "traefik.http.routers.directus-http.middlewares=directus-https@docker"
+
+    logging:
+      driver: journald
 
 networks:
   directus:
