@@ -16,15 +16,15 @@ services:
       - web
     labels:
       - "traefik.enable=true"
-      - "traefik.http.services.nocodb.loadbalancer.server.port=8081"
-      - "traefik.http.routers.nocodb.rule=Host(`files.bvpk.org`)"
-      - "traefik.http.routers.nocodb.entrypoints=https"
-      - "traefik.http.routers.nocodb.tls=true"
-      - "traefik.http.routers.nocodb.tls.certresolver=letsencrypt"
-      - "traefik.http.middlewares.nocodb-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.nocodb-http.entrypoints=http"
-      - "traefik.http.routers.nocodb-http.rule=Host(`files.bvpk.org`)"
-      - "traefik.http.routers.nocodb-http.middlewares=nocodb-https@docker"
+      - "traefik.http.services.filebrowser.loadbalancer.server.port=8081"
+      - "traefik.http.routers.filebrowser.rule=Host(`files.bvpk.org`)"
+      - "traefik.http.routers.filebrowser.entrypoints=https"
+      - "traefik.http.routers.filebrowser.tls=true"
+      - "traefik.http.routers.filebrowser.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.filebrowser-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.filebrowser-http.entrypoints=http"
+      - "traefik.http.routers.filebrowser-http.rule=Host(`files.bvpk.org`)"
+      - "traefik.http.routers.filebrowser-http.middlewares=filebrowser-https@docker"
     logging:
       driver: journald
 
