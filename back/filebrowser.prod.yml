@@ -30,5 +30,5 @@ services:
 
 networks:
   web:
-    external:
-      name: web
+    external: true
+    name: web
