@@ -94,6 +94,7 @@ steps:
       branch:
         - master
       event:
+        - push
         - cron
 
   - name: prune images
