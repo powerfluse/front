@@ -27,3 +27,8 @@ services:
       - "traefik.http.routers.nocodb-http.middlewares=nocodb-https@docker"
     logging:
       driver: journald
+
+networks:
+  web:
+    external:
+      name: web
