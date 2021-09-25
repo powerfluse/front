@@ -78,6 +78,24 @@ steps:
       event:
         - push
 
+  - name: export csv
+    image: docker/compose:1.29.2
+    environment:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+      NOCODB_TOKEN:
+        from_secret: nocodb_token
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose -f export/docker-compose.yml up --build --detach
+    when:
+      branch:
+        - master
+      event:
+        - push
+
   - name: prune images
     image: docker:dind
     volumes:

@@ -58,7 +58,7 @@ df_newsletter["sign_up"] = "bvpk.org/mitglied-werden"
 # Merge both
 df_newsletter = df_newsletter.append(df_nl, ignore_index=True)
 
-df_newsletter.to_csv("cr_newsletter.csv", index=False)
+df_newsletter.to_csv("./output/cr_newsletter.csv", index=False)
 
 # Export member data from /mitglied-werden
 df_mitglieder = df_m.loc[
@@ -81,7 +81,7 @@ df_mitglieder.loc[:, ["zahlungsrhythmus"]] = df_mitglieder["zahlungsrhythmus"].a
     lambda x: x.lower() if x else None
 )
 df_mitglieder.loc[:, ["sign_up"]] = "bvpk.org/mitglied-werden"
-df_mitglieder.to_csv("cr_mitglieder.csv", index=False)
+df_mitglieder.to_csv("./output/cr_mitglieder.csv", index=False)
 
 
 # Export data from /mitglied-werden-firma
@@ -104,7 +104,7 @@ df_firmenmitglieder["f_iban"] = df_firmenmitglieder["f_iban"].apply(
     lambda x: "****" + x[-4:]
 )
 df_firmenmitglieder["sign_up"] = "bvpk.org/mitglied-werden-firma"
-df_firmenmitglieder.to_csv("cr_firmenmitglieder.csv", index=False)
+df_firmenmitglieder.to_csv("./output/cr_firmenmitglieder.csv", index=False)
 
 # -----------------------------------------------------------------------------
 # ... for FEUERWERK.net
@@ -119,7 +119,7 @@ feuerwerknet_list_fm = [
 
 df_feuerwerknet = pd.DataFrame(columns=["username"])
 df_feuerwerknet["username"] = feuerwerknet_list_fm + feuerwerknet_list_m
-df_feuerwerknet.to_csv("feuerwerk_net.csv", index=False, header=False)
+df_feuerwerknet.to_csv("./output/feuerwerk_net.csv", index=False, header=False)
 
 # -----------------------------------------------------------------------------
 # ... for SPG Verein
@@ -320,8 +320,12 @@ for col in df_fm.loc[
         else ("e " + sanitize(x) + " " if x == "Frau" else "")
     ) + df_spg_firmen["Post_Nachname"].apply(lambda x: sanitize(x) + ",")
 
-pd.set_option("display.max_rows", None, "display.max_columns", None)
-print(df_spg_firmen)
+# pd.set_option("display.max_rows", None, "display.max_columns", None)
+# print(df_spg_firmen)
 df_spg_firmen.to_csv(
-    "./spg_firmen.csv", sep=";", float_format="%.2f", index=False, encoding="utf-8-sig"
+    "./output/spg_firmen.csv",
+    sep=";",
+    float_format="%.2f",
+    index=False,
+    encoding="utf-8-sig",
 )
