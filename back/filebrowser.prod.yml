@@ -7,9 +7,9 @@ services:
     container_name: filebrowser
     restart: always
     volumes:
-      - /home/dockeruser/bvpk/export:/srv
-      - /home/dockeruser/bvpk/export/filebrowser.db:/database.db
-      - /home/dockeruser/bvpk/export/.filebrowser.json:/.filebrowser.json
+      - /home/dockeruser/bvpk/filebrowser:/srv
+      - /home/dockeruser/bvpk/filebrowser/filebrowser.db:/database.db
+      - /home/dockeruser/bvpk/filebrowser/.filebrowser.json:/.filebrowser.json
     ports:
       - 8081:80
     networks:
