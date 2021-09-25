@@ -12,24 +12,19 @@ import { getFromDirectus } from '../lib/api'
 import axios from 'axios'
 
 export default function Kontakt(props) {
+  // Define what's needed for the FormContext
   const methods = useForm({ mode: 'onChange' })
-  const {
-    isDirty,
-    isValid,
-    isSubmitting,
-    isSubmitted,
-    isSubmitSuccessful,
-    setError,
-    clearError,
-    errors,
-  } = methods.formState
+  const { isValid, isSubmitting, isSubmitSuccessful, errors } =
+    methods.formState
 
+  // Define states for modal dialog
   const [openModal, setOpenModal] = useState(false)
 
+  // Callback for form submission
   const onSubmit = async (data) => {
     axios
       .post('/api/kontakt', data)
-      .then((response) => {
+      .then(() => {
         setOpenModal(true)
       })
       .catch((errors) => {
@@ -37,8 +32,6 @@ export default function Kontakt(props) {
         methods.setError('serverError', {})
       })
   }
-
-  console.log(errors)
 
   return (
     <>
@@ -300,26 +293,36 @@ export default function Kontakt(props) {
                         <button
                           type="submit"
                           className={`${
-                            isValid &&
-                            Object.keys(errors).length === 0 &&
-                            errors.constructor === Object
+                            isValid && !errors.hasOwnProperty('serverError')
                               ? 'mt-2 w-full md:w-auto button-success'
                               : 'mt-2 w-full md:w-auto button'
                           }`}
                           disabled={
                             !isValid || isSubmitting || isSubmitSuccessful
                           }
-                          // onClick={() => }
                         >
                           {`${
                             isSubmitSuccessful &&
                             !errors.hasOwnProperty('serverError')
                               ? 'Danke! Wir melden uns.'
                               : errors.hasOwnProperty('serverError')
-                              ? 'This did not work. Please contact at support@bvpk.org.'
+                              ? 'Das hat leider nicht funktioniert.'
                               : 'Abschicken'
                           }`}
                         </button>
+                      </div>
+                      <div className="col-span-2 -mt-3">
+                        {errors.hasOwnProperty('serverError') && (
+                          <div className="pt-1 text-right text-red-500 font-source">
+                            Bitte kontaktiere unseren Support unter{' '}
+                            <a
+                              href="mailto:support@bvpk.org"
+                              className="underline"
+                            >
+                              support@bvpk.org
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </form>
                   </div>
