@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
+import axios from 'axios'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Head from '../components/head'
@@ -16,7 +17,7 @@ import FormGroupFirmaFreitext from '../components/form-group-firma-freitext'
 export default function MitgliedWerdenFirma() {
   // Set needed states
   const [openModal, setOpenModal] = useState(false)
-  const [submitErrorMessage, setSubmitErrorMessage] = useState('')
+
   // Initialise needed form utilities
   const methods = useForm({
     mode: 'onChange',
@@ -25,25 +26,14 @@ export default function MitgliedWerdenFirma() {
     methods.formState
 
   const onSubmit = async (data) => {
-    return await fetch('/api/mitglied-werden-firma', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          setSubmitErrorMessage(
-            'Hier gab es ein Problem! Schreib uns am Besten eine Mail.'
-          )
-          throw new Error('Hier gab es ein Problem!')
-        } else {
-          setOpenModal(true)
-        }
+    axios
+      .post('api/mitglied-werden-firma', data)
+      .then(() => {
+        setOpenModal(true)
       })
-      .catch((e) => {
-        console.log(e)
+      .catch((errors) => {
+        console.error(errors)
+        methods.setError('serverError', {})
       })
   }
 
@@ -69,27 +59,29 @@ export default function MitgliedWerdenFirma() {
               <button
                 type="submit"
                 className={`${
-                  isSubmitSuccessful && !submitErrorMessage
+                  isSubmitSuccessful && !errors.hasOwnProperty('serverError')
                     ? 'button-success'
                     : 'button'
                 }`}
                 disabled={
-                  !isDirty ||
-                  !isValid ||
-                  isSubmitting ||
-                  (isSubmitSuccessful && !submitErrorMessage)
+                  !isDirty || !isValid || isSubmitting || isSubmitSuccessful
                 }
               >
                 {`${
-                  isSubmitSuccessful && !submitErrorMessage
+                  isSubmitSuccessful && !errors.hasOwnProperty('serverError')
                     ? 'Danke für Deine Unterstützung!'
+                    : errors.hasOwnProperty('serverError')
+                    ? 'Das hat leider nicht funktioniert'
                     : 'Beitreten!'
                 }`}
               </button>
             </div>
-            {submitErrorMessage && (
-              <div className="flex justify-end -mt-3 font-source py-3 text-red-500">
-                {submitErrorMessage}
+            {errors.hasOwnProperty('serverError') && (
+              <div className="-mt-4 py-3 text-right text-red-500 font-source">
+                Bitte kontaktiere unseren Support unter{' '}
+                <a href="mailto:support@bvpk.org" className="underline">
+                  support@bvpk.org
+                </a>
               </div>
             )}
           </form>

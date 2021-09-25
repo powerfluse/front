@@ -1,6 +1,7 @@
 import parse from 'html-react-parser'
 import { useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
+import { getFromDirectus } from '../lib/api'
 import axios from 'axios'
 import Head from '../components/head'
 import NavBar from '../components/navbar'
@@ -14,42 +15,33 @@ import FormGroupMitgliedBeitrag from '../components/form-group-mitglied-beitrag'
 import FormGroupMitgliedSEPA from '../components/form-group-mitglied-sepa'
 import FormGroupMitgliedConsent from '../components/form-group-mitglied-consent'
 import FormGroupMitgliedFreitext from '../components/form-group-mitglied-freitext'
-import { getFromDirectus } from '../lib/api'
 
 export default function MitgliedWerden(props) {
   // Set needed states
   const [openModal, setOpenModal] = useState(false)
-  const [submitErrorMessage, setSubmitErrorMessage] = useState('')
 
   // Initialise needed form utilities
   const methods = useForm({
     mode: 'onChange',
   })
-  const { isDirty, isValid, isSubmitting, isSubmitSuccessful, errors } =
+  const { isValid, isSubmitting, isSubmitSuccessful, errors } =
     methods.formState
 
-  // Send form data to /api/mitglied-werden
-  const onSubmit = (data) => {
+  // Callback for form submission
+  const onSubmit = async (data) => {
+    // Fix data remaining in some fields after de-selecting
+    if (!data.foerdermitglied) {
+      data.foerderbeitrag = ''
+      data.zahlungsrhythmus = ''
+    }
     axios
       .post('api/mitglied-werden', data)
-      .then(setOpenModal(true))
-      .catch((error) => {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          console.log(error.response.data)
-          console.log(error.response.status)
-          console.log(error.response.headers)
-        } else if (error.request) {
-          // The request was made but no response was received
-          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-          // http.ClientRequest in node.js
-          console.log(error.request)
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          console.log('Error', error.message)
-        }
-        console.log(error.config)
+      .then(() => {
+        setOpenModal(true)
+      })
+      .catch((errors) => {
+        console.error(errors)
+        methods.setError('serverError', {})
       })
   }
 
@@ -78,27 +70,27 @@ export default function MitgliedWerden(props) {
               <button
                 type="submit"
                 className={`${
-                  isSubmitSuccessful && !submitErrorMessage
+                  isSubmitSuccessful && !errors.hasOwnProperty('serverError')
                     ? 'button-success'
                     : 'button'
                 }`}
-                disabled={
-                  !isDirty ||
-                  !isValid ||
-                  isSubmitting ||
-                  (isSubmitSuccessful && !submitErrorMessage)
-                }
+                disabled={!isValid || isSubmitting || isSubmitSuccessful}
               >
                 {`${
-                  isSubmitSuccessful && !submitErrorMessage
+                  isSubmitSuccessful && !errors.hasOwnProperty('serverError')
                     ? 'Danke für Deine Unterstützung!'
+                    : errors.hasOwnProperty('serverError')
+                    ? 'Das hat leider nicht funktioniert'
                     : 'Beitreten!'
                 }`}
               </button>
             </div>
-            {submitErrorMessage && (
-              <div className="flex justify-end -mt-3 font-source py-3 text-red-500">
-                {submitErrorMessage}
+            {errors.hasOwnProperty('serverError') && (
+              <div className="-mt-4 py-3 text-right text-red-500 font-source">
+                Bitte kontaktiere unseren Support unter{' '}
+                <a href="mailto:support@bvpk.org" className="underline">
+                  support@bvpk.org
+                </a>
               </div>
             )}
           </form>

@@ -7,35 +7,38 @@ import Modal from '../components/modal'
 import Input from '../components/input'
 import TextArea from '../components/text-area'
 import { useForm, FormProvider } from 'react-hook-form'
-import { getContactPage } from '../lib/api'
 import { useState } from 'react'
+import { getFromDirectus } from '../lib/api'
+import axios from 'axios'
 
 export default function Kontakt(props) {
-  const methods = useForm({
-    mode: 'onChange',
-  })
-  const { isDirty, isValid, isSubmitting, isSubmitSuccessful, errors } =
-    methods.formState
+  const methods = useForm({ mode: 'onChange' })
+  const {
+    isDirty,
+    isValid,
+    isSubmitting,
+    isSubmitted,
+    isSubmitSuccessful,
+    setError,
+    clearError,
+    errors,
+  } = methods.formState
 
   const [openModal, setOpenModal] = useState(false)
 
   const onSubmit = async (data) => {
-    return await fetch('/api/kontakt', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Hier gab es ein Problem!')
-        }
+    axios
+      .post('/api/kontakt', data)
+      .then((response) => {
+        setOpenModal(true)
       })
-      .catch((e) => {
-        console.log(e)
+      .catch((errors) => {
+        console.error(errors)
+        methods.setError('serverError', {})
       })
   }
+
+  console.log(errors)
 
   return (
     <>
@@ -297,18 +300,23 @@ export default function Kontakt(props) {
                         <button
                           type="submit"
                           className={`${
-                            isSubmitSuccessful
+                            isValid &&
+                            Object.keys(errors).length === 0 &&
+                            errors.constructor === Object
                               ? 'mt-2 w-full md:w-auto button-success'
                               : 'mt-2 w-full md:w-auto button'
                           }`}
                           disabled={
                             !isValid || isSubmitting || isSubmitSuccessful
                           }
-                          onClick={() => setOpenModal(true)}
+                          // onClick={() => }
                         >
                           {`${
-                            isSubmitSuccessful
+                            isSubmitSuccessful &&
+                            !errors.hasOwnProperty('serverError')
                               ? 'Danke! Wir melden uns.'
+                              : errors.hasOwnProperty('serverError')
+                              ? 'This did not work. Please contact at support@bvpk.org.'
                               : 'Abschicken'
                           }`}
                         </button>
@@ -320,7 +328,6 @@ export default function Kontakt(props) {
             </div>
           </div>
         </section>
-
         <Newsletter />
         <Footer />
       </main>
@@ -329,7 +336,7 @@ export default function Kontakt(props) {
 }
 
 export async function getStaticProps() {
-  const data = await getContactPage()
+  const data = await getFromDirectus('/items/contact_page')
   return {
     props: { data },
     revalidate: 60,
