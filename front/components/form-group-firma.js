@@ -35,6 +35,20 @@ export default function FormGroupFirma() {
                       }}
                     />
                   </div>
+                  {/* Homepage */}
+                  <div className="col-span-6 md:col-span-6">
+                    <Input
+                      type="text"
+                      title="Homepage"
+                      name="f_homepage"
+                      msg="max. 35 Zeichen"
+                      autoComplete="url"
+                      validation={{
+                        required: { value: 'true', message: 'Pflichtfeld' },
+                        maxLength: 35,
+                      }}
+                    />
+                  </div>
                   {/* Strasse */}
                   <div className="col-span-4 md:col-span-5">
                     <Input
