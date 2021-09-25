@@ -1,12 +1,11 @@
 import Head from '../components/head'
 import Newsletter from '../components/newsletter'
-import CleverReach from '../components/cleverreach'
 import SideBySide from '../components/side-by-side'
 import NavBar from '../components/navbar'
 import BlogIndex from '../components/blog-index'
 import Hero from '../components/hero'
 import Footer from '../components/footer'
-import { getAktuelles6, getIndexPage } from '../lib/api'
+import { getFromDirectus } from '../lib/api'
 
 export default function Index(props) {
   return (
@@ -23,8 +22,10 @@ export default function Index(props) {
 }
 
 export async function getStaticProps() {
-  const dataIndexPage = await getIndexPage()
-  const dataAktuelles6 = await getAktuelles6()
+  const dataIndexPage = await getFromDirectus('/items/index_page')
+  const dataAktuelles6 = await getFromDirectus(
+    '/items/aktuelles?limit=6&filter[status][_eq]=published&sort[]=-date'
+  )
   return {
     props: {
       dataIndexPage,

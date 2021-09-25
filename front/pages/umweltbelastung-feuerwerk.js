@@ -3,7 +3,7 @@ import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
-import { getUmweltPage } from '../lib/api'
+import { getFromDirectus } from '../lib/api'
 
 export default function UmweltBelastungFeuerwerk(props) {
   return (
@@ -22,7 +22,7 @@ export default function UmweltBelastungFeuerwerk(props) {
 }
 
 export async function getStaticProps() {
-  const dataUmweltPage = await getUmweltPage()
+  const dataUmweltPage = await getFromDirectus('/items/umwelt_page')
   return {
     props: {
       dataUmweltPage,

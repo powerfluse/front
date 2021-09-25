@@ -3,7 +3,7 @@ import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
-import { getVersicherungPage } from '../lib/api'
+import { getFromDirectus } from '../lib/api'
 
 export default function Versicherung(props) {
   return (
@@ -11,7 +11,7 @@ export default function Versicherung(props) {
       <Head />
       <NavBar />
       <div className="min-h-screen bg-purple-900">
-        <div className="prose prose-lg prose-on-purple-aktuelles pt-32 mx-auto">
+        <div className="prose prose-lg prose-on-purple-aktuelles pt-32 pb-12 mx-auto">
           {parse(props.dataVersicherungPage.text)}
         </div>
       </div>
@@ -22,7 +22,7 @@ export default function Versicherung(props) {
 }
 
 export async function getStaticProps() {
-  const dataVersicherungPage = await getVersicherungPage()
+  const dataVersicherungPage = await getFromDirectus('/items/versicherung_page')
   return {
     props: {
       dataVersicherungPage,

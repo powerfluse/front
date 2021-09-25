@@ -7,7 +7,6 @@ import NavBar from '../components/navbar'
 import Modal from '../components/modal'
 import Footer from '../components/footer'
 import FormGroupMitglied from '../components/form-group-mitglied'
-import { getMitgliedWerdenPage } from '../lib/api'
 import FormGroupMitgliedFeuerwerk from '../components/form-group-mitglied-feuerwerk'
 import FormGroupMitgliedVersicherung from '../components/form-group-mitglied-versicherung'
 import FormGroupMitgliedFeuerwerkNet from '../components/form-group-mitglied-feuerwerk-net'
@@ -15,6 +14,7 @@ import FormGroupMitgliedBeitrag from '../components/form-group-mitglied-beitrag'
 import FormGroupMitgliedSEPA from '../components/form-group-mitglied-sepa'
 import FormGroupMitgliedConsent from '../components/form-group-mitglied-consent'
 import FormGroupMitgliedFreitext from '../components/form-group-mitglied-freitext'
+import { getFromDirectus } from '../lib/api'
 
 export default function MitgliedWerden(props) {
   // Set needed states
@@ -110,7 +110,9 @@ export default function MitgliedWerden(props) {
 }
 
 export async function getStaticProps() {
-  const dataMitgliedWerdenPage = await getMitgliedWerdenPage()
+  const dataMitgliedWerdenPage = await getFromDirectus(
+    '/items/mitglied_werden_page'
+  )
   return {
     props: {
       dataMitgliedWerdenPage,

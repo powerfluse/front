@@ -3,7 +3,7 @@ import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
-import { getPositionenPage } from '../lib/api'
+import { getFromDirectus } from '../lib/api'
 
 export default function Positionen(props) {
   return (
@@ -22,7 +22,7 @@ export default function Positionen(props) {
 }
 
 export async function getStaticProps() {
-  const dataPositionenPage = await getPositionenPage()
+  const dataPositionenPage = await getFromDirectus('/items/positionen_page')
   return {
     props: {
       dataPositionenPage,

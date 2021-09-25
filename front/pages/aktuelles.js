@@ -2,7 +2,7 @@ import Head from '../components/head'
 import Blog from '../components/blog'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
-import { getAktuellesPage, getAktuellesAll } from '../lib/api'
+import { getFromDirectus } from '../lib/api'
 
 export default function Index(props) {
   return (
@@ -18,8 +18,10 @@ export default function Index(props) {
 }
 
 export async function getStaticProps() {
-  const aktuellesPage = await getAktuellesPage()
-  const aktuelles = await getAktuellesAll()
+  const aktuellesPage = await getFromDirectus('/items/aktuelles_page')
+  const aktuelles = await getFromDirectus(
+    '/items/aktuelles?filter[status][_eq]=published'
+  )
   return {
     props: { aktuellesPage, aktuelles },
     revalidate: 60,

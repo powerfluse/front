@@ -1,11 +1,12 @@
 import NavBar from '../../components/navbar'
 import Head from '../../components/head'
-import { getAktuellesAll, getAktuellesSingle } from '../../lib/api'
-import { CameraIcon } from '@heroicons/react/solid'
 import parse from 'html-react-parser'
+import { CameraIcon } from '@heroicons/react/solid'
+import { getFromDirectus } from '../../lib/api'
 
 export default function Post(props) {
-  const API_ASSET_URL = process.env.DIRECTUS_URL + '/assets/'
+  const baseURL = 'https://bvpk-back.linus.cx'
+  const assetURL = `${baseURL}/assets/`
   return (
     <>
       <NavBar />
@@ -29,7 +30,7 @@ export default function Post(props) {
                   <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
                     <img
                       className="rounded-lg shadow-lg object-cover object-center"
-                      src={API_ASSET_URL + props.image}
+                      src={assetURL + props.image}
                       alt={props.title}
                       width={1184}
                       height={1376}
@@ -68,7 +69,9 @@ export default function Post(props) {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await getAktuellesSingle(params.slug)
+  const data = await getFromDirectus(
+    `/items/aktuelles?filter[slug][_eq]=${params.slug}`
+  )
   return {
     props: { ...data[0] },
     revalidate: 60,
@@ -76,7 +79,9 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const aktuelles = await getAktuellesAll()
+  const aktuelles = await getFromDirectus(
+    '/items/aktuelles?filter[status][_eq]=published'
+  )
   return {
     paths: aktuelles?.map((a) => `/aktuelles/${a.slug}`) || [],
     fallback: true,

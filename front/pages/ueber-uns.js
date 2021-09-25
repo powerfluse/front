@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Newsletter from '../components/newsletter'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
-import { getAboutPage } from '../lib/api'
 import parse from 'html-react-parser'
+import { getFromDirectus } from '../lib/api'
 
 export default function Index(props) {
   return (
@@ -38,7 +38,7 @@ export default function Index(props) {
 }
 
 export async function getStaticProps() {
-  const data = await getAboutPage()
+  const data = await getFromDirectus('/items/about_page')
   return {
     props: { data },
     revalidate: 60,

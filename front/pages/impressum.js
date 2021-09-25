@@ -3,7 +3,7 @@ import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
-import { getImpressumPage } from '../lib/api'
+import { getFromDirectus } from '../lib/api'
 
 export default function Impressum(props) {
   return (
@@ -22,7 +22,7 @@ export default function Impressum(props) {
 }
 
 export async function getStaticProps() {
-  const dataImpressumPage = await getImpressumPage()
+  const dataImpressumPage = await getFromDirectus('/items/impressum_page')
   return {
     props: {
       dataImpressumPage,

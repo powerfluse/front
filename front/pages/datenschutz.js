@@ -3,7 +3,7 @@ import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
-import { getDatenschutzPage } from '../lib/api'
+import { getFromDirectus } from '../lib/api'
 
 export default function Datenschutz(props) {
   return (
@@ -22,7 +22,7 @@ export default function Datenschutz(props) {
 }
 
 export async function getStaticProps() {
-  const dataDatenschutzPage = await getDatenschutzPage()
+  const dataDatenschutzPage = await getFromDirectus('/items/datenschutz_page')
   return {
     props: {
       dataDatenschutzPage,

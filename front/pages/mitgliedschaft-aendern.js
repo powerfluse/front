@@ -5,7 +5,7 @@ import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Head from '../components/head'
 import Modal from '../components/modal'
-import { getMitgliedschaftAendernPage } from '../lib/api'
+import { getFromDirectus } from '../lib/api'
 import FormGroupAenderung from '../components/form-group-aenderung'
 import FormGroupFirma from '../components/form-group-firma'
 import FormGroupFirmaAP from '../components/form-group-firma-ap'
@@ -108,7 +108,9 @@ export default function MitgliedschaftAendern(props) {
 }
 
 export async function getStaticProps() {
-  const dataMitgliedschaftAendernPage = await getMitgliedschaftAendernPage()
+  const dataMitgliedschaftAendernPage = await getFromDirectus(
+    '/items/mitgliedschaft_aendern_page'
+  )
   return {
     props: {
       dataMitgliedschaftAendernPage,
