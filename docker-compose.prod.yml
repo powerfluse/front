@@ -1,0 +1,14 @@
+---
+version: "3"
+
+services:
+  front:
+    build:
+      context: front
+      target: prod
+    restart: always
+    ports:
+      - 3001:3001
+    environment:
+      - EMAIL_PASS=${EMAIL_PASS}
+      - NOCODB_TOKEN=${NOCODB_TOKEN}
