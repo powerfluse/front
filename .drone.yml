@@ -102,7 +102,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker system prune -f
+      - docker image prune --all --force
     when:
       branch:
         - master
