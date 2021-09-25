@@ -1,0 +1,27 @@
+---
+version: "3"
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:v2
+    container_name: filebrowser
+    restart: always
+    volumes:
+      - /home/dockeruser/bvpk/export:/srv
+      - /home/dockeruser/bvpk/export/filebrowser.db:/database.db
+      - /home/dockeruser/bvpk/export/.filebrowser.json:/.filebrowser.json
+    ports:
+      - 8081:80
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.nocodb.loadbalancer.server.port=8081"
+      - "traefik.http.routers.nocodb.rule=Host(`files.bvpk.org`)"
+      - "traefik.http.routers.nocodb.entrypoints=https"
+      - "traefik.http.routers.nocodb.tls=true"
+      - "traefik.http.routers.nocodb.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.nocodb-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.nocodb-http.entrypoints=http"
+      - "traefik.http.routers.nocodb-http.rule=Host(`files.bvpk.org`)"
+      - "traefik.http.routers.nocodb-http.middlewares=nocodb-https@docker"

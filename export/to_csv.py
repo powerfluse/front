@@ -126,9 +126,8 @@ df_feuerwerknet.to_csv("feuerwerk_net.csv", index=False, header=False)
 # -----------------------------------------------------------------------------
 
 
-def sanitize(string):
-    x = string.strip()
-    x = x.replace(";", "/")
+def sanitize(input):
+    x = str(input).strip().replace(";", "/")
     return x
 
 
@@ -179,8 +178,8 @@ df_spg_firmen = pd.DataFrame(
 df_spg_firmen = df_spg_firmen.reset_index(drop=True)
 df_fm = df_fm.reset_index()
 
-df_spg_firmen.loc[:, "Vorname"] = df_fm["f_name"].apply(lambda x: x.split()[0])
-df_spg_firmen.loc[:, "Nachname"] = df_fm["f_name"].apply(
+df_spg_firmen.loc[:, "Nachname"] = df_fm["f_name"].apply(lambda x: x.split()[0])
+df_spg_firmen.loc[:, "Vorname"] = df_fm["f_name"].apply(
     lambda x: " ".join(x.split()[1:])
 )
 df_spg_firmen.loc[:, "Strasse"] = df_fm["f_strasse"].apply(lambda x: sanitize(x))
@@ -206,16 +205,13 @@ df_spg_firmen.loc[:, "Handy_2"] = df_fm["f_ap_telefon"].apply(
     lambda x: "".join(filter(str.isdigit, x))
 )
 df_spg_firmen.loc[:, "Email"] = df_fm["f_email"].apply(lambda x: sanitize(x))
-
-
-# TODO f_homepage must be added
-# df_spg_firmen.loc[:, "Homepage"] = df_fm["f_homepage"].apply(lambda x: sanitize(x))
-df_spg_firmen.loc[:, "IBAN_Nr"] = df_fm["f_iban"].apply(lambda x: sanitize(x))
-
-df_spg_firmen.loc[:, "Zusatzfeld_01"] = df_fm["f_feuerwerknet"].apply(
-    lambda x: sanitize(x) if x else None
+df_spg_firmen.loc[:, "Homepage"] = df_fm["f_homepage"].apply(
+    lambda x: sanitize(x) if x else np.nan
 )
-
+df_spg_firmen.loc[:, "IBAN_Nr"] = df_fm["f_iban"].apply(lambda x: sanitize(x))
+df_spg_firmen.loc[:, "Zusatzfeld_01"] = df_fm["f_feuerwerknet"].apply(
+    lambda x: sanitize(x) if x else np.nan
+)
 df_spg_firmen.loc[:, "Zusatzfeld_06"] = " "
 for col in df_fm.loc[
     :,
@@ -234,12 +230,12 @@ for col in df_fm.loc[
     for row in df_fm.loc[:, col]:
         if col == "f_t_gf" and df_fm.loc[c:c, col][c]:
             df_spg_firmen.loc[c:c, "Zusatzfeld_06"] = (
-                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "Großfeuerwerk/"
+                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "GF/"
             )
 
         if col == "f_t_buehne" and df_fm.loc[c:c, col][c]:
             df_spg_firmen.loc[c:c, "Zusatzfeld_06"] = (
-                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "Bühne/"
+                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "B/"
             )
 
         if col == "f_t_sfx" and df_fm.loc[c:c, col][c]:
@@ -249,29 +245,27 @@ for col in df_fm.loc[
 
         if col == "f_t_handel_gf" and df_fm.loc[c:c, col][c]:
             df_spg_firmen.loc[c:c, "Zusatzfeld_06"] = (
-                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "Handel mit Großfeuerwerk/"
+                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "HA_GF/"
             )
 
         if col == "f_t_handel_kf" and df_fm.loc[c:c, col][c]:
             df_spg_firmen.loc[c:c, "Zusatzfeld_06"] = (
-                df_spg_firmen.loc[c:c, "Zusatzfeld_06"]
-                + "Handel mit Kleinfeuerwerk unter dem Jahr/"
+                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "HA_KF/"
             )
 
         if col == "f_t_handel_kf_silvester" and df_fm.loc[c:c, col][c]:
             df_spg_firmen.loc[c:c, "Zusatzfeld_06"] = (
-                df_spg_firmen.loc[c:c, "Zusatzfeld_06"]
-                + "Handel mit Kleinfeuerwerk zu Silvester/"
+                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "HA_KF_S/"
             )
 
         if col == "f_t_handel_herstellung_de" and df_fm.loc[c:c, col][c]:
             df_spg_firmen.loc[c:c, "Zusatzfeld_06"] = (
-                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "Herstellung in Deutschland/"
+                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "HE_DE/"
             )
 
         if col == "f_t_import" and df_fm.loc[c:c, col][c]:
             df_spg_firmen.loc[c:c, "Zusatzfeld_06"] = (
-                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "Import"
+                df_spg_firmen.loc[c:c, "Zusatzfeld_06"] + "I/"
             )
 
         c += 1
@@ -299,8 +293,17 @@ for col in df_fm.loc[
     df_spg_firmen.loc[:, "Zahlweise_1"] = df_fm["f_zahlungsrhythmus"].apply(
         lambda x: x[:1].lower()
     )
-    df_spg_firmen.loc[:, "Zusatzbetrag"] = df_fm["f_beitrag"].apply(
-        lambda x: float(x) - 150
+    df_spg_firmen.loc[:, "Zusatzbetrag"] = df_fm.apply(
+        lambda x: (
+            (float(x["f_beitrag"]) - 150) / 2
+            if x["f_zahlungsrhythmus"] == "Halbjährlich"
+            else (
+                (float(x["f_beitrag"]) - 150) / 4
+                if x["f_zahlungsrhythmus"] == "Vierteljährlich"
+                else (float(x["f_beitrag"]) - 150)
+            )
+        ),
+        axis=1,
     )
     df_spg_firmen.loc[:, "Post_Anrede"] = df_fm["f_ap_anrede"].apply(
         lambda x: np.nan if x == "keine Angabe" else sanitize(x)
@@ -311,6 +314,11 @@ for col in df_fm.loc[
     df_spg_firmen.loc[:, "Post_Nachname"] = df_fm["f_ap_nachname"].apply(
         lambda x: sanitize(x)
     )
+    df_spg_firmen.loc[:, "Brief_Anrede"] = df_spg_firmen["Post_Anrede"].apply(
+        lambda x: "er " + sanitize(x) + " "
+        if x == "Herr"
+        else ("e " + sanitize(x) + " " if x == "Frau" else "")
+    ) + df_spg_firmen["Post_Nachname"].apply(lambda x: sanitize(x) + ",")
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 print(df_spg_firmen)

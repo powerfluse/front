@@ -45,20 +45,29 @@ steps:
       event:
         - push
 
-  - name: build frontend
-    image: docker:20.10.7
-    environment:
-      NOCODB_TOKEN:
-        from_secret: nocodb_token
-      NOCODB_URL: https://bvpk-db.linus.cx
-      DIRECTUS_URL: https://bvpk-back.linus.cx
-      EMAIL_PASS:
-        from_secret: email_pass
+  - name: deploy filebrowser
+    image: docker/compose:1.29.2
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker build --build-arg EMAIL_PASS --build-arg NOCODB_TOKEN --build-arg NOCODB_URL --build-arg DIRECTUS_URL -f front/Dockerfile.prod -t bvpk-front:0.2.1 front/
+      - docker-compose -f back/filebrowser.prod.yml up -d
+    when:
+      branch:
+        - master
+      event:
+        - push
+
+  - name: deploy nocodb
+    image: docker/compose:1.29.2
+    environment:
+      NOCODB_DB_PASSWORD:
+        from_secret: nocodb_db_password
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose -f back/nocodb.prod.yml up -d
     when:
       branch:
         - master
@@ -67,11 +76,18 @@ steps:
 
   - name: deploy frontend
     image: docker/compose:1.29.2
+    environment:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+      NOCODB_TOKEN:
+        from_secret: nocodb_token
+      EMAIL_PASS:
+        from_secret: email_pass
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker-compose -f front/docker-compose.prod.yml up -d
+      - docker-compose -f front/prod.yml up --build
     when:
       branch:
         - master
