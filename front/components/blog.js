@@ -1,7 +1,6 @@
-import Link from 'next/link'
-
 export default function Blog(props) {
-  const assetUrl = process.env.DIRECTUS_URL + '/assets/'
+  const baseURL = 'https://bvpk-back.linus.cx'
+  const assetURL = `${baseURL}/assets/`
   const aktuellesPage = props.props.aktuellesPage
   const aktuelles_unsorted = props.props.aktuelles
   const aktuelles = aktuelles_unsorted.sort(function (a, b) {
@@ -28,7 +27,7 @@ export default function Blog(props) {
               <div className="flex-shrink-0">
                 <img
                   className="h-48 w-full object-cover"
-                  src={assetUrl + a.image}
+                  src={assetURL + a.image}
                   alt=""
                 />
               </div>
