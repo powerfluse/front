@@ -21,7 +21,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: 'https://www.instagram.com/bvpyrotechnik',
+      href: 'https://www.instagram.com/bpvk_pyrotechnik',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
