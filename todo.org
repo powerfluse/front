@@ -18,15 +18,14 @@
 ** DONE Add birth date to CR export
 ** DONE Make =Zahlungsrhythmus= lowercase in CR export
 ** TODO Finish SPG Verein Export
-*** [ ] Fix UTF-8 Encoding (install =unicodecsv=)
-*** [ ] Add =Brief_Anrede=
-*** [ ] =Nachname= ist nicht-optionales Feld
-*** [ ] Divide =Foederbeitrag= (conditional on =Zahlungsrhythmus=)
-*** [ ] =Zusatzfeld_06= abkürzen.
+*** [X] Fix UTF-8 Encoding
+*** [X] Sanitize export (e.g. remove all ';')
+*** [X] Add =Brief_Anrede=
+*** [X] =Nachname= ist nicht-optionales Feld
+*** [X] Divide =Foederbeitrag= (conditional on =Zahlungsrhythmus=)
+*** [X] =Zusatzfeld_06= abkürzen.
 *** [ ] =Zusatzfeld_05= (Befähigung)
 *** [ ] =Land= (PLZ Validierung im Frontend anpassen)
-*** [ ] Sanitize export (e.g. remove all ';')
-
 * Chores
 ** TODO Alles updaten
 ** TODO Backup testen
