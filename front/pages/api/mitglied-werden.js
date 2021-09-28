@@ -94,7 +94,7 @@ ${
 Kontoinhaber/in: ${req.body.kontoinhaber}
 IBAN: ${req.body.iban.substring(0, 6)}********
 
-Versicherung: ${req.body.verischerung ? 'Ja' : 'Nein'}
+Versicherung: ${req.body.versicherung ? 'Ja' : 'Nein'}
 Newsletter: ${req.body.nl_consent ? 'Ja' : 'Nein'}
 `,
           }
