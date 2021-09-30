@@ -77,10 +77,9 @@ FEUERWERK.net: ${
 
 Addresse:
 ${req.body.strasse} ${req.body.hausnummer}
-${req.body.adresszusatz}
+${req.body.adresszusatz ? req.body.addresszusatz : ''}
 ${req.body.plz} ${req.body.ort}
 ${req.body.land}
-
 
 Grundbeitrag:
 24€ Jährlich
