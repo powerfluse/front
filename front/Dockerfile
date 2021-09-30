@@ -25,10 +25,10 @@ WORKDIR /app
 RUN groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser
 USER appuser
-COPY package.json .
-COPY --from=build /app/public ./public
-COPY --from=build /app/.next ./.next
-COPY --from=build /app/node_modules ./node_modules
+COPY --chown=appuser package.json .
+COPY --from=build --chown=appuser /app/public ./public
+COPY --from=build --chown=appuser /app/.next ./.next
+COPY --from=build --chown=appuser /app/node_modules ./node_modules
 ENV NODE_ENV=production
 EXPOSE 3001
 CMD ["npm", "run", "start"]
