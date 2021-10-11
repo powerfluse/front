@@ -110,10 +110,10 @@ steps:
       event:
         - push
 
+node:
+  bvpk: www
+
 volumes:
   - name: dockersock
     host:
       path: /run/user/1000/docker.sock
-
-node:
-  bvpk: www
