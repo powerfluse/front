@@ -3,9 +3,7 @@ version: "3"
 
 services:
   export:
-    build:
-      context: .
     volumes:
-      - /home/dockeruser/bvpk/export:/app/output
+      - /srv/bvpk/export:/app/output
     environment:
       - POETRY_NOCODB_TOKEN=${NOCODB_TOKEN}

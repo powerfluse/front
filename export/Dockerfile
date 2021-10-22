@@ -11,7 +11,7 @@ RUN poetry config virtualenvs.create false
 
 # Install project dependencies
 COPY pyproject.toml poetry.lock /app/
-RUN poetry install
+RUN poetry install --no-dev
 
 # Install the script
 COPY to_csv.py ./to_csv

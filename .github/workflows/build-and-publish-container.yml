@@ -8,13 +8,14 @@ on:
       - dev
     paths:
       - "front/**"
+      - "export/**"
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-and-publich-container:
+  build-and-publish-container:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -41,7 +42,15 @@ jobs:
             type=ref,event=branch
             type=schedule,pattern={{date 'YYYYMMDD'}}
 
-      - name: Build and push Docker image
+      - name: Build and push Docker image for front
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: front
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Build and push Docker image for export
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: front
