@@ -44,6 +44,8 @@ services:
   cms-db:
     image: postgres:13
     container_name: cms-db
+    networks:
+      - web
     restart: always
     volumes:
       - /srv/bvpk/cms/db:/var/lib/postgresql/data
@@ -64,6 +66,8 @@ services:
   cms-cache:
     restart: always
     container_name: cms-cache
+    networks:
+      - web
     image: redis:6
     expose:
       - "6379"
