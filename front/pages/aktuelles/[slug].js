@@ -5,7 +5,7 @@ import { CameraIcon } from '@heroicons/react/solid'
 import { getFromDirectus } from '../../lib/api'
 
 export default function Post(props) {
-  const baseURL = 'https://bvpk-back.linus.cx'
+  const baseURL = 'https://cms.bvpk.net'
   const assetURL = `${baseURL}/assets/`
   return (
     <>

@@ -1,5 +1,5 @@
   export async function getFromDirectus(query) {
-    const baseURL = 'https://bvpk-back.linus.cx'
+    const baseURL = 'https://cms.bvpk.net'
     const res = await fetch(baseURL + query)
     const json = await res.json()
     if (json.errors) {

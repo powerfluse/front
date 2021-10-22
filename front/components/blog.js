@@ -1,5 +1,5 @@
 export default function Blog(props) {
-  const baseURL = 'https://bvpk-back.linus.cx'
+  const baseURL = 'https://cms.bvpk.net'
   const assetURL = `${baseURL}/assets/`
   const aktuellesPage = props.props.aktuellesPage
   const aktuelles_unsorted = props.props.aktuelles
