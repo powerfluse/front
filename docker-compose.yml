@@ -79,7 +79,7 @@ services:
     expose:
       - "8055"
     volumes:
-      - /srv/bvpk/cms/uploads:/directus/uploads
+      - /srv/bvpk/cms/uploads:/directus/uploads:rw
     networks:
       - cms
       - web
