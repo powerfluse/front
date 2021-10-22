@@ -26,6 +26,7 @@
     - { role: ansible-fail2ban, tags: [hardening, fail2ban] }
     - { role: ansible-unattended-upgrades, tags: [unattended-upgrades] }
     - { role: ansible-docker, tags: [docker] }
+    - { role: ansible-ctop, tags: [docker, ctop] }
 # - name: Install and setup ctop
 #   hosts: all
 #   remote_user: root
