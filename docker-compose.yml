@@ -45,7 +45,7 @@ services:
     image: postgres:13
     container_name: cms-db
     networks:
-      - web
+      - cms
     restart: always
     volumes:
       - /srv/bvpk/cms/db:/var/lib/postgresql/data
@@ -67,7 +67,7 @@ services:
     restart: always
     container_name: cms-cache
     networks:
-      - web
+      - cms
     image: redis:6
     expose:
       - "6379"
@@ -81,6 +81,7 @@ services:
     volumes:
       - /srv/bvpk/cms/uploads:/directus/uploads
     networks:
+      - cms
       - web
     depends_on:
       - cms-cache
@@ -118,3 +119,5 @@ networks:
   web:
     external: true
     name: web
+  networks:
+    directus:
