@@ -75,7 +75,7 @@ services:
   cms:
     restart: always
     container_name: cms
-    image: directus/directus:v9.0.0-rc.99
+    image: directus/directus:9.0.0-rc.99
     expose:
       - "8055"
     volumes:
