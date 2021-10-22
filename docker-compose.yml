@@ -38,6 +38,78 @@ services:
     networks:
       - web
 
+  # ===========================================================================
+  # CMS based on Directus
+  # ===========================================================================
+  cms-db:
+    image: postgres:13
+    container_name: cms-db
+    restart: always
+    volumes:
+      - /srv/bvpk/cms/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "directus"
+      POSTGRES_PASSWORD: ${CMS_DB_PASSWORD}
+      POSTGRES_DB: "directus"
+    expose:
+      - "5432"
+    healthcheck:
+      test: pg_isready -U directus -d directus
+      interval: 10s
+      timeout: 2s
+      retries: 10
+    logging:
+      driver: journald
+
+  cms-cache:
+    restart: always
+    container_name: cms-cache
+    image: redis:6
+    expose:
+      - "6379"
+
+  cms:
+    restart: always
+    container_name: cms
+    image: directus/directus:v9.0.0-rc.74
+    expose:
+      - "8055"
+    volumes:
+      - /srv/bvpk/cms/uploads:/directus/uploads
+    networks:
+      - web
+    depends_on:
+      - cms-cache
+      - cms-database
+    environment:
+      KEY: ${CMS_KEY}
+      SECRET: ${CMS_SECRET}
+      DB_CLIENT: "pg"
+      DB_HOST: "cms-db"
+      DB_PORT: "5432"
+      DB_DATABASE: "directus"
+      DB_USER: "directus"
+      DB_PASSWORD: ${CMS_DB_PASSWORD}
+      CACHE_ENABLED: "true"
+      CACHE_AUTO_PURGE: "true"
+      CACHE_STORE: "redis"
+      CACHE_REDIS: "redis://cms-cache:6379"
+      ADMIN_EMAIL: admin@sehn.dev
+      ADMIN_PASSWORD: ${CMS_ADMIN_PASSWORD}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.directus.loadbalancer.server.port=8055"
+      - "traefik.http.routers.directus.rule=Host(`cms.bvpk.net`)"
+      - "traefik.http.routers.directus.entrypoints=https"
+      - "traefik.http.routers.directus.tls=true"
+      - "traefik.http.routers.directus.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.directus-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.directus-http.entrypoints=http"
+      - "traefik.http.routers.directus-http.rule=Host(`cms.bvpk.net`)"
+      - "traefik.http.routers.directus-http.middlewares=directus-https@docker"
+    logging:
+      driver: journald
+
 networks:
   web:
     external: true

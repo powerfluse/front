@@ -38,6 +38,9 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            touch /srv/bvpk/filebrowser/database.db
+            export CMS_DB_PASSWORD="${{ secrets.CMS_DB_PASSWORD }}"
+            export CMS_KEY="${{ secrets.CMS_KEY }}"
+            export CMS_SECRET="${{ secrets.CMS_SECRET }}"
+            export CMS_ADMIN_PASSWORD="${{ secrets.CMS_ADMIN_PASSWORD }}"
             docker-compose -f /srv/bvpk/docker-compose.yml pull
             docker-compose -f /srv/bvpk/docker-compose.yml up -d
