@@ -130,6 +130,8 @@ services:
       POSTGRES_USER: "nocodb"
       POSTGRES_PASSWORD: ${NOCODB_DB_PASSWORD}
       POSTGRES_DB: "nocodb"
+    expose:
+      - "5432"
     healthcheck:
       test: pg_isready -U nocodb -d nocodb
       interval: 10s
