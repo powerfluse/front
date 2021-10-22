@@ -22,30 +22,9 @@
 - name: Setup server (configure the rest)
   hosts: all
   roles:
-    - { role: ansible-sshd, tags: [hardening, sshd] }
-    - { role: ansible-fail2ban, tags: [hardening, fail2ban] }
-    - { role: ansible-unattended-upgrades, tags: [unattended-upgrades] }
-    - { role: ansible-docker, tags: [docker] }
-    - { role: ansible-ctop, tags: [docker, ctop] }
-# - name: Install and setup ctop
-#   hosts: all
-#   remote_user: root
-#   tasks:
-#     - name: run roles/ansible-docker-ctop
-#       include_role:
-#         name: ansible-ctop
-#       when: install_ctop
-#   tags:
-#     - docker
-#     - ctop
-
-# - name: Install traefik
-#   hosts: all
-#   remote_user: root
-#   tasks:
-#     - name: run roles/ansible-traefik-rp
-#       include_role:
-#         name: ansible-traefik-rp
-#   tags:
-#     - docker
-#     - traefik
+    # - { role: ansible-sshd, tags: [hardening, sshd] }
+    # - { role: ansible-fail2ban, tags: [hardening, fail2ban] }
+    # - { role: ansible-unattended-upgrades, tags: [unattended-upgrades] }
+    # - { role: ansible-docker, tags: [docker] }
+    # - { role: ansible-ctop, tags: [docker, ctop] }
+    - { role: ansible-traefik, tags: [docker, traefik] }
