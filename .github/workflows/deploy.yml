@@ -1,0 +1,20 @@
+name: Deploy the services
+
+on:
+  push:
+    branches:
+      - prod
+      - dev
+
+jobs:
+  build-and-publich-container:
+    runs-on: ubuntu-latest
+    steps:
+      - name:
+        uses: appleboy/scp-action@master
+        with:
+          host: h2952128.stratoserver.net
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: docker-compose.yml
+          target: /srv/bvpk/

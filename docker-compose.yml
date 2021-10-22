@@ -1,0 +1,44 @@
+---
+version: "3"
+
+services:
+  # ===========================================================================
+  # filebroswer for exported .csv files
+  # ===========================================================================
+  filebrowser:
+    container_name: filebrowser
+    image: filebrowser/filebrowser:v2
+    restart: always
+    volumes:
+      - /srv/bvpk/export:/srv
+      - /srv/bvpk/filebrowser/database.db:/database.db
+      - /srv/bvpk/filebrowser/.filebrowser.json:/.filebrowser.json
+    environment:
+      - FB_PORT=8081
+    ports:
+      - 8081:8081
+    healthcheck:
+      test: curl -f http://localhost:8081/health || exit 1
+      interval: 10s
+      timeout: 2s
+      retries: 10
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.filebrowser.loadbalancer.server.port=8081"
+      - "traefik.http.routers.filebrowser.rule=Host(`files.bvpk.net`)"
+      - "traefik.http.routers.filebrowser.entrypoints=https"
+      - "traefik.http.routers.filebrowser.tls=true"
+      - "traefik.http.routers.filebrowser.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.filebrowser-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.filebrowser-http.entrypoints=http"
+      - "traefik.http.routers.filebrowser-http.rule=Host(`files.bvpk.net`)"
+      - "traefik.http.routers.filebrowser-http.middlewares=filebrowser-https@docker"
+    logging:
+      driver: journald
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
+    name: web
