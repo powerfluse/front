@@ -19,16 +19,21 @@ jobs:
           submodules: true
 
       - name: Run Ansible playbook
-        uses: saubermacherag/ansible-playbook-docker-action@v1.4
+        uses: dawidd6/action-ansible-playbook@v2
         with:
-          playbookName: "server/playbook.yml"
-          inventoryFile: "server/inventory.ini"
-          # requirementsFile: ".ansible/requirements.yml"
-          # galaxyGithubUser: ${{ secrets.GITHUB_USER }}
-          # galaxyGithubToken: ${{ secrets.Github_PAT }}
-          # rolesPath: ".ansible/playbooks/roles"
-          keyFile: "server/github"
-          keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
-          # extraFile: ".ansible/extra.yml"
-          # extraVars: "-e my_first_extra=${{ github.actor }} -e my_second_one=${{ github.sha }}"
-          verbosity: "vv"
+          # Required, playbook filepath
+          playbook: deploy.yml
+          # Optional, directory where playbooks live
+          directory: ./server
+          # Optional, SSH private key
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          # Optional, literal inventory file contents
+          inventory: |
+            [all]
+            h2952128.stratoserver.net ansible_connection=ssh ansible_user=root
+          # Optional, encrypted vault password
+          vault_password: ${{secrets.VAULT_PASSWORD}}
+          # Optional, additional flags to pass to ansible-playbook
+          options: |
+            --extra-vars hello=there
+            --verbose
