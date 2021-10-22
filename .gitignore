@@ -8,3 +8,4 @@ back/uploads
 /export/output/
 /test.http
 /server/.vault_pass.txt
+/server/github
