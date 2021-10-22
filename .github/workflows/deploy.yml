@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name:
+      - name: Copy docker-compose.yml to server
         uses: appleboy/scp-action@master
         with:
           host: h2952128.stratoserver.net
@@ -22,6 +22,15 @@ jobs:
           source: "./docker-compose.yml"
           target: "/srv/bvpk/"
 
+      - name: Copy filebrowser config
+        uses: appleboy/scp-action@master
+        with:
+          host: h2952128.stratoserver.net
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./filebrowser/config.json"
+          target: "/srv/bvpk/filebrowser/"
+
       - name:
         uses: appleboy/ssh-action@master
         with:
@@ -29,7 +38,6 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            touch /srv/bvpk/filebrowser/.database.db
-            touch /srv/bvpk/filebrowser/.filebrowser.json
+            touch /srv/bvpk/filebrowser/database.db
             docker-compose -f /srv/bvpk/docker-compose.yml pull
             docker-compose -f /srv/bvpk/docker-compose.yml up -d
