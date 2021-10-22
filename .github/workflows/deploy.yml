@@ -10,6 +10,9 @@ jobs:
   build-and-publich-container:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name:
         uses: appleboy/scp-action@master
         with:
