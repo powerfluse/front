@@ -180,6 +180,7 @@ services:
       - EMAIL_PASS=${EMAIL_PASS}
       - NOCODB_TOKEN=${NOCODB_TOKEN}
     labels:
+      #
       # global redirect to https
       - traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)
       - traefik.http.routers.http-catchall.entrypoints=http
