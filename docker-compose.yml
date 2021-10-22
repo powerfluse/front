@@ -3,7 +3,7 @@ version: "3"
 
 services:
   # ===========================================================================
-  # filebroswer for exported .csv files
+  # filebroswer for exported .csv files [https://filebrowser.bvpk.net]
   # ===========================================================================
   filebrowser:
     container_name: filebrowser
@@ -39,7 +39,7 @@ services:
       - web
 
   # ===========================================================================
-  # CMS based on Directus
+  # CMS based on Directus [https://cms.bvpk.net]
   # ===========================================================================
   cms-db:
     image: postgres:13
@@ -103,19 +103,72 @@ services:
       ADMIN_PASSWORD: ${CMS_ADMIN_PASSWORD}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.services.directus.loadbalancer.server.port=8055"
-      - "traefik.http.routers.directus.rule=Host(`cms.bvpk.net`)"
-      - "traefik.http.routers.directus.entrypoints=https"
-      - "traefik.http.routers.directus.tls=true"
-      - "traefik.http.routers.directus.tls.certresolver=letsencrypt"
-      - "traefik.http.middlewares.directus-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.directus-http.entrypoints=http"
-      - "traefik.http.routers.directus-http.rule=Host(`cms.bvpk.net`)"
-      - "traefik.http.routers.directus-http.middlewares=directus-https@docker"
+      - "traefik.http.services.cms.loadbalancer.server.port=8055"
+      - "traefik.http.routers.cms.rule=Host(`cms.bvpk.net`)"
+      - "traefik.http.routers.cms.entrypoints=https"
+      - "traefik.http.routers.cms.tls=true"
+      - "traefik.http.routers.cms.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.cms-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.cms-http.entrypoints=http"
+      - "traefik.http.routers.cms-http.rule=Host(`cms.bvpk.net`)"
+      - "traefik.http.routers.cms-http.middlewares=cms-https@docker"
     logging:
       driver: journald
 
+  # ===========================================================================
+  # NocoDB [https://db.bvpk.net]
+  # ===========================================================================
+  nocodb-db:
+    image: postgres:13
+    container_name: nocodb-db
+    restart: always
+    volumes:
+      - /srv/bvpk/nocodb-db:/var/lib/postgresql/data
+    networks:
+      - nocodb
+    environment:
+      POSTGRES_USER: "nocodb"
+      POSTGRES_PASSWORD: ${NOCODB_DB_PASSWORD}
+      POSTGRES_DB: "nocodb"
+    healthcheck:
+      test: pg_isready -U nocodb -d nocodb
+      interval: 10s
+      timeout: 2s
+      retries: 10
+    logging:
+      driver: journald
+
+  nocodb:
+    container_name: nocodb
+    image: nocodb/nocodb:0.11.46
+    restart: always
+    environment:
+      - NC_DB=pg://nocodb-db:5432?u=nocodb&p=${NOCODB_DB_PASSWORD}&d=nocodb
+      - NC_PUBLIC_URL=https://db.bvpk.net
+      - NC_DISABLE_TELE=true
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.nocodb.loadbalancer.server.port=8080"
+      - "traefik.http.routers.nocodb.rule=Host(`db.bvpk.net`)"
+      - "traefik.http.routers.nocodb.entrypoints=https"
+      - "traefik.http.routers.nocodb.tls=true"
+      - "traefik.http.routers.nocodb.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.nocodb-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.nocodb-http.entrypoints=http"
+      - "traefik.http.routers.nocodb-http.rule=Host(`db.bvpk.net`)"
+      - "traefik.http.routers.nocodb-http.middlewares=nocodb-https@docker"
+    depends_on:
+      - nocodb-db
+    logging:
+      driver: journald
+    networks:
+      - web
+      - nocodb
+
 networks:
+  nocodb:
+    external: false
+    name: nocodb
   cms:
     external: false
     name: cms
