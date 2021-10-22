@@ -24,6 +24,15 @@ unattended_mail: "admin@bvpk.org"
 unattended_mail_only_on_error: true
 
 # ===========================================================================
-# docker
+# docker(-compose)
 # ===========================================================================
 docker_compose_version: "1.29.2"
+
+# ===========================================================================
+# traefik
+# ===========================================================================
+traefik_image: traefik:2.5
+traefik_dir: /srv/traefik
+traefik_loglevel: WARN
+tls_min_version: VersionTLS12
+acme_email: "admin@bvpk.org"
