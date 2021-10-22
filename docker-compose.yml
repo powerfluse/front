@@ -167,6 +167,44 @@ services:
       - web
       - nocodb
 
+  # ===========================================================================
+  # Frontend [https://bvpk.org]
+  # ===========================================================================
+  front:
+    image: ghcr.io/bvpyro/bvpk.org:dev
+    container_name: front
+    restart: always
+    expose:
+      - "3001"
+    environment:
+      - EMAIL_PASS=${EMAIL_PASS}
+      - NOCODB_TOKEN=${NOCODB_TOKEN}
+    labels:
+      # global redirect to https
+      - traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)
+      - traefik.http.routers.http-catchall.entrypoints=http
+      - traefik.http.routers.http-catchall.middlewares=redirect-to-https
+      # middleware redirect
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true
+      # # middleware redirect to non-www
+      - traefik.http.middlewares.redirect-to-nonwww.redirectregex.regex=(https|http)://(www\.(.*))
+      - traefik.http.middlewares.redirect-to-nonwww.redirectregex.replacement=https://$${3}
+      - traefik.http.middlewares.redirect-to-nonwww.redirectregex.permanent=true
+      # next traefik setup
+      - traefik.enable=true
+      - traefik.http.services.front.loadbalancer.server.port=3001
+      - traefik.http.routers.front.rule=Host(`bvpk.org`,`www.bvpk.org`)
+      - traefik.http.routers.front.entrypoints=https
+      - traefik.http.routers.front.tls=true
+      - traefik.http.routers.front.tls.certresolver=letsencrypt
+      - traefik.http.routers.front.service=front
+      - traefik.http.routers.front.middlewares=redirect-to-nonwww
+    logging:
+      driver: journald
+    networks:
+      - web
+
 networks:
   nocodb:
     external: false
