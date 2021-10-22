@@ -25,16 +25,7 @@
     - { role: ansible-sshd, tags: [hardening, sshd] }
     - { role: ansible-fail2ban, tags: [hardening, fail2ban] }
     - { role: ansible-unattended-upgrades, tags: [unattended-upgrades] }
-# - name: Install docker and docker-compose
-#   hosts: all
-#   remote_user: root
-#   tasks:
-#     - name: run roles/ansible-docker
-#       include_role:
-#         name: ansible-docker-rootless
-#   tags:
-#     - docker
-
+    - { role: ansible-docker, tags: [docker] }
 # - name: Install and setup ctop
 #   hosts: all
 #   remote_user: root

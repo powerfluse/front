@@ -7,3 +7,6 @@
 [submodule "server/roles/ansible-unattended-upgrades"]
 	path = server/roles/ansible-unattended-upgrades
 	url = git@github.com:linozen/ansible-unattended-upgrades.git
+[submodule "server/roles/ansible-docker"]
+	path = server/roles/ansible-docker
+	url = https://github.com/geerlingguy/ansible-role-docker.git
