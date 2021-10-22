@@ -46,5 +46,5 @@ jobs:
         with:
           context: export
           push: true
-          tags: bvpk-export:latest
+          tags: ghcr.io/bvpyro/export:latest
           labels: ${{ steps.meta.outputs.labels }}
