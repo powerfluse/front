@@ -21,3 +21,15 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "./docker-compose.yml"
           target: "/srv/bvpk/"
+
+      - name:
+        uses: appleboy/ssh-action@master
+        with:
+          host: h2952128.stratoserver.net
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            touch /srv/bvpk/filebrowser/.database.db
+            touch /srv/bvpk/filebrowser/.filebrowser.json
+            docker-compose -f /srv/bvpk/docker-compose.yml pull
+            docker-compose -f /srv/bvpk/docker-compose.yml up -d
