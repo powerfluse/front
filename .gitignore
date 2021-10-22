@@ -5,3 +5,5 @@ back/uploads
 /export/__pycache__/
 /.log/
 /.next/
+/export/output/
+/test.http
