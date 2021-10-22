@@ -1,0 +1,34 @@
+---
+name: Setup server
+
+on:
+  push:
+    branches:
+      - prod
+      - dev
+    paths:
+      - "server/**"
+
+jobs:
+  prepare-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Run Ansible playbook
+        uses: saubermacherag/ansible-playbook-docker-action@v1.4
+        with:
+          playbookName: "server/playbook.yml"
+          inventoryFile: "server/inventory.ini"
+          # requirementsFile: ".ansible/requirements.yml"
+          # galaxyGithubUser: ${{ secrets.GITHUB_USER }}
+          # galaxyGithubToken: ${{ secrets.Github_PAT }}
+          # rolesPath: ".ansible/playbooks/roles"
+          keyFile: "server/deploy"
+          keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
+          # extraFile: ".ansible/extra.yml"
+          # extraVars: "-e my_first_extra=${{ github.actor }} -e my_second_one=${{ github.sha }}"
+          verbosity: "vv"
