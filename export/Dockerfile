@@ -16,5 +16,6 @@ RUN poetry install --no-dev
 # Install the script
 COPY to_csv.py ./to_csv
 
+
 # Run the script
 CMD ["poetry", "run", "python", "to_csv"]
