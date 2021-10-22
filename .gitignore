@@ -7,3 +7,4 @@ back/uploads
 /.next/
 /export/output/
 /test.http
+/server/.vault_pass.txt
