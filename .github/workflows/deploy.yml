@@ -7,7 +7,7 @@ on:
       - dev
 
 jobs:
-  build-and-publich-container:
+  deploy-services:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

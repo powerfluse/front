@@ -80,7 +80,7 @@ services:
       - web
     depends_on:
       - cms-cache
-      - cms-database
+      - cms-db
     environment:
       KEY: ${CMS_KEY}
       SECRET: ${CMS_SECRET}
