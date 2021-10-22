@@ -116,8 +116,9 @@ services:
       driver: journald
 
 networks:
+  cms:
+    external: false
+    name: cms
   web:
     external: true
     name: web
-  networks:
-    cms:
