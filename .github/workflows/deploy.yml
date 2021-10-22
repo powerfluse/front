@@ -43,5 +43,7 @@ jobs:
             export CMS_SECRET="${{ secrets.CMS_SECRET }}"
             export CMS_ADMIN_PASSWORD="${{ secrets.CMS_ADMIN_PASSWORD }}"
             export NOCODB_DB_PASSWORD="${{ secrets.NOCODB_DB_PASSWORD }}"
+            export EMAIL_PASS="${{ secrets.EMAIL_PASS }}"
+            export NOCODB_TOKEN="${{ secrets.NOCODB_TOKEN }}"
             docker-compose -f /srv/bvpk/docker-compose.yml pull
             docker-compose -f /srv/bvpk/docker-compose.yml up -d
