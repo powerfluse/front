@@ -7,8 +7,8 @@ export default function HeadComponent() {
         <script
           async
           defer
-          data-website-id="ffcddd16-8077-4ce2-8e04-e98b21413705"
-          src="https://umami.sehn.dev/umami.js"
+          data-website-id="1c9bd3fa-8b0d-44f7-996d-3074f15df2c2"
+          src="https://analytics.bvpk.net/umami.js"
         ></script>
         <link
           rel="apple-touch-icon"
