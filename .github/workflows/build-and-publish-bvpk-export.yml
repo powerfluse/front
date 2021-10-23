@@ -8,7 +8,7 @@ on:
       - dev
     paths:
       - "export/**"
-      - ".github/workflows/**"
+      - ".github/workflows/build-and-publish-bvpk-export.yml"
 
 env:
   REGISTRY: ghcr.io

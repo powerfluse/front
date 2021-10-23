@@ -47,7 +47,7 @@ jobs:
             export EMAIL_PASS="${{ secrets.EMAIL_PASS }}"
             export NOCODB_DB_PASSWORD="${{ secrets.NOCODB_DB_PASSWORD }}"
             export NOCODB_TOKEN="${{ secrets.NOCODB_TOKEN }}"
-            export UMAMI_DB_PASSWORD="${{ secrets.UMAMI_DB_PASSWORD }}
-            export UMAMI_HASH_SALT="${{ secrets.UMAMI_HASH_SALT }}
+            export UMAMI_DB_PASSWORD="${{ secrets.UMAMI_DB_PASSWORD }}"
+            export UMAMI_HASH_SALT="${{ secrets.UMAMI_HASH_SALT }}"
             docker-compose -f /srv/bvpk/docker-compose.yml pull
             docker-compose -f /srv/bvpk/docker-compose.yml up -d
