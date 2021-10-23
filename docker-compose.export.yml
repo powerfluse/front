@@ -3,6 +3,7 @@ version: "3"
 
 services:
   export:
+    container_name: export
     volumes:
       - /srv/bvpk/export:/app/output
     environment:
