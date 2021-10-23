@@ -2,7 +2,7 @@ name: Deploy to server
 
 on:
   schedule:
-    - cron: "30 4 * *"
+    - cron: "30 4 * * *"
   push:
     branches:
       - prod
