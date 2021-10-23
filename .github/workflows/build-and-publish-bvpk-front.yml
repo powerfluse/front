@@ -1,5 +1,5 @@
 ---
-name: Create and publish a Docker image
+name: Create and publish container (bvpk-front)
 
 on:
   push:
@@ -7,7 +7,8 @@ on:
       - prod
       - dev
     paths:
-      - "export/**"
+      - "front/**"
+      - ".github/workflows/**"
 
 env:
   REGISTRY: ghcr.io
@@ -41,10 +42,18 @@ jobs:
             type=ref,event=branch
             type=schedule,pattern={{date 'YYYYMMDD'}}
 
+      - name: Build and push Docker image for front
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: front
+          push: true
+          tags: bvpk-front:${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
       - name: Build and push Docker image for export
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: export
           push: true
-          tags: ghcr.io/bvpyro/export:latest
+          tags: bvpk-export:latest
           labels: ${{ steps.meta.outputs.labels }}

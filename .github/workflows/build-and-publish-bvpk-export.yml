@@ -7,8 +7,8 @@ on:
       - prod
       - dev
     paths:
-      - "front/**"
       - "export/**"
+      - ".github/workflows/**"
 
 env:
   REGISTRY: ghcr.io
@@ -42,18 +42,10 @@ jobs:
             type=ref,event=branch
             type=schedule,pattern={{date 'YYYYMMDD'}}
 
-      - name: Build and push Docker image for front
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          context: front
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
       - name: Build and push Docker image for export
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: export
           push: true
-          tags: bvpk-export:latest
+          tags: ghcr.io/bvpyro/bvpk-export:${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
