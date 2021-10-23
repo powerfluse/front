@@ -12,7 +12,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-publish-container:
@@ -36,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/bvpk-front
+          images: ${{ env.REGISTRY }}/${{ github.actor }}/bvpk-front
           tags: |
             type=sha
             type=ref,event=branch
