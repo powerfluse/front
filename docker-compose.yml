@@ -148,6 +148,8 @@ services:
       - NC_DB=pg://nocodb-db:5432?u=nocodb&p=${NOCODB_DB_PASSWORD}&d=nocodb
       - NC_PUBLIC_URL=https://db.bvpk.net
       - NC_DISABLE_TELE=true
+    expose:
+      - "8080"
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.nocodb.loadbalancer.server.port=8080"
@@ -168,10 +170,54 @@ services:
       - nocodb
 
   # ===========================================================================
+  # Website Analytics [https://analytics.bvpk.net]
+  # ===========================================================================
+  umami-db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: "umami"
+      POSTGRES_USER: "umami"
+      POSTGRES_PASSWORD: ${UMAMI_DB_PASSWORD}
+    expose:
+      - "5432"
+    networks:
+      - umami
+    volumes:
+      - ./sql/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro
+      - /srv/bvpk/analytics/db:/var/lib/postgresql/data
+    restart: always
+
+  umami:
+    image: ghcr.io/mikecao/umami:postgresql-latest
+    expose:
+      - "3000"
+    environment:
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD}@db:5432/umami
+      DATABASE_TYPE: postgresql
+      HASH_SALT: ${UMAMI_HASH_SALT}
+    networks:
+      - umami
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.umami.loadbalancer.server.port=3000"
+      - "traefik.http.routers.umami.rule=Host(`analytics.bvpk.net`)"
+      - "traefik.http.routers.umami.entrypoints=https"
+      - "traefik.http.routers.umami.tls=true"
+      - "traefik.http.routers.umami.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.umami-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.umami-http.entrypoints=http"
+      - "traefik.http.routers.umami-http.rule=Host(`analytics.bvpk.net`)"
+      - "traefik.http.routers.umami-http.middlewares=umami-https@docker"
+    depends_on:
+      - umami-db
+    restart: always
+
+  # ===========================================================================
   # Frontend [https://bvpk.org]
   # ===========================================================================
   front:
-    image: ghcr.io/bvpyro/bvpk.org:dev
+    image: ghcr.io/bvpyro/bvpk-front:dev
     container_name: front
     restart: always
     expose:
@@ -205,7 +251,13 @@ services:
     networks:
       - web
 
+volumes:
+  umami-db-data:
+
 networks:
+  umami:
+    external: false
+    name: umami
   nocodb:
     external: false
     name: nocodb
