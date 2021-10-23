@@ -8,7 +8,7 @@ on:
       - dev
     paths:
       - "front/**"
-      - ".github/workflows/**"
+      - ".github/workflows/build-and-publish-bvpk-front"
 
 env:
   REGISTRY: ghcr.io
