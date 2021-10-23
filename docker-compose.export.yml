@@ -12,6 +12,7 @@ services:
     networks:
       - web
 
+networks:
   web:
     external: true
     name: web
