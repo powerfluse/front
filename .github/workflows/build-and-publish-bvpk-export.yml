@@ -10,6 +10,9 @@ on:
       - "export/**"
       - ".github/workflows/**"
 
+env:
+  REGISTRY: ghcr.io
+
 jobs:
   build-and-publish-container:
     runs-on: ubuntu-latest
@@ -32,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ghcr.io/bvpyro/bvpk-export
+          images: ${{ env.REGISTRY }}/bvpyro/bvpk-export
           tags: |
             type=sha
             type=ref,event=branch
