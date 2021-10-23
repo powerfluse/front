@@ -9,7 +9,7 @@ from datetime import datetime, date
 # Getting the data
 # =============================================================================
 
-NOCODB_API_URL = "https://bvpk-db.linus.cx/nc/bvpk_9YLS/api/v1/"
+NOCODB_API_URL = "https://db.bvpk.net/nc/bvpk_9YLS/api/v1/"
 NOCODB_TOKEN = os.getenv("POETRY_NOCODB_TOKEN")
 
 headers = {"xc-auth": NOCODB_TOKEN}

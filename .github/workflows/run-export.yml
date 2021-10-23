@@ -1,4 +1,4 @@
-name: Deploy to server
+name: Run export
 
 on:
   schedule:
