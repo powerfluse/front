@@ -8,7 +8,7 @@ export default function HeadComponent() {
           async
           defer
           data-website-id="1c9bd3fa-8b0d-44f7-996d-3074f15df2c2"
-          src="https://analytics.bvpk.net/umami.js"
+          src="https://umami.bvpk.net/umami.js"
         ></script>
         <link
           rel="apple-touch-icon"

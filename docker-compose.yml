@@ -203,13 +203,13 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.umami.loadbalancer.server.port=3000"
-      - "traefik.http.routers.umami.rule=Host(`analytics.bvpk.net`)"
+      - "traefik.http.routers.umami.rule=Host(`umami.bvpk.net`)"
       - "traefik.http.routers.umami.entrypoints=https"
       - "traefik.http.routers.umami.tls=true"
       - "traefik.http.routers.umami.tls.certresolver=letsencrypt"
       - "traefik.http.middlewares.umami-https.redirectscheme.scheme=https"
       - "traefik.http.routers.umami-http.entrypoints=http"
-      - "traefik.http.routers.umami-http.rule=Host(`analytics.bvpk.net`)"
+      - "traefik.http.routers.umami-http.rule=Host(`umami.bvpk.net`)"
       - "traefik.http.routers.umami-http.middlewares=umami-https@docker"
     depends_on:
       - umami-db
