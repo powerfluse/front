@@ -3,6 +3,7 @@ version: "3"
 
 services:
   export:
+    image: ghcr.io/bvpyro/bvpk-front:dev
     container_name: export
     volumes:
       - /srv/bvpk/export:/app/output
