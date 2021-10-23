@@ -1,5 +1,5 @@
 ---
-name: Create and publish container (bvpk-front)
+name: Create and publish image (bvpk-front)
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/bvpk-front
           tags: |
             type=sha
             type=ref,event=branch
@@ -47,13 +47,5 @@ jobs:
         with:
           context: front
           push: true
-          tags: bvpk-front:${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Build and push Docker image for export
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          context: export
-          push: true
-          tags: bvpk-export:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
