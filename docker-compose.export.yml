@@ -9,10 +9,4 @@ services:
       - /srv/bvpk/export:/app/output
     environment:
       - POETRY_NOCODB_TOKEN=${NOCODB_TOKEN}
-    networks:
-      - web
-
-networks:
-  web:
-    external: true
-    name: web
+    network_mode: host
