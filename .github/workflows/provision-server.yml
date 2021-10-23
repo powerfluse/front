@@ -1,5 +1,5 @@
 ---
-name: Setup server
+name: provision server
 
 on:
   push:

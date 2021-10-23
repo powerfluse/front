@@ -1,5 +1,5 @@
 ---
-name: Create and publish image (bvpk-export)
+name: build and publish bvpk-export
 
 on:
   push:
@@ -48,3 +48,29 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Copy docker-compose.export.yml to server
+        uses: appleboy/scp-action@master
+        with:
+          host: h2952128.stratoserver.net
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./docker-compose.export.yml"
+          target: "/srv/bvpk/"
+
+      - name:
+        uses: appleboy/ssh-action@master
+        with:
+          host: h2952128.stratoserver.net
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            export NOCODB_TOKEN="${{ secrets.NOCODB_TOKEN }}"
+            docker-compose -f /srv/bvpk/docker-compose.export.yml pull
+            docker-compose -f /srv/bvpk/docker-compose.export.yml up -d
