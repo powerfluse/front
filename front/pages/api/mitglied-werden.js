@@ -93,7 +93,7 @@ ${
 Kontoinhaber/in: ${req.body.kontoinhaber}
 IBAN: ${req.body.iban.substring(0, 6)}********
 
-Versicherung: ${req.body.versicherung ? 'Ja' : 'Nein'}
+Versicherung: ${req.body.feuerwerk_versicherung ? 'Ja' : 'Nein'}
 Newsletter: ${req.body.nl_consent ? 'Ja' : 'Nein'}
 `,
           }
