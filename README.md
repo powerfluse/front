@@ -50,38 +50,34 @@ legacy tools like [SPGVerein](https://spg-direkt.de/).
 
 The front- and backend of the application run on [Next.js](https://nextjs.org/).
 Postprocessing of the data is done in Python. The project is deployed with
-[`docker-compose`](https://docs.docker.com/compose/) on a Ubuntu server by Strato.
+[`docker-compose`](https://docs.docker.com/compose/) on a Ubuntu server by
+Strato. Additional services deployed via this project include
+[NocoDB](https://www.nocodb.com/) and [filebrowser](https://filebrowser.org/)
 
 ## Getting Started
 
 ### Prerequisites
 
-> **[?]**
-> What are the project requirements/dependencies?
+Install Node.js (Version 16), and make sure both the `docker` and the
+`docker-compose` binaries are available and running on your system.
 
-### Installation
+### Development
 
-> **[?]**
-> Proceed to describe how to install and get started with the project.
+```bash
+cd front
+npm install
+npm run dev
+```
 
-## Usage
-
-> **[?]**
-> How does one go about using it?
-> Provide various use cases and code examples here.
+Then, go to [localhost:3001](http://localhost:3001) to see the web app.
+Development takes place on the `dev` branch. Only merge into `main` if you are
+sure everything is running smoothly.
 
 ## Roadmap
 
 See the [open issues](https://github.com/BVPyro/bvpk.org/issues) for a list of proposed features (and known issues).
 
-- [Top Feature Requests](https://github.com/BVPyro/bvpk.org/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Top Bugs](https://github.com/BVPyro/bvpk.org/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Newest Bugs](https://github.com/BVPyro/bvpk.org/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
-
 ## Support
-
-> **[?]**
-> Provide additional ways to contact the project maintainer/maintainers.
 
 Reach out to the maintainer at one of the following places:
 
