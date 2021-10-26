@@ -6,11 +6,21 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/front"
     schedule:
       interval: "weekly"
-      
+
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/front"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/export"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "poetry"
+    directory: "/export"
     schedule:
       interval: "weekly"
