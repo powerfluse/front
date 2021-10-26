@@ -6,8 +6,7 @@ on:
     - cron: "15 4 * * *"
   push:
     branches:
-      - prod
-      - dev
+      - main
     paths:
       - "front/**"
       - ".github/workflows/build-and-publish-bvpk-front.yml"

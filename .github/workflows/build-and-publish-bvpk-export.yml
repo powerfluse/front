@@ -4,8 +4,7 @@ name: build and publish bvpk-export
 on:
   push:
     branches:
-      - prod
-      - dev
+      - main
     paths:
       - "export/**"
       - ".github/workflows/build-and-publish-bvpk-export.yml"
