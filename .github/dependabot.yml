@@ -20,7 +20,7 @@ updates:
     schedule:
       interval: "weekly"
 
-  - package-ecosystem: "poetry"
+  - package-ecosystem: "pip"
     directory: "/export"
     schedule:
       interval: "weekly"
