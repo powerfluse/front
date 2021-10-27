@@ -2,6 +2,8 @@
 name: build and publish bvpk-export
 
 on:
+  schedule:
+    - cron: "45 4 * * *"
   push:
     branches:
       - main
@@ -49,6 +51,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy:
+    needs: build-and-publish-container
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
