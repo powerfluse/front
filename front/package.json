@@ -9,13 +9,13 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.2.0",
-    "@heroicons/react": "^1.0.1",
+    "@heroicons/react": "^1.0.5",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.0",
     "aos": "^2.3.4",
     "axios": "^0.24.0",
-    "html-react-parser": "^1.2.6",
-    "next": "latest",
+    "html-react-parser": "^1.4.0",
+    "next": "^12.0.1",
     "next-seo": "^4.26.0",
     "nodemailer": "^6.7.0",
     "react": "^17.0.1",
@@ -24,14 +24,14 @@
     "react-scroll": "^1.8.2"
   },
   "devDependencies": {
-    "autoprefixer": "^10.0.4",
+    "autoprefixer": "^10.3.7",
     "eslint": "^7.27.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
     "eslint-plugin-react": "^7.23.2",
-    "postcss": "^8.1.10",
+    "postcss": "^8.3.11",
     "tailwindcss": "^2.2.17"
   },
   "prettier": {
