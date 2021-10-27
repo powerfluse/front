@@ -219,7 +219,7 @@ services:
   # Frontend [https://bvpk.org]
   # ===========================================================================
   front:
-    image: ghcr.io/bvpyro/bvpk-front:dev
+    image: ghcr.io/bvpyro/bvpk-front:main
     container_name: front
     restart: always
     expose:
