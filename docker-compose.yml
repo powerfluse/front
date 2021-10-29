@@ -142,7 +142,7 @@ services:
 
   nocodb:
     container_name: nocodb
-    image: nocodb/nocodb:0.11.46
+    image: nocodb/nocodb:0.80.0
     restart: always
     environment:
       - NC_DB=pg://nocodb-db:5432?u=nocodb&p=${NOCODB_DB_PASSWORD}&d=nocodb
