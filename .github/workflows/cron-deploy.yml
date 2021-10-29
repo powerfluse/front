@@ -3,7 +3,7 @@ name: cron deploy
 
 on:
   schedule:
-    - cron: "45 4 * * *"
+    - cron: "45 4 * * 1"
 
 jobs:
   deploy:
