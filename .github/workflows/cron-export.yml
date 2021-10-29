@@ -3,7 +3,7 @@ name: cron export
 
 on:
   schedule:
-    - cron: "0,30 * * * *"
+    - cron: "30 * * * *"
 
 jobs:
   deploy:
