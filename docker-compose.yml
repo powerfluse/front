@@ -253,9 +253,6 @@ services:
     networks:
       - web
 
-volumes:
-  umami-db-data:
-
 networks:
   umami:
     external: false
