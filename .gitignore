@@ -9,3 +9,4 @@ back/uploads
 /test.http
 /server/.vault_pass.txt
 /server/github
+/front/.log/
