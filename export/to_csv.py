@@ -14,6 +14,7 @@ NOCODB_TOKEN = os.getenv("POETRY_NOCODB_TOKEN")
 
 headers = {"xc-auth": NOCODB_TOKEN}
 
+
 url_m = NOCODB_API_URL + "mitglieder?limit=500"
 res_m = re.get(url_m, headers=headers)
 df_m = pd.concat([pd.DataFrame([i]) for i in res_m.json()])
