@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll'
 
-export default function Example() {
+export default function Hero() {
   return (
     <main
       className="bg-cover bg-center flex flex-col justify-around h-screen px-4"
@@ -9,7 +9,7 @@ export default function Example() {
       }}
     >
       <div className="text-center">
-        <h1 className="text-6xl font-titillium uppercase font-black text-white text-shadow-lg sm:text-6xl md:text-8xl">
+        <h1 className="text-5xl font-titillium uppercase font-black text-white text-shadow-lg md:text-8xl">
           <span className="block xl:inline">Gemeinsam</span>{' '}
           <span className="block xl:inline">
             für das <span className="">Feuerwerk</span>
