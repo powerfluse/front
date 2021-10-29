@@ -72,6 +72,12 @@ export async function getStaticProps({ params }) {
   const data = await getFromDirectus(
     `/items/aktuelles?filter[slug][_eq]=${params.slug}`
   )
+  console.log('is empty', data)
+  if (Object.entries(data).length === 0) {
+    return {
+      notFound: true,
+    }
+  }
   return {
     props: { ...data[0] },
     revalidate: 60,
