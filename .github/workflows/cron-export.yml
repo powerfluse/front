@@ -31,6 +31,6 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /srv/bvpk
+            cd /srv/bvpk/export
             export POETRY_NOCODB_TOKEN="${{ secrets.NOCODB_TOKEN }}"
-            ~/.local/bin poetry install
+            ~/.local/bin/poetry install

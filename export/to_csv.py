@@ -72,7 +72,7 @@ df_nl_fm["sign_up"] = "bvpk.org/mitglied-werden-firma"
 
 # Merge all
 df_nl = df_nl_legacy.append([df_nl_m, df_nl_fm], ignore_index=True)
-df_nl.to_csv(f"./output/cleverreach/{today}_newsletter.csv", index=False)
+df_nl.to_csv(f"./cleverreach/{today}_newsletter.csv", index=False)
 
 # Export member data from /mitglied-werden
 # to welcome new private members
@@ -96,7 +96,7 @@ df_cr_m.loc[:, ["zahlungsrhythmus"]] = df_cr_m["zahlungsrhythmus"].apply(
     lambda x: x.lower() if x else None
 )
 df_cr_m.loc[:, ["sign_up"]] = "bvpk.org/mitglied-werden"
-df_cr_m.to_csv(f"./output/cleverreach/{today}_mitglieder.csv", index=False)
+df_cr_m.to_csv(f"./cleverreach/{today}_mitglieder.csv", index=False)
 
 # Export data from /mitglied-werden-firma
 # to welcome new corporate members
@@ -120,7 +120,7 @@ df_cr_fm["f_zahlungsrhythmus"] = df_fm["f_zahlungsrhythmus"].apply(
 )
 df_cr_fm["sign_up"] = "bvpk.org/mitglied-werden-firma"
 df_cr_fm.to_csv(
-    f"./output/cleverreach/{today}_firmenmitglieder.csv",
+    f"./cleverreach/{today}_firmenmitglieder.csv",
     index=False,
 )
 
@@ -138,7 +138,7 @@ feuerwerknet_list_fm = [
 df_feuerwerknet = pd.DataFrame(columns=["username"])
 df_feuerwerknet["username"] = feuerwerknet_list_fm + feuerwerknet_list_m
 df_feuerwerknet.to_csv(
-    f"./output/feuerwerknet/{today}_all.csv", index=False, header=False
+    f"./feuerwerknet/{today}_all.csv", index=False, header=False
 )
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
@@ -498,7 +498,7 @@ df_spg = df_spg_fm.append(df_spg_m, ignore_index=True)
 
 # Finally, export everything to CSV
 df_spg.to_csv(
-    f"./output/spg/{today}_spg.csv",
+    f"./spg/{today}_spg.csv",
     sep=";",
     float_format="%.2f",
     index=False,
