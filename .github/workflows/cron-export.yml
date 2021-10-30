@@ -4,6 +4,9 @@ name: cron export
 on:
   schedule:
     - cron: "30 * * * *"
+  push:
+    branches:
+      - dev
 
 jobs:
   deploy:
@@ -18,7 +21,7 @@ jobs:
           host: h2952128.stratoserver.net
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./docker-compose.export.yml"
+          source: "export/to_csv.py,export/pyproject.toml,export/poetry.lock"
           target: "/srv/bvpk/"
 
       - name:
@@ -28,6 +31,6 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            export NOCODB_TOKEN="${{ secrets.NOCODB_TOKEN }}"
-            docker-compose -f /srv/bvpk/docker-compose.export.yml pull
-            docker-compose -f /srv/bvpk/docker-compose.export.yml up -d
+            cd /srv/bvpk
+            export POETRY_NOCODB_TOKEN="${{ secrets.NOCODB_TOKEN }}"
+            ~/.local/bin poetry install
