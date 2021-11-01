@@ -34,3 +34,4 @@ jobs:
             cd /srv/bvpk/export
             export POETRY_NOCODB_TOKEN="${{ secrets.NOCODB_TOKEN }}"
             ~/.local/bin/poetry install
+            ~/.local/bin/poetry run python3 to_csv.py

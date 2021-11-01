@@ -10,3 +10,6 @@ back/uploads
 /server/.vault_pass.txt
 /server/github
 /front/.log/
+/export/cleverreach/
+/export/feuerwerknet/
+/export/spg/
