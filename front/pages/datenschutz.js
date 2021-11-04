@@ -10,9 +10,14 @@ export default function Datenschutz(props) {
     <>
       <Head />
       <NavBar />
-      <div className="min-h-screen bg-purple-900">
-        <div className="prose prose-lg prose-on-purple-aktuelles pt-24 mx-auto">
-          {parse(props.dataDatenschutzPage.text)}
+      <div
+        className="min-h-screen bg-purple-900 overflow-hidden break-words"
+        style={{ hyphens: 'auto' }}
+      >
+        <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+          <div className="prose prose-md md:prose-lg prose-on-purple-aktuelles pt-24 max-w-prose mx-auto">
+            {parse(props.dataDatenschutzPage.text)}
+          </div>
         </div>
       </div>
       <Newsletter />

@@ -39,6 +39,7 @@ const support = [
 const navigation = [
   { name: 'Der BVPK', href: '/ueber-uns' },
   { name: 'Aktuelles', href: '/aktuelles' },
+  { name: 'Umwelt', href: '/umweltbelastung-feuerwerk' },
   { name: 'Positionen', href: '/positionen' },
   { name: 'Kontakt', href: '/kontakt' },
 ]
