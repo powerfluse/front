@@ -72,7 +72,7 @@ df_nl_fm["sign_up"] = "bvpk.org/mitglied-werden-firma"
 
 # Merge all
 df_nl = df_nl_legacy.append([df_nl_m, df_nl_fm], ignore_index=True)
-df_nl.to_csv(f"./cleverreach/{today}_newsletter.csv", index=False)
+df_nl.to_csv(f"cleverreach/{today}_newsletter.csv", index=False)
 
 # Export member data from /mitglied-werden
 # to welcome new private members
@@ -96,7 +96,7 @@ df_cr_m.loc[:, ["zahlungsrhythmus"]] = df_cr_m["zahlungsrhythmus"].apply(
     lambda x: x.lower() if x else None
 )
 df_cr_m.loc[:, ["sign_up"]] = "bvpk.org/mitglied-werden"
-df_cr_m.to_csv(f"./cleverreach/{today}_mitglieder.csv", index=False)
+df_cr_m.to_csv(f"cleverreach/{today}_mitglieder.csv", index=False)
 
 # Export data from /mitglied-werden-firma
 # to welcome new corporate members
@@ -120,7 +120,7 @@ df_cr_fm["f_zahlungsrhythmus"] = df_fm["f_zahlungsrhythmus"].apply(
 )
 df_cr_fm["sign_up"] = "bvpk.org/mitglied-werden-firma"
 df_cr_fm.to_csv(
-    f"./cleverreach/{today}_firmenmitglieder.csv",
+    f"cleverreach/{today}_firmenmitglieder.csv",
     index=False,
 )
 
@@ -137,9 +137,7 @@ feuerwerknet_list_fm = [
 
 df_feuerwerknet = pd.DataFrame(columns=["username"])
 df_feuerwerknet["username"] = feuerwerknet_list_fm + feuerwerknet_list_m
-df_feuerwerknet.to_csv(
-    f"./feuerwerknet/{today}_all.csv", index=False, header=False
-)
+df_feuerwerknet.to_csv(f"feuerwerknet/{today}_all.csv", index=False, header=False)
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
@@ -346,6 +344,9 @@ df_spg_m.loc[:, "Titel"] = df_m["titel"].apply(lambda x: sanitize(x))
 df_spg_m.loc[:, "Strasse"] = df_m["strasse"].apply(lambda x: sanitize(x))
 df_spg_m.loc[:, "PLZ"] = df_m["plz"].apply(lambda x: sanitize(x))
 df_spg_m.loc[:, "Ort"] = df_m["ort"].apply(lambda x: sanitize(x))
+df_spg_m.loc[:, "Geburtsdatum"] = df_m["geburtsdatum"].apply(
+    lambda x: sanitize(x) if x else np.nan
+)
 df_spg_m.loc[:, "Telefon_Privat"] = df_m["telefon"].apply(
     lambda x: "".join(filter(str.isdigit, x))
 )
@@ -353,7 +354,9 @@ df_spg_m.loc[:, "Eintritt_Datum"] = df_m["created_at"].apply(
     lambda x: str(datetime.fromisoformat(x.replace("X", "T")[:-5]).strftime("%d.%m.%Y"))
 )
 df_spg_m.loc[:, "Zahlart"] = "s"
-df_spg_m.loc[:, "Anrede"] = ""
+df_spg_m.loc[:, "Anrede"] = df_m["anrede"].apply(
+    lambda x: np.nan if (x == "keine Angabe" or x == "Divers") else sanitize(x)
+)
 df_spg_m.loc[:, "Zahler"] = df_m["kontoinhaber"].apply(lambda x: sanitize(x))
 df_spg_m.loc[:, "DTA_1"] = "Mitgliedsbeitrag BvPK e.V."
 df_spg_m.loc[:, "DTA_2"] = df_m.apply(
@@ -435,11 +438,13 @@ for col in df_m.loc[
 
 df_spg_m.loc[:, "Abteilung_1"] = df_m.apply(
     lambda x: (
-        "V" if x["feuerwerk_versicherung"] else ("F" if x["foerderbeitrag"] else "M")
+        "F" if x["foerderbeitrag"] else ("V" if x["feuerwerk_versicherung"] else "M")
     ),
     axis=1,
 )
-df_spg_m.loc[:, "Beitragsart_1"] = "MB"
+df_spg_m.loc[:, "Beitragsart_1"] = df_m.apply(
+    lambda x: ("FB" if x["foerderbeitrag"] else "MB"), axis=1
+)
 df_spg_m.loc[:, "Abteilung_2"] = df_m.apply(
     lambda x: (
         "F"
@@ -468,12 +473,16 @@ df_spg_m.loc[:, "Zahlweise_1"] = df_m["zahlungsrhythmus"].apply(
 df_spg_m.loc[:, "Zusatzbetrag"] = df_m.apply(
     lambda x: (
         (
-            float(x["foerderbeitrag"]) / 2
+            float(x["foerderbeitrag"].replace(",", ".")) / 2
             if x["zahlungsrhythmus"] == "Halbjährlich" and x["foerderbeitrag"]
             else (
-                float(x["foerderbeitrag"]) / 4
+                float(x["foerderbeitrag"].replace(",", ".")) / 4
                 if x["zahlungsrhythmus"] == "Vierteljährlich" and x["foerderbeitrag"]
-                else (float(x["foerderbeitrag"]) if x["foerderbeitrag"] else np.nan)
+                else (
+                    float(x["foerderbeitrag"].replace(",", "."))
+                    if x["foerderbeitrag"]
+                    else np.nan
+                )
             )
         )
     ),
@@ -498,7 +507,7 @@ df_spg = df_spg_fm.append(df_spg_m, ignore_index=True)
 
 # Finally, export everything to CSV
 df_spg.to_csv(
-    f"./spg/{today}_spg.csv",
+    f"spg/{today}_spg.csv",
     sep=";",
     float_format="%.2f",
     index=False,
