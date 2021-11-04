@@ -24,7 +24,7 @@ df_m = pd.concat([pd.DataFrame([i]) for i in res_m.json()])
 url_fm = NOCODB_API_URL + "firmenmitglieder?limit=500"
 res_fm = re.get(url_fm, headers=headers)
 df_fm = pd.concat([pd.DataFrame([i]) for i in res_fm.json()])
-df_fm.to_pickle("./df_fm.pkl")
+# df_fm.to_pickle("./df_fm.pkl")
 # df_fm = pd.read_pickle("./df_fm.pkl")
 # print(df_fm.columns)
 
