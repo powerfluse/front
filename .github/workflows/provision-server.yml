@@ -3,8 +3,6 @@ name: provision server
 
 on:
   push:
-    branches:
-      - dev
     paths:
       - "server/**"
 
