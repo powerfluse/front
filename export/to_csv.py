@@ -1,9 +1,9 @@
-import requests as re
+from datetime import datetime, date
+import hashlib
 import numpy as np
 import os
-import hashlib
 import pandas as pd
-from datetime import datetime, date
+import requests as re
 
 # =============================================================================
 # Getting the data
