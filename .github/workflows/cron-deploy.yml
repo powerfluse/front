@@ -42,3 +42,4 @@ jobs:
             export UMAMI_HASH_SALT="${{ secrets.UMAMI_HASH_SALT }}"
             docker-compose -f /srv/bvpk/docker-compose.yml pull
             docker-compose -f /srv/bvpk/docker-compose.yml up -d
+            exit
