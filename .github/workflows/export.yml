@@ -1,12 +1,12 @@
 ---
-name: cron export
+name: export
 
 on:
-  schedule:
-    - cron: "30 * * * *"
   push:
     branches:
       - dev
+    paths:
+      - "export/**"
 
 jobs:
   deploy:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Copy docker-compose.export.yml to server
+      - name: Copy new files to server
         uses: appleboy/scp-action@master
         with:
           host: h2952128.stratoserver.net
@@ -24,7 +24,7 @@ jobs:
           source: "export/to_csv.py,export/pyproject.toml,export/poetry.lock"
           target: "/srv/bvpk/"
 
-      - name:
+      - name: Run export script
         uses: appleboy/ssh-action@master
         with:
           host: h2952128.stratoserver.net
