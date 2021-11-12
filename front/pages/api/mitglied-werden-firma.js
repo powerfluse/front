@@ -46,16 +46,19 @@ export default function mitgliedFirmaFormHandler(req, res) {
             subject: 'Herzlich Willkommen beim BVPK!',
             text: `Sehr geehrte Damen und Herren,
 
-Ihr Mitgliedsantrag ist bei uns eingegangen und wir freuen
-uns sehr, Sie als Mitglied begrüßen zu dürfen. Gemeinsam
-geben wir dem Feuerwerk die starke Stimme, die es braucht!
+Ihr Mitgliedsantrag ist bei uns eingegangen und
+wir freuen uns sehr, Sie als Mitglied begrüßen
+zu dürfen. Gemeinsam geben wir dem Feuerwerk die
+starke Stimme, die es braucht!
 
-Ihr Antrag wird bearbeitet und wir melden uns zeitnah mit
-weiteren Informationen. Untenstehend finden Sie eine
-Übersicht über Ihre Angaben im Mitgliedsformular.
+Ihr Antrag wird bearbeitet und wir melden uns
+zeitnah mit weiteren Informationen. Untenstehend
+finden Sie eine Übersicht über Ihre Angaben im
+Mitgliedsformular.
 
-Schauen Sie gerne auf unseren Kanälen auf Twitter, Facebook
-und Insta vorbei - @BVPyro
+Schauen Sie gerne auf unseren Kanälen auf Twitter
+und Facebook (@BVPyro) und Instagram vorbei
+(@bvpk_pyrotechnik)
 
 Mit feurigen Grüßen,
 
@@ -63,7 +66,9 @@ Ihr BVPK
 Geschäftsführung
 
 
+#------------------------------------------------
 Ihre Eingaben (gekürzt):
+#------------------------------------------------
 
 Firmenname: ${req.body.f_name}
 Email: ${req.body.f_email}
