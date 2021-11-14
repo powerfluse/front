@@ -1,12 +1,11 @@
 ---
-name: cron export
+name: Push new export script to server
 
 on:
-  schedule:
-    - cron: "30 * * * *"
   push:
     branches:
       - dev
+      - main
 
 jobs:
   deploy:
