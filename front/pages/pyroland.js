@@ -53,15 +53,15 @@ export default function MitgliedWerden(props) {
       <FormProvider {...methods}>
         <div className="min-h-screen bg-purple-900 pt-32 px-4 lg:px-8">
           <div className="prose prose-lg mx-auto prose-on-purple-aktuelles pb-4 md:pb-12">
-            {parse(props.dataMitgliedWerdenPage.text)}
+            {parse(props.dataPyrolandPage.text)}
           </div>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {/* FormGroups */}
             <FormGroupMitglied />
             <FormGroupMitgliedFeuerwerk />
             <FormGroupMitgliedFeuerwerkNet />
-            <FormGroupMitgliedVersicherung />
-            <FormGroupMitgliedBeitrag />
+            {/* <FormGroupMitgliedVersicherung /> */}
+            {/* <FormGroupMitgliedBeitrag /> */}
             <FormGroupMitgliedSEPA />
             <FormGroupMitgliedFreitext />
             <FormGroupMitgliedConsent />
@@ -102,12 +102,10 @@ export default function MitgliedWerden(props) {
 }
 
 export async function getStaticProps() {
-  const dataMitgliedWerdenPage = await getFromDirectus(
-    '/items/mitglied_werden_page'
-  )
+  const dataPyrolandPage = await getFromDirectus('/items/pyroland')
   return {
     props: {
-      dataMitgliedWerdenPage,
+      dataPyrolandPage,
     },
     revalidate: 60,
   }

@@ -4,9 +4,9 @@ name: cron deploy
 on:
   schedule:
     - cron: "45 4 * * 1"
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   deploy:
