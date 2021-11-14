@@ -15,13 +15,13 @@ NOCODB_TOKEN = os.getenv("POETRY_NOCODB_TOKEN")
 headers = {"xc-auth": NOCODB_TOKEN}
 
 
-url_m = NOCODB_API_URL + "mitglieder?limit=500"
+url_m = NOCODB_API_URL + "mitglieder?limit=1000"
 res_m = re.get(url_m, headers=headers)
 df_m = pd.concat([pd.DataFrame([i]) for i in res_m.json()])
 # df_m.to_pickle("./df_m.pkl")
 # df_m = pd.read_pickle("./df_m.pkl")
 
-url_fm = NOCODB_API_URL + "firmenmitglieder?limit=500"
+url_fm = NOCODB_API_URL + "firmenmitglieder?limit=1000"
 res_fm = re.get(url_fm, headers=headers)
 df_fm = pd.concat([pd.DataFrame([i]) for i in res_fm.json()])
 # df_fm.to_pickle("./df_fm.pkl")
@@ -91,8 +91,8 @@ df_cr_m = df_m.loc[
         "geburtsdatum",
     ],
 ]
-df_cr_m.loc[:, ["iban"]] = df_cr_m["iban"].apply(lambda x: "****" + x[-4:])
-df_cr_m.loc[:, ["zahlungsrhythmus"]] = df_cr_m["zahlungsrhythmus"].apply(
+df_cr_m["iban"] = df_cr_m["iban"].apply(lambda x: "****" + x[-4:])
+df_cr_m["zahlungsrhythmus"] = df_cr_m["zahlungsrhythmus"].apply(
     lambda x: x.lower() if x else None
 )
 df_cr_m.loc[:, ["sign_up"]] = "bvpk.org/mitglied-werden"
@@ -512,6 +512,7 @@ df_spg.to_csv(
     float_format="%.2f",
     index=False,
     encoding="iso8859_15",
+    errors="ignore",
 )
 
 print("=== Export finished without errors ===")
