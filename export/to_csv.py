@@ -89,6 +89,7 @@ df_cr_m = df_m.loc[
         "zahlungsrhythmus",
         "iban",
         "geburtsdatum",
+        "promo500",
     ],
 ]
 df_cr_m["iban"] = df_cr_m["iban"].apply(lambda x: "****" + x[-4:])
