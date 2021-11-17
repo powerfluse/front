@@ -2,11 +2,9 @@
 name: cron deploy
 
 on:
-  schedule:
-    - cron: "45 4 * * 1"
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -32,13 +30,22 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             export CMS_ADMIN_PASSWORD="${{ secrets.CMS_ADMIN_PASSWORD }}"
+            echo $CMS_ADMIN_PASSWORD >> /srv/bvpk/.env
             export CMS_DB_PASSWORD="${{ secrets.CMS_DB_PASSWORD }}"
+            echo $CMS_DB_PASSWORD >> /srv/bvpk/.env
             export CMS_KEY="${{ secrets.CMS_KEY }}"
+            echo $CMS_KEY >> /srv/bvpk/.env
             export CMS_SECRET="${{ secrets.CMS_SECRET }}"
+            echo $CMS_SECRET >> /srv/bvpk/.env
             export EMAIL_PASS="${{ secrets.EMAIL_PASS }}"
+            echo $EMAIL_PASS >> /srv/bvpk/.env
             export NOCODB_DB_PASSWORD="${{ secrets.NOCODB_DB_PASSWORD }}"
+            echo $NOCODB_DB_PASSWORD >> /srv/bvpk/.env
             export NOCODB_TOKEN="${{ secrets.NOCODB_TOKEN }}"
+            echo $NOCODB_TOKEN >> /srv/bvpk/.env
             export UMAMI_DB_PASSWORD="${{ secrets.UMAMI_DB_PASSWORD }}"
+            echo $UMAMI_DB_PASSWORD >> /srv/bvpk/.env
             export UMAMI_HASH_SALT="${{ secrets.UMAMI_HASH_SALT }}"
-            docker-compose -f /srv/bvpk/docker-compose.yml pull
-            docker-compose -f /srv/bvpk/docker-compose.yml up -d
+            echo $UMAMI_HASH_SALT >> /srv/bvpk/.env
+            # docker-compose -f /srv/bvpk/docker-compose.yml pull
+            # docker-compose -f /srv/bvpk/docker-compose.yml up -d
