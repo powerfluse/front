@@ -5,6 +5,7 @@ import {
   // OfficeBuildingIcon,
   // CogIcon,
   MenuIcon,
+  HeartIcon,
   XIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
@@ -20,13 +21,13 @@ const support = [
     href: '/mitglied-werden',
     icon: UserIcon,
   },
-  // {
-  //   name: 'Firmenmitglied werden',
-  //   description:
-  //     'Du möchtest uns als Profi mit deinem Feuerwerksbetrieb unterstützten.',
-  //   href: '/mitglied-werden-firma',
-  //   icon: OfficeBuildingIcon,
-  // },
+  {
+    name: 'Spenden',
+    description:
+      'Du möchtest uns als Profi mit deinem Feuerwerksbetrieb unterstützten.',
+    href: '/spenden',
+    icon: HeartIcon,
+  },
   // {
   //   name: 'Mitgliedschaft ändern',
   //   description:
@@ -74,12 +75,12 @@ export default function NavBar() {
           {({ open }) => (
             <>
               <div className="flex justify-between items-center max-w-full mx-auto px-4 py-6 lg:justify-start lg:space-x-10 md:px-6 lg:px-8">
-                <div className="flex justify-start lg:w-0 lg:flex-1">
+                <div className="flex lg:justify-start lg:flex-grow-0 lg:w-24 h-18 items-center">
                   <Link href="/">
                     <a>
                       <span className="sr-only">Workflow</span>
                       <img
-                        className="h-8 w-auto sm:h-10"
+                        className="h-18 w-auto sm:h-10"
                         src="/logo.svg"
                         alt="BVPK Logo"
                       />
@@ -92,7 +93,10 @@ export default function NavBar() {
                     <MenuIcon className="h-10 w-10" aria-hidden="true" />
                   </Popover.Button>
                 </div>
-                <Popover.Group as="nav" className="hidden lg:flex space-x-7">
+                <Popover.Group
+                  as="nav"
+                  className="hidden lg:flex lg:justify-start space-x-4"
+                >
                   {navigation.map((item) => (
                     <a
                       key={item.name}
@@ -170,6 +174,13 @@ export default function NavBar() {
                 <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
                   <a href="/mitglied-werden" className="ml-4 button">
                     Mitglied werden
+                  </a>
+                  <a href="/spenden" className="ml-4 button-secondary">
+                    Spenden
+                    <HeartIcon
+                      className="ml-2 -mr-2 h-6 w-6"
+                      aria-hidden="true"
+                    />
                   </a>
                 </div>
               </div>

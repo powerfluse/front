@@ -1,4 +1,12 @@
 import { Link } from 'react-scroll'
+import {
+  UserIcon,
+  // OfficeBuildingIcon,
+  // CogIcon,
+  MenuIcon,
+  HeartIcon,
+  XIcon,
+} from '@heroicons/react/outline'
 
 export default function Hero() {
   return (
@@ -22,11 +30,10 @@ export default function Hero() {
             </a>
           </div>
           <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-            <button className="w-full button-secondary">
-              <Link to="feuerwerk" smooth={true} offset={-80}>
-                Mehr erfahren
-              </Link>
-            </button>
+            <a href="/spenden" className="w-full button-secondary">
+              Spenden
+              <HeartIcon className="ml-2 -mr-2 h-6 w-6" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>

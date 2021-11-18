@@ -2,7 +2,7 @@ export default function Newsletter() {
   return (
     <>
       <div className="bg-purple-900">
-        <div className="max-w-full px-4 md:mx-0 py-24 lg:py-32 lg:px-24 lg:flex lg:items-center">
+        <div className="max-w-full px-4 md:mx-0 py-24 lg:py-32 lg:px-48 lg:flex lg:items-center">
           <div className="lg:w-0 lg:flex-1">
             <h2 className="text-3xl font-bold font-titillium text-purple-300 sm:text-4xl">
               Bleib' auf dem Laufenden!
