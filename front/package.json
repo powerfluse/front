@@ -8,7 +8,7 @@
     "start": "next start -p 3001"
   },
   "dependencies": {
-    "@headlessui/react": "^1.2.0",
+    "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.0",
