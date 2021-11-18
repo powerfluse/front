@@ -16,14 +16,10 @@ export default function Index(props) {
       <div className="mt-24 h-screen bg-purple-900">
         <div id="fbIframeDiv" className="h-96 mx-5 md:mx-8">
           <Script src="https://secure.fundraisingbox.com/app/paymentJS?hash=osddg4ho9r4axvya" />
-          <a
-            target="_blank"
-            href="https://www.fundraisingbox.com"
-            rel="noopener noreferrer"
-          >
+          <a target="_blank" href="https://www.fundraisingbox.com">
             <img
               src="https://secure.fundraisingbox.com/images/FundraisingBox-Logo-Widget.png"
-              alt="fundraisingbox.logoAlt"
+              alt="FundraisingBox Logo"
               border="0"
             />
           </a>
