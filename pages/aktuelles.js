@@ -2,6 +2,7 @@ import Head from '../components/head'
 import Blog from '../components/blog'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
+import Newsletter from '../components/newsletter'
 import { getFromDirectus } from '../lib/api'
 
 export default function Index(props) {
@@ -11,6 +12,7 @@ export default function Index(props) {
       <NavBar />
       <div className="min-h-screen bg-purple-800">
         <Blog props={props} />
+        <Newsletter />
         <Footer />
       </div>
     </>
