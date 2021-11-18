@@ -1,4 +1,5 @@
 import Input from '../components/input'
+import InputEuro from '../components/input-euro'
 import React from 'react'
 import Select from '../components/select'
 import CheckBox from '../components/checkbox'
@@ -44,8 +45,8 @@ export default function FormGroupMitgliedBeitrag() {
                   <>
                     <div className="mt-4 grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-2">
-                        <Input
-                          title="Fördermitgliedsbeitrag in €"
+                        <InputEuro
+                          title="Förderbeitrag in €"
                           name="foerderbeitrag"
                           msg="z.B. 15"
                           validation={{
@@ -57,9 +58,9 @@ export default function FormGroupMitgliedBeitrag() {
                               value: 15,
                               message: 'Nur realistische Beträge, bitte ;)',
                             },
-                            pattern: {
-                              value: /^\d+([,.]?\d{1,2})?$/,
-                              message: 'z.B. 15,2 oder 15.20',
+                            min: {
+                              value: 3,
+                              message: 'min. 3€',
                             },
                           }}
                         />
