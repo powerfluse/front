@@ -25,7 +25,7 @@ export default function Index(props) {
         </div>
       </div>
       <div className="bg-purple-900">
-        <div className="mt-24 px-4 md:mx-0 md:mx-0 lg:mx-48 h-full min-h-screen">
+        <div className="mt-12 px-4 md:mx-0 md:mx-0 lg:mx-48 h-full min-h-screen">
           <div id="fbIframeDiv">
             <Script src="https://secure.fundraisingbox.com/app/paymentJS?hash=osddg4ho9r4axvya" />
           </div>

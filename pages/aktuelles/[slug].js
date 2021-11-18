@@ -1,6 +1,8 @@
 import NavBar from '../../components/navbar'
 import Head from '../../components/head'
 import parse from 'html-react-parser'
+import Newsletter from '../../components/newsletter'
+import Footer from '../../components/footer'
 import { CameraIcon } from '@heroicons/react/solid'
 import { getFromDirectus } from '../../lib/api'
 
@@ -64,6 +66,8 @@ export default function Post(props) {
           </div>
         </div>
       </div>
+      <Newsletter />
+      <Footer />
     </>
   )
 }
