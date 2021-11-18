@@ -75,12 +75,12 @@ export default function NavBar() {
           {({ open }) => (
             <>
               <div className="flex justify-between items-center max-w-full mx-auto px-4 py-6 lg:justify-start lg:space-x-10 md:px-6 lg:px-8">
-                <div className="flex lg:justify-start lg:flex-grow-0 lg:w-24 h-18 items-center">
+                <div className="flex lg:justify-start lg:flex-grow-0 w-24 h-18 items-center">
                   <Link href="/">
                     <a>
                       <span className="sr-only">Workflow</span>
                       <img
-                        className="h-18 w-auto sm:h-10"
+                        className="h-8 w-auto sm:h-10"
                         src="/logo.svg"
                         alt="BVPK Logo"
                       />
