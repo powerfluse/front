@@ -6,7 +6,7 @@ const NOCODB_TOKEN = process.env.NOCODB_TOKEN
 const EMAIL_PASS = process.env.EMAIL_PASS
 
 // Set axios defaults from variables
-const baseURL = 'https://db.bvpk.net'
+const baseURL = 'https://db.bvpk.org'
 axios.defaults.baseURL = baseURL
 axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
 
