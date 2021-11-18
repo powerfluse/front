@@ -25,7 +25,7 @@ export default function FormGroupMitgliedFeuerwerk() {
                   <div className="col-span-6">
                     <Checkbox
                       name="feuerwerk_erlaubnis"
-                      title="Ich verfüge über einen Erlaubnis- oder Befähigungsschein"
+                      title="Ich verfüge über einen Erlaubnis- oder Befähigungsschein (Nicht notwendig, um Mitglied zu werden)"
                     />
                   </div>
                   {hasPermission && (
