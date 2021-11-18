@@ -14,8 +14,8 @@ export default function Index(props) {
       <Head />
       <NavBar />
       <div className="bg-purple-900">
-        <div className="mt-24 mx-5 md:mx-8 h-screen">
-          <div id="fbIframeDiv">
+        <div className="mt-24 mx-5 md:mx-8 h-full">
+          <div id="fbIframeDiv" className="">
             <Script src="https://secure.fundraisingbox.com/app/paymentJS?hash=osddg4ho9r4axvya" />
           </div>
           <a target="_blank" href="https://www.fundraisingbox.com">
