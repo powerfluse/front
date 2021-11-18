@@ -1,5 +1,5 @@
 ---
-name: prod > Publish Docker container
+name: dev > Publish Docker container
 
 on:
   schedule:

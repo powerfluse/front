@@ -1,6 +1,6 @@
 ## About
 
-This is the repository for the frontend to the website of the BVPK e.V. In simple terms, it's a static website with some forms for new members and donation functionality. If a new member signs up, their data is processed for compatibility with some legacy tools like [SPGVerein](https://spg-direkt.de/) and the CRM [CleverReach](https://www.cleverreach.com/de/). See [this private repo](https://github.com/BVPyro/export) for more information on the export process.
+This is the repository for the frontend to the website of the BVPK e.V. In simple terms, it's a static website with some forms for new members and donation functionality. If a new member signs up, their data is processed for compatibility with some legacy tools like [SPGVerein](https://spg-direkt.de/) and the CRM [CleverReach](https://www.cleverreach.com/de/). See [this repo](https://github.com/BVPyro/export) for more information on the export process.
 
 ### Built With
 
