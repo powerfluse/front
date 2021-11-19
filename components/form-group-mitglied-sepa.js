@@ -1,7 +1,20 @@
+import { useEffect } from 'react'
 import Input from '../components/input'
+import Select from '../components/select'
 import Checkbox from '../components/checkbox'
+import { useFormContext } from 'react-hook-form'
+
+const countriesIBAN = ['Deutschland', 'Niederlande', 'Österreich']
+const regexesIBAN = {
+  Deutschland: /^DE\d{20}$/,
+  Niederlande: /^NL\d{2}[A-Z]{4}\d{10}$/,
+  Österreich: /^AT\d{18}$/,
+}
 
 export default function FormGroupFirmaSEPA() {
+  const { watch, trigger } = useFormContext()
+  let countryIBAN = watch('land_iban')
+  let regexIBAN = regexesIBAN[countryIBAN]
   return (
     <>
       <div className="mt-10 sm:mt-0">
@@ -34,8 +47,18 @@ export default function FormGroupFirmaSEPA() {
                       }}
                     />
                   </div>
+                  {/* Land IBAN */}
+                  <div className="col-span-6 md:col-span-2 lg:col-span-2">
+                    <Select
+                      name="land_iban"
+                      title="Land"
+                      autoComplete="country"
+                      options={countriesIBAN}
+                      defaultValue="Deutschland"
+                    />
+                  </div>
                   {/* IBAN */}
-                  <div className="col-span-6">
+                  <div className="col-span-6 md:col-span-4 lg:col-span-2">
                     <Input
                       title="IBAN"
                       name="iban"
@@ -45,11 +68,22 @@ export default function FormGroupFirmaSEPA() {
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 22,
                         pattern: {
-                          value: /^[A-Z]{2}[0-9]{20}$/,
+                          value: regexIBAN,
                           message: 'Kein gültiger IBAN',
                         },
                       }}
                     />
+                  </div>
+                  <div className="col-span-6 lg:col-span-2">
+                    <button
+                      className="whitespace-nowrap inline-flex items-center justify-center w-full mt-5 px-8 py-2 border border-transparent rounded-md text-lg font-source font-bold text-white bg-purple-300 transition transform duration-500 hover:bg-purple-600 hover:ring-2 hover:ring-purple-300 hover:shadow-xl disabled:opacity-30 disabled:ring-0"
+                      type="button"
+                      onClick={() => {
+                        trigger('iban')
+                      }}
+                    >
+                      IBAN prüfen
+                    </button>
                   </div>
                   <div className="col-span-6">
                     <Checkbox

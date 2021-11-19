@@ -1,4 +1,3 @@
-import Input from '../components/input'
 import InputEuro from '../components/input-euro'
 import React from 'react'
 import Select from '../components/select'
@@ -7,9 +6,7 @@ import { useFormContext } from 'react-hook-form'
 
 export default function FormGroupMitgliedBeitrag() {
   const { watch } = useFormContext()
-
-  const isSupporter = watch('foerdermitglied')
-
+  let isSupporter = watch('foerdermitglied')
   return (
     <>
       <div className="mt-10 sm:mt-0">
