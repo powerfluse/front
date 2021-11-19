@@ -80,8 +80,9 @@ export default function FormGroupMitglied() {
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 10,
                         pattern: {
-                          value: /[0-9.]{10}/,
-                          message: 'Kein gültiges Geburtsdatum',
+                          value:
+                            /^(0[1-9]|1\d|2\d|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$/,
+                          message: 'Bitte in der Form "01.02.1993" angeben',
                         },
                       }}
                     />
