@@ -1,6 +1,8 @@
 import Input from '../components/input'
 import Select from '../components/select'
 import Checkbox from '../components/checkbox'
+import { isValidIBANNumber } from '../lib/iban'
+import { isAlphaNumeric } from '../lib/alnum'
 
 export default function FormGroupFirmaSEPA() {
   return (
@@ -41,13 +43,15 @@ export default function FormGroupFirmaSEPA() {
                       title="IBAN"
                       name="f_iban"
                       autoComplete="name"
-                      msg="genau 22 Zeichen"
+                      msg="Bitte genau prüfen"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
-                        maxLength: 22,
-                        pattern: {
-                          value: /^[A-Z]{2}[0-9]{20}$/,
-                          message: 'Kein gültiger IBAN',
+                        validate: {
+                          validIBAN: (v) =>
+                            isValidIBANNumber(v) == 1 || 'Ungültige Eingabe',
+                          alphaNumeric: (v) =>
+                            isAlphaNumeric(v) == true ||
+                            'Nur Zahlen und Buchstaben, bitte',
                         },
                       }}
                     />
