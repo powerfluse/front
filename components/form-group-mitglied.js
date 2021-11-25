@@ -132,14 +132,14 @@ export default function FormGroupMitglied() {
                       type="text"
                       title="Postleitzahl"
                       name="plz"
-                      msg="genau 5 Ziffern"
+                      msg="4 oder 5 Ziffern"
                       autoComplete="off"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 5,
-                        minLength: 5,
+                        minLength: 4,
                         pattern: {
-                          value: /[0-9]{5}/,
+                          value: /[0-9]{4,5}/,
                           message: 'keine gültige PLZ',
                         },
                       }}
