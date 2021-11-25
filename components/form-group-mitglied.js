@@ -98,6 +98,11 @@ export default function FormGroupMitglied() {
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 30,
+                        pattern: {
+                          value: /^[a-zA-ZöüäÖÜÄß\-\. ]+$/,
+                          message:
+                            'Nur Buchstaben, Leerzeichen und "-", bitte.',
+                        },
                       }}
                     />
                   </div>
@@ -132,14 +137,12 @@ export default function FormGroupMitglied() {
                       type="text"
                       title="Postleitzahl"
                       name="plz"
-                      msg="4 oder 5 Ziffern"
+                      msg="4 bis 6 Ziffern"
                       autoComplete="off"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
-                        maxLength: 5,
-                        minLength: 4,
                         pattern: {
-                          value: /[0-9]{4,5}/,
+                          value: /[0-9]{4,6}/,
                           message: 'keine gültige PLZ',
                         },
                       }}
@@ -156,6 +159,10 @@ export default function FormGroupMitglied() {
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 35,
+                        pattern: {
+                          value: /^[a-zA-ZöüäÖÜÄß\-\. ]+$/,
+                          message: 'Nur Buchstaben, bitte.',
+                        },
                       }}
                     />
                   </div>
