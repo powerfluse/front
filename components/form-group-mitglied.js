@@ -185,6 +185,7 @@ export default function FormGroupMitglied() {
                       msg=" "
                       autoComplete="email"
                       validation={{
+                        required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 50,
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
