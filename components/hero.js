@@ -9,6 +9,7 @@ export default function Hero() {
         className="object-cover rounded-none"
         src={heroPic}
         layout="fill"
+        alt="Bundesverband für Pyrotechnik und Kunstfeuerwerk"
         priority
       />
       <div className="text-center z-10">
