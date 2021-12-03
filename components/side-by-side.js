@@ -19,9 +19,9 @@ export default function SideBySide(props) {
               {parse(props.props.dataIndexPage.voice)}
             </div>
           </div>
-          <div className="w-full h-96 lg:h-full" data-aos="fade-left">
+          <div className="relative h-96 w-full lg:h-full" data-aos="fade-left">
             <Image
-              className="lg:block md:h-full w-full object-cover rounded-none"
+              className="object-cover rounded-none"
               src={voicePic}
               layout="fill"
               alt="Feuerwerk braucht eine starke Stimme"
@@ -39,7 +39,7 @@ export default function SideBySide(props) {
             </div>
           </div>
           <div
-            className="order-first w-full h-96 lg:h-full"
+            className="relative order-first w-full h-96 lg:h-full"
             data-aos="fade-right"
           >
             <Image
@@ -60,7 +60,7 @@ export default function SideBySide(props) {
               {parse(props.props.dataIndexPage.attack)}
             </div>
           </div>
-          <div className="w-full h-96 lg:h-full" data-aos="fade-left">
+          <div className="relative w-full h-96 lg:h-full" data-aos="fade-left">
             <Image
               className="lg:block md:h-full w-full object-cover rounded-none"
               src={attackPic}
