@@ -1,8 +1,8 @@
 export default function Blog(props) {
   const baseURL = 'https://cms.bvpk.org'
   const assetURL = `${baseURL}/assets/`
-  const aktuellesPage = props.props.aktuellesPage
-  const aktuelles_unsorted = props.props.aktuelles
+  const aktuellesPage = props.props.page
+  const aktuelles_unsorted = props.props.items
   const aktuelles = aktuelles_unsorted.sort(function (a, b) {
     return new Date(b.date) - new Date(a.date)
   })
