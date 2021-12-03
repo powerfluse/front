@@ -1,7 +1,7 @@
 export default function BlogIndex(props) {
   const posts = props.props.dataAktuelles6
   return (
-    <div className="bg-purple-900 max-w-full pb-12">
+    <div className="relative overflow-hidden bg-purple-900 max-w-full pb-12">
       <div className="relative mx-4 pt-24 pb-12 lg:pt-32 lg:pb-16 lg:mx-24 divide-y-2 divide-purple-800">
         <div>
           <h2 className="text-3xl tracking-tight font-bold font-titillium text-purple-300">
