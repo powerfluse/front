@@ -13,8 +13,8 @@ export default function Index(props) {
       <Head />
       <NavBar />
       <Hero />
-      <SideBySide props={props} />
       <BlogIndex props={props} />
+      <SideBySide props={props} />
       <Newsletter />
       <Footer />
     </>
