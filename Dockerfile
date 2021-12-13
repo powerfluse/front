@@ -28,6 +28,7 @@ USER appuser
 COPY --chown=appuser package.json .
 COPY --from=build --chown=appuser /app/public ./public
 COPY --from=build --chown=appuser /app/.next ./.next
+COPY --from=build --chown=appuser /app/next.config.js ./next.config.js
 COPY --from=build --chown=appuser /app/node_modules ./node_modules
 ENV NODE_ENV=production
 EXPOSE 3001
