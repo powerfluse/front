@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import NavBar from '../../components/navbar'
 import Head from '../../components/head'
 import parse, { attributesToProps } from 'html-react-parser'
@@ -11,7 +10,6 @@ import { getFromDirectus } from '../../lib/api'
 export default function Post(props) {
   const baseURL = 'https://cms.bvpk.org'
   const assetURL = `${baseURL}/assets/`
-  console.log(props.imageLink)
 
   return (
     <>
@@ -56,9 +54,9 @@ export default function Post(props) {
                             : ''
                         }`}
                       >
-                        <Link href={props.imagelink || '/impressum'}>
+                        <a href={props.imagelink || '/impressum'}>
                           {props.imageattribution}
-                        </Link>
+                        </a>
                       </a>
                     </span>
                   </figcaption>
