@@ -26,8 +26,11 @@ export default function FormGroupMitglied() {
                     <Select
                       title="Anrede"
                       name="anrede"
-                      options={['keine Angabe', 'Frau', 'Herr', 'Divers']}
+                      options={[null, 'Frau', 'Herr', 'Divers']}
                       autoComplete="honorific-prefix"
+                      validation={{
+                        required: { value: 'true', message: 'Pflichtfeld' },
+                      }}
                     />
                   </div>
                   {/* Titel */}
