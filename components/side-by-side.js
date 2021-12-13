@@ -1,4 +1,8 @@
 import parse from 'html-react-parser'
+import Image from 'next/image'
+import voicePic from '../public/voice.jpg'
+import fascinationPic from '../public/fascination.jpg'
+import attackPic from '../public/attack.jpg'
 // TODO try with smaller text
 // TODO extract side-by-side sections into components
 export default function SideBySide(props) {
@@ -15,11 +19,12 @@ export default function SideBySide(props) {
               {parse(props.props.dataIndexPage.voice)}
             </div>
           </div>
-          <div className="w-full lg:h-full" data-aos="fade-left">
-            <img
-              className="lg:block md:h-full w-full object-cover"
-              src="/voice.jpg"
-              alt=""
+          <div className="relative h-96 w-full lg:h-full" data-aos="fade-left">
+            <Image
+              className="object-cover rounded-none"
+              src={voicePic}
+              layout="fill"
+              alt="Feuerwerk braucht eine starke Stimme"
             />
           </div>
         </section>
@@ -33,11 +38,15 @@ export default function SideBySide(props) {
               {parse(props.props.dataIndexPage.fascination)}
             </div>
           </div>
-          <div className="order-first w-full lg:h-full" data-aos="fade-right">
-            <img
-              className="md:h-full w-full object-cover"
-              src="/fascination.jpg"
-              alt=""
+          <div
+            className="relative order-first w-full h-96 lg:h-full"
+            data-aos="fade-right"
+          >
+            <Image
+              className="lg:block md:h-full w-full object-cover rounded-none"
+              src={fascinationPic}
+              layout="fill"
+              alt="Feuerwerk fasziniert"
             />
           </div>
         </div>
@@ -51,11 +60,12 @@ export default function SideBySide(props) {
               {parse(props.props.dataIndexPage.attack)}
             </div>
           </div>
-          <div className="w-full lg:h-full" data-aos="fade-left">
-            <img
-              className="md:h-full w-full object-cover"
-              src="/attack.jpg"
-              alt=""
+          <div className="relative w-full h-96 lg:h-full" data-aos="fade-left">
+            <Image
+              className="lg:block md:h-full w-full object-cover rounded-none"
+              src={attackPic}
+              layout="fill"
+              alt="Feuerwerk steht unter Beschuss"
             />
           </div>
         </div>

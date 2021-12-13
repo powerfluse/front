@@ -20,9 +20,9 @@ export default function Index(props) {
 }
 
 export async function getStaticProps() {
-  const page = await getFromDirectus('/items/aktuelles_page')
+  const page = await getFromDirectus('/items/presse_page')
   const items = await getFromDirectus(
-    '/items/aktuelles?filter[status][_eq]=published'
+    '/items/aktuelles?filter[status][_eq]=published&filter[category][_eq]=pressemitteilung'
   )
   return {
     props: { page, items },

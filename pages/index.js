@@ -10,13 +10,15 @@ import { getFromDirectus } from '../lib/api'
 export default function Index(props) {
   return (
     <>
-      <Head />
-      <NavBar />
-      <Hero />
-      <SideBySide props={props} />
-      <BlogIndex props={props} />
-      <Newsletter />
-      <Footer />
+      <div className="bg-purple-900">
+        <Head />
+        <NavBar />
+        <Hero />
+        <BlogIndex props={props} />
+        <SideBySide props={props} />
+        <Newsletter />
+        <Footer />
+      </div>
     </>
   )
 }
