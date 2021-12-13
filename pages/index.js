@@ -18,7 +18,7 @@ export default function Index(props) {
         <div className="pt-12 pb-6 mx-4 lg:mx-14">
           <Blog props={props} />
         </div>
-        <div className="flex items-center justify-center pb-4">
+        <div className="flex items-center justify-center pt-6 pb-12">
           <Link href="/aktuelles">
             <button className="button">
               Schaue dir alle unsere Beiträge an
