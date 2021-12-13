@@ -15,8 +15,8 @@ export default function SideBySide(props) {
             className="relative bg-purple-900 py-12 md:h-full"
             data-aos="fade-right"
           >
-            <div className="mx-4 pt-6 lg:mx-24 prose prose-lg prose-on-purple">
-              {parse(props.props.dataIndexPage.voice)}
+            <div className="mx-4 pt-6 lg:mx-16 prose prose-lg prose-on-purple">
+              {parse(props.props.page.voice)}
             </div>
           </div>
           <div className="relative h-96 w-full lg:h-full" data-aos="fade-left">
@@ -34,8 +34,8 @@ export default function SideBySide(props) {
             className="relative bg-purple-900 py-12 md:h-full"
             data-aos="fade-left"
           >
-            <div className="mx-4 pt-6 lg:mx-24 prose prose-lg prose-on-purple">
-              {parse(props.props.dataIndexPage.fascination)}
+            <div className="mx-4 pt-6 lg:mx-16 prose prose-lg prose-on-purple">
+              {parse(props.props.page.fascination)}
             </div>
           </div>
           <div
@@ -56,8 +56,8 @@ export default function SideBySide(props) {
             className="order-first relative bg-purple-900 py-12 md:h-full"
             data-aos="fade-right"
           >
-            <div className="mx-4 pt-6 lg:mx-24 prose prose-lg prose-on-purple">
-              {parse(props.props.dataIndexPage.attack)}
+            <div className="mx-4 pt-6 lg:mx-16 prose prose-lg prose-on-purple">
+              {parse(props.props.page.attack)}
             </div>
           </div>
           <div className="relative w-full h-96 lg:h-full" data-aos="fade-left">

@@ -97,6 +97,7 @@ export default function NavBar() {
                 <Popover.Group
                   as="nav"
                   className="hidden lg:flex lg:justify-start space-x-4"
+                  style={{ marginLeft: '14px' }}
                 >
                   {navigation.map((item) => (
                     <a
@@ -246,7 +247,7 @@ export default function NavBar() {
                           <a
                             key={item.name}
                             href={item.href}
-                            className="text-base font-medium text-white hover:text-purple-300"
+                            className="font-source font-bold text-white hover:text-purple-300"
                           >
                             {item.name}
                           </a>
