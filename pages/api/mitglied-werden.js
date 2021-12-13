@@ -44,27 +44,33 @@ export default function mitgliedFormHandler(req, res) {
             bcc: 'webmailer@bvpk.org',
             replyTo: 'info@bvpk.org',
             subject: 'Herzlich Willkommen beim BVPK!',
-            text: `Hallo und herzlich Willkommen im Bundesverband Pyrotechnik und Kunstfeuerwerk e.V.!,
+            text: `Hallo und herzlich Willkommen beim Bundesverband Pyrotechnik und Kunstfeuerwerk e.V.!
 
-Dein Mitgliedsantrag ist bei uns eingegangen und
-wir freuen uns sehr, Dich als Mitglied begrüßen
-zu dürfen. Gemeinsam geben wir dem Feuerwerk die
-starke Stimme, die es braucht!
+Dein Mitgliedsantrag ist bei uns eingegangen
+und wird bearbeitet. Aktuell erreichen uns viele
+Mitgliedsbeiträge. Wir bitten um Verständnis,
+wenn es deswegen etwas länger dauern kann als
+gewohnt.
 
-Dein Antrag wird bearbeitet und wir melden uns
-zeitnah mit weiteren Infos. Untenstehend findest
-Du eine Übersicht über Deine Angaben im
-Mitgliedsformular.
+Unten stehend findest Du eine Übersicht über
+Deine Angaben im Mitgliedsformular.
 
-Schau’ gerne auf unseren Kanälen auf Twitter und
-Facebook (@BVPyro) und Instagram (@bvpk_pyrotechnik)
-vorbei.
+Schau’ gerne auf unseren Kanälen auf
+Facebook (@BVPyro), Instagram (@bvpk_pyrotechnik)
+und bald auch wieder auf Twitter (@BVPyro) vorbei.
+Das Teilen unserer Beiträge ist ein wichtiger Weg,
+die Reichweite des Verbands zu erhöhen!
+
+Auch über unsere Homepage kannst Du dich auf dem
+laufenden halten: https://bvpk.org/aktuelles
+
+Gemeinsam geben wir dem Feuerwerk die starke Stimme,
+die es braucht!
 
 Mit feurigen Grüßen,
 
 Dein BVPK
 Geschäftsführung
-
 
 #------------------------------------------------
 Deine Eingaben (gekürzt):

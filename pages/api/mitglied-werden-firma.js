@@ -37,7 +37,7 @@ export default function mitgliedFirmaFormHandler(req, res) {
           // BCC webmailer@bvpk.org
           const mailToInitiator = {
             from: {
-              name: 'BVPK e.V. Geschäftsstelle',
+              name: 'Bundesverband Pyrotechnik | Geschäftsstelle',
               address: 'webmailer@bvpk.org',
             },
             to: req.body.email,
@@ -47,24 +47,28 @@ export default function mitgliedFirmaFormHandler(req, res) {
             text: `Sehr geehrte Damen und Herren,
 
 Ihr Mitgliedsantrag ist bei uns eingegangen und
-wir freuen uns sehr, Sie als Mitglied begrüßen
-zu dürfen. Gemeinsam geben wir dem Feuerwerk die
-starke Stimme, die es braucht!
+wird bearbeitet. Wir melden uns zeitnah mit
+weiteren Informationen zurück.
 
-Ihr Antrag wird bearbeitet und wir melden uns
-zeitnah mit weiteren Informationen. Untenstehend
-finden Sie eine Übersicht über Ihre Angaben im
-Mitgliedsformular.
+Unten stehend finden Sie eine Übersicht über Ihre
+Angaben im Mitgliedsformular.
 
-Schauen Sie gerne auf unseren Kanälen auf Twitter
-und Facebook (@BVPyro) und Instagram vorbei
-(@bvpk_pyrotechnik)
+Schauen Sie auch gerne auf unseren Kanälen auf
+Facebook (@BVPyro), Instagram (@bvpk_pyrotechnik)
+und bald auch wieder auf Twitter (@BVPyro) vorbei.
+Das Teilen unserer Beiträge ist ein wichtiger Weg,
+die Reichweite des Verbands zu erhöhen!
+
+Auch über unsere Homepage können Sie sich auf dem
+laufenden halten: https://bvpk.org/aktuelles
+
+Gemeinsam geben wir dem Feuerwerk die starke Stimme,
+die es braucht!
 
 Mit feurigen Grüßen,
 
 Ihr BVPK
 Geschäftsführung
-
 
 #------------------------------------------------
 Ihre Eingaben (gekürzt):
