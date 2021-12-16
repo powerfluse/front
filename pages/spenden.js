@@ -27,16 +27,13 @@ export default function Index(props) {
         </div>
         <div
           id="donate"
-          className="gfm-embed bg-purple-900 md:mx-0 lg:mx-48 max-w-md px-4 py-8"
-          style={{
-            paddingBottom: '5px',
-          }}
+          className="gfm-embed bg-purple-900 md:mx-0 lg:mx-48 max-w-md px-5 py-8"
           data-url="https://www.gofundme.com/f/bvpk-silvester/widget/medium/"
         ></div>
         <Script dangerouslySetInnerHTML={{ __html: `${goFundMe}` }} />`
       </div>
       <div className="bg-purple-900">
-        <div className="mt-12 px-4 md:mx-0 md:mx-0 lg:mx-48 h-full min-h-screen">
+        <div className="mt-8 px-4 md:mx-0 md:mx-0 lg:mx-48 h-full min-h-screen">
           <div id="fbIframeDiv">
             <Script src="https://secure.fundraisingbox.com/app/paymentJS?hash=osddg4ho9r4axvya" />
           </div>
