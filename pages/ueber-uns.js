@@ -1,24 +1,24 @@
-import Head from 'next/head'
+import Image from 'next/image'
+import Head from '../components/head'
 import Newsletter from '../components/newsletter'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import parse from 'html-react-parser'
 import { getFromDirectus } from '../lib/api'
+import aboutPic from '../public/ueber.jpg'
 
 export default function Index(props) {
   return (
     <>
-      <Head>
-        <title>BVPK - Ueber uns</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head />
       <NavBar />
       <div className="relative bg-purple-900 pt-12">
         <div className="lg:absolute lg:inset-0">
-          <div className="lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
-            <img
+          <div className="relative lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
+            <Image
               className="pt-20 lg:pt-24 h-56 w-full object-cover lg:absolute lg:h-full"
-              src="/ueber.jpg"
+              src={aboutPic}
+              layout="fill"
               alt=""
             />
           </div>

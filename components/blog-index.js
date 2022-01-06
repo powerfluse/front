@@ -5,7 +5,7 @@ export default function BlogIndex(props) {
       <div className="relative mx-4 py-12 lg:mx-24 divide-y-2 divide-purple-800">
         <div>
           <h2 className="text-3xl tracking-tight font-bold font-titillium text-purple-300">
-            Aktuelles <span className="text-gray-300">vom Bundesverband </span>
+            Aktuelles <span className="text-white">vom Bundesverband </span>
           </h2>
         </div>
         <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
@@ -16,7 +16,7 @@ export default function BlogIndex(props) {
                   {new Intl.DateTimeFormat('de-DE', {
                     year: 'numeric',
                     month: 'long',
-                    day: '2-digit',
+                    day: '1-digit',
                   }).format(new Date(post.date))}
                 </time>
               </p>
@@ -41,9 +41,9 @@ export default function BlogIndex(props) {
         </div>
       </div>
       <div className="flex items-center justify-center ">
-        <a href="/aktuelles">
+        <Link href="/aktuelles">
           <button className="button">Schaue dir alle unsere Beiträge an</button>
-        </a>
+        </Link>
       </div>
     </div>
   )

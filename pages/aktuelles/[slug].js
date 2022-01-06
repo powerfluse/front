@@ -1,6 +1,7 @@
+import Image from 'next/image'
 import NavBar from '../../components/navbar'
 import Head from '../../components/head'
-import parse from 'html-react-parser'
+import parse, { attributesToProps } from 'html-react-parser'
 import Newsletter from '../../components/newsletter'
 import Footer from '../../components/footer'
 import { CameraIcon } from '@heroicons/react/solid'
@@ -9,6 +10,7 @@ import { getFromDirectus } from '../../lib/api'
 export default function Post(props) {
   const baseURL = 'https://cms.bvpk.org'
   const assetURL = `${baseURL}/assets/`
+
   return (
     <>
       <NavBar />
@@ -17,7 +19,7 @@ export default function Post(props) {
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
             <div>
-              <h2 className="text-base text-purple-600 font-semibold tracking-wide uppercase">
+              <h2 className="text-purple-300 font-titillium tracking-wide font-bold uppercase">
                 {props.category}
               </h2>
               <h3 className="mt-2 text-3xl leading-8 font-titillium font-bold tracking-tight text-white sm:text-4xl">
@@ -29,8 +31,8 @@ export default function Post(props) {
             <div className="relative lg:row-start-1 lg:col-start-2">
               <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
                 <figure>
-                  <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
-                    <img
+                  <div className="relative aspect-w-12 aspect-h-7 lg:aspect-none">
+                    <Image
                       className="rounded-lg shadow-lg object-cover object-center"
                       src={assetURL + props.image}
                       alt={props.title}
@@ -46,10 +48,15 @@ export default function Post(props) {
                     <span className="ml-2">
                       Bild von{' '}
                       <a
-                        className="underline hover:text-indigo-600"
-                        href={props.imagelink}
+                        className={`${
+                          props.imagelink
+                            ? 'underline hover:text-purple-300'
+                            : ''
+                        }`}
                       >
-                        {props.imageattribution}
+                        <a href={props.imagelink || '/impressum'}>
+                          {props.imageattribution}
+                        </a>
                       </a>
                     </span>
                   </figcaption>
@@ -59,7 +66,14 @@ export default function Post(props) {
             <div className="mt-8 lg:mt-0">
               <div className="prose prose-lg prose-on-purple-aktuelles max-w-prose mx-auto lg:max-w-none">
                 {props.body
-                  ? parse(props.body.toString())
+                  ? parse(props.body.toString(), {
+                      replace: (domNode) => {
+                        if (domNode.attribs && domNode.name === 'img') {
+                          const props = attributesToProps(domNode.attribs)
+                          return <Image {...props} />
+                        }
+                      },
+                    })
                   : 'There has been an error. Sorry about that'}
               </div>
             </div>

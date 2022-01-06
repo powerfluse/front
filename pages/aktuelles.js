@@ -5,12 +5,12 @@ import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
 import { getFromDirectus } from '../lib/api'
 
-export default function Index(props) {
+export default function Aktuelles(props) {
   return (
     <>
       <Head />
       <NavBar />
-      <div className="min-h-screen bg-purple-800">
+      <div className="relative bg-purple-900 pt-24 pb-24 px-4 sm:px-6 md:pt-28 lg:pt-32 lg:pb-28 lg:px-8">
         <Blog props={props} />
         <Newsletter />
         <Footer />

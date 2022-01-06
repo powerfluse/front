@@ -25,7 +25,7 @@ export default function Select(props) {
             : 'formfield'
         }
         defaultValue={props.defaultValue}
-        {...register(props.name)}
+        {...register(props.name, props.validation)}
       >
         {props.options.map((o) => (
           <option value={o}>{o}</option>
