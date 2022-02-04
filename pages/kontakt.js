@@ -128,7 +128,7 @@ export default function Kontakt(props) {
                     <li>
                       <a
                         className="text-gray-300 hover:text-white"
-                        href="https://www.instagram.com/bvpyrotechnik"
+                        href="https://www.instagram.com/bvpk_pyrotechnik"
                       >
                         <span className="sr-only">Instagram</span>
                         <svg
