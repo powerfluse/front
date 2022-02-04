@@ -22,7 +22,7 @@ export default function Aktuelles(props) {
 export async function getStaticProps() {
   const page = await getFromDirectus('/items/aktuelles_page')
   const items = await getFromDirectus(
-    '/items/aktuelles?filter[status][_eq]=published'
+    '/items/aktuelles?filter[status][_eq]=published&filter[category][_neq]=pressemitteilung'
   )
   return {
     props: { page, items },
