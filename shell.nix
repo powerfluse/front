@@ -8,4 +8,7 @@ mkShell {
     nodePackages.javascript-typescript-langserver
     nodePackages.npm
   ];
+  shellHook = ''
+    $(cat .env)
+  '';
 }
