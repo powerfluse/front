@@ -30,47 +30,22 @@ export default async function contactFormHandler(req, res) {
       axios
         .post('/nc/bvpk_9YLS/api/v1/kontaktanfragen', req.body)
         .then((response) => {
-          // Define mail to the person who filled out the form
-          const mailToInitiator = {
-            from: {
-              name: 'BVPK e.V. Geschäftsstelle',
-              address: 'webmailer@bvpk.org',
-            },
-            to: req.body.k_email,
-            replyTo: 'info@bvpk.org',
-            subject: 'Deine Kontaktanfrage',
-            text: `Hallo ${req.body.k_vorname},
-
-Herzlichen Dank für Deine Nachricht an den BVPK!
-
-Wir haben deine Nachricht über unser Kontaktformular
-erhalten und melden uns bei Dir.
-
-Mit feurigen Grüßen,
-Bundesverband Pyrotechnik und Kunstfeuerwerk
-Geschäftsstelle `,
-          }
-
-          // Define mail to support
+          // Define mail to OTOBO
           const mailToSupport = {
             from: {
-              name: 'BVPK e.V. Website',
-              address: 'webmailer@bvpk.org',
+              name: `${req.body.k_vorname} ${req.body.k_nachname}`,
+              address: req.body.k_email,
             },
             to: 'support@bvpk.org',
             replyTo: req.body.k_email,
-            subject: 'Eine neue Kontaktanfrage auf bvpk.org/kontakt',
-            text: `Anfrage von ${req.body.k_vorname} (${req.body.k_email}):
+            subject: req.body.k_betreff,
+            text: `Anfrage von ${req.body.k_vorname} ${req.body.k_nachname}
+Email: ${req.body.k_email}
+Telefon: ${req.body.k_telefon || 'nicht angegeben'}
 
-===========================================================
+Anfrage:
 ${req.body.k_nachricht}`,
           }
-
-          // Send mail to person who filled out the contact form
-          transporter.sendMail(mailToInitiator, function (err, info) {
-            if (err) console.log(err)
-            else console.log(info)
-          })
 
           // Send mail to support
           transporter.sendMail(mailToSupport, function (err, info) {
