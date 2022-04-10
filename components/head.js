@@ -1,15 +1,14 @@
 import Head from 'next/head'
+import Script from 'next/script'
 
 export default function HeadComponent() {
   return (
     <>
+      <Script
+        data-website-id="1c9bd3fa-8b0d-44f7-996d-3074f15df2c2"
+        src="https://umami.bvpk.org/umami.js"
+      />
       <Head>
-        <script
-          async
-          defer
-          data-website-id="1c9bd3fa-8b0d-44f7-996d-3074f15df2c2"
-          src="https://umami.bvpk.org/umami.js"
-        ></script>
         <link
           rel="apple-touch-icon"
           sizes="57x57"
