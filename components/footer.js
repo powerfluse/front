@@ -69,6 +69,7 @@ export default function Example() {
               key={item.name}
               href={item.href}
               target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-purple-300"
             >
               <span className="sr-only">{item.name}</span>
