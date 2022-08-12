@@ -28,7 +28,7 @@ export default async function contactFormHandler(req, res) {
       // Send POST request to NocoDB after logging it to console
       console.log('Request Body: ', req.body)
       axios
-        .post('/nc/bvpk_9YLS/api/v1/kontaktanfragen', req.body)
+        .post('/api/v1/db/data/v1/BVPK/kontaktanfragen', req.body)
         .then((response) => {
           // Define mail to OTOBO
           const mailToSupport = {

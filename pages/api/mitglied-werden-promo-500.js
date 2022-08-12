@@ -27,7 +27,7 @@ export default function mitgliedFormHandler(req, res) {
     axios.defaults.baseURL = baseURL
     axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
     const url =
-      '/nc/bvpk_9YLS/api/v1/mitglieder/count?where=(promo500%2Ceq%2Ctrue)'
+      '/api/v1/db/data/v1/BVPK/mitglieder/count?where=(promo500%2Ceq%2Ctrue)'
     return axios.get(url).then((response) => response.data.count)
   }
   return new Promise((resolve) => {
@@ -45,7 +45,7 @@ export default function mitgliedFormHandler(req, res) {
           return resolve()
         } else {
           axios
-            .post('/nc/bvpk_9YLS/api/v1/mitglieder', req.body)
+            .post('/api/v1/db/data/v1/BVPK/mitglieder', req.body)
             .then((response) => {
               // Define mail to the person who filled out the form
               // BCC webmailer@bvpk.org

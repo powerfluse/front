@@ -31,7 +31,7 @@ export default function mitgliedFormHandler(req, res) {
       // Send POST request to NocoDB after logging it to console
       console.log('Request Body: ', req.body)
       axios
-        .post('/nc/bvpk_9YLS/api/v1/mitglieder', req.body)
+        .post('/api/v1/db/data/v1/BVPK/mitglieder', req.body)
         .then((response) => {
           // Define mail to the person who filled out the form
           // BCC webmailer@bvpk.org
