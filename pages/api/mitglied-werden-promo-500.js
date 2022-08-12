@@ -8,7 +8,7 @@ const EMAIL_PASS = process.env.EMAIL_PASS
 // Set axios defaults from variables
 const baseURL = 'https://db.bvpk.org'
 axios.defaults.baseURL = baseURL
-axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
+axios.defaults.headers.common['xc-token'] = NOCODB_TOKEN
 
 // Set up nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
 export default function mitgliedFormHandler(req, res) {
   function getTimesSubmitted() {
     axios.defaults.baseURL = baseURL
-    axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
+    axios.defaults.headers.common['xc-token'] = NOCODB_TOKEN
     const url =
       '/api/v1/db/data/v1/BVPK/mitglieder/count?where=(promo500%2Ceq%2Ctrue)'
     return axios.get(url).then((response) => response.data.count)
@@ -35,7 +35,7 @@ export default function mitgliedFormHandler(req, res) {
       getTimesSubmitted().then((timesSubmitted) => {
         // Set axios defaults from environment variables
         axios.defaults.baseURL = baseURL
-        axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
+        axios.defaults.headers.common['xc-token'] = NOCODB_TOKEN
         // Send POST request to NocoDB after logging it to console
         req.body.promo500 = true
         req.body.promo500_count = Number(timesSubmitted) + 1

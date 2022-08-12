@@ -8,7 +8,9 @@ const EMAIL_PASS = process.env.EMAIL_PASS
 // Set axios defaults from variables
 const baseURL = 'https://db.bvpk.org'
 axios.defaults.baseURL = baseURL
-axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
+axios.defaults.headers.common['xc-token'] = NOCODB_TOKEN
+
+console.log(NOCODB_TOKEN)
 
 // Set up nodemailer transporter
 const transporter = nodemailer.createTransport({

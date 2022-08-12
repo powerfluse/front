@@ -8,7 +8,7 @@ const EMAIL_PASS = process.env.EMAIL_PASS
 // Set axios defaults from variables
 const baseURL = 'https://db.bvpk.org'
 axios.defaults.baseURL = baseURL
-axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
+axios.defaults.headers.common['xc-token'] = NOCODB_TOKEN
 
 // Set up nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -27,7 +27,7 @@ export default function mitgliedFirmaFormHandler(req, res) {
     if (req.method === 'POST') {
       // Set axios defaults from environment variables
       axios.defaults.baseURL = baseURL
-      axios.defaults.headers.common['xc-auth'] = NOCODB_TOKEN
+      axios.defaults.headers.common['xc-token'] = NOCODB_TOKEN
       // Send POST request to NocoDB after logging it to console
       console.log('Request Body: ', req.body)
       axios
