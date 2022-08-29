@@ -5,7 +5,8 @@ with pkgs;
 mkShell {
   buildInputs = [
     nodejs-16_x
-    nodePackages.javascript-typescript-langserver
+    nodePackages.typescript
+    nodePackages.typescript-language-server
     nodePackages.npm
   ];
   shellHook = ''
