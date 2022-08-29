@@ -16,7 +16,6 @@ FROM base as build
 WORKDIR /app
 COPY . .
 COPY --from=base /app .
-RUN npm prune --production
 RUN npm run build
 
 # Production
