@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Setting the default fonts for body and headers */
+@layer base {
+  html {
+    font-family: Source Sans Pro, system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Titillium Web, system-ui, sans-serif;
+  }
+}
+
 button:focus {
   outline: none;
 }
@@ -38,32 +53,39 @@ input[type='number'] {
   }
 }
 
-.button {
-  @apply whitespace-nowrap inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md text-lg font-source font-bold text-white bg-purple-300 transition transform duration-500 hover:bg-purple-600 hover:ring-2 hover:ring-purple-300 hover:shadow-xl disabled:opacity-30 disabled:ring-0;
+/* Prose */
+.prose-bvpk {
+  @apply prose prose-headings:font-bold prose-a:font-bold prose-a:underline prose-a:decoration-bvpk-300
 }
 
-.button-success {
-  @apply whitespace-nowrap inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md text-lg font-source font-bold text-white bg-green-600 transition-all transform duration-500;
+/* Buttons */
+.button {
+  @apply whitespace-nowrap inline-flex items-center justify-center px-3 py-2 border border-2 border-bvpk-600 rounded-md font-source font-bold text-white bg-bvpk-600 transition transform duration-300 hover:bg-bvpk-300 hover:border-bvpk-300 hover:shadow-lg hover:shadow-pink-300 disabled:opacity-30 disabled:ring-0 disabled:shadow-none disabled:border-bvpk-600 disabled:bg-bvpk-600;
 }
 
 .button-secondary {
-  @apply whitespace-nowrap inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md text-lg font-source font-bold text-purple-600 bg-white transition transform duration-500 hover:bg-purple-600 hover:ring-2 hover:ring-purple-300 hover:text-white hover:shadow-xl;
+  @apply whitespace-nowrap inline-flex items-center justify-center px-3 py-2 border border-2 border-gray-100 rounded-md font-source font-bold text-bvpk-600 bg-white transition transform duration-500 hover:bg-bvpk-300 hover:border-bvpk-300 hover:text-white hover:shadow-lg hover:shadow-pink-300;
 }
 
+.button-success {
+  @apply whitespace-nowrap inline-flex items-center justify-center px-3 py-2 border border-transparent rounded-md text-lg font-source font-bold text-white bg-green-600 transition-all transform duration-500;
+}
+
+/* Formfields */
 .formfield {
-  @apply w-full py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-purple-300 focus:ring-2 focus:border-purple-300 border-purple-600 border-2 rounded-md placeholder-gray-400;
+  @apply w-full py-2 px-3 shadow-sm font-source text-gray-700 focus:ring-bvpk-300  focus:border-bvpk-300 border-gray-100 border-2 rounded-md placeholder-gray-300;
 }
 
 .formfield-invalid {
-  @apply w-full py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-red-500 focus:ring-2 focus:border-red-500 border-red-500 border-2 rounded-md;
+  @apply w-full py-2 px-3 shadow-sm font-source text-gray-700 focus:ring-red-500 focus:border-red-500 border-red-500 border-2 rounded-md;
 }
 
 .formfield-valid {
-  @apply w-full py-2 px-3 shadow-sm font-source text-gray-900 focus:ring-green-500 focus:ring-2 focus:border-green-500 border-green-500 border-2 rounded-md;
+  @apply w-full py-2 px-3 shadow-sm font-source text-gray-700 focus:ring-green-500 focus:border-green-500 border-green-500 border-2 rounded-md;
 }
 
 .checkbox {
-  @apply focus:ring-purple-300 h-4 w-4 text-purple-300 border-gray-300 rounded-sm h-4;
+  @apply focus:ring-bvpk-300 h-4 w-4 text-bvpk-300 border-gray-100 rounded-sm h-4;
 }
 
 img {
@@ -78,10 +100,12 @@ img {
   visibility: hidden;
 }
 
+/* CleverReach */
 .cr_form {
   font-family: 'Titillium Web' !important;
 }
 
+/* Fonts */
 @layer base {
   /* titillium-web-regular - latin */
   @font-face {

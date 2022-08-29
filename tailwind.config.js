@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        purple: {
+        bvpk: {
           300: '#aa248e',
           600: '#550f8c',
           800: '#190d44',
@@ -21,85 +21,11 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            h1: {
-              fontFamily: 'Titillium Web',
-            },
-            h2: {
-              fontFamily: 'Titillium Web',
-            },
-            h3: {
-              fontFamily: 'Titillium Web',
-            },
-            p: {
-              fontFamily: 'Source Sans Pro',
-            },
-            li: {
-              fontFamily: 'Source Sans Pro',
-            },
-          },
-        },
-        'on-white': {
-          css: {
-            h2: {
-              color: '#550f8c',
-            },
-          },
-        },
-        'on-purple': {
-          css: {
-            h1: {
-              color: '#d1d5db',
-              fontWeight: 700,
-            },
-            h2: {
-              color: '#d1d5db',
-            },
-            h3: {
-              color: '#550f8c',
-              textTransform: 'uppercase',
-            },
-            p: {
-              color: '#d1d5db',
-            },
-            li: {
-              color: '#d1d5db',
-            },
-            strong: {
-              color: '#aa248e',
-              fontWeight: 700,
-            },
+            color: '#111827',
             a: {
-              color: '#aa248e',
-            },
-          },
-        },
-        'on-purple-aktuelles': {
-          css: {
-            h1: {
-              fontWeight: 700,
-              color: '#d1d5db',
-            },
-            h2: {
-              color: '#d1d5db',
-            },
-            h3: {
-              color: '#d1d5db',
-            },
-            p: {
-              color: '#d1d5db',
-            },
-            strong: {
-              color: '#d1d5db',
-            },
-            a: {
-              color: '#aa248e',
-              textDecoration: 'none',
               '&:hover': {
-                textDecoration: 'underline',
+                textDecorationThickness: '2px',
               },
-            },
-            li: {
-              color: '#d1d5db',
             },
           },
         },
