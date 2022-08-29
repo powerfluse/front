@@ -46,7 +46,7 @@ const navigation = {
 
 export default function Example() {
   return (
-    <footer className="bg-purple-800">
+    <footer className="bg-gray-100">
       <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
         <nav
           className="-mx-5 -my-2 flex flex-wrap justify-center"
@@ -56,7 +56,7 @@ export default function Example() {
             <div key={item.name} className="px-5 py-2">
               <a
                 href={item.href}
-                className="text-lg font-source text-gray-400 hover:text-purple-300"
+                className="text-lg font-source text-gray-700 hover:text-bvpk-300 duration-300"
               >
                 {item.name}
               </a>
@@ -70,14 +70,14 @@ export default function Example() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-purple-300"
+              className="text-gray-500 hover:text-bvpk-300 duration-300"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}
         </div>
-        <p className="mt-8 text-center text-md font-source text-gray-400">
+        <p className="mt-8 text-center text-md font-source text-gray-500">
           &copy; 2021 BVPK e.V. Alle Rechte vorbehalten.
         </p>
       </div>

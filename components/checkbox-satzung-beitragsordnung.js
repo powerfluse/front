@@ -18,7 +18,7 @@ export default function CheckBokSatzungBeitragsordnung(props) {
         <span>
           Ja, ich erkenne die{' '}
           <a
-            className="text-purple-300 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
+            className="text-bvpk-300 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
             href="/bvpk_satzung.pdf"
             target="_blank"
           >
@@ -26,7 +26,7 @@ export default function CheckBokSatzungBeitragsordnung(props) {
           </a>{' '}
           und die{' '}
           <a
-            className="text-purple-300 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
+            className="text-bvpk-300 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
             href="/bvpk_beitragsordnung.pdf"
             target="_blank"
           >

@@ -9,7 +9,7 @@ export default function Select(props) {
     <>
       <label
         htmlFor={props.name}
-        className="block font-source font-bold text-gray-300 capitalize"
+        className="block font-source font-bold text-gray-700 capitalize"
       >
         {props.title ? props.title : title_from_name}
       </label>
@@ -28,7 +28,9 @@ export default function Select(props) {
         {...register(props.name, props.validation)}
       >
         {props.options.map((o) => (
-          <option value={o}>{o}</option>
+          <option key={o} value={o}>
+            {o}
+          </option>
         ))}
       </select>
     </>

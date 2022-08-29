@@ -43,7 +43,7 @@ export default function MitgliedWerdenFirma() {
       <Head />
       <Modal open={openModal} />
       <FormProvider {...methods}>
-        <div className="min-h-screen bg-purple-900 pt-32 px-4 lg:px-8">
+        <div className="min-h-screen pt-32 px-4 lg:px-8">
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {/* FormGroups */}
             <FormGroupFirma />
@@ -59,7 +59,9 @@ export default function MitgliedWerdenFirma() {
               <button
                 type="submit"
                 className={`${
-                  isSubmitSuccessful && !errors.hasOwnProperty('serverError')
+                  isValid &&
+                  isSubmitSuccessful &&
+                  !errors.hasOwnProperty('serverError')
                     ? 'button-success'
                     : 'button'
                 }`}

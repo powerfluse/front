@@ -10,12 +10,9 @@ export default function SideBySide(props) {
     <main id="feuerwerk">
       <div className="relative w-full overflow-hidden">
         {/* Section 1 */}
-        <section className="bg-purple-900 relative lg:grid lg:grid-cols-2 lg:items-center">
-          <div
-            className="relative bg-purple-900 py-12 md:h-full"
-            data-aos="fade-right"
-          >
-            <div className="mx-4 pt-6 lg:mx-16 prose prose-lg prose-on-purple">
+        <section className="relative lg:grid lg:grid-cols-2 lg:items-center">
+          <div className="relative py-12 md:h-full" data-aos="fade-right">
+            <div className="mx-4 pt-6 lg:mx-16 prose-bvpk">
               {parse(props.props.page.voice)}
             </div>
           </div>
@@ -29,12 +26,9 @@ export default function SideBySide(props) {
           </div>
         </section>
         {/* Section 2 */}
-        <div className="bg-purple-900 relative lg:grid lg:grid-cols-2 lg:items-center">
-          <div
-            className="relative bg-purple-900 py-12 md:h-full"
-            data-aos="fade-left"
-          >
-            <div className="mx-4 pt-6 lg:mx-16 prose prose-lg prose-on-purple">
+        <div className="relative lg:grid lg:grid-cols-2 lg:items-center">
+          <div className="relative py-12 md:h-full" data-aos="fade-left">
+            <div className="mx-4 pt-6 lg:mx-16 prose-bvpk">
               {parse(props.props.page.fascination)}
             </div>
           </div>
@@ -51,12 +45,12 @@ export default function SideBySide(props) {
           </div>
         </div>
         {/* Section 3 */}
-        <div className="bg-purple-900 relative lg:grid lg:grid-cols-2 lg:items-center">
+        <div className="relative lg:grid lg:grid-cols-2 lg:items-center">
           <div
-            className="order-first relative bg-purple-900 py-12 md:h-full"
+            className="order-first relative py-12 md:h-full"
             data-aos="fade-right"
           >
-            <div className="mx-4 pt-6 lg:mx-16 prose prose-lg prose-on-purple">
+            <div className="mx-4 pt-6 lg:mx-16 prose-bvpk">
               {parse(props.props.page.attack)}
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { HeartIcon } from '@heroicons/react/outline'
+import { HeartIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import heroPic from '../public/hero.jpg'
 
@@ -28,7 +28,7 @@ export default function Hero() {
           <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
             <a href="/spenden" className="w-full button-secondary">
               Spenden
-              <HeartIcon className="ml-2 -mr-2 h-6 w-6" aria-hidden="true" />
+              <HeartIcon className="ml-1 -mr-2 h-6 w-6" aria-hidden="true" />
             </a>
           </div>
         </div>

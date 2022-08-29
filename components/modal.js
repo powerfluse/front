@@ -1,6 +1,6 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/outline'
+import { CheckIcon } from '@heroicons/react/24/outline'
 import router from 'next/router'
 
 export default function Modal(props) {
@@ -31,7 +31,7 @@ export default function Modal(props) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-purple-900 bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -50,23 +50,23 @@ export default function Modal(props) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-purple-900 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
               <div>
                 <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-500">
                   <CheckIcon
-                    className="h-8 w-8 text-green-900"
+                    className="h-8 w-8 text-green-800"
                     aria-hidden="true"
                   />
                 </div>
                 <div className="mt-3 text-center sm:mt-5">
                   <Dialog.Title
                     as="h3"
-                    className="text-2xl leading-6 font-titillium font-bold text-gray-300"
+                    className="text-2xl leading-6 font-titillium font-bold text-gray-700"
                   >
                     Danke! Wir melden uns.
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-md font-source text-gray-400">
+                    <p className="text-md font-source text-gray-600">
                       Wir geben uns Mühe dein Anliegen sobald wie möglich zu
                       beantworten!
                     </p>

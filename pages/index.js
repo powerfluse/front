@@ -6,29 +6,25 @@ import NavBar from '../components/navbar'
 import Blog from '../components/blog'
 import Hero from '../components/hero'
 import Footer from '../components/footer'
-import { getFromDirectus } from '../lib/api'
+import getFromDirectus from '../lib/directus'
 
 export default function Index(props) {
   return (
     <>
-      <div className="bg-purple-900">
-        <Head />
-        <NavBar />
-        <Hero />
-        <div className="pt-12 pb-6 mx-4 lg:mx-14">
-          <Blog props={props} />
-        </div>
-        <div className="flex items-center justify-center pt-6 md:pb-12">
-          <Link href="/aktuelles">
-            <button className="button">
-              Schaue dir alle unsere Beiträge an
-            </button>
-          </Link>
-        </div>
-        <SideBySide props={props} />
-        <Newsletter />
-        <Footer />
+      <Head />
+      <NavBar />
+      <Hero />
+      <div className="pt-12 pb-6 mx-4 lg:mx-14">
+        <Blog props={props} />
       </div>
+      <div className="flex items-center justify-center pt-6 md:pb-12">
+        <Link href="/aktuelles">
+          <button className="button">Schaue dir alle unsere Beiträge an</button>
+        </Link>
+      </div>
+      <SideBySide props={props} />
+      <Newsletter />
+      <Footer />
     </>
   )
 }

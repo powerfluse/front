@@ -60,11 +60,11 @@ input[type='number'] {
 
 /* Buttons */
 .button {
-  @apply whitespace-nowrap inline-flex items-center justify-center px-3 py-2 border border-2 border-bvpk-600 rounded-md font-source font-bold text-white bg-bvpk-600 transition transform duration-300 hover:bg-bvpk-300 hover:border-bvpk-300 hover:shadow-lg hover:shadow-pink-300 disabled:opacity-30 disabled:ring-0 disabled:shadow-none disabled:border-bvpk-600 disabled:bg-bvpk-600;
+  @apply whitespace-nowrap inline-flex items-center justify-center px-3 py-2 border border-2 border-bvpk-600 rounded-md font-source font-bold text-white bg-bvpk-600 transition transform duration-300 hover:bg-bvpk-300 hover:border-bvpk-300 hover:shadow-lg hover:shadow-pink-400 disabled:opacity-30 disabled:ring-0 disabled:shadow-none disabled:border-bvpk-600 disabled:bg-bvpk-600;
 }
 
 .button-secondary {
-  @apply whitespace-nowrap inline-flex items-center justify-center px-3 py-2 border border-2 border-gray-100 rounded-md font-source font-bold text-bvpk-600 bg-white transition transform duration-500 hover:bg-bvpk-300 hover:border-bvpk-300 hover:text-white hover:shadow-lg hover:shadow-pink-300;
+  @apply whitespace-nowrap inline-flex items-center justify-center px-3 py-2 border border-2 border-bvpk-600 rounded-md font-source font-bold text-bvpk-600 bg-white transition transform duration-500 hover:bg-bvpk-300 hover:border-bvpk-300 hover:text-white hover:shadow-lg hover:shadow-pink-400;
 }
 
 .button-success {

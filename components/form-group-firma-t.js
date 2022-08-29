@@ -8,17 +8,17 @@ export default function FormGroupTaetigkeit() {
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0">
-              <h3 className="text-xl font-titillium font-bold leading-6 text-gray-300">
+              <h3 className="text-xl font-titillium font-bold leading-6 text-gray-700">
                 Tätigkeitsschwerpunkte
               </h3>
-              <p className="mt-1 text-md font-source text-gray-400">
+              <p className="mt-1 text-md font-source text-gray-600">
                 Was ist der Fokus Deines Betriebes?
               </p>
             </div>
           </div>
           <div className="mt-5 md:mt-0 md:col-span-2">
             <div className="shadow overflow-hidden sm:rounded-md">
-              <div className="px-4 py-5 bg-purple-800 sm:p-6">
+              <div className="px-4 py-5 bg-gray-100 sm:p-6">
                 <div className="grid grid-cols-6 gap-3">
                   {/* GF */}
                   <div className="col-span-6">
@@ -83,7 +83,7 @@ export default function FormGroupTaetigkeit() {
       </div>
       <div className="hidden sm:block" aria-hidden="true">
         <div className="py-5">
-          <div className="border-t border-purple-600" />
+          <div className="border-t border-gray-100" />
         </div>
       </div>
     </>

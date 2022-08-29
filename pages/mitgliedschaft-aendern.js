@@ -5,7 +5,7 @@ import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Head from '../components/head'
 import Modal from '../components/modal'
-import { getFromDirectus } from '../lib/api'
+import getFromDirectus from '../lib/directus'
 import FormGroupAenderung from '../components/form-group-aenderung'
 import FormGroupFirma from '../components/form-group-firma'
 import FormGroupFirmaAP from '../components/form-group-firma-ap'
@@ -56,8 +56,8 @@ export default function MitgliedschaftAendern(props) {
       <Head />
       <Modal open={openModal} />
       <FormProvider {...methods}>
-        <div className="min-h-screen bg-purple-900 pt-32 px-4 lg:px-8">
-          <div className="prose prose-lg mx-auto prose-on-purple-aktuelles pb-4 md:pb-12">
+        <div className="min-h-screen bg-bvpk-900 pt-32 px-4 lg:px-8">
+          <div className="prose prose-lg mx-auto prose-on-bvpk-aktuelles pb-4 md:pb-12">
             {parse(props.dataMitgliedschaftAendernPage.text)}
           </div>
           <form onSubmit={methods.handleSubmit(onSubmit)}>

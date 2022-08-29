@@ -16,7 +16,7 @@ export default function FormGroupFirmaAenderung() {
           </div>
           <div className="mt-5 md:mt-0 md:col-span-2">
             <div className="shadow overflow-hidden sm:rounded-md">
-              <div className="px-4 py-5 bg-purple-800 sm:p-6 ">
+              <div className="px-4 py-5 bg-bvpk-800 sm:p-6 ">
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6">
                     <Radio
@@ -40,7 +40,7 @@ export default function FormGroupFirmaAenderung() {
       </div>
       <div className="hidden sm:block" aria-hidden="true">
         <div className="py-5">
-          <div className="border-t border-purple-600" />
+          <div className="border-t border-gray-100" />
         </div>
       </div>
     </>

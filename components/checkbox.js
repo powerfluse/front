@@ -14,12 +14,12 @@ export default function Input(props) {
         className="checkbox"
         {...register(props.name, props.validation)}
       />
-      <span className="mx-3 font-source font-bold text-gray-300 ">
+      <span className="mx-3 font-source font-bold text-gray-700 ">
         {props.href ? (
           <span>
             {props.pre_href_text}
             <a
-              className="text-purple-300 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
+              className="text-bvpk-700 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
               href={props.href}
               target="_blank"
               rel="noopener noreferrer"

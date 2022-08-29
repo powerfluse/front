@@ -4,8 +4,8 @@ import Head from '../../components/head'
 import parse, { attributesToProps } from 'html-react-parser'
 import Newsletter from '../../components/newsletter'
 import Footer from '../../components/footer'
-import { CameraIcon } from '@heroicons/react/solid'
-import { getFromDirectus } from '../../lib/api'
+import { CameraIcon } from '@heroicons/react/24/solid'
+import getFromDirectus from '../../lib/directus'
 
 export default function Post(props) {
   const baseURL = 'https://cms.bvpk.org'
@@ -15,14 +15,14 @@ export default function Post(props) {
     <>
       <NavBar />
       <Head />
-      <div className="pt-12 bg-purple-900 min-h-screen overflow-hidden">
+      <div className="pt-12 min-h-screen overflow-hidden">
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
             <div>
-              <h2 className="text-purple-300 font-titillium tracking-wide font-bold uppercase">
+              <h2 className="text-bvpk-800 font-titillium tracking-wide font-bold uppercase">
                 {props.category}
               </h2>
-              <h3 className="mt-2 text-3xl leading-8 font-titillium font-bold tracking-tight text-white sm:text-4xl">
+              <h3 className="mt-2 text-3xl leading-8 font-titillium text-gray-700 font-bold sm:text-4xl">
                 {props.title}
               </h3>
             </div>
@@ -49,9 +49,7 @@ export default function Post(props) {
                       Bild von{' '}
                       <a
                         className={`${
-                          props.imagelink
-                            ? 'underline hover:text-purple-300'
-                            : ''
+                          props.imagelink ? 'underline hover:text-bvpk-300' : ''
                         }`}
                       >
                         <a href={props.imagelink || '/impressum'}>
@@ -64,7 +62,7 @@ export default function Post(props) {
               </div>
             </div>
             <div className="mt-8 lg:mt-0">
-              <div className="prose prose-lg prose-on-purple-aktuelles max-w-prose mx-auto lg:max-w-none">
+              <div className="prose prose-lg prose-on-bvpk-aktuelles max-w-prose mx-auto lg:max-w-none">
                 {props.body
                   ? parse(props.body.toString(), {
                       replace: (domNode) => {

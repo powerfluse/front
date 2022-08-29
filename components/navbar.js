@@ -1,16 +1,13 @@
-import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
   UserIcon,
-  // OfficeBuildingIcon,
-  // CogIcon,
-  MenuIcon,
   HeartIcon,
-  XIcon,
-} from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-import { useState, useEffect } from 'react'
+  Bars3Icon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline'
+import { Fragment, useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 // TODO add donation item
 const support = [
@@ -38,12 +35,16 @@ const support = [
 ]
 
 const navigation = [
-  { name: 'Der BVPK', href: '/ueber-uns' },
-  { name: 'Aktuelles', href: '/aktuelles' },
-  { name: 'Presse', href: '/presse' },
-  { name: 'Umwelt', href: '/umweltbelastung-feuerwerk' },
-  { name: 'Positionen', href: '/positionen' },
-  { name: 'Kontakt', href: '/kontakt' },
+  { name: 'Der BVPK', href: '/ueber-uns', class: 'text-gray-700' },
+  { name: 'Aktuelles', href: '/aktuelles', class: 'text-gray-700' },
+  { name: 'Presse', href: '/presse', class: 'text-gray-700' },
+  {
+    name: 'Umwelt',
+    href: '/umweltbelastung-feuerwerk',
+    class: 'text-gray-700',
+  },
+  { name: 'Positionen', href: '/positionen', class: 'text-gray-700' },
+  { name: 'Kontakt', href: '/kontakt', class: 'text-gray-700' },
 ]
 
 function classNames(...classes) {
@@ -51,6 +52,7 @@ function classNames(...classes) {
 }
 
 export default function NavBar() {
+  // Setup scroll position capture
   const [scrollPosition, setScrollPosition] = useState(0)
   const handleScroll = () => {
     const position = window.pageYOffset
@@ -62,48 +64,66 @@ export default function NavBar() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  const onTop = true ? scrollPosition === 0 : false
+
+  // Use scrollPosition to set shadow variable
+  const [shadow, setShadow] = useState('shadow-none')
+  useEffect(() => {
+    if (scrollPosition === 0) {
+      setShadow('shadow-none')
+    } else {
+      setShadow('shadow-xl')
+    }
+  })
+
+  // Setup page position
+  const router = useRouter()
+  useEffect(() => {
+    for (let i = 0; i < navigation.length; i++) {
+      if (navigation[i].href === router.pathname) {
+        navigation[i].class = 'text-bvpk-600'
+        console.log(navigation)
+      }
+    }
+  }, [router])
+
+  // Return the component
   return (
     <div
-      className={`${
-        onTop
-          ? 'fixed bg-purple-900 w-full z-20 bg-opacity-0 transition transition-all duration-300'
-          : 'fixed bg-purple-900 w-full z-20 bg-opacity-100 transition transition-all duration-300 shadow-2xl'
-      }`}
+      className={`fixed bg-white w-full z-20 transition transition-all duration-300 ${shadow}`}
     >
       <header>
         <Popover className="relative">
           {({ open }) => (
             <>
-              <div className="flex justify-between items-center max-w-full mx-auto px-4 py-6 lg:justify-start lg:space-x-10 md:px-6 lg:px-8">
+              <div className="flex justify-between items-center max-w-full mx-auto px-4 py-4 lg:justify-start lg:space-x-10 md:px-6 lg:px-8">
                 <div className="flex lg:justify-start lg:flex-grow-0 w-24 h-18 items-center">
                   <Link href="/">
                     <a>
                       <span className="sr-only">Workflow</span>
                       <img
-                        className="h-8 w-auto sm:h-10"
-                        src="/logo.svg"
+                        className="h-8 w-auto shadow-none"
+                        src="/logo-purple.svg"
                         alt="BVPK Logo"
                       />
                     </a>
                   </Link>
                 </div>
                 <div className="-mr-2 -my-2 lg:hidden">
-                  <Popover.Button className="bg-purple-800 rounded-md p-1 inline-flex items-center justify-center text-white hover:text-purple-300">
+                  <Popover.Button className="bg-white rounded-md p-1 inline-flex items-center justify-center text-bvpk-800 hover:text-bvpk-300">
                     <span className="sr-only">Menü offnen</span>
-                    <MenuIcon className="h-10 w-10" aria-hidden="true" />
+                    <Bars3Icon className="h-10 w-10" aria-hidden="true" />
                   </Popover.Button>
                 </div>
                 <Popover.Group
                   as="nav"
-                  className="hidden lg:flex lg:justify-start space-x-4"
-                  style={{ marginLeft: '14px' }}
+                  className="hidden lg:flex lg:justify-start space-x-6"
+                  style={{ marginLeft: '0.5em' }}
                 >
                   {navigation.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-lg font-source font-bold text-white hover:text-purple-300"
+                      className={`${item.class} font-source font-bold duration-300 hover:text-bvpk-300`}
                     >
                       {item.name}
                     </a>
@@ -114,14 +134,14 @@ export default function NavBar() {
                         {/* <Popover.Button */}
                         {/*   className={classNames( */}
                         {/*     open ? 'text-gray-300' : 'text-white', */}
-                        {/*     'group rounded-md inline-flex items-center text-shadow-lg text-lg font-source font-bold hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' */}
+                        {/*     'group rounded-md inline-flex items-center text-shadow-lg text-lg font-source font-bold hover:text-bvpk-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' */}
                         {/*   )} */}
                         {/* > */}
                         {/*   <span>Unterstützen</span> */}
                         {/*   <ChevronDownIcon */}
                         {/*     className={classNames( */}
-                        {/*       open ? 'text-purple-600' : 'text-purple-600', */}
-                        {/*       'ml-2 h-5 w-5 group-hover:text-purple-300' */}
+                        {/*       open ? 'text-bvpk-600' : 'text-bvpk-600', */}
+                        {/*       'ml-2 h-5 w-5 group-hover:text-bvpk-300' */}
                         {/*     )} */}
                         {/*     aria-hidden="true" */}
                         {/*   /> */}
@@ -141,15 +161,15 @@ export default function NavBar() {
                             static
                             className="absolute z-20 -ml-4 mt-3 transform w-screen max-w-sm lg:max-w-xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
                           >
-                            <div className="rounded-lg bg-purple-800 shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                            <div className="rounded-lg bg-bvpk-800 shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                               <div className="relative grid gap-6 px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-1">
                                 {support.map((item) => (
                                   <a
                                     key={item.name}
                                     href={item.href}
-                                    className="-m-3 p-3 flex items-start rounded-lg hover:bg-purple-900"
+                                    className="-m-3 p-3 flex items-start rounded-lg hover:bg-bvpk-900"
                                   >
-                                    <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-purple-600 text-white sm:h-12 sm:w-12">
+                                    <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-bvpk-600 text-white sm:h-12 sm:w-12">
                                       <item.icon
                                         className="h-6 w-6"
                                         aria-hidden="true"
@@ -174,13 +194,13 @@ export default function NavBar() {
                   </Popover>
                 </Popover.Group>
                 <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
-                  <a href="/mitglied-werden" className="ml-4 button">
+                  <a href="/mitglied-werden" className="button">
                     Mitglied werden
                   </a>
                   <a href="/spenden" className="ml-4 button-secondary">
                     Spenden
                     <HeartIcon
-                      className="ml-2 -mr-2 h-6 w-6"
+                      className="ml-1 -mr-2 h-6 w-6"
                       aria-hidden="true"
                     />
                   </a>
@@ -202,7 +222,7 @@ export default function NavBar() {
                   static
                   className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
                 >
-                  <div className="rounded-lg shadow-lg bg-purple-900 divide-y-2 divide-purple-800">
+                  <div className="rounded-lg shadow-lg bg-bvpk-900 divide-y-2 divide-bvpk-800">
                     <div className="px-4 py-3">
                       <div className="flex items-center justify-between">
                         <div>
@@ -213,9 +233,12 @@ export default function NavBar() {
                           />
                         </div>
                         <div className="-mr-2">
-                          <Popover.Button className="bg-purple-800 rounded-md p-1 inline-flex items-center justify-center text-white hover:text-purple-300">
+                          <Popover.Button className="bg-bvpk-800 rounded-md p-1 inline-flex items-center justify-center text-white hover:text-bvpk-300">
                             <span className="sr-only">Close menu</span>
-                            <XIcon className="h-10 w-10" aria-hidden="true" />
+                            <XMarkIcon
+                              className="h-10 w-10"
+                              aria-hidden="true"
+                            />
                           </Popover.Button>
                         </div>
                       </div>
@@ -225,15 +248,15 @@ export default function NavBar() {
                             <a
                               key={item.name}
                               href={item.href}
-                              className="-m-3 p-3 flex items-center rounded-lg hover:bg-purple-800"
+                              className="-m-3 p-3 flex items-center rounded-lg hover:bg-bvpk-800"
                             >
-                              <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-purple-600 text-white">
+                              <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-bvpk-600 text-white">
                                 <item.icon
                                   className="h-6 w-6"
                                   aria-hidden="true"
                                 />
                               </div>
-                              <div className="ml-4 font-source text-base font-bold text-white hover:text-purple-300">
+                              <div className="ml-4 font-source text-base font-bold text-white hover:text-bvpk-300">
                                 {item.name}
                               </div>
                             </a>
@@ -247,7 +270,7 @@ export default function NavBar() {
                           <a
                             key={item.name}
                             href={item.href}
-                            className="font-source font-bold text-white hover:text-purple-300"
+                            className="font-source font-bold text-white hover:text-bvpk-300"
                           >
                             {item.name}
                           </a>
@@ -256,7 +279,7 @@ export default function NavBar() {
                       {/* <div className="mt-6"> */}
                       {/*   <a */}
                       {/*     href="#" */}
-                      {/*     className="w-full md:max-w-lg flex items-center justify-around px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-900" */}
+                      {/*     className="w-full md:max-w-lg flex items-center justify-around px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-bvpk-600 hover:bg-bvpk-900" */}
                       {/*   > */}
                       {/*     Mitglied werden */}
                       {/*   </a> */}

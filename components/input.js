@@ -10,13 +10,13 @@ export default function Input(props) {
       <div className="flex justify-between">
         <label
           htmlFor={props.name}
-          className="block font-source font-bold text-gray-300 capitalize"
+          className="block font-source font-bold text-gray-700 capitalize"
         >
           {props.title ? props.title : title_from_name}
         </label>
         <span
           id={props.msg.replace(/[^\w ]+/g, '').replace(/ +/g, '-')}
-          className="hidden lg:block text-sm font-source text-gray-300"
+          className="hidden lg:block text-sm font-source text-gray-500"
         >
           {props.msg}
         </span>

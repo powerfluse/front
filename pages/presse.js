@@ -1,20 +1,20 @@
 import Head from '../components/head'
-import Blog from '../components/blog'
+import Blog from '../components/blog-index'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
-import { getFromDirectus } from '../lib/api'
+import getFromDirectus from '../lib/directus'
 
 export default function Index(props) {
   return (
     <>
       <Head />
       <NavBar />
-      <div className="relative bg-purple-900 pt-24 pb-24 px-4 sm:px-6 md:pt-28 lg:pt-32 lg:pb-28 lg:px-8">
+      <div className="relative pt-24 pb-24 px-4 sm:px-6 md:pt-28">
         <Blog props={props} />
-        <Newsletter />
-        <Footer />
       </div>
+      <Newsletter />
+      <Footer />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Newsletter from '../components/newsletter'
@@ -8,7 +8,7 @@ import Input from '../components/input'
 import TextArea from '../components/text-area'
 import { useForm, FormProvider } from 'react-hook-form'
 import { useState } from 'react'
-import { getFromDirectus } from '../lib/api'
+import getFromDirectus from '../lib/directus'
 import axios from 'axios'
 
 export default function Kontakt(props) {
@@ -40,66 +40,52 @@ export default function Kontakt(props) {
       <Modal open={openModal} />
       <main className="overflow-hidden">
         {/* Header */}
-        <div className="bg-purple-900">
-          <div className="pt-24 lg:pt-32 pb-8 lg:pb-12 ">
-            <div className="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
-              <h1 className="text-4xl font-titillium font-bold tracking-tight text-purple-300 sm:text-5xl lg:text-6xl">
-                {props.data.title}
-              </h1>
-              <p className="mt-6 font-source text-xl text-gray-300 max-w-3xl">
-                {props.data.text_top}
-              </p>
-            </div>
+        <div className="pt-16 lg:pt-24 pb-4 lg:pb-8 ">
+          <div className="relative z-10 max-w-7xl mx-auto pl-4 pr-8 sm:px-6 lg:px-8">
+            <h1 className="text-4xl font-titillium tracking-tight font-bold text-gray-700">
+              {props.data.title}
+            </h1>
+            <p className="mt-2 font-source text-xl text-gray-600 max-w-3xl">
+              {props.data.text_top}
+            </p>
           </div>
         </div>
 
         {/* Kontakt */}
-        <section
-          className="relative bg-purple-900"
-          aria-labelledby="contactHeading"
-        >
+        <section className="relative" aria-labelledby="contactHeading">
           <div className="absolute w-full h-1/2" aria-hidden="true" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative bg-purple-800 shadow-xl rounded-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+            <div className="relative shadow-xl rounded-lg">
               <h2 id="contactHeading" className="sr-only">
                 {props.data.header_card_right}
               </h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 {/* Informationen */}
-                <div className="relative rounded-l-lg overflow-hidden py-10 px-6 bg-gradient-to-t from-purple-300 to-purple-600 sm:px-10 xl:p-12">
+                <div className="relative rounded-tr-lg rounded-tl-lg lg:rounded-tl-lg lg:rounded-tr-none lg:rounded-bl-lg overflow-hidden py-10 px-6 bg-gradient-to-t from-gray-100 to-gray-200 sm:px-10 xl:p-12">
                   <div
                     className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
                     aria-hidden="true"
                   ></div>
-                  <h3 className="text-2xl font-source font-bold text-white">
+                  <h3 className="text-2xl font-source font-bold text-gray-700">
                     {props.data.header_card_left}
                   </h3>
-                  <p className="mt-6 text-base font-source text-gray-300 max-w-3xl">
+                  <p className="mt-6 text-base font-source text-gray-600 max-w-3xl">
                     {props.data.text_card_left}
                   </p>
                   <dl className="mt-8 space-y-6">
                     <dt>
                       <span className="sr-only">Telefon</span>
                     </dt>
-                    {/* <dd className="flex text-base font-source text-gray-300 hover:underline"> */}
-                    {/*   <PhoneIcon */}
-                    {/*     className="flex-shrink-0 w-6 h-6 text-gray-300" */}
-                    {/*     aria-hidden="true" */}
-                    {/*   /> */}
-                    {/*   <a href={props.data.phone_actual} className="ml-3"> */}
-                    {/*     {props.data.phone} */}
-                    {/*   </a> */}
-                    {/* </dd> */}
                     <dt>
                       <span className="sr-only">Email</span>
                     </dt>
-                    <dd className="flex text-base font-source text-gray-300 hover:underline">
-                      <MailIcon
-                        className="flex-shrink-0 w-6 h-6 text-gray-300"
+                    <dd className="flex font-bolt font-source text-gray-600 underline decoration-bvpk-300 hover:decoration-2">
+                      <EnvelopeIcon
+                        className="flex-shrink-0 w-6 h-6"
                         aria-hidden="true"
                       />
-                      <a href="mailto:info@bvpk.org" className="ml-3">
+                      <a href="mailto:info@bvpk.org" className="font-bold ml-3">
                         {props.data.email}
                       </a>
                     </dd>
@@ -107,7 +93,7 @@ export default function Kontakt(props) {
                   <ul className="mt-8 flex space-x-12" role="list">
                     <li>
                       <a
-                        className="text-gray-300 hover:text-white"
+                        className="text-gray-600 hover:text-bvpk-300"
                         href="https://www.facebook.com/BVPyrotechnik"
                       >
                         <span className="sr-only">Facebook</span>
@@ -127,7 +113,7 @@ export default function Kontakt(props) {
                     </li>
                     <li>
                       <a
-                        className="text-gray-300 hover:text-white"
+                        className="text-gray-600 hover:text-bvpk-300"
                         href="https://www.instagram.com/bvpk_pyrotechnik"
                       >
                         <span className="sr-only">Instagram</span>
@@ -147,7 +133,7 @@ export default function Kontakt(props) {
                     </li>
                     <li>
                       <a
-                        className="text-gray-300 hover:text-white"
+                        className="text-gray-600 hover:text-bvpk-300"
                         href="https://twitter.com/bvpyrotechnik"
                       >
                         <span className="sr-only">Twitter</span>
@@ -166,8 +152,8 @@ export default function Kontakt(props) {
 
                 {/* Formular */}
                 <FormProvider {...methods}>
-                  <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-                    <h3 className="text-2xl font-source font-bold text-gray-300">
+                  <div className="rounded-br-lg rounded-bl-lg lg:rounded-tr-lg lg:rounded-br-none py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
+                    <h3 className="text-2xl font-source font-bold text-gray-700">
                       Sende uns eine Nachricht
                     </h3>
                     <form
@@ -271,16 +257,16 @@ export default function Kontakt(props) {
                               id="zustimmung"
                               name="zustimmung"
                               type="checkbox"
-                              className="focus:ring-purple-300 h-4 w-4 text-purple-300 border-gray-300 rounded-sm h-4"
+                              className="focus:ring-bvpk-300 h-4 w-4 text-bvpk-300 border-gray-100 rounded-sm h-4"
                               {...methods.register('zustimmung', {
                                 required: true,
                               })}
                             />
-                            <span className="mx-2 fount-source text-sm text-gray-300">
+                            <span className="mx-2 fount-source text-gray-700">
                               Ich stimme{' '}
                               <a
                                 href="/datenschutz"
-                                className="underline text-purple-300"
+                                className="underline decoration-bvpk-300 hover:decoration-2 text-gray-700 font-bold"
                               >
                                 der Verarbeitung meiner Daten
                               </a>{' '}
@@ -293,7 +279,9 @@ export default function Kontakt(props) {
                         <button
                           type="submit"
                           className={`${
-                            isValid && !errors.hasOwnProperty('serverError')
+                            isValid &&
+                            isSubmitSuccessful &&
+                            !errors.hasOwnProperty('serverError')
                               ? 'mt-2 w-full md:w-auto button-success'
                               : 'mt-2 w-full md:w-auto button'
                           }`}

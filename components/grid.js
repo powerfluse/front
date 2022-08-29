@@ -40,10 +40,10 @@ export default function Grid() {
         <Link href={s.href}>
           <li
             key={s.name}
-            className="col-span-1 flex flex-col text-center bg-purple-800 rounded-lg transition-all hover:shadow-xl hover:ring ring-purple-300"
+            className="col-span-1 flex flex-col text-center bg-bvpk-800 rounded-lg transition-all hover:shadow-xl hover:ring ring-bvpk-300"
           >
             <div className="flex-1 flex flex-col p-8">
-              <div className="h-32 w-32 bg-purple-600 rounded-lg mx-auto flex items-center justify-center">
+              <div className="h-32 w-32 bg-bvpk-600 rounded-lg mx-auto flex items-center justify-center">
                 <s.icon className="w-24 h-24 flex-shrink-0 text-gray-300" />
               </div>
               <h3 className="mt-6 text-gray-300 font-titillium text-xl font-bold">

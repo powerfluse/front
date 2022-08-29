@@ -1,7 +1,7 @@
 import parse from 'html-react-parser'
 import { useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
-import { getFromDirectus } from '../lib/api'
+import getFromDirectus from '../lib/directus'
 import axios from 'axios'
 import Head from '../components/head'
 import NavBar from '../components/navbar'
@@ -51,8 +51,8 @@ export default function MitgliedWerden(props) {
       <NavBar />
       <Modal open={openModal} />
       <FormProvider {...methods}>
-        <div className="min-h-screen bg-purple-900 pt-32 px-4 lg:px-8">
-          <div className="prose prose-lg mx-auto prose-on-purple-aktuelles pb-4 md:pb-12">
+        <div className="min-h-screen pt-32 px-4 lg:px-8">
+          <div className="prose-bvpk mx-auto pb-4 md:pb-12">
             {parse(props.dataPyrolandPage.text)}
           </div>
           <form onSubmit={methods.handleSubmit(onSubmit)}>

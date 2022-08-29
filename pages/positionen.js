@@ -3,15 +3,15 @@ import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
-import { getFromDirectus } from '../lib/api'
+import getFromDirectus from '../lib/directus'
 
 export default function Positionen(props) {
   return (
     <>
       <Head />
       <NavBar />
-      <div className="min-h-screen bg-purple-900">
-        <div className="text-center prose prose-lg prose-on-purple-aktuelles pt-32 mx-auto">
+      <div className="min-h-screen lg:colums-2">
+        <div className="prose-bvpk pt-32 mx-auto">
           {parse(props.dataPositionenPage.text)}
         </div>
       </div>

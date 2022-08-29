@@ -3,7 +3,7 @@ import parse from 'html-react-parser'
 export default function CleverReach() {
   return (
     <>
-      <div className="mt-32 bg-purple-900">
+      <div className="mt-32 bg-bvpk-900">
         <form
           className="layout_form cr_form cr_font"
           action="https://seu2.cleverreach.com/f/298121-300874/wcs/"
