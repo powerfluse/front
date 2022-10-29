@@ -1,6 +1,10 @@
 import Link from 'next/link'
 export default function BlogIndex(props) {
-  const posts = props.props.items
+  const postsUnsorted = props.props.items
+  const posts = postsUnsorted.sort(function (a, b) {
+    return new Date(b.date) - new Date(a.date)
+  })
+
   return (
     <div className="relative overflow-hidden max-w-full pb-12">
       <div className="relative mx-4 py-12 lg:mx-24 divide-y divide-gray-300">
