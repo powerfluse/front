@@ -66,9 +66,8 @@ export default function FormGroupMitgliedBeitrag() {
                         <Select
                           title="Zahlungsrhythmus"
                           name="zahlungsrhythmus"
-                          defaultValue={isSupporter ? 'Monatlich' : ''}
+                          defaultValue="Monatlich"
                           options={[
-                            '',
                             'Monatlich',
                             'Vierteljährlich',
                             'Halbjährlich',
