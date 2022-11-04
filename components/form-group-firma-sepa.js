@@ -56,13 +56,6 @@ export default function FormGroupFirmaSEPA() {
                       }}
                     />
                   </div>
-                  <div className="col-span-6 md:col-span-2">
-                    <Select
-                      title="Zahlungsrhythmus"
-                      name="f_zahlungsrhythmus"
-                      options={['Vierteljährlich', 'Halbjährlich', 'Jährlich']}
-                    />
-                  </div>
                   <div className="col-span-6">
                     <Checkbox
                       name="f_sepa_consent"

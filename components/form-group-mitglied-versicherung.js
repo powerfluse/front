@@ -14,8 +14,8 @@ export default function FormGroupMitgliedFeuerwerk() {
                 Versicherung
               </h3>
               <p className="mt-1 text-md font-source text-gray-600">
-                Sicher Deine privaten Feuerwerke mit der Haftpflichtversicherung
-                des BVPK ab
+                Sichere Deine privaten Feuerwerke mit der
+                Haftpflichtversicherung des BVPK ab.
               </p>
             </div>
           </div>

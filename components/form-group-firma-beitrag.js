@@ -32,19 +32,26 @@ export default function FormGroupFirmaBeitrag() {
                   >
                     info@bvpk.org
                   </a>
-                  . Wir beraten Dich dann gerne persönlich!
+                  . Wir beraten dann gerne persönlich!
                 </p>
 
                 <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                  <div className="col-span-6 lg:col-span-3">
                     <InputEuro
-                      title="Jährlicher Mitgliedsbeitrag"
+                      title="Jährlicher Mitgliedsbeitrag (Gesamt)"
                       name="f_beitrag"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
                         maxLength: 12,
                         min: { value: 150, message: 'min. 150' },
                       }}
+                    />
+                  </div>
+                  <div className="col-span-3">
+                    <Select
+                      title="Zahlungsrhythmus"
+                      name="f_zahlungsrhythmus"
+                      options={['Vierteljährlich', 'Halbjährlich', 'Jährlich']}
                     />
                   </div>
                 </div>

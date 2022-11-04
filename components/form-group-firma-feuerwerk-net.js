@@ -32,7 +32,7 @@ export default function FormGroupFirmaFeuerwerkNet() {
                   <div className="col-span-6">
                     <Checkbox
                       name="feuerwerk_net_mitglied"
-                      title="Ich bin Mitglied im FEUERWERK.net Forum und möchte, dass der BVPK-Bereich für mich freigeschaltet wird. Mit der Angabe meines Mitgliedsnamens stimme ich der Übermittlung des Mitgliedsnamens an FEUERWERK.net zu"
+                      title="Ich bin Mitglied im Forum von FEUERWERK.net und möchte, dass der BVPK-Bereich für mich freigeschaltet wird. Mit der Angabe meines Mitgliedsnamens stimme ich der Übermittlung des Mitgliedsnamens an FEUERWERK.net zu"
                     />
                   </div>
                   {isMember && (

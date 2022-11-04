@@ -32,7 +32,9 @@ export default function FormGroupMitgliedBeitrag() {
                   Erhalt des Feuerwerk ist der Verein ständig auf weitere Mittel
                   angewiesen. Mit einer Fördermitgliedschaft unterstützt Du den
                   Verein und die gesamte Community beim Engagement für unsere
-                  Leidenschaft!
+                  Leidenschaft! Der Förderbeitrag wird zusätzlich zum
+                  Grundbeitrag von 24€/Jahr erhoben. Die Fördermitgliedschaft
+                  kann jederzeit gekündigt werden.
                 </p>
                 <CheckBox
                   title="Ich möchte Fördermitglied im BVPK werden!"
