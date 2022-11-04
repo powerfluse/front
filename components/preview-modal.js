@@ -79,7 +79,7 @@ export default function Modal(props) {
                     props.modalStateFunction(false)
                   }}
                 >
-                  Da ist was falsch
+                  Da ist was falsch...
                 </button>
                 <button
                   type="submit"
