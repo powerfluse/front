@@ -32,9 +32,13 @@ export default function FormGroupFirmaBeitrag() {
                   >
                     info@bvpk.org
                   </a>
-                  . Wir beraten dann gerne persönlich!
+                  . Wir beraten dann gerne persönlich! <br />
+                  Der jährliche Mitgliedsbeitrag ist der gesamte Jahresbeitrag.
+                  Der Zahlungsrhythmus bestimmt, in welchem Rhythmus
+                  entsprechende Teilbeträge abgebucht werden (z.B. 400€
+                  Jahresbeitrag / quartalsweise = 4 Abbuchungen a 100€ pro
+                  Jahr).
                 </p>
-
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 lg:col-span-3">
                     <InputEuro
