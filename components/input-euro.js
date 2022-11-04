@@ -9,7 +9,7 @@ export default function InputEuro(props) {
     <div>
       <label
         htmlFor="price"
-        className="block font-source font-bold text-gray-300"
+        className="block font-source font-bold text-gray-700"
       >
         {props.title ? props.title : title_from_name}
       </label>
@@ -19,6 +19,7 @@ export default function InputEuro(props) {
           step="any"
           name={props.name}
           id={props.name}
+          defaultValue={props.defaultValue}
           className={
             error && isDirty && !isValid
               ? 'formfield-invalid'

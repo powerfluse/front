@@ -52,7 +52,7 @@ export default function FormGroupMitgliedBeitrag() {
                               message: 'Pflichtfeld für Fördermitglieder',
                             },
                             maxLength: {
-                              value: 15,
+                              value: 12,
                               message: 'Nur realistische Beträge, bitte ;)',
                             },
                             min: {
