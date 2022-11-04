@@ -67,8 +67,7 @@ export default function Modal(props) {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-md font-source text-gray-600">
-                      Wir geben uns Mühe dein Anliegen sobald wie möglich zu
-                      beantworten!
+                      Wir bearbeiten deinen Beitrittsantrag so bald wie möglich!
                     </p>
                   </div>
                 </div>
