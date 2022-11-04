@@ -4,7 +4,9 @@ import axios from 'axios'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import Head from '../components/head'
+import PreviewModal from '../components/preview-modal'
 import Modal from '../components/modal'
+import FirmaData from '../components/firma-data'
 import FormGroupFirma from '../components/form-group-firma'
 import FormGroupFirmaAP from '../components/form-group-firma-ap'
 import FormGroupFirmaT from '../components/form-group-firma-t'
@@ -15,19 +17,28 @@ import FormGroupFirmaConsent from '../components/form-group-firma-consent'
 import FormGroupFirmaFreitext from '../components/form-group-firma-freitext'
 
 export default function MitgliedWerdenFirma() {
-  // Set needed states
+  // State for confirmation modal
   const [openModal, setOpenModal] = useState(false)
+
+  console.log(openModal)
+
+  // State for preview modal
+  const [openPreviewModal, setOpenPreviewModal] = useState(false)
+  const [previewData, setPreviewData] = useState(null)
 
   // Initialise needed form utilities
   const methods = useForm({
     mode: 'onChange',
   })
-  const { isDirty, isValid, isSubmitting, isSubmitSuccessful, errors } =
+  const { isValid, isSubmitting, isSubmitSuccessful, errors } =
     methods.formState
 
+  // Callback for form submission
   const onSubmit = async (data) => {
     axios
+      // on submit, send a POST request to api/mitglied-werden
       .post('api/mitglied-werden-firma', data)
+      // open final modal for saying thanks
       .then(() => {
         setOpenModal(true)
       })
@@ -37,14 +48,29 @@ export default function MitgliedWerdenFirma() {
       })
   }
 
+  // Callback for form preview
+  const onPreview = async (data) => {
+    // Open the preview modal
+    setOpenPreviewModal(true)
+    // Pass the form data to the preview modal
+    setPreviewData(data)
+  }
+
   return (
     <>
-      <NavBar />
       <Head />
+      <NavBar />
+      <PreviewModal
+        modalState={openPreviewModal}
+        modalStateFunction={setOpenPreviewModal}
+        dataRenderComponent={FirmaData}
+        data={previewData}
+        submitFunction={onSubmit}
+      />
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen pt-32 px-4 lg:px-8">
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <form onSubmit={methods.handleSubmit(onPreview)}>
             {/* FormGroups */}
             <FormGroupFirma />
             <FormGroupFirmaAP />
@@ -58,24 +84,10 @@ export default function MitgliedWerdenFirma() {
             <div className="py-4 sm:mt-0 flex justify-end">
               <button
                 type="submit"
-                className={`${
-                  isValid &&
-                  isSubmitSuccessful &&
-                  !errors.hasOwnProperty('serverError')
-                    ? 'button-success'
-                    : 'button'
-                }`}
-                disabled={
-                  !isDirty || !isValid || isSubmitting || isSubmitSuccessful
-                }
+                className="button"
+                disabled={!isValid || isSubmitting}
               >
-                {`${
-                  isSubmitSuccessful && !errors.hasOwnProperty('serverError')
-                    ? 'Danke für Deine Unterstützung!'
-                    : errors.hasOwnProperty('serverError')
-                    ? 'Das hat leider nicht funktioniert'
-                    : 'Beitreten!'
-                }`}
+                Beitreten!
               </button>
             </div>
             {errors.hasOwnProperty('serverError') && (

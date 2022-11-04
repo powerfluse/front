@@ -6,6 +6,8 @@ import axios from 'axios'
 import Head from '../components/head'
 import NavBar from '../components/navbar'
 import Modal from '../components/modal'
+import PreviewModal from '../components/preview-modal'
+import MitgliedData from '../components/mitglied-data'
 import Footer from '../components/footer'
 import FormGroupMitglied from '../components/form-group-mitglied'
 import FormGroupMitgliedFeuerwerk from '../components/form-group-mitglied-feuerwerk'
@@ -17,8 +19,12 @@ import FormGroupMitgliedConsent from '../components/form-group-mitglied-consent'
 import FormGroupMitgliedFreitext from '../components/form-group-mitglied-freitext'
 
 export default function MitgliedWerden(props) {
-  // Set needed states
+  // State for confirmation modal
   const [openModal, setOpenModal] = useState(false)
+
+  // State for preview modal
+  const [openPreviewModal, setOpenPreviewModal] = useState(false)
+  const [previewData, setPreviewData] = useState(null)
 
   // Initialise needed form utilities
   const methods = useForm({
@@ -29,33 +35,51 @@ export default function MitgliedWerden(props) {
 
   // Callback for form submission
   const onSubmit = async (data) => {
-    // Fix data remaining in some fields after de-selecting
-    if (!data.foerdermitglied) {
-      data.foerderbeitrag = ''
-      data.zahlungsrhythmus = ''
-    }
     axios
+      // on submit, send a POST request to api/mitglied-werden
       .post('api/mitglied-werden', data)
+      // open final modal for saying thanks
       .then(() => {
         setOpenModal(true)
       })
+      // catch any errors
       .catch((errors) => {
         console.error(errors)
         methods.setError('serverError', {})
       })
   }
 
+  // Callback for form preview
+  const onPreview = async (data) => {
+    // Fix data remaining in some fields after de-selecting
+    if (!data.foerdermitglied) {
+      data.foerderbeitrag = ''
+      data.zahlungsrhythmus = ''
+    }
+    // Open the preview modal
+    setOpenPreviewModal(true)
+    // Pass the form data to the preview modal
+    setPreviewData(data)
+  }
+
   return (
     <>
       <Head />
       <NavBar />
+      <PreviewModal
+        modalState={openPreviewModal}
+        modalStateFunction={setOpenPreviewModal}
+        data={previewData}
+        dataRenderComponent={MitgliedData}
+        submitFunction={onSubmit}
+      />
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen pt-32 px-4 lg:px-8">
           <div className="prose-bvpk mx-auto pb-4 md:pb-12">
             {parse(props.dataMitgliedWerdenPage.text)}
           </div>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <form onSubmit={methods.handleSubmit(onPreview)}>
             {/* FormGroups */}
             <FormGroupMitglied />
             <FormGroupMitgliedFeuerwerk />
@@ -65,26 +89,14 @@ export default function MitgliedWerden(props) {
             <FormGroupMitgliedSEPA />
             <FormGroupMitgliedFreitext />
             <FormGroupMitgliedConsent />
-            {/* Submit */}
+            {/* Preview */}
             <div className="py-4 sm:mt-0 flex justify-end">
               <button
                 type="submit"
-                className={`${
-                  isValid &&
-                  isSubmitSuccessful &&
-                  !errors.hasOwnProperty('serverError')
-                    ? 'button-success'
-                    : 'button'
-                }`}
-                disabled={!isValid || isSubmitting || isSubmitSuccessful}
+                className="button"
+                disabled={!isValid || isSubmitting}
               >
-                {`${
-                  isSubmitSuccessful && !errors.hasOwnProperty('serverError')
-                    ? 'Danke für Deine Unterstützung!'
-                    : errors.hasOwnProperty('serverError')
-                    ? 'Das hat leider nicht funktioniert'
-                    : 'Beitreten!'
-                }`}
+                Beitreten!
               </button>
             </div>
             {errors.hasOwnProperty('serverError') && (
