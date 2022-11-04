@@ -31,26 +31,27 @@ export default function MitgliedData(props) {
       <br />
       <span className="font-bold">Grundmitgliedschaft: </span>
       24€ Jährlich
+      <br />
       {data.feuerwerk_erlaubnis && (
         <div>
           <span className="font-bold">Feuerwerk Erlaubnisschein: </span>
-          {data.feuerwerk_para_20 ? '§20' : ''}{' '}
-          {data.feuerwerk_para_27 ? '§27' : ''}{' '}
-          {data.feuerwerk_para_7 ? '§7' : ''}
+          {data.feuerwerk_para_20 ? '§20' : ' '}
+          {data.feuerwerk_para_27 ? ' | §27' : ' '}
+          {data.feuerwerk_para_7 ? ' | §7' : ' '}
         </div>
       )}
-      {data.feuerwerk_f3 |
-        data.feuerwerk_buehne |
-        data.feuerwerk_sfx |
-        data.feuerwerk_gf && (
+      {(data.feuerwerk_f3 ||
+        data.feuerwerk_buehne ||
+        data.feuerwerk_sfx ||
+        data.feuerwerk_gf) && (
         <div>
           <span className="font-bold">
             Feuerwerk Erlaubnisschein Bereiche:{' '}
           </span>
-          {data.feuerwerk_f3 ? 'F3' : ''}
-          {data.feuerwerk_buehne ? ' | Bühne' : ''}
-          {data.feuerwerk_sfx ? ' | SFX' : ''}
-          {data.feuerwerk_gf ? ' | Großfeuerwerk' : ''}
+          {data.feuerwerk_f3 ? 'F3' : ' '}
+          {data.feuerwerk_buehne ? ' | Bühne' : ' '}
+          {data.feuerwerk_sfx ? ' | SFX' : ' '}
+          {data.feuerwerk_gf ? ' | Großfeuerwerk' : ' '}
         </div>
       )}
       {data.foerdermitglied && (

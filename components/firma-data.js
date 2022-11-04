@@ -23,25 +23,15 @@ export default function FirmaData(props) {
         </div>
       )}
       <br />
-      <span className="font-bold">IBAN: </span>
-      {data.f_iban}
-      {data.feuerwerk_erlaubnis && (
-        <div>
-          <span className="font-bold">Feuerwerk Erlaubnisschein: </span>
-          {data.feuerwerk_para_20 ? '§20' : ''}{' '}
-          {data.feuerwerk_para_27 ? '§27' : ''}{' '}
-          {data.feuerwerk_para_7 ? '§7' : ''}
-        </div>
-      )}
-      {data.f_t_gf |
-        data.f_t_buehne |
-        data.f_t_sfx |
-        data.f_t_handel_gf |
-        data.f_t_handel_kf |
-        data.f_t_handel_kf_silvester |
-        data.f_t_herstellung_de |
-        data.f_t_import |
-        data.f_t_sonstige && (
+      {(data.f_t_gf ||
+        data.f_t_buehne ||
+        data.f_t_sfx ||
+        data.f_t_handel_gf ||
+        data.f_t_handel_kf ||
+        data.f_t_handel_kf_silvester ||
+        data.f_t_herstellung_de ||
+        data.f_t_import ||
+        data.f_t_sonstige) && (
         <div>
           <span className="font-bold">Tätigkeitsschwerpunkte: </span>
           {data.f_t_gf ? 'Großfeuerwerk' : ''}
@@ -59,6 +49,17 @@ export default function FirmaData(props) {
           {data.f_t_sonstige ? ` | ${data.f_t_sonstige}` : ''}
         </div>
       )}
+      <span className="font-bold">IBAN: </span>
+      {data.f_iban}
+      {data.feuerwerk_erlaubnis && (
+        <div>
+          <span className="font-bold">Feuerwerk Erlaubnisschein: </span>
+          {data.feuerwerk_para_20 ? '§20' : ''}{' '}
+          {data.feuerwerk_para_27 ? '§27' : ''}{' '}
+          {data.feuerwerk_para_7 ? '§7' : ''}
+        </div>
+      )}
+      <br />
       <span className="font-bold">Mitgliedsbeitrag: </span>
       {data.f_beitrag}€ Jährlich
       {data.f_freitext && (
