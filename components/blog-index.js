@@ -13,7 +13,7 @@ export default function BlogIndex(props) {
             Pressemitteilungen
           </h2>
         </div>
-        <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
+        <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-1 xl:grid-cols-1 lg:gap-x-5 lg:gap-y-12">
           {posts.map((post) => (
             <div key={post.title}>
               <p className="font-source text-gray-400">
