@@ -20,8 +20,6 @@ export default function MitgliedWerdenFirma() {
   // State for confirmation modal
   const [openModal, setOpenModal] = useState(false)
 
-  console.log(openModal)
-
   // State for preview modal
   const [openPreviewModal, setOpenPreviewModal] = useState(false)
   const [previewData, setPreviewData] = useState(null)
@@ -30,8 +28,7 @@ export default function MitgliedWerdenFirma() {
   const methods = useForm({
     mode: 'onChange',
   })
-  const { isValid, isSubmitting, isSubmitSuccessful, errors } =
-    methods.formState
+  const { isValid, isSubmitting, errors } = methods.formState
 
   // Callback for form submission
   const onSubmit = async (data) => {

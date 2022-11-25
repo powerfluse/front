@@ -14,7 +14,7 @@ export default function Input(props) {
         className="checkbox"
         {...register(props.name, props.validation)}
       />
-      <span className="mx-3 font-source font-bold text-gray-300 ">
+      <span className="mx-3 font-source font-bold text-gray-700 ">
         {props.href ? (
           <span>
             {props.pre_href_text}
