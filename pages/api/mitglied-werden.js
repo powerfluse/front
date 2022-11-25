@@ -46,9 +46,9 @@ export default function mitgliedFormHandler(req, res) {
             subject: 'Herzlich Willkommen beim BVPK!',
             text: `Hallo und herzlich Willkommen beim Bundesverband Pyrotechnik und Kunstfeuerwerk e.V.!
 
-Dein Mitgliedsantrag ist bei uns eingegangen
-und wird bearbeitet. Aktuell erreichen uns viele
-Mitgliedsbeiträge. Wir bitten um Verständnis,
+Dein Antrag ist bei uns eingegangen und wird
+bearbeitet. Aktuell erreichen uns viele
+Mitgliedsanträge. Wir bitten um Verständnis,
 wenn es deswegen etwas länger dauern kann als
 gewohnt.
 
