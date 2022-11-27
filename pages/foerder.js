@@ -75,8 +75,8 @@ export default function MitgliedWerden(props) {
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen pt-32 px-4 lg:px-8">
-          <div className="prose-bvpk mx-auto pb-4 md:pb-12">
-            {parse(props.dataMitgliedWerdenPage.text)}
+          <div className="prose-bvpk-over-forms pb-4 md:pb-12">
+            {parse(props.dataFoerderPage.text)}
           </div>
           <form onSubmit={methods.handleSubmit(onPreview)}>
             {/* FormGroups */}
@@ -115,12 +115,10 @@ export default function MitgliedWerden(props) {
 }
 
 export async function getStaticProps() {
-  const dataMitgliedWerdenPage = await getFromDirectus(
-    '/items/mitglied_werden_page'
-  )
+  const dataFoerderPage = await getFromDirectus('/items/foerder_page')
   return {
     props: {
-      dataMitgliedWerdenPage,
+      dataFoerderPage,
     },
     revalidate: 60,
   }
