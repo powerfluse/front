@@ -9,9 +9,7 @@ import Modal from '../components/modal'
 import Footer from '../components/footer'
 import FormGroupMitglied from '../components/form-group-mitglied'
 import FormGroupMitgliedFeuerwerk from '../components/form-group-mitglied-feuerwerk'
-import FormGroupMitgliedVersicherung from '../components/form-group-mitglied-versicherung'
 import FormGroupMitgliedFeuerwerkNet from '../components/form-group-mitglied-feuerwerk-net'
-import FormGroupMitgliedBeitrag from '../components/form-group-mitglied-beitrag'
 import FormGroupMitgliedSEPA from '../components/form-group-mitglied-sepa'
 import FormGroupMitgliedConsent from '../components/form-group-mitglied-consent'
 import FormGroupMitgliedFreitext from '../components/form-group-mitglied-freitext'
@@ -52,7 +50,7 @@ export default function MitgliedWerden(props) {
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen pt-32 px-4 lg:px-8">
-          <div className="prose-bvpk mx-auto pb-4 md:pb-12">
+          <div className="prose-bvpk-over-forms pb-4 md:pb-12">
             {parse(props.dataPyrolandPage.text)}
           </div>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -102,7 +100,7 @@ export default function MitgliedWerden(props) {
 }
 
 export async function getStaticProps() {
-  const dataPyrolandPage = await getFromDirectus('/items/pyroland')
+  const dataPyrolandPage = await getFromDirectus('/items/feuerwerkshop_page')
   return {
     props: {
       dataPyrolandPage,
