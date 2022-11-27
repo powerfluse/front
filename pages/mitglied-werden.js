@@ -76,7 +76,7 @@ export default function MitgliedWerden(props) {
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen pt-32 px-4 lg:px-8">
-          <div className="prose-bvpk mx-auto pb-4 md:pb-12">
+          <div className="prose-bvpk-over-forms pb-4 md:pb-12">
             {parse(props.dataMitgliedWerdenPage.text)}
           </div>
           <form onSubmit={methods.handleSubmit(onPreview)}>
