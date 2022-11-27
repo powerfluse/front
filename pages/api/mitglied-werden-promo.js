@@ -23,11 +23,11 @@ const transporter = nodemailer.createTransport({
 
 // Main request handling
 export default function mitgliedFormHandler(req, res) {
-  function getTimesSubmitted() {
+  async function getTimesSubmitted() {
     axios.defaults.baseURL = baseURL
     axios.defaults.headers.common['xc-token'] = NOCODB_TOKEN
     const url =
-      '/api/v1/db/data/v1/BVPK/mitglieder/count?where=(promo500%2Ceq%2Ctrue)'
+      '/api/v1/db/data/v1/BVPK/mitglieder/count?where=(promo%2Ceq%2Ctrue)'
     return axios.get(url).then((response) => response.data.count)
   }
   return new Promise((resolve) => {
@@ -37,9 +37,9 @@ export default function mitgliedFormHandler(req, res) {
         axios.defaults.baseURL = baseURL
         axios.defaults.headers.common['xc-token'] = NOCODB_TOKEN
         // Send POST request to NocoDB after logging it to console
-        req.body.promo500 = true
-        req.body.promo500_count = Number(timesSubmitted) + 1
-        if (timesSubmitted > 500) {
+        req.body.promo = true
+        req.body.promo_count = Number(timesSubmitted) + 1
+        if (timesSubmitted > 25) {
           console.log('Promo link limit reached')
           res.status(429).send({ message: 'Too many requests' })
           return resolve()

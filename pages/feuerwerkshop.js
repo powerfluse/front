@@ -35,7 +35,7 @@ export default function MitgliedWerden(props) {
       data.zahlungsrhythmus = ''
     }
     axios
-      .post('api/mitglied-werden-promo-500', data)
+      .post('api/mitglied-werden-promo', data)
       .then(() => {
         setOpenModal(true)
       })
