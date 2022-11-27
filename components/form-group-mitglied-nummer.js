@@ -34,16 +34,20 @@ export default function FormGroupMitgliedNummer() {
                       }}
                     />
                   </div>
-                  {/* Hausnummer */}
+                  {/* Mitgliedsnummer */}
                   <div className="col-span-3 md:col-span-3">
                     <Input
                       type="text"
                       name="mitgliedsnummer"
                       title="Mitgliedsnummer"
-                      msg=" "
+                      msg="Nur Ziffern"
                       autoComplete="off"
                       validation={{
                         required: { value: 'true', message: 'Pflichtfeld' },
+                        pattern: {
+                          value: /^(0|[1-9]\d*)(\.\d+)?$/,
+                          message: 'keine gültige Mitgliedsnummer',
+                        },
                       }}
                     />
                   </div>
