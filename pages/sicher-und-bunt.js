@@ -5,13 +5,13 @@ import Newsletter from '../components/newsletter'
 import Footer from '../components/footer'
 import getFromDirectus from '../lib/directus'
 
-export default function Mitgliederversammlung(props) {
+export default function SicherUndBunt(props) {
   return (
     <>
       <Head />
       <NavBar />
-      <div className="min-h-screen bg-bvpk-900">
-        <div className="prose-bvpk pt-32 pb-12 mx-auto">
+      <div className="min-h-screen">
+        <div className="prose-bvpk-wide text-gray-700 pt-32 pb-12 mx-auto">
           {parse(props.dataPage.text)}
         </div>
       </div>
@@ -22,7 +22,7 @@ export default function Mitgliederversammlung(props) {
 }
 
 export async function getStaticProps() {
-  const dataPage = await getFromDirectus('/items/mitgliederversammlung_page')
+  const dataPage = await getFromDirectus('/items/sicher_und_bunt_page')
   return {
     props: {
       dataPage,
