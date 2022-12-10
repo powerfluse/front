@@ -14,7 +14,7 @@ import FormGroupMitgliedSEPA from '../components/form-group-mitglied-sepa'
 import FormGroupMitgliedConsent from '../components/form-group-mitglied-consent'
 import FormGroupMitgliedFreitext from '../components/form-group-mitglied-freitext'
 
-export default function MitgliedWerden(props) {
+export default function Feuerwerkshop(props) {
   // Set needed states
   const [openModal, setOpenModal] = useState(false)
 
