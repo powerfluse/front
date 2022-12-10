@@ -26,10 +26,10 @@ export default function BlogIndex(props) {
                 </time>
               </p>
               <a href={'/aktuelles/' + post.slug} className="mt-2 block">
-                <p className="text-xl font-titillium font-bold text-gray-600">
+                <p className="text-xl font-titillium font-bold text-gray-700">
                   {post.title}
                 </p>
-                <p className="mt-3 font-source text-gray-400">
+                <p className="mt-3 font-source text-gray-600">
                   {post.description}
                 </p>
               </a>
