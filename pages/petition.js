@@ -22,7 +22,7 @@ export default function (props) {
       <Head />
       <NavBar />
       <div className="min-h-screen">
-        <div className="prose-bvpk pt-32 pb-12 mx-auto">
+        <div className="prose-bvpk pt-32 pb-12 mx-auto px-4">
           {parse(props.dataPage.text)}
         </div>
       </div>
