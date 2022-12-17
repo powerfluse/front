@@ -21,7 +21,7 @@ export default function Hero() {
         </h1>
         <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
           <div className="rounded-md shadow">
-            <a href="/mitglied-werden" className="w-full button">
+            <a href="/mitgliedschaft-waehlen" className="w-full button">
               Mitglied werden
             </a>
           </div>

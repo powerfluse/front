@@ -16,7 +16,7 @@ const support = [
     name: 'Mitglied werden',
     description:
       'Du lebst für das Feuerwerk und willst uns als Privatperson unterstützen',
-    href: '/mitglied-werden',
+    href: '/mitgliedschaft-waehlen',
     icon: UserIcon,
   },
   {
@@ -96,7 +96,7 @@ export default function NavBar() {
   // Return the component
   return (
     <div
-      className={`absolute bg-white w-full z-20 transition transition-all duration-300 ${shadow}`}
+      className={`fixed bg-white w-full z-20 transition transition-all duration-300 ${shadow}`}
     >
       <header>
         <Popover className="relative">
@@ -156,7 +156,7 @@ export default function NavBar() {
                       )
                     }
                   })}
-                  ;{/* Dropdown Menu */}
+                  {/* Dropdown Menu */}
                   {/* <Popover className="relative"> */}
                   {/*   {({ open }) => ( */}
                   {/*     <> */}
@@ -222,7 +222,7 @@ export default function NavBar() {
                   {/* </Popover> */}
                 </Popover.Group>
                 <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
-                  <a href="/mitglied-werden" className="button">
+                  <a href="/mitgliedschaft-waehlen" className="button">
                     Mitglied werden
                   </a>
                   <a href="/spenden" className="ml-4 button-secondary">
