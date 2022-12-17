@@ -44,7 +44,7 @@ const navigation = [
     href: 'https://www.change.org/p/schutz-und-f%C3%B6rderung-der-feuerwerkskultur',
     class: 'text-gray-700',
   },
-  { name: 'Sicherheit', href: '/sicher-und-bunt', class: 'text-gray-700' },
+  // { name: 'Sicherheit', href: '/sicher-und-bunt', class: 'text-gray-700' },
   {
     name: 'Umwelt',
     href: '/umweltbelastung-feuerwerk',
