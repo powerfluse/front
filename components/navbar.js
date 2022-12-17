@@ -131,16 +131,32 @@ export default function NavBar() {
                   className="hidden lg:flex lg:justify-start space-x-6"
                   style={{ marginLeft: '0.5em' }}
                 >
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={`${item.class} font-source font-bold duration-300 hover:text-bvpk-300`}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                  {/* Dropdown Menu */}
+                  {navigation.map((item) => {
+                    if (item.name == 'Petition') {
+                      return (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className={`${item.class} font-source font-bold duration-300 hover:text-bvpk-300`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.name}
+                        </a>
+                      )
+                    } else {
+                      return (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className={`${item.class} font-source font-bold duration-300 hover:text-bvpk-300`}
+                        >
+                          {item.name}
+                        </a>
+                      )
+                    }
+                  })}
+                  ;{/* Dropdown Menu */}
                   {/* <Popover className="relative"> */}
                   {/*   {({ open }) => ( */}
                   {/*     <> */}
@@ -159,7 +175,6 @@ export default function NavBar() {
                   {/*           aria-hidden="true" */}
                   {/*         /> */}
                   {/*       </Popover.Button> */}
-
                   {/*       <Transition */}
                   {/*         show={open} */}
                   {/*         as={Fragment} */}
