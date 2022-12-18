@@ -14,7 +14,7 @@ export default function Mitglied(props) {
         <div className="container px-6 py-8 mx-auto">
           <div className="xl:items-center xl:-mx-8 xl:flex">
             <div className="max-w-sm flex flex-col xl:items-start xl:mx-8">
-              <h1 className="text-3xl font-medium text-gray-800 lg:text-4xl">
+              <h1 className="text-3xl font-bold text-gray-700 lg:text-4xl">
                 Deine Mitgliedschaft beim BVPK e.V.
               </h1>
               <div className="mt-4">
@@ -22,7 +22,7 @@ export default function Mitglied(props) {
                 <span className="inline-block w-3 h-1 mx-1 bg-bvpk-600 rounded-full" />
                 <span className="inline-block w-1 h-1 bg-bvpk-600 rounded-full" />
               </div>
-              <p className="mt-4 font-medium text-gray-500 ">
+              <p className="mt-4 text-gray-600 ">
                 Werde jetzt Mitglied beim Bundesverband für Pyrotechnik und
                 Kunsfeuerwerk e.V.
               </p>
@@ -34,7 +34,7 @@ export default function Mitglied(props) {
                     <h1 className="text-xl font-medium text-gray-700 capitalize lg:text-3xl ">
                       Fördermitgliedschaft
                     </h1>
-                    <p className="mt-4 text-gray-500 ">
+                    <p className="mt-4 text-gray-600 ">
                       Du bist Vollmitglied und unterstützt die Arbeit des BVPK
                       mit deinem Förderbeitrag.
                     </p>
@@ -183,7 +183,7 @@ export default function Mitglied(props) {
                     <h1 className="text-xl font-medium text-gray-700 capitalize lg:text-3xl">
                       Grundmitgliedschaft
                     </h1>
-                    <p className="mt-4 text-gray-500">
+                    <p className="mt-4 text-gray-600">
                       Du bist Vollmitglied im BVPK und zahlst einen niedrigen
                       Mitgliedsbeitrag.
                     </p>
@@ -301,7 +301,7 @@ export default function Mitglied(props) {
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span className="mx-4 text-gray-500 ">
+                        <span className="mx-4 text-gray-600 ">
                           Du unterstützt die Ziele des Vereins mit deinem
                           Förderbeitrag
                         </span>
@@ -319,7 +319,7 @@ export default function Mitglied(props) {
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span className="mx-4 text-gray-500 ">
+                        <span className="mx-4 text-gray-600 ">
                           Specials & News: Du bekommst sie als Erste:r!
                         </span>
                       </div>
