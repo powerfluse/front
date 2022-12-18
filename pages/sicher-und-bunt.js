@@ -10,9 +10,10 @@ import grafik01 from '../public/sicher-und-bunt/loeschmittelbereithalten.jpg'
 import grafik02 from '../public/sicher-und-bunt/blindgaenger.jpg'
 import grafik03 from '../public/sicher-und-bunt/abstandhalten.jpg'
 import grafik04 from '../public/sicher-und-bunt/feuerwerkundalkohol.jpg'
-import grafik05 from '../public/sicher-und-bunt/keinekoerperteile.jpg'
-import grafik06 from '../public/sicher-und-bunt/nichtausalleinstehendenflaschenstarten.jpg'
-import grafik07 from '../public/sicher-und-bunt/nurzugelassenesfeuerwerk.jpg'
+import grafik05 from '../public/sicher-und-bunt/ruecksichtaufandere.jpg'
+import grafik06 from '../public/sicher-und-bunt/keinekoerperteile.jpg'
+import grafik07 from '../public/sicher-und-bunt/nichtausalleinstehendenflaschenstarten.jpg'
+import grafik08 from '../public/sicher-und-bunt/nurzugelassenesfeuerwerk.jpg'
 
 export default function SicherUndBunt(props) {
   return (
@@ -144,7 +145,7 @@ export default function SicherUndBunt(props) {
               <Image
                 layout="fill"
                 className="object-contain"
-                src={grafik03}
+                src={grafik05}
                 alt=""
               />
             </div>
@@ -182,7 +183,7 @@ export default function SicherUndBunt(props) {
               <Image
                 layout="fill"
                 className="object-contain"
-                src={grafik05}
+                src={grafik06}
                 alt=""
               />
             </div>
@@ -196,7 +197,7 @@ export default function SicherUndBunt(props) {
               <Image
                 layout="fill"
                 className="object-contain"
-                src={grafik06}
+                src={grafik07}
                 alt=""
               />
             </div>
@@ -234,7 +235,7 @@ export default function SicherUndBunt(props) {
               <Image
                 layout="fill"
                 className="object-contain"
-                src={grafik07}
+                src={grafik08}
                 alt=""
               />
             </div>
