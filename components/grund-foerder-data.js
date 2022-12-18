@@ -1,6 +1,5 @@
 export default function GrundFoerderData(props) {
   const data = props.props
-  console.log(data)
 
   return (
     <div>

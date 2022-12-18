@@ -1,6 +1,5 @@
 export default function MitgliedData(props) {
   const data = props.props
-  console.log(data)
 
   return (
     <div>
