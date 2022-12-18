@@ -55,16 +55,13 @@ input[type='number'] {
 
 /* Prose */
 .prose-bvpk {
-  @apply prose prose-headings:font-bold prose-a:font-bold prose-a:underline prose-a:decoration-bvpk-300
+  @apply prose xl:prose-xl prose-strong:text-gray-800 prose-headings:text-gray-700 prose-headings:font-bold prose-a:font-bold prose-a:underline prose-a:decoration-bvpk-300
 }
 
 .prose-bvpk-over-forms {
-  @apply max-w-3xl prose prose-headings:font-bold prose-a:font-bold prose-a:underline prose-a:decoration-bvpk-300
+  @apply max-w-4xl prose prose-strong:text-gray-700 prose-headings:text-gray-700 prose-headings:font-bold prose-a:font-bold prose-a:underline prose-a:decoration-bvpk-300
 }
 
-.prose-bvpk-wide {
-  @apply max-w-3xl prose prose-headings:font-bold prose-a:font-bold prose-a:underline prose-a:decoration-bvpk-300
-}
 
 /* Buttons */
 .button {
