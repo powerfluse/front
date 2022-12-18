@@ -5,7 +5,7 @@ import Footer from '../components/footer'
 import getFromDirectus from '../lib/directus'
 import Link from 'next/link'
 
-export default function Mitglied(props) {
+export default function MitgliedschaftWaehlen(props) {
   return (
     <>
       <Head />
