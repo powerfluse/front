@@ -90,8 +90,8 @@ export default function NavBar() {
     <>
       <header
         className={`sticky ${
-          scrollDirection === 'down' ? '-top-20' : 'top-0'
-        } h-20 bg-white w-full z-20 ${shadow} transition-all duration-500`}
+          scrollDirection === 'down' ? '-top-16 md:-top-20' : 'top-0'
+        } h-16 md:h-20 bg-white w-full z-20 ${shadow} transition-all duration-500`}
       >
         <Popover className="relative">
           {({ open }) => (
