@@ -7,7 +7,7 @@ export default function Newsletter() {
             <h2 className="text-3xl font-bold text-gray-700 lg:text-4xl">
               Bleib' auf dem Laufenden!
             </h2>
-            <p className="hidden text-gray-600 sm:mt-4 sm:block">
+            <p className="text-gray-600 sm:mt-4">
               Melde dich bei unserem Newsletter an, um die neusten Infos zu
               Feuerwerk und zum Verband zu erhalten.
             </p>
@@ -25,7 +25,10 @@ export default function Newsletter() {
                 </label>
                 <input type="email" placeholder="Email" className="formfield" />
               </div>
-              <button type="submit" className="button">
+              <button
+                type="submit"
+                className="button mt-2 w-full sm:mt-0 sm:w-auto"
+              >
                 Anmelden
               </button>
             </form>
