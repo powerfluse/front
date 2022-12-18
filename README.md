@@ -46,7 +46,7 @@ docker build . -t bvpk-front-dev
 docker run -p 3001:3001 bvpk-front-dev:latest
 ```
 
-On each push to either `dev` or `prod`, Github Actions will automatically build
+On each push to either `dev` or `prod`, GitHub Actions will automatically build
 a new container for you. You can then test this container locally by running:
 
 ```bash
