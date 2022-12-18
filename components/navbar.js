@@ -10,7 +10,8 @@ import { Fragment, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-// TODO add donation item
+import useScrollDirection from '../lib/scroll'
+
 const support = [
   {
     name: 'Mitglied werden',
@@ -26,13 +27,6 @@ const support = [
     href: '/spenden',
     icon: HeartIcon,
   },
-  // {
-  //   name: 'Mitgliedschaft ändern',
-  //   description:
-  //     'Du bist schon Mitglied als Privatperson, willst uns nun aber als Betrieb unterstützen.',
-  //   href: '/mitglied-werden',
-  //   icon: CogIcon,
-  // },
 ]
 
 const navigation = [
@@ -53,10 +47,6 @@ const navigation = [
   { name: 'Positionen', href: '/positionen', class: 'text-gray-700' },
   { name: 'Kontakt', href: '/kontakt', class: 'text-gray-700' },
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function NavBar() {
   // Setup scroll position capture
@@ -82,29 +72,33 @@ export default function NavBar() {
     }
   })
 
-  // Setup page position
+  // Setup page position to indicate location on the site
   const router = useRouter()
   useEffect(() => {
     for (let i = 0; i < navigation.length; i++) {
       if (navigation[i].href === router.pathname) {
-        navigation[i].class = 'text-bvpk-600'
-        console.log(navigation)
+        navigation[i].class = 'text-bvpk-600 text'
       }
     }
   }, [router])
 
+  // Define variable for scroll position
+  const scrollDirection = useScrollDirection()
+
   // Return the component
   return (
-    <div
-      className={`fixed bg-white w-full z-20 transition transition-all duration-300 ${shadow}`}
-    >
-      <header>
+    <>
+      <header
+        className={`sticky ${
+          scrollDirection === 'down' ? '-top-20' : 'top-0'
+        } h-20 bg-white w-full z-20 ${shadow} transition-all duration-500`}
+      >
         <Popover className="relative">
           {({ open }) => (
             <>
               <div className="flex justify-between items-center max-w-full mx-auto px-4 py-4 lg:justify-start lg:space-x-10 md:px-6 lg:px-8">
-                {/* Logo */}
                 <div className="flex lg:justify-start lg:flex-grow-0 w-24 h-18 items-center">
+                  {/* Logo */}
                   <Link href="/">
                     <a>
                       <span className="sr-only">
@@ -118,6 +112,7 @@ export default function NavBar() {
                     </a>
                   </Link>
                 </div>
+
                 {/* Mobile Hamburger Menu */}
                 <div className="-mr-2 -my-2 lg:hidden">
                   <Popover.Button className="bg-white rounded-md p-1 inline-flex items-center justify-center text-bvpk-800 hover:text-bvpk-300">
@@ -125,6 +120,7 @@ export default function NavBar() {
                     <Bars3Icon className="h-10 w-10" aria-hidden="true" />
                   </Popover.Button>
                 </div>
+
                 {/* Links */}
                 <Popover.Group
                   as="nav"
@@ -132,7 +128,9 @@ export default function NavBar() {
                   style={{ marginLeft: '0.5em' }}
                 >
                   {navigation.map((item) => {
+                    console.log(item)
                     if (item.name == 'Petition') {
+                      /* If the link is external try to open in a new tab */
                       return (
                         <a
                           key={item.name}
@@ -145,6 +143,7 @@ export default function NavBar() {
                         </a>
                       )
                     } else {
+                      /* Oterweise, don't */
                       return (
                         <a
                           key={item.name}
@@ -320,6 +319,6 @@ export default function NavBar() {
           )}
         </Popover>
       </header>
-    </div>
+    </>
   )
 }
