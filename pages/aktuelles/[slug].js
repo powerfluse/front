@@ -61,7 +61,7 @@ export default function Post(props) {
               </div>
             </div>
             <div className="mt-8 lg:mt-0">
-              <div className="prose prose-lg prose-on-bvpk-aktuelles max-w-prose mx-auto lg:max-w-none">
+              <div className="prose-bvpk mx-auto max-w-prose lg:max-w-none">
                 {props.body
                   ? parse(props.body.toString(), {
                       replace: (domNode) => {
