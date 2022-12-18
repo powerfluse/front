@@ -128,7 +128,6 @@ export default function NavBar() {
                   style={{ marginLeft: '0.5em' }}
                 >
                   {navigation.map((item) => {
-                    console.log(item)
                     if (item.name == 'Petition') {
                       /* If the link is external try to open in a new tab */
                       return (
