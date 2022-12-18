@@ -4,10 +4,10 @@ export default function Newsletter() {
       <section className="bg-gray-50">
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
-            <h2 className="text-3xl font-medium text-gray-800 lg:text-4xl">
+            <h2 className="text-3xl font-bold text-gray-700 lg:text-4xl">
               Bleib' auf dem Laufenden!
             </h2>
-            <p className="hidden text-gray-500 sm:mt-4 sm:block">
+            <p className="hidden text-gray-600 sm:mt-4 sm:block">
               Melde dich bei unserem Newsletter an, um die neusten Infos zu
               Feuerwerk und zum Verband zu erhalten.
             </p>
