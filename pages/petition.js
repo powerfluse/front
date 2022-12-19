@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 // import parse from 'html-react-parser'
 // import getFromDirectus from '../lib/directus'
-// import Head from '../components/head'
+import Head from '../components/head'
 // import NavBar from '../components/navbar'
 // import Newsletter from '../components/newsletter'
 // import Footer from '../components/footer'
@@ -15,14 +15,17 @@ export default function Page() {
     )
   })
   return (
-    <div className="bg-bvpk-900 flex items-center justify-center h-screen overflow-hidden ">
-      <div className="px-6 py-4 rounded">
-        <div className="mb-2 text-white text-xl">
-          {' '}
-          <span className="font-bold">Redirecting</span> to change.org
+    <>
+      <Head />
+      <div className="bg-bvpk-900 flex items-center justify-center h-screen overflow-hidden ">
+        <div className="px-6 py-4 rounded">
+          <div className="mb-2 text-white text-xl">
+            {' '}
+            <span className="font-bold">Redirecting</span> to change.org
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
