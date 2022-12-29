@@ -8,7 +8,7 @@ import Footer from '../components/footer'
 import ImageLeftAndText from '../components/image-left-and-text'
 import ImageRightAndText from '../components/image-right-and-text'
 
-import umkippen from '../public/sicher-und-bunt/gegenumkippensichern.jpg'
+import opener from '../public/sicher-und-bunt/opener.jpg'
 import loeschmittel from '../public/sicher-und-bunt/loeschmittelbereithalten.jpg'
 import blindgaenger from '../public/sicher-und-bunt/blindgaenger.jpg'
 import abstandhalten from '../public/sicher-und-bunt/abstandhalten.jpg'
@@ -18,7 +18,7 @@ import keinekoerperteile from '../public/sicher-und-bunt/keinekoerperteile.jpg'
 import nichtausflaschen from '../public/sicher-und-bunt/nichtausalleinstehendenflaschenstarten.jpg'
 import nurzugelassenesfeuerwerk from '../public/sicher-und-bunt/nurzugelassenesfeuerwerk.jpg'
 
-export default function SicherUndBunt(props) {
+export default function SicherUndBunt() {
   return (
     <>
       <Head />
@@ -31,7 +31,7 @@ export default function SicherUndBunt(props) {
           width={1300}
           height={1300}
           className="object-cover"
-          src={umkippen}
+          src={opener}
           alt=""
         />
         <p className="lead">
@@ -48,7 +48,7 @@ export default function SicherUndBunt(props) {
         <p className="lead">
           Übrigens: Unsere Hinweise zum sicheren und rücksichtsvollen Verwenden
           von Silvesterfeuerwerk kannst du auch als{' '}
-          <a href="media.bvpk.org/pics/sicher/bvpk-sicher-und-bunt.pdf">
+          <a href="https://media.bvpk.org/pics/sicher/bvpk-sicher-und-bunt.pdf">
             praktisches PDF
           </a>{' '}
           herunterladen.
