@@ -14,7 +14,7 @@ export default function Index(props) {
       <Head />
       <NavBar />
       <Hero />
-      <div className="pt-12 pb-6 mx-4 lg:mx-14">
+      <div className="-mt-4 md:-mt-8 pb-6 mx-4 lg:mx-14">
         <Blog props={props} />
       </div>
       <div className="flex items-center justify-center pt-6 md:pb-12">
