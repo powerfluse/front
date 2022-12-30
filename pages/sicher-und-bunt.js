@@ -26,14 +26,15 @@ export default function SicherUndBunt() {
 
       {/* Titel  */}
       <div className="container prose-bvpk mx-auto pt-8 lg:pt-20 px-4">
-        <h1>Farbenfroh und sicher ins neue Jahr</h1>
-        <Image
-          width={1300}
-          height={1300}
-          className="object-cover"
-          src={opener}
-          alt=""
-        />
+        <h1>
+          <Image
+              width={1300}
+              height={1300}
+              className="object-cover"
+              src={opener}
+              alt="Farbenfroh uns sicher ins neue Jahr"
+          />
+        </h1>
         <p className="lead">
           Millionen Menschen erfreuen sich am bunten und selbst gezündeten
           Feuerwerk zum Jahreswechsel. Wenn bei der Anwendung mitgedacht wird,
