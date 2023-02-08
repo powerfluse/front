@@ -64,7 +64,7 @@ export default function Modal(props) {
                     as="h3"
                     className="text-2xl leading-6 font-titillium font-bold text-gray-700"
                   >
-                    Danke! Hier nochmal die Eingaben zur Verfikation:
+                    Danke! Hier nochmal die Eingaben zum Überprüfen:
                   </Dialog.Title>
                   <div className="mt-4 text-left">
                     <Data props={props.data} />
