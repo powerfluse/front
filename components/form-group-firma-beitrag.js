@@ -20,19 +20,20 @@ export default function FormGroupFirmaBeitrag() {
             <div className="shadow overflow-hidden sm:rounded-md">
               <div className="px-4 py-5 bg-gray-100 sm:p-6 ">
                 <p className="text-gray-700 font-source font-bold mb-4">
-                  Mitglieder, die dem Verband als Betrieb beitreten, setzen
-                  ihren Beitrag frei fest. Die Mitglieder sind dazu angehalten,
-                  ihren Beitrag so auszuwählen, dass dieser etwa 0,2% ihres
-                  jährlichen Umsatzes entspricht. Der jährliche Mindestbetrag
-                  für Firmenmitglieder beträgt 150,- Euro. Wenn Du Fragen zum
-                  Mitgliedsbeitrag hast, wende Dich gerne direkt an{' '}
+                  Firmenmitglieder setzen ihren Mitgliedsbeitrag frei fest. Die
+                  Mitglieder sind dazu angehalten, ihren Beitrag so auszuwählen,
+                  dass dieser etwa 0,2% ihres Umsatzes im Vorjahr entspricht,
+                  wobei der jährliche Mindestbeitrag 150,- Euro beträgt. Der
+                  Einzug erfolgt über das bestehende SEPA-Lastschriftmandat. Bei
+                  Fragen wende Dich gerne gerne direkt an{' '}
                   <a
-                    className="text-gray-700 underlin decoration-bvpk-300 hover:decoration-2"
-                    href="mailto:info@bvpk.org"
+                    className="text-gray-700 underline decoration-bvpk-300 hover:decoration-2"
+                    href="mailto:firmen@bvpk.org"
                   >
-                    info@bvpk.org
+                    firmen@bvpk.org
                   </a>
                   . Wir beraten dann gerne persönlich! <br />
+                  <br />
                   Der jährliche Mitgliedsbeitrag ist der gesamte Jahresbeitrag.
                   Der Zahlungsrhythmus bestimmt, in welchem Rhythmus
                   entsprechende Teilbeträge abgebucht werden (z.B. 400€
