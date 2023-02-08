@@ -1,56 +1,21 @@
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-// import parse from 'html-react-parser'
-// import getFromDirectus from '../lib/directus'
-import Head from '../components/head'
-// import NavBar from '../components/navbar'
-// import Newsletter from '../components/newsletter'
-// import Footer from '../components/footer'
+import {useEffect} from 'react'
+import {useRouter} from 'next/router'
+import HeadComponent from '../components/head'
 
-export default function Page() {
-  const router = useRouter()
-  useEffect(() => {
-    router.push(
-      'https://www.change.org/p/schutz-und-f%C3%B6rderung-der-feuerwerkskultur'
-    )
-  })
-  return (
-    <>
-      <Head />
-      <div className="bg-bvpk-900 flex items-center justify-center h-screen overflow-hidden ">
-        <div className="px-6 py-4 rounded">
-          <div className="mb-2 text-white text-xl">
-            {' '}
-            <span className="font-bold">Redirecting</span> to change.org
-          </div>
-        </div>
-      </div>
-    </>
-  )
+export default function Petition() {
+    const router = useRouter()
+    useEffect(() => {
+        router.push('https://www.change.org/p/schutz-und-f%C3%B6rderung-der-feuerwerkskultur')
+    })
+    return (<>
+            <HeadComponent title={"Petition"}/>
+            <div className="bg-bvpk-900 flex items-center justify-center h-screen overflow-hidden ">
+                <div className="px-6 py-4 rounded">
+                    <div className="mb-2 text-white text-xl">
+                        {' '}
+                        <span className="font-bold">Redirecting</span> to change.org
+                    </div>
+                </div>
+            </div>
+        </>)
 }
-
-// export default function (props) {
-//   return (
-//     <>
-//       <Head />
-//       <NavBar />
-//       <div className="min-h-screen">
-//         <div className="prose-bvpk pt-32 pb-12 mx-auto px-4">
-//           {parse(props.dataPage.text)}
-//         </div>
-//       </div>
-//       <Newsletter />
-//       <Footer />
-//     </>
-//   )
-// }
-
-// export async function getStaticProps() {
-//   const dataPage = await getFromDirectus('/items/petition_page')
-//   return {
-//     props: {
-//       dataPage,
-//     },
-//     revalidate: 60,
-//   }
-// }
