@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import axios from 'axios'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
@@ -15,8 +15,10 @@ import FormGroupFirmaBeitrag from '../components/form-group-firma-beitrag'
 import FormGroupFirmaSEPA from '../components/form-group-firma-sepa'
 import FormGroupFirmaConsent from '../components/form-group-firma-consent'
 import FormGroupFirmaFreitext from '../components/form-group-firma-freitext'
+import getFromDirectus from '../lib/directus'
+import parse from 'html-react-parser'
 
-export default function MitgliedWerdenFirma() {
+export default function MitgliedWerdenFirma(props) {
   // State for confirmation modal
   const [openModal, setOpenModal] = useState(false)
 
@@ -67,6 +69,9 @@ export default function MitgliedWerdenFirma() {
       <Modal open={openModal} />
       <FormProvider {...methods}>
         <div className="min-h-screen pt-32 px-4 lg:px-8">
+          <div className="prose-bvpk-over-forms pb-4 md:pb-12">
+            {parse(props.dataFirmenMitgliedWerdenPage.text)}
+          </div>
           <form onSubmit={methods.handleSubmit(onPreview)}>
             {/* FormGroups */}
             <FormGroupFirma />
@@ -101,4 +106,16 @@ export default function MitgliedWerdenFirma() {
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const dataFirmenMitgliedWerdenPage = await getFromDirectus(
+    '/items/firmenmitglied_werden_page'
+  )
+  return {
+    props: {
+      dataFirmenMitgliedWerdenPage,
+    },
+    revalidate: 60,
+  }
 }
