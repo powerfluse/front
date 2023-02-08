@@ -1,6 +1,6 @@
 import parse from 'html-react-parser'
 import { useState } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import getFromDirectus from '../lib/directus'
 import axios from 'axios'
 import Head from '../components/head'
