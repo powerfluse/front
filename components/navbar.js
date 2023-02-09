@@ -48,7 +48,7 @@ const navigation = [
   { name: 'Kontakt', href: '/kontakt', class: 'text-gray-700' },
 ]
 
-export default function NavBar() {
+export default function NavBar(props) {
   // Setup scroll position capture
   const [scrollPosition, setScrollPosition] = useState(0)
   const handleScroll = () => {
@@ -89,9 +89,9 @@ export default function NavBar() {
   return (
     <>
       <header
-        className={`sticky ${
+        className={`${props.disableSticky ? "" : "sticky"} ${
           scrollDirection === 'down' ? '-top-16 md:-top-20' : 'top-0'
-        } h-16 md:h-20 bg-white w-full z-20 ${shadow} transition-all duration-500`}
+        } h-16 md:h-20 bg-white w-full z-20 ${shadow} transition-all duration-1000`}
       >
         <Popover className="relative">
           {({ open }) => (

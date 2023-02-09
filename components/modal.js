@@ -67,7 +67,11 @@ export default function Modal(props) {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-md font-source text-gray-600">
-                      Wir bearbeiten deinen Beitrittsantrag so bald wie möglich!
+                      Wir bearbeiten{' '}
+                      {props.formName
+                        ? props.formName
+                        : 'deinen Beitrittsantrag'}{' '}
+                      so bald wie möglich!
                     </p>
                   </div>
                 </div>

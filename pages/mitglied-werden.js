@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import getFromDirectus from '../lib/directus'
 import axios from 'axios'
-import Head from '../components/head'
+import HeadComponent from '../components/head'
 import NavBar from '../components/navbar'
 import Modal from '../components/modal'
 import PreviewModal from '../components/preview-modal'
@@ -64,8 +64,8 @@ export default function MitgliedWerden(props) {
 
   return (
     <>
-      <Head />
-      <NavBar />
+      <HeadComponent title={'Grundmitgliedschaft beantragen'} />
+      <NavBar disableSticky={true} />
       <PreviewModal
         modalState={openPreviewModal}
         modalStateFunction={setOpenPreviewModal}
@@ -94,7 +94,7 @@ export default function MitgliedWerden(props) {
               <button
                 type="submit"
                 className="button"
-                disabled={!isValid || isSubmitting}
+                disabled={isSubmitting}
               >
                 Beitreten!
               </button>

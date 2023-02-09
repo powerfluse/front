@@ -89,7 +89,8 @@ export default function Modal(props) {
                     props.modalStateFunction(false)
                   }}
                 >
-                  Das passt so. Beitreten!
+                  Das passt so. {' '}
+                  {props.submitName ? props.submitName : 'Beitreten!'}
                 </button>
               </div>
             </div>

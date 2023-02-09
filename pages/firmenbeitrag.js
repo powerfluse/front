@@ -10,11 +10,10 @@ import parse from 'html-react-parser'
 import FormGroupFirmaSlim from '../components/form-group-firma-slim'
 import FormGroupFirmaBeitrag from '../components/form-group-firma-beitrag'
 import FormGroupFirmaFreitext from '../components/form-group-firma-freitext'
-import FormGroupFirmaConsent from '../components/form-group-firma-consent'
 import Footer from '../components/footer'
 import getFromDirectus from '../lib/directus'
 
-export default function MitgliedWerdenFirma(props) {
+export default function Firmenbeitrag(props) {
   // State for confirmation modal
   const [openModal, setOpenModal] = useState(false)
 
@@ -54,15 +53,16 @@ export default function MitgliedWerdenFirma(props) {
   return (
     <>
       <HeadComponent title={props.title} />
-      <NavBar />
+      <NavBar disableSticky={true}/>
       <PreviewModal
         modalState={openPreviewModal}
         modalStateFunction={setOpenPreviewModal}
         dataRenderComponent={FirmaDataSlim}
         data={previewData}
         submitFunction={onSubmit}
+        submitName={'Absenden!'}
       />
-      <Modal open={openModal} />
+      <Modal open={openModal} formName={'deine Beitragsänderung'} />
       <FormProvider {...methods}>
         <div className="min-h-screen pt-32 px-4 lg:px-8">
           <div className="prose-bvpk-over-forms pb-4 md:pb-12">
@@ -78,9 +78,9 @@ export default function MitgliedWerdenFirma(props) {
               <button
                 type="submit"
                 className="button"
-                disabled={!isValid || isSubmitting}
+                disabled={isSubmitting}
               >
-                Beitreten!
+                Absenden!
               </button>
             </div>
             {errors.hasOwnProperty('serverError') && (

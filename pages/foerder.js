@@ -1,9 +1,9 @@
 import parse from 'html-react-parser'
 import { useState } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import getFromDirectus from '../lib/directus'
 import axios from 'axios'
-import Head from '../components/head'
+import HeadComponent from '../components/head'
 import NavBar from '../components/navbar'
 import Modal from '../components/modal'
 import PreviewModal from '../components/preview-modal'
@@ -63,8 +63,8 @@ export default function MitgliedWerden(props) {
 
   return (
     <>
-      <Head />
-      <NavBar />
+      <HeadComponent title={'Fördermitglied werden!'} />
+      <NavBar disableSticky={true}/>
       <PreviewModal
         modalState={openPreviewModal}
         modalStateFunction={setOpenPreviewModal}
@@ -74,7 +74,7 @@ export default function MitgliedWerden(props) {
       />
       <Modal open={openModal} />
       <FormProvider {...methods}>
-        <div className="min-h-screen pt-32 px-4 lg:px-8">
+        <div className="min-h-screen pt-12 px-4 lg:px-8">
           <div className="prose-bvpk-over-forms pb-4 md:pb-12">
             {parse(props.dataFoerderPage.text)}
           </div>
@@ -93,7 +93,7 @@ export default function MitgliedWerden(props) {
               <button
                 type="submit"
                 className="button"
-                disabled={!isValid || isSubmitting}
+                disabled={isSubmitting}
               >
                 Beitreten!
               </button>

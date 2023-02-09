@@ -3,7 +3,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import axios from 'axios'
 import NavBar from '../components/navbar'
 import Footer from '../components/footer'
-import Head from '../components/head'
+import HeadComponent from '../components/head'
 import PreviewModal from '../components/preview-modal'
 import Modal from '../components/modal'
 import FirmaData from '../components/firma-data'
@@ -57,8 +57,8 @@ export default function MitgliedWerdenFirma(props) {
 
   return (
     <>
-      <Head />
-      <NavBar />
+      <HeadComponent title={'Firmenmitgliedschaft beantragen!'} />
+      <NavBar disableSticky={true} />
       <PreviewModal
         modalState={openPreviewModal}
         modalStateFunction={setOpenPreviewModal}
@@ -84,11 +84,7 @@ export default function MitgliedWerdenFirma(props) {
             <FormGroupFirmaConsent />
             {/* Submit */}
             <div className="py-4 sm:mt-0 flex justify-end">
-              <button
-                type="submit"
-                className="button"
-                disabled={!isValid || isSubmitting}
-              >
+              <button type="submit" className="button" disabled={isSubmitting}>
                 Beitreten!
               </button>
             </div>
