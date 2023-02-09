@@ -1,5 +1,6 @@
 import axios from 'axios'
 import nodemailer from 'nodemailer'
+import {computeGesamtBeitrag} from "../../lib/compute-gesamt-beitrag";
 
 // Get environment variables
 const NOCODB_TOKEN = process.env.NOCODB_TOKEN
@@ -29,7 +30,7 @@ const transporter = nodemailer.createTransport({
 })
 
 // Main request handling
-export default function mitgliedFormHandler(req, res) {
+export default function firmenBeitragHandler(req, res) {
   return new Promise((resolve) => {
     if (req.method === 'POST') {
       // Set axios defaults from environment variables
@@ -105,7 +106,11 @@ Vorname:  ${req.body.f_ap_vorname}
 Email:    ${req.body.f_ap_email}
 
 Typ Mitgliedschaft: Firmenmitgliedschaft
-Beitrag: ${req.body.f_beitrag}€ / ${req.body.f_zahlungsrhythmus}
+Jahresbeitrag (gesamt): ${computeGesamtBeitrag(
+              req.body.f_beitrag,
+              req.body.f_zahlungsrhythmus
+            )}
+Zahlungsrhythmus: ${req.body.f_zahlungsrhythmus}
 `,
           }
           // Don't normalize headers
