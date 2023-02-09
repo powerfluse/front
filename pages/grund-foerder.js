@@ -1,9 +1,9 @@
 import parse from 'html-react-parser'
 import { useState } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import getFromDirectus from '../lib/directus'
 import axios from 'axios'
-import Head from '../components/head'
+import HeadComponent from '../components/head'
 import NavBar from '../components/navbar'
 import Modal from '../components/modal'
 import PreviewModal from '../components/preview-modal'
@@ -15,7 +15,7 @@ import FormGroupMitgliedSEPA from '../components/form-group-mitglied-sepa'
 import FormGroupMitgliedFreitext from '../components/form-group-mitglied-freitext'
 import FormGroupMitgliedConsent from '../components/form-group-mitglied-consent'
 
-export default function MitgliedWerden(props) {
+export default function GrundFoerder(props) {
   // State for confirmation modal
   const [openModal, setOpenModal] = useState(false)
 
@@ -60,8 +60,8 @@ export default function MitgliedWerden(props) {
 
   return (
     <>
-      <Head />
-      <NavBar />
+      <HeadComponent title={props.title} />
+      <NavBar disableSticky={true} />
       <PreviewModal
         modalState={openPreviewModal}
         modalStateFunction={setOpenPreviewModal}
@@ -71,10 +71,10 @@ export default function MitgliedWerden(props) {
       />
       <Modal open={openModal} />
       <FormProvider {...methods}>
-        <div className="mx-auto max-w-7xl min-h-screen pt-32 px-4 lg:px-8">
-          {/* <div className="prose-bvpk mx-auto pb-4 md:pb-12"> */}
-          {/*   {parse(props.dataMitgliedWerdenPage.text)} */}
-          {/* </div> */}
+        <div className="mx-auto pt-12 px-4 lg:px-8">
+          <div className="prose-bvpk-over-forms pb-4 md:pb-12">
+            {parse(props.text)}
+          </div>
           <form onSubmit={methods.handleSubmit(onPreview)}>
             {/* FormGroups */}
             <FormGroupMitgliedNummer />
@@ -105,12 +105,13 @@ export default function MitgliedWerden(props) {
 }
 
 export async function getStaticProps() {
-  const dataMitgliedWerdenPage = await getFromDirectus(
-    '/items/mitglied_werden_page'
+  const dataGrundFoerder = await getFromDirectus(
+    '/items/grund_foerder_page'
   )
   return {
     props: {
-      dataMitgliedWerdenPage,
+      title: dataGrundFoerder.title,
+      text: dataGrundFoerder.text,
     },
     revalidate: 60,
   }
