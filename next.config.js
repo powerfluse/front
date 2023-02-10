@@ -6,6 +6,11 @@ module.exports = {
                 destination: '/aktuelles/positionspapier-silvester',
                 permanent: true,
             },
+            {
+                source: '/mitgliedschaft',
+                destination: '/mitgliedschaft-waehlen',
+                permanent: true,
+            },
         ]
     },
     images: {
