@@ -62,7 +62,7 @@ export default function MitgliedData(props) {
       {data.feuerwerk_versicherung && (
         <div>
           <span className="font-bold">Versicherungsbeitrag: </span>
-          36€ Jährlich
+          40€ Jährlich
         </div>
       )}
       {data.freitext && (
