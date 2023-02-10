@@ -19,13 +19,14 @@ export default function Input(props) {
           <span>
             {props.pre_href_text}
             <a
-              className="text-bvpk-700 hover:underline focus:ring focus:ring-1 focus:ring-white focus:rounded-sm"
+              className="text-gray-700 font-bold underline decoration-bvpk-300 hover:decoration-2"
               href={props.href}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {props.href_text}
+                {props.href_text}
             </a>
+            {props.post_href_text}
           </span>
         ) : (
           props.title

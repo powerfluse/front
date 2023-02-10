@@ -21,13 +21,8 @@ export default function FormGroupMitgliedFoerderOnlyBeitrag() {
             <div className="shadow overflow-hidden sm:rounded-md">
               <div className="px-4 py-5 bg-gray-100 sm:p-6 ">
                 <p className="text-gray-700 font-source font-bold mb-4">
-                  Der Förderbeitrag wird zusätzlich zum Grundbeitrag von
-                  24€/Jahr erhoben. Der jährliche Förderbeitrag ist der gesamte
-                  Förderbeitrag pro Jahr. Der Zahlungsrhythmus bestimmt, in
-                  welchem Rhythmus entsprechende Teilbeträge abgebucht werden
-                  (z.B. 100€ Jahresbeitrag / quartalsweise = 4 Abbuchungen à 25€
-                  pro Jahr + 24€ Grundbeitrag pro Jahr = 124€ insgesamt pro
-                  Jahr). Die Fördermitgliedschaft kann jederzeit gekündigt
+                  Mit einer Fördermitgliedschaft unterstützt Du den Verein und
+                  die gesamte Community bei seiner Arbeit für das Feuerwerk.
                   werden.
                 </p>
                 <div className="mt-4 grid grid-cols-6 gap-6">

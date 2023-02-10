@@ -26,7 +26,7 @@ export default function FormGroupMitgliedFeuerwerk() {
                   <div className="col-span-6">
                     <Checkbox
                       name="feuerwerk_versicherung"
-                      title="Ich möchte meinen privaten Feuerwerke mit der Haftpflichtversicherung des BVPK für 36,00€/Jahr absichern."
+                      title="Ich möchte meinen privaten Feuerwerke mit der Haftpflichtversicherung des BVPK für 40,00€/Jahr absichern."
                     />
                   </div>
                   {wantsInsurance && (
@@ -36,7 +36,7 @@ export default function FormGroupMitgliedFeuerwerk() {
                         data-aos="fade-left"
                       >
                         Für die Versicherung wird ein zusätzlicher Beitrag von
-                        36,00€/Jahr fällig, hinzu kommen geringe Beiträge pro
+                        40,00€/Jahr fällig, hinzu kommen geringe Beiträge pro
                         Feuerwerk je nach dessen Materialwert. Weitere Infos
                         gibt’s{' '}
                         <a
@@ -45,7 +45,9 @@ export default function FormGroupMitgliedFeuerwerk() {
                         >
                           hier
                         </a>
-                        .
+                        . Die Versicherung des BVPK kann ausschließlich zu den
+                        im hier verlinkten Dokument genannten Modalitäten in
+                        Anspruch genommen werden.
                       </div>
                     </>
                   )}

@@ -1,7 +1,10 @@
 import Checkbox from '../components/checkbox'
-// import CheckboxSatzungBeitragsordnung from '../components/checkbox-satzung-beitragsordnung'
+
+import { useFormContext } from 'react-hook-form'
 
 export default function FormGroupMitgliedConsent() {
+  const { watch } = useFormContext()
+  const wantsInsurance = watch('feuerwerk_versicherung')
   return (
     <>
       <div className="mt-10 sm:mt-0">
@@ -24,14 +27,20 @@ export default function FormGroupMitgliedConsent() {
                       }}
                     />
                   </div>
-                  {/* <div className="-mt-3 col-span-6"> */}
-                  {/*   <CheckboxSatzungBeitragsordnung */}
-                  {/*     name="f_bvpk_consent" */}
-                  {/*     validation={{ */}
-                  {/*       required: { value: 'true', message: 'Pflichtfeld' }, */}
-                  {/*     }} */}
-                  {/*   /> */}
-                  {/* </div> */}
+                  {wantsInsurance && (
+                    <div className="-mt-3 col-span-6">
+                      <Checkbox
+                        name="versicherung"
+                        href="https://media.bvpk.org/versicherung/bvpk_versicherung.pdf"
+                        pre_href_text="Ich habe"
+                        href_text=" die Informationen und Modalitäten der Feuerwerkversicherung"
+                        post_href_text=" zur Kenntnis genommen und erkenne diese an."
+                        validation={{
+                          required: { value: `${wantsInsurance ? 'true' : false}`, message: 'Pflichtfeld' },
+                        }}
+                      />
+                    </div>
+                  )}
                   <div className="-mt-3 col-span-6">
                     <Checkbox
                       name="nl_consent"
