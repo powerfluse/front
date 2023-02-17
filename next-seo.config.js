@@ -7,7 +7,7 @@ export default {
     url: 'https://bvpk.org',
     title: 'BVPK - Bundesverband für Pyrotechnik und Kunstfeuerwerk',
     description:
-      'Gemeinsam für das Feuerwerk! Der BVPK ist die starke Stimme der Pyro-Community – von Amateur bis Profi. Jetzt Mitglied werden!',
+      'Gemeinsam für das Feuerwerk! Der BVPK ist die starke Stimme der Pyro-Community – von Amateur bis Profi. Jetzt Mitglied werden!!',
     locale: 'de_DE',
   },
 }
