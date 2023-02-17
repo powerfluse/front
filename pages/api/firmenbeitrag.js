@@ -79,8 +79,12 @@ Nachname: ${req.body.f_ap_nachname}
 Vorname: ${req.body.f_ap_vorname}
 
 Typ Mitgliedschaft: Firmenmitgliedschaft
-Beitrag: ${req.body.f_beitrag}€ / ${req.body.f_zahlungsrhythmus}
-${req.body.f_freitext ? 'Freitext: ' + req.body.f_freitext : ' '}
+Jahresbeitrag (gesamt): ${computeGesamtBeitrag(
+                req.body.f_beitrag,
+                req.body.f_zahlungsrhythmus
+            )}
+Freitext:
+${req.body.f_freitext}
 `,
           }
           // Send mail to ticket system
@@ -111,6 +115,9 @@ Jahresbeitrag (gesamt): ${computeGesamtBeitrag(
               req.body.f_zahlungsrhythmus
             )}
 Zahlungsrhythmus: ${req.body.f_zahlungsrhythmus}
+Freitext: 
+
+${req.body.f_freitext}
 `,
           }
           // Don't normalize headers
@@ -146,7 +153,7 @@ Zahlungsrhythmus: ${req.body.f_zahlungsrhythmus}
             resolve()
           } else {
             // Something happened in setting up the request that triggered an Error
-            console.log('Other unspecifed Error in request :', error.message)
+            console.log('Other unspecified Error in request :', error.message)
             res.status(500).send({ message: error.message })
             resolve()
           }
